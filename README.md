@@ -5,4 +5,6 @@ App móvil para comunitarias.
     Janina Costa
     Sianna Puente
     Stephany Quimba
+    Kleber Diaz
+    Kevin Palacios
 
