@@ -42,8 +42,8 @@
 
                 <Button
                     android:id="@+id/idTarea"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:background="@mipmap/ic_protest1" />
 
                 <TextView
@@ -70,8 +70,8 @@
 
                 <Button
                     android:id="@+id/idExamen"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:background="@mipmap/ic_pencil2" />
 
                 <TextView
