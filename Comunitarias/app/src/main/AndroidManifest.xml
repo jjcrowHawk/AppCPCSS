@@ -2,18 +2,38 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.personal.comunitarias">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Menu">
+        <activity android:name=".Intro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Menu"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_intro_consejo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".IntroConsejo"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_intro_consejo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ConsejosBarriales"
+            android:configChanges="screenSize|orientation"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="noticias.Noticias"
+            android:configChanges="screenSize|orientation"></activity>
+        <activity android:name=".Eventos"></activity>
     </application>
 
 </manifest>
