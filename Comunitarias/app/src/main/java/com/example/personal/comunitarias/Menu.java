@@ -8,11 +8,12 @@ import android.widget.Button;
 
 import noticias.Noticias;
 
-public class Menu extends AppCompatActivity  {
+public class Menu extends AppCompatActivity {
     Button Denuncias,Pedidos,Noticiase,Preguntas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.menu_activity);
         Denuncias = (Button)findViewById(R.id.idTarea);
         Pedidos = (Button)findViewById(R.id.idExamen);
@@ -39,7 +40,7 @@ public class Menu extends AppCompatActivity  {
             public void onClick(View view) {
                 Intent i=new Intent(getBaseContext(), Noticias.class);
                 startActivity(i);
-                finish();
+                //finish();
             }
         });
 
@@ -48,11 +49,9 @@ public class Menu extends AppCompatActivity  {
             public void onClick(View view) {
                 Intent i=new Intent(getBaseContext(),IntroConsejo.class);
                 startActivity(i);
-                finish();
+                //finish();
 
             }
         });
-
     }
-
 }
