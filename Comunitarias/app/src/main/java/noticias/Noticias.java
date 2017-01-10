@@ -152,7 +152,7 @@ public class Noticias extends AppCompatActivity {
                     Elements titulo = wrap.select("a");
                     String link = titulo.attr("href");
                     String tit = titulo.get(1).text();
-                    adapter.noticias.add(new Noticia(tit,link,dia+"/"+mes));
+                    adapter.noticias.add(new Noticia(tit,link,dia+"/"+mes,content,imgurl));
 
 
                 }
