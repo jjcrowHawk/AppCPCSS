@@ -6,5 +6,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="sub_titulo">Consejo de Participación Ciudadana y Control Social</string>
     <string name="title_activity_intro_consejo">Consejos Barriales</string>
+    <string name="title_activity_noticias">Noticias</string>
 
 </resources>
