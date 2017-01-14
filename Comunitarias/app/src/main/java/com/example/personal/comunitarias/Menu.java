@@ -110,8 +110,6 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
