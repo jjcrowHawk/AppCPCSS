@@ -48,19 +48,6 @@
             android:layout_height="fill_parent"
             android:orientation="vertical">
 
-            <ProgressBar
-
-                android:id="@+id/progressBar1"
-                android:layout_weight="0.8"
-                style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginBottom="5dp"
-                android:indeterminate="false"
-                android:max="100"
-                android:minWidth="200dp"
-                android:progress="1"
-                android:maxHeight="5dip" />
             <ImageView
                 android:layout_weight="0.1"
                 android:layout_width="wrap_content"
