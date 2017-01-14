@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">CPCCS </string>
-    <string name="action_settings">Settings</string>
     <string name="title_activity_comunidad_ec">ComunidadEC</string>
+    <string name="sub_titulo">Consejo de Participación Ciudadana y Control Social</string>
+    <string name="title_activity_noticias">Noticias</string>
+    <string name="title_activity_barra">Barra</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="sub_titulo">Consejo de Participación Ciudadana y Control Social</string>
-    <string name="title_activity_intro_consejo">Consejos Barriales</string>
-    <string name="title_activity_noticias">Noticias</string>
+
+    <string name="action_settings">Settings</string>
 
 </resources>

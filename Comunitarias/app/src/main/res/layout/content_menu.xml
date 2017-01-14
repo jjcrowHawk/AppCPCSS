@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Layouts Externo (Vertical): primer layout-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation ="vertical"
+    tools:context="com.example.personal.comunitarias.Menu"
+    android:background="@drawable/fondo"
+
+    >
+
+    <TableLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <ImageView
+            android:id="@+id/idd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cabecera" />
+
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop = "20dp"
+            android:paddingBottom = "10dp"
+            >
+
+            <LinearLayout
+
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingRight="20dp"
+                >
+
+                <Button
+                    android:id="@+id/idTarea"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/protest1" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:text="DENUNCIAS"
+                    android:textSize="15sp"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingLeft="20dp">
+
+
+                <Button
+                    android:id="@+id/idExamen"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/pencil1" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textStyle="bold"
+
+                    android:textColor="#000000"
+                    android:text="PEDIDOS"
+                    android:textSize="15sp"/>
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop = "20dp"
+            android:paddingBottom = "10dp"
+            >
+
+            <LinearLayout
+
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingRight="20dp"
+                >
+
+
+                <Button
+                    android:id="@+id/idProyecto"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/news" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textStyle="bold"
+
+                    android:textColor="#000000"
+                    android:text="NOTICIAS"
+                    android:textSize="15sp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingLeft="20dp">
+
+                <Button
+                    android:id="@+id/idResult"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/question" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textStyle="bold"
+
+                    android:textColor="#000000"
+                    android:text="PREGUNTAS FRECUENTES"
+                    android:textSize="15sp"
+                    />
+            </LinearLayout>
+
+        </TableRow>
+        <ImageView
+            android:id="@+id/iddd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/footer" />
+    </TableLayout>
+</LinearLayout>
