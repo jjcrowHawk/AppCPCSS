@@ -100,20 +100,28 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_mision) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_vision) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_oficinas) {
+            startActivity (new Intent(getApplicationContext(), OficinasActivity.class));
 
-        } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
 
+
+        } else if (id == R.id.nav_videos) {
+
+            startActivity (new Intent(getApplicationContext(), YoutubeActivitty.class));
+
+
+        } else if (id == R.id.nav_tweets) {
+
+            startActivity (new Intent(getApplicationContext(), TwitterActivity.class));
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        //DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
