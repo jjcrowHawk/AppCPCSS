@@ -29,4 +29,5 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     testCompile 'junit:junit:4.12'
     compile project(':jsoup-1.10.1')
+    compile 'com.google.android.gms:play-services-maps:9.8.0'
 }
