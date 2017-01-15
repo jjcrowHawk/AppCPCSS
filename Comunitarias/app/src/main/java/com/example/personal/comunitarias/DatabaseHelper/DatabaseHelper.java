@@ -18,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // Database Name
-    private static final String DATABASE_NAME = "cpcss";
+    private static final String DATABASE_NAME = "cpccs";
 
     // Table Names
     private static final String TABLE_NOTICIA = "noticia";
@@ -57,7 +57,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Table Create Statements
     // Noticia table create statement
     private static final String CREATE_TABLE_NOTICIA = "CREATE TABLE "
-            + TABLE_NOTICIA + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NOTICIA_TITULO
+            + TABLE_NOTICIA + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NOTICIA_TITULO
             + " TEXT," + KEY_NOTICIA_URLIMAGEN
             + " TEXT," + KEY_NOTICIA_CONTENIDOPREVIO
             + " TEXT," + KEY_NOTICIA_LINK
