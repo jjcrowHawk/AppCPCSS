@@ -72,7 +72,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_RECLAMO_RESIDEEXTRANJERO = "resideextranjero";
     private static final String KEY_CIUDADDENUNCIANTE_ID = "ciudaddenuncianteid";
     private static final String KEY_CIUDADDENUNCIADO_ID = "ciudaddenunciadoid";
-    private static final String KEY_INSTITUCIONIMPLICADA_ID = "institucionimplicadaid";
+    private static final String KEY_RECLAMOINSTITUCIONIMPLICADA_ID = "institucionimplicadaid";
     private static final String KEY_PROVINCIADENUNCIANTE_ID = "provinciadenuncianteid";
     private static final String KEY_PROVINCIADENUNCIADO_ID = "provinciadenunciadoid";
 
@@ -91,6 +91,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_INSTITUCION_REPRESENTANTE = "representante";
     private static final String KEY_INSTITUCION_PUBLICA = "publica";
     private static final String KEY_SECTOR_ID = "sectorid";
+
+    // PREDENUNCIA Table - column names
+    private static final String KEY_PREDENUNCIA_TIPODENUNCIA = "tipodenuncia";
+    private static final String KEY_PREDENUNCIA_GENERODENUNCIANTE = "generodenunciante";
+    private static final String KEY_PREDENUNCIA_GENERODENUNCIADO = "generodenunciado";
+    private static final String KEY_PREDENUNCIA_DESCRIPCIONINVESTIGACION = "descripcioninvestigacion";
+    private static final String KEY_PREDENUNCIA_FUNCIONARIOPUBLICO = "funcionariopublico";
+    private static final String KEY_NIVELEDUCACIONDENUNCIANTE_ID = "niveleducaciondenuncianteid";
+    private static final String KEY_OCUPACIONNDENUNCIANTE_ID = "ocupaciondenuncianteid";
+    private static final String KEY_NACIONALIDADDENUNCIANTE_ID = "nacionalidaddenuncianteid";
+    private static final String KEY_ESTADOCIVILNDENUNCIANTE_ID = "estadocivildenuncianteid";
+    private static final String KEY_PREDENUNCIAINSTITUCIONIMPLICADA_ID = "institucionimplicadaid";
+
+    // OCUPACION Table - column names
+    private static final String KEY_OCUPACION_NOMBRE = "nombre";
+    private static final String KEY_OCUPACION_DESCRIPCION = "descripcion";
+
+    // ESTADOCIVIL Table - column names
+    private static final String KEY_ESTADOCIVIL_NOMBRE = "nombre";
+
+    // NACIONALIDAD Table - column names
+    private static final String KEY_NACIONALIDAD_NOMBRE = "nombre";
+
+    // NIVELEDUCACION Table - column names
+    private static final String KEY_NIVELEDUCACION_NOMBRE = "nombre";
+    private static final String KEY_NIVELEDUCACION_DESCRIPCION = "descripcion";
 
     // Table Create Statements
     // Noticia table create statement
@@ -135,7 +161,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + " TEXT," + KEY_RECLAMO_RESIDEEXTRANJERO
             + " TEXT," + KEY_CIUDADDENUNCIANTE_ID
             + " INTEGER," + KEY_CIUDADDENUNCIADO_ID
-            + " INTEGER," + KEY_INSTITUCIONIMPLICADA_ID
+            + " INTEGER," + KEY_RECLAMOINSTITUCIONIMPLICADA_ID
             + " INTEGER," + KEY_PROVINCIADENUNCIANTE_ID
             + " INTEGER," + KEY_PROVINCIADENUNCIADO_ID
             + " INTEGER," + KEY_PROVINCIA_ID + " INTEGER" + ")";
@@ -159,6 +185,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + " TEXT," + KEY_INSTITUCION_PUBLICA
             + " TEXT," + KEY_SECTOR_ID+ " INTEGER" + ")";
 
+    // Pre-denuncia table create statement
+    private static final String CREATE_TABLE_PREDENUNCIA= "CREATE TABLE "
+            + TABLE_PREDENUNCIA + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_PREDENUNCIA_TIPODENUNCIA
+            + " TEXT," + KEY_PREDENUNCIA_GENERODENUNCIANTE
+            + " TEXT," + KEY_PREDENUNCIA_GENERODENUNCIADO
+            + " TEXT," + KEY_PREDENUNCIA_DESCRIPCIONINVESTIGACION
+            + " TEXT," + KEY_PREDENUNCIA_FUNCIONARIOPUBLICO
+            + " TEXT," + KEY_NIVELEDUCACIONDENUNCIANTE_ID
+            + " INTEGER," + KEY_OCUPACIONNDENUNCIANTE_ID
+            + " INTEGER," + KEY_NACIONALIDADDENUNCIANTE_ID
+            + " INTEGER," + KEY_ESTADOCIVILNDENUNCIANTE_ID
+            + " INTEGER," +  KEY_PREDENUNCIAINSTITUCIONIMPLICADA_ID + " INTEGER" + ")";
+
+    // Ocupacion table create statement
+    private static final String CREATE_TABLE_OCUPACION = "CREATE TABLE "
+            + TABLE_OCUPACION + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_OCUPACION_NOMBRE
+            + " TEXT," + KEY_OCUPACION_DESCRIPCION
+            + " TEXT" + ")";
+
+    // NivelEducacion table create statement
+    private static final String CREATE_TABLE_NIVELEDUCACION = "CREATE TABLE "
+            + TABLE_NIVELEDUCACION + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NIVELEDUCACION_NOMBRE
+            + " TEXT," + KEY_NIVELEDUCACION_DESCRIPCION
+            + " TEXT" + ")";
+
+    // Nacionalidad table create statement
+    private static final String CREATE_TABLE_NACIONALIDAD = "CREATE TABLE "
+            + TABLE_NACIONALIDAD + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NACIONALIDAD_NOMBRE
+            + " TEXT" +  ")";
+
+    // EstadoCivil table create statement
+    private static final String CREATE_TABLE_ESTADOCIVIL = "CREATE TABLE "
+            + TABLE_ESTADOCIVIL + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_ESTADOCIVIL_NOMBRE
+            + " TEXT" +  ")";
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -174,6 +235,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_RECLAMO);
         db.execSQL(CREATE_TABLE_SECTOR);
         db.execSQL(CREATE_TABLE_INSTITUCION);
+        db.execSQL(CREATE_TABLE_PREDENUNCIA);
+        db.execSQL(CREATE_TABLE_OCUPACION);
+        db.execSQL(CREATE_TABLE_NIVELEDUCACION);
+        db.execSQL(CREATE_TABLE_NACIONALIDAD);
+        db.execSQL(CREATE_TABLE_ESTADOCIVIL);
 
     }
 
@@ -187,6 +253,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_RECLAMO);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SECTOR);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_INSTITUCION);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PREDENUNCIA);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_OCUPACION);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NIVELEDUCACION);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NACIONALIDAD);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ESTADOCIVIL);
 
         // create new tables
         onCreate(db);
