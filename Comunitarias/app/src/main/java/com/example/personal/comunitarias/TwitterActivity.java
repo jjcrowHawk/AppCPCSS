@@ -1,5 +1,6 @@
 package com.example.personal.comunitarias;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -8,7 +9,11 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+
+
 public class TwitterActivity extends AppCompatActivity {
+
+    private ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +28,10 @@ public class TwitterActivity extends AppCompatActivity {
 
 
         WebView displayTweeteTimeline = (WebView) findViewById(R.id.mWebView);
-        displayTweeteTimeline.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return false;
-            }
-        });
+        pd = new ProgressDialog(this);
+        pd.setMessage("Cargando...");
+        pd.show();
+        displayTweeteTimeline.setWebViewClient(new TwitterActivity.MyWebViewClient());
         WebSettings webSettings = displayTweeteTimeline.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
@@ -40,6 +43,29 @@ public class TwitterActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         finish();
         return super.onOptionsItemSelected(item);
+    }
+
+
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+
+            if (!pd.isShowing()) {
+                pd.show();
+            }
+
+            return true;
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            if (pd.isShowing()) {
+                pd.dismiss();
+
+            }
+
+        }
     }
 
 
