@@ -28,17 +28,21 @@
             android:layout_weight="0.8"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
+
             <TextView
                 android:id="@+id/subtittle"
                 android:text="@string/sub_titulo"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center_horizontal"
-                android:textColor="@color/colorPrimaryDark"
-                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_subtitle"
                 android:textStyle="bold"
-                android:textSize="24sp"
-                android:textAlignment="center" />
+                android:gravity="center"
+                android:textSize="21sp"
+                android:fontFamily="sans-serif"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="20dp"
+                />
 
 
         </LinearLayout>
