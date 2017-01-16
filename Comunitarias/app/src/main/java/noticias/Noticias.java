@@ -41,6 +41,7 @@ public class Noticias extends AppCompatActivity {
     private int page;
     private ProgressDialog mProgressDialog;
     private  int count= 0;
+    private ProgressDialog pd;
 
 
 
@@ -69,15 +70,13 @@ public class Noticias extends AppCompatActivity {
 
     public void noticiaWebView(Noticia noticia) {
 
+        pd = new ProgressDialog(this);
+        pd.setMessage("Cargando...");
         WebView myWebView = new WebView(Noticias.this);
+
+        myWebView.setWebViewClient(new Noticias.MyWebViewClient());
         myWebView.loadUrl(noticia.getUrl());
-        myWebView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
-        });
+
 
         new AlertDialog.Builder(Noticias.this).setView(myWebView)
                 .setTitle(noticia.getTitulo())
@@ -87,6 +86,7 @@ public class Noticias extends AppCompatActivity {
                         dialog.cancel();
                     }
                 }).show();
+        pd.show();
     }
 
     public void itemListeners(){
@@ -94,16 +94,9 @@ public class Noticias extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 noticiaWebView(adapter.noticias.get(i));
-                Toast.makeText(getApplicationContext(), "presiono " + i, Toast.LENGTH_SHORT).show();
             }
         });
-        listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), "presiono LARGO " + i, Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
+
 
         load = (Button) findViewById(R.id.load);
         load.setOnClickListener(new View.OnClickListener() {
@@ -258,6 +251,32 @@ public class Noticias extends AppCompatActivity {
         }
         return false;
     }
+
+
+
+
+
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            if (!pd.isShowing()) {
+                pd.show();
+            }
+
+            return true;
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            if (pd.isShowing()) {
+                pd.dismiss();
+
+            }
+
+        }
+    }
+
 
 
 }
