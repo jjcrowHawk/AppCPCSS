@@ -92,6 +92,26 @@ public class PreguntasFrecuentes extends AppCompatActivity {
                         }
                     });
                 }
+
+                //twitters
+
+                if(position == 2){
+                    //Toast.makeText(getApplicationContext(), "clik "+ position , Toast.LENGTH_SHORT).show();
+                    setContentView(R.layout.tuto_pregunta3);
+                    //toolbar para el nuevo layout
+                    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+                    setSupportActionBar(toolbar);
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    close = (ImageButton) findViewById(R.id.close3);
+                    close.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            //Toast.makeText(PreguntasFrecuentes.this, "click", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(PreguntasFrecuentes.this, PreguntasFrecuentes.class);
+                            startActivity(i);
+                        }
+                    });
+                }
             }
         });
 
