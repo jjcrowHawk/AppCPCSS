@@ -29,7 +29,25 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:text="¿Cómo ver una noticia?"
+            android:text="Paso 1: Menú noticias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="58dp"
+            android:id="@+id/textView3" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/side_nav_bar"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="37dp"
+            android:id="@+id/imageView3" />
+
+        <TextView
+            android:text="¿Cómo regresar?"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView2"
@@ -45,41 +63,9 @@
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_close"
             android:layout_marginBottom="41dp"
-            android:id="@+id/close1"
+            android:id="@+id/close2"
             android:layout_alignBottom="@+id/textView2"
             android:layout_alignParentEnd="true" />
-
-        <TextView
-            android:text="Paso 1:  En el menú principal dar un toque en “Noticias”, en el ícono que se muestra en la imagen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:id="@+id/textView3"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_below="@+id/textView2"
-            android:textSize="17sp"
-            android:layout_centerHorizontal="true"
-            android:textAlignment="textStart" />
-
-        <TextView
-            android:text="Paso 1:  En el menú principal dar un toque en “Noticias”, en el ícono que se muestra en la imagen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView4"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textSize="17sp"
-            android:textAlignment="textStart"
-            android:layout_marginTop="280dp" />
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/noticias"
-            android:id="@+id/imageView3"
-            android:layout_below="@+id/textView3"
-            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
 
