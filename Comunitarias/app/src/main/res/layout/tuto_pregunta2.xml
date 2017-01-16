@@ -26,28 +26,10 @@
 
     <RelativeLayout
         android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="494dp">
 
         <TextView
-            android:text="Paso 1: Menú noticias"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="58dp"
-            android:id="@+id/textView3" />
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:srcCompat="@drawable/side_nav_bar"
-            android:layout_below="@+id/textView3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="37dp"
-            android:id="@+id/imageView3" />
-
-        <TextView
-            android:text="¿Cómo regresar?"
+            android:text="¿Cómo ver un video del Cpccs?"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView2"
@@ -66,6 +48,61 @@
             android:id="@+id/close2"
             android:layout_alignBottom="@+id/textView2"
             android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:text="Paso 1: En el menú principal dar un toque en “Menú”, en el ícono que se muestra a continuación:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:id="@+id/textView3"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_below="@+id/textView2"
+            android:textSize="17sp"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:text="Paso 2: Luego, aparecerá una lista y da un toque en “videos”."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="17sp"
+            android:textAlignment="textStart"
+            android:layout_marginTop="280dp" />
+
+        <TextView
+            android:text="Paso 3: Espere unos segundos y se mostrará el video."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="17sp"
+            android:textAlignment="textStart"
+            android:layout_marginTop="340dp" />
+
+        <TextView
+            android:text="Paso 4: Para ver más videos, dar un toque en el icono superior izquierdo: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center_vertical|right"
+            android:textSize="17sp"
+
+            android:layout_marginTop="400dp" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/youtube"
+            android:id="@+id/imageView3"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
 
