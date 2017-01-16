@@ -74,8 +74,9 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         Preguntas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent i=new Intent(getBaseContext(), PreguntasFrecuentes.class);
+                startActivity(i);
 
-                //finish();
 
             }
         });
