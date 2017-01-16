@@ -43,10 +43,44 @@ public class PreguntasFrecuentes extends AppCompatActivity {
         ListView androidListView = (ListView) findViewById(R.id.custom_listview_example);
         androidListView.setAdapter(androidListAdapter);
 
+
+
         //toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //
+        androidListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                //¿Cómo ver una noticia?
+                if(position == 0){
+                    //Toast.makeText(getApplicationContext(), "clik "+ position , Toast.LENGTH_SHORT).show();
+                    setContentView(R.layout.tuto_pregunta1);
+                    //toolbar para el nuevo layout
+                    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+                    setSupportActionBar(toolbar);
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    close = (ImageButton) findViewById(R.id.close1);
+                    //close
+                    close.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            //Toast.makeText(PreguntasFrecuentes.this, "click", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(PreguntasFrecuentes.this, PreguntasFrecuentes.class);
+                            startActivity(i);
+                        }
+                    });
+                }
+                //¿?
+                if(position == 1){
+
+
+
+                }
+            }
+        });
 
 
 
@@ -79,7 +113,6 @@ public class PreguntasFrecuentes extends AppCompatActivity {
             //setContentView(R.layout.preguntas_frecuentes_lista);
             return viewRow;
         }
-
 
     }
     //Acciones del boton regresar
