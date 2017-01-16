@@ -26,7 +26,7 @@
 
     <RelativeLayout
         android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="494dp">
 
         <TextView
             android:text="¿Cómo ver una noticia?"
@@ -50,7 +50,7 @@
             android:layout_alignParentEnd="true" />
 
         <TextView
-            android:text="Paso 1:  En el menú principal dar un toque en “Noticias”, en el ícono que se muestra en la imagen"
+            android:text="Paso 1: En el menú principal dar un toque en la sección de “Noticias”, en el ícono que se muestra a continuación:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -63,7 +63,7 @@
             android:textAlignment="textStart" />
 
         <TextView
-            android:text="Paso 1:  En el menú principal dar un toque en “Noticias”, en el ícono que se muestra en la imagen"
+            android:text="Paso 2: Luego, aparecerá la lista de noticias recientes del Cpccs."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView4"
@@ -73,10 +73,33 @@
             android:textAlignment="textStart"
             android:layout_marginTop="280dp" />
 
+        <TextView
+            android:text="Paso 3: Da un toque en la noticia que desea ver. "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="17sp"
+            android:textAlignment="textStart"
+            android:layout_marginTop="340dp" />
+
+        <TextView
+            android:text="Paso 3: Espere unos segundos y se mostrará el contenido de la noticia. "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center_vertical|right"
+            android:textSize="17sp"
+
+            android:layout_marginTop="400dp" />
+
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            app:srcCompat="@drawable/noticias"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:srcCompat="@drawable/news"
             android:id="@+id/imageView3"
             android:layout_below="@+id/textView3"
             android:layout_centerHorizontal="true" />
