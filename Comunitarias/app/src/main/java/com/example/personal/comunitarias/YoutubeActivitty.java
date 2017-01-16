@@ -16,11 +16,14 @@ public class YoutubeActivitty extends AppCompatActivity implements View.OnClickL
 
     private ShowcaseView showcaseView;
     private ProgressDialog pd;
+    private String myUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_bar_videos);
+
+        myUrl = "https://www.youtube.com/embed?listType=user_uploads&list=cpccsec";
 
 
 
@@ -32,7 +35,7 @@ public class YoutubeActivitty extends AppCompatActivity implements View.OnClickL
         pd.show();
         myWebView.setWebViewClient(new MyWebViewClient());
         myWebView.getSettings().setJavaScriptEnabled(true);
-        myWebView.loadUrl("https://www.youtube.com/embed?listType=user_uploads&list=cpccsec");
+        myWebView.loadUrl(myUrl);
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -57,10 +60,11 @@ public class YoutubeActivitty extends AppCompatActivity implements View.OnClickL
     private class MyWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            view.loadUrl(url);
-
-            if (!pd.isShowing()) {
-                pd.show();
+            if(url.contains(myUrl)){
+                view.loadUrl(url);
+                if (!pd.isShowing()) {
+                    pd.show();
+                }
             }
 
             return true;
