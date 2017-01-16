@@ -97,7 +97,6 @@ public class Noticias extends AppCompatActivity {
             }
         });
 
-
         load = (Button) findViewById(R.id.load);
         load.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -218,6 +217,7 @@ public class Noticias extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
             mProgressDialog.dismiss();
+            mProgressDialog.cancel();
             listview = (ListView) findViewById(R.id.listView1);
             listview.setAdapter(adapter);
             if(count>=1)

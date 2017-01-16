@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import noticias.Noticias;
 import preguntas.PreguntasFrecuentes;
@@ -53,6 +54,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         Denuncias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "En construcción" , Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -61,6 +63,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         Pedidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "En construcción" , Toast.LENGTH_SHORT).show();
 
             }
         });
