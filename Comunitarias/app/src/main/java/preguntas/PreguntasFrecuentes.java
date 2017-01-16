@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias;
+package preguntas;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.personal.comunitarias.R;
+
 /**
  * Created by Janina Costa on 15/1/2017.
  */
@@ -29,10 +31,11 @@ public class PreguntasFrecuentes extends AppCompatActivity {
 
     String androidListViewStrings[] = {
             "¿Cómo puede ver una noticia?",
-            "¿Cómo puedo hacer una denuncia?",
-            "¿Cómo puedo hacer un pedido?"};
+            "¿Cómo puedo ver un vídeo de CPCCS?",
+            "¿Cómo puedo ver los tweets de CPCCS?",
+            "Oficinas por provincia de CPCCS?"};
 
-    Integer image_id[] = {R.drawable.d_flecha, R.drawable.d_flecha, R.drawable.d_flecha};
+    Integer image_id[] = {R.drawable.d_flecha, R.drawable.d_flecha, R.drawable.d_flecha, R.drawable.d_flecha};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,61 +59,27 @@ public class PreguntasFrecuentes extends AppCompatActivity {
 
                 //¿Cómo ver una noticia?
                 if(position == 0){
-                    //Toast.makeText(getApplicationContext(), "clik "+ position , Toast.LENGTH_SHORT).show();
-                    setContentView(R.layout.tuto_pregunta1);
-                    //toolbar para el nuevo layout
-                    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-                    setSupportActionBar(toolbar);
-                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                    close = (ImageButton) findViewById(R.id.close1);
-                    //close
-                    close.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            //Toast.makeText(PreguntasFrecuentes.this, "click", Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(PreguntasFrecuentes.this, PreguntasFrecuentes.class);
-                            startActivity(i);
-                        }
-                    });
-                }
-                //¿?
-                if(position == 1){
-                    //Toast.makeText(getApplicationContext(), "clik "+ position , Toast.LENGTH_SHORT).show();
-                    setContentView(R.layout.tuto_pregunta2);
-                    //toolbar para el nuevo layout
-                    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-                    setSupportActionBar(toolbar);
-                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                    close = (ImageButton) findViewById(R.id.close2);
+                    Intent i = new Intent(PreguntasFrecuentes.this, Pregunta1.class);
+                    startActivity(i);
 
-                    close.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            //Toast.makeText(PreguntasFrecuentes.this, "click", Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(PreguntasFrecuentes.this, PreguntasFrecuentes.class);
-                            startActivity(i);
-                        }
-                    });
+                }
+                //¿Como ver los videos
+                if(position == 1){
+                    Intent i = new Intent(PreguntasFrecuentes.this, Pregunta2.class);
+                    startActivity(i);
                 }
 
                 //twitters
-
                 if(position == 2){
-                    //Toast.makeText(getApplicationContext(), "clik "+ position , Toast.LENGTH_SHORT).show();
-                    setContentView(R.layout.tuto_pregunta3);
-                    //toolbar para el nuevo layout
-                    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-                    setSupportActionBar(toolbar);
-                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                    close = (ImageButton) findViewById(R.id.close3);
-                    close.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            //Toast.makeText(PreguntasFrecuentes.this, "click", Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(PreguntasFrecuentes.this, PreguntasFrecuentes.class);
-                            startActivity(i);
-                        }
-                    });
+                    Intent i = new Intent(PreguntasFrecuentes.this, Pregunta3.class);
+                    startActivity(i);
+                }
+
+                //oficinas
+                //twitters
+                if(position == 3){
+                    Intent i = new Intent(PreguntasFrecuentes.this, Pregunta4.class);
+                    startActivity(i);
                 }
             }
         });

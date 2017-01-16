@@ -23,17 +23,17 @@
 
 
     </android.support.design.widget.AppBarLayout>
-
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
         <RelativeLayout
             android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_height="608dp">
+            android:layout_height="603dp">
 
+            <!-- Here you put the rest of your current view-->
             <TextView
-                android:text="¿Cómo ver un video"
+                android:text="¿Cómo ver la ubicación "
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView2"
@@ -44,7 +44,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true" />
             <TextView
-                android:text="del CPCCS?"
+                android:text="de las oficinas del CPCCS?"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView30"
@@ -69,7 +69,7 @@
                 android:textAlignment="textStart" />
 
             <TextView
-                android:text="Paso 2: Luego, aparecerá una lista y da un toque en “videos”."
+                android:text="Paso 2: Luego, aparecerá una lista y de un toque en “oficinas”."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView4"
@@ -80,7 +80,7 @@
                 android:layout_marginTop="330dp" />
 
             <TextView
-                android:text="Paso 3: Espere unos segundos y se mostrará el video."
+                android:text="Paso 3: Espere unos segundos mientras se carga el mapa."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView5"
@@ -91,7 +91,7 @@
                 android:layout_marginTop="450dp" />
 
             <TextView
-                android:text="Paso 4: Para ver más videos, dar un toque en el ícono superior izquierdo."
+                android:text="Paso 4: Luego se mostrará un mapa con ubicaciones de las oficinas del CPCCS por provincia."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView6"
@@ -107,16 +107,17 @@
                 android:layout_height="35dp"
                 app:srcCompat="@drawable/ic_menu_peque"
                 android:id="@+id/imageView3"
-                android:layout_marginTop="270dp"
+                android:layout_marginTop="265dp"
                 android:layout_centerHorizontal="true" />
 
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                app:srcCompat="@drawable/youtube"
+                app:srcCompat="@drawable/oficinas"
                 android:id="@+id/imageView30"
                 android:layout_marginTop="390dp"
                 android:layout_centerHorizontal="true" />
+
         </RelativeLayout>
     </ScrollView>
 
