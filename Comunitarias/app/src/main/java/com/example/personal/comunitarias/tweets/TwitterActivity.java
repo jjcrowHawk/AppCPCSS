@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias;
+package com.example.personal.comunitarias.tweets;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.example.personal.comunitarias.R;
 
 
 public class TwitterActivity extends AppCompatActivity {

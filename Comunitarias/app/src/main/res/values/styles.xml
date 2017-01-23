@@ -46,7 +46,7 @@
 
     <style name="CustomTitle2" parent="TextAppearance.ShowcaseView.Title.Light">
         <item name="android:textColor">#de313030</item>
-        <item name = "android:textSize">60sp</item>
+        <item name="android:textSize">60sp</item>
     </style>
 
     <style name="CustomText2" parent="TextAppearance.ShowcaseView.Detail.Light">

@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias;
+package com.example.personal.comunitarias.oficinas;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -20,25 +20,24 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.TreeMap;
 
 
 public class OficinasReader extends AsyncTask<String, Void, String> {
     private Context context;
     private String TAG = OficinasReader.class.getSimpleName();
     private ProgressDialog pDialog;
-    private ArrayList<Oficina> offices;
-
-
+    private TreeMap<String, Oficina> provincias;
 
 
     private static String url = "http://denunciaec.co.nf/oficinas.json";
 
     OficinasReader(Context ctx) {
-        offices = new ArrayList<>();
+        provincias = new TreeMap<>();
         context = ctx;
 
     }
+
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -46,7 +45,6 @@ public class OficinasReader extends AsyncTask<String, Void, String> {
         pDialog.setMessage("Cargando oficinas...");
         pDialog.setCancelable(false);
         pDialog.show();
-
 
 
     }
@@ -64,12 +62,12 @@ public class OficinasReader extends AsyncTask<String, Void, String> {
                 JSONArray provincias = oficinas.getJSONArray("provincia");
                 for (int i = 0; i < provincias.length(); i++) {
                     JSONObject provincia = provincias.getJSONObject(i);
-                    String nombre = provincia.getString("nombre");
+                    String nombre = corrector(provincia.getString("nombre"));
                     String latitud = provincia.getString("latitud");
                     String longitud = provincia.getString("longitud");
                     String telefono = provincia.getString("telefono");
                     LatLng ubicacion = new LatLng(Double.parseDouble(latitud), Double.parseDouble(longitud));
-                    this.offices.add(new Oficina(nombre,telefono,ubicacion));
+                    this.provincias.put(nombre, new Oficina(nombre, "ciudad", telefono, ubicacion, "direccion"));
 
                 }
             } catch (final JSONException e) {
@@ -88,10 +86,9 @@ public class OficinasReader extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        ((OficinasActivity) context).anadirMarcador(offices);
+        ((OficinasActivity) context).anadirMarcador(provincias);
         if (pDialog.isShowing())
             pDialog.dismiss();
-
 
 
     }
@@ -139,5 +136,21 @@ public class OficinasReader extends AsyncTask<String, Void, String> {
         return sb.toString();
     }
 
+    private String corrector(String palabra) {
+        if (palabra.equals("Canar")) return "Cañar";
+        if (palabra.equals("Manabi")) return "Manabí";
+        if (palabra.equals("Los Rios")) return "Los Ríos";
+        if (palabra.equals("Bolivar")) return "Bolívar";
+        if (palabra.equals("Galapagos")) return "Galápagos";
+        else return palabra;
 
+    }
+
+    public TreeMap<String, Oficina> getProvincias() {
+        return provincias;
+    }
+
+    public void setProvincias(TreeMap<String, Oficina> provincias) {
+        this.provincias = provincias;
+    }
 }

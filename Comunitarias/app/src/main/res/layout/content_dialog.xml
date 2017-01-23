@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.personal.comunitarias.oficinas.OfficeDialog"
+    tools:showIn="@layout/activity_dialog"
+    android:background="@drawable/background_gradient">
+
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_gradient"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+
+        <LinearLayout
+            android:layout_weight="0.4"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_weight="0.2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tittle"
+                    android:text="Provincia"
+                    android:layout_weight="0.1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_subtitle"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="40sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginTop="20dp"
+                    />
+
+
+                    <ImageButton
+                        android:id="@+id/close_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:src="@android:drawable/btn_dialog"
+                        android:onClick="onClickClose"/>
+
+
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_weight="0.2"
+                android:id="@+id/area_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/ciudad"
+                    android:text="Ciudad"
+                    android:paddingLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_subtitle"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="21sp"
+                    android:fontFamily="sans-serif"
+                    />
+
+                <TextView
+                    android:id="@+id/ciudadtil"
+                    android:text="Ciudad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="21sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginLeft="32dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="0.2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/direccion"
+                    android:text="Dirección"
+                    android:paddingLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_subtitle"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="21sp"
+                    android:fontFamily="sans-serif"
+                    />
+
+                <TextView
+                    android:id="@+id/direcciontil"
+                    android:text="dir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="21sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginLeft="32dp"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="0.2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/telefono"
+                    android:text="Teléfono"
+                    android:paddingLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_subtitle"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="21sp"
+                    android:fontFamily="sans-serif"
+                    />
+
+                <TextView
+                    android:id="@+id/telefonotil"
+                    android:text="tel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="21sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginLeft="32dp"
+                    />
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="0.6"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@drawable/ubicacion_provincias1"
+                android:id="@+id/background"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

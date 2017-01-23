@@ -28,7 +28,13 @@ dependencies {
     compile 'com.android.support:design:25.1.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     testCompile 'junit:junit:4.12'
-    compile project(':jsoup-1.10.1')
     compile 'com.google.android.gms:play-services-maps:9.8.0'
     compile 'com.github.amlcurran.showcaseview:library:5.4.3'
+    compile files('libs/google-api-client-1.22.0.jar')
+    compile files('libs/google-api-client-auth-oauth2-1.2.3-alpha.jar')
+    compile files('libs/google-api-services-youtube-v3-rev180-1.22.0.jar')
+    compile files('libs/google-http-client-1.22.0.jar')
+    compile files('libs/google-oauth-client-1.16.0-rc-sources.jar')
+    compile files('libs/jsoup-1.10.1.jar')
+    compile files('libs/YouTubeAndroidPlayerApi.jar')
 }

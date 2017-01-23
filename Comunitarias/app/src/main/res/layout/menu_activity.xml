@@ -20,6 +20,8 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_barra"
-        app:menu="@menu/activity_barra_drawer" />
+
+        app:menu="@menu/activity_barra_drawer"
+        style="@style/Widget.Design.NavigationView" />
 
 </android.support.v4.widget.DrawerLayout>

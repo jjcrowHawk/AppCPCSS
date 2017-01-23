@@ -16,7 +16,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import noticias.Noticias;
+import com.example.personal.comunitarias.oficinas.IntroOficinas;
+import com.example.personal.comunitarias.oficinas.OficinasActivity;
+import com.example.personal.comunitarias.tv.CpccsTv;
+import com.example.personal.comunitarias.tv.IntroTv;
+import com.example.personal.comunitarias.tweets.IntroTweets;
+import com.example.personal.comunitarias.tweets.TwitterActivity;
+import com.example.personal.comunitarias.videos.IntroVideos;
+
+import com.example.personal.comunitarias.noticias.Noticias;
 import preguntas.PreguntasFrecuentes;
 
 public class Menu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -117,7 +125,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
                         .findViewById(android.R.id.content)).getChildAt(0), "Necesita conexión a Internet", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             else
-                startActivity (new Intent(getApplicationContext(), OficinasActivity.class));
+                startActivity (new Intent(getApplicationContext(), IntroOficinas.class));
 
 
 
@@ -128,8 +136,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
                         .findViewById(android.R.id.content)).getChildAt(0), "Necesita conexión a Internet", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             else
-                startActivity (new Intent(getApplicationContext(), YoutubeActivitty.class));
-
+                startActivity (new Intent(getApplicationContext(), IntroVideos.class));
 
         } else if (id == R.id.nav_tweets) {
             if(!isOnlineNet())
@@ -137,7 +144,15 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
                         .findViewById(android.R.id.content)).getChildAt(0), "Necesita conexión a Internet", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             else
-                startActivity (new Intent(getApplicationContext(), TwitterActivity.class));
+                startActivity (new Intent(getApplicationContext(), IntroTweets.class));
+        }
+        else if (id == R.id.nav_tv) {
+            if(!isOnlineNet())
+                Snackbar.make((ViewGroup) ((ViewGroup) this
+                        .findViewById(android.R.id.content)).getChildAt(0), "Necesita conexión a Internet", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            else
+                startActivity (new Intent(getApplicationContext(), IntroTv.class));
         }
 
         //DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
