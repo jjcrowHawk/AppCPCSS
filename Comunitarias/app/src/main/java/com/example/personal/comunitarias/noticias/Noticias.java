@@ -267,7 +267,7 @@ public class Noticias extends AppCompatActivity {
         @Override
         public void onPageFinished(WebView view, String url) {
             if (pd.isShowing()) {
-                pd.dismiss();
+                pd.cancel();
 
             }
 
