@@ -10,14 +10,14 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".Intro">
+        <activity
+            android:name=".Intro"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,44 +25,95 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="noticias.Noticias"
+            android:name=".noticias.Noticias"
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_noticias"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-
+            android:name="preguntas.PreguntasFrecuentes"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="preguntas.Pregunta1"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="preguntas.Pregunta2"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="preguntas.Pregunta3"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="preguntas.Pregunta4"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Menu"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".YoutubeActivitty"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="Videos"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity
-            android:name=".TwitterActivity"
+            android:name=".tweets.TwitterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Tweets"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".OficinasActivity"
+            android:name=".oficinas.OfficeDialog"
+            android:label=" "
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name=".oficinas.OficinasActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Oficinas"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".videos.YoutubeVideos"
+            android:label="Videos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".videos.IntroVideos"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".tweets.IntroTweets"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".tv.CpccsTv"
+            android:label="@string/title_activity_cpccs_tv"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".tv.IntroTv"
+            android:theme="@style/AppTheme.NoActionBar" >
+
+        </activity>
+
+        <activity
+            android:name=".oficinas.IntroOficinas"
+            android:theme="@style/AppTheme.NoActionBar" >
+
+
+        </activity>
+        <activity
+            android:name=".Mision.mision">
+
+
+        </activity>
+        <activity
+            android:name=".Mision.vision">
+
+
+        </activity>
+
     </application>
-
-
-
 
 </manifest>

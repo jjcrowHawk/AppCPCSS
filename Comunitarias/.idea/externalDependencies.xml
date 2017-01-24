@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalDependencies">
+    <plugin id="CVS" />
+    <plugin id="Coverage" />
+    <plugin id="Git4Idea" />
+    <plugin id="com.android.tools.games" />
+    <plugin id="com.android.tools.idea.updater" />
+    <plugin id="com.android.tools.ndk" />
+    <plugin id="com.google.appindexing" />
+    <plugin id="com.google.gct.testing" />
+    <plugin id="com.google.services.firebase" />
+    <plugin id="com.intellij.copyright" />
+    <plugin id="com.intellij.tasks" />
+    <plugin id="org.editorconfig.editorconfigjetbrains" />
+    <plugin id="org.jetbrains.android" />
+    <plugin id="org.jetbrains.plugins.github" />
+  </component>
+</project>

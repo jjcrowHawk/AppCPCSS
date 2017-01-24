@@ -32,15 +32,13 @@
             <TextView
                 android:id="@+id/subtittle"
                 android:text="@string/sub_titulo"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_subtitle"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textSize="21sp"
                 android:fontFamily="sans-serif"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 android:layout_marginTop="20dp"
                 />
 
