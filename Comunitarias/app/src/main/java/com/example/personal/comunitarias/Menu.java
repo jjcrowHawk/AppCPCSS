@@ -23,6 +23,9 @@ import com.example.personal.comunitarias.tv.IntroTv;
 import com.example.personal.comunitarias.tweets.IntroTweets;
 import com.example.personal.comunitarias.tweets.TwitterActivity;
 import com.example.personal.comunitarias.videos.IntroVideos;
+import com.example.personal.comunitarias.Mision.mision;
+import com.example.personal.comunitarias.Mision.vision;
+
 
 import com.example.personal.comunitarias.noticias.Noticias;
 import preguntas.PreguntasFrecuentes;
@@ -117,7 +120,10 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
         if (id == R.id.nav_mision) {
             // Handle the camera action
+            startActivity (new Intent(getApplicationContext(), mision.class));
+
         } else if (id == R.id.nav_vision) {
+            startActivity (new Intent(getApplicationContext(), vision.class));
 
         } else if (id == R.id.nav_oficinas) {
             if(!isOnlineNet())

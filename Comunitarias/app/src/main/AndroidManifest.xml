@@ -101,7 +101,19 @@
             android:name=".oficinas.IntroOficinas"
             android:theme="@style/AppTheme.NoActionBar" >
 
+
         </activity>
+        <activity
+            android:name=".Mision.mision">
+
+
+        </activity>
+        <activity
+            android:name=".Mision.vision">
+
+
+        </activity>
+
     </application>
 
 </manifest>

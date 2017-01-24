@@ -119,7 +119,8 @@ public class Noticias extends AppCompatActivity {
 
     private class JsoupListView extends AsyncTask<Void, Void, Void> {
 
-        String url = "http://www.cpccs.gob.ec/es/category/com.example.personal.comunitarias.noticias/page/"+page+"/";
+        //String url = "http://www.cpccs.gob.ec/es/category/com.example.personal.comunitarias.noticias/page/"+page+"/";
+        String url = "http://www.cpccs.gob.ec/es/category/noticias/page/"+page+"/";
         int positionview;
 
         @Override
