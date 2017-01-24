@@ -1,36 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="match_parent"
-        app:srcCompat="@null"
-        android:id="@+id/mision_img"
-        android:layout_height="200dp" />
+        <ImageView
+            android:layout_width="match_parent"
+            app:srcCompat="@null"
+            android:id="@+id/mision_img"
+            android:layout_height="200dp" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="25dp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
 
-    <TextView
-        android:text="Misiòn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView8"
-        android:textAlignment="textEnd"
-        android:textSize="30sp" />
+        <TextView
+            android:text="Misión"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView8"
+            android:textAlignment="textEnd"
+            android:textSize="30sp"
+            android:layout_marginLeft="10dp"/>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="25dp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
 
-    <TextView
-        android:text="El Consejo de Participación Ciudadana y Control Social es una entidad autónoma que promueve e incentiva el ejercicio de los derechos a la participación ciudadana; establece e impulsa mecanismos de control en los asuntos de interés público; fomenta la transparencia en la gestión de lo público, investiga actos que generen corrupción o afecten la participación ciudadana; y designa a las autoridades que le corresponde de acuerdo con la Constitución y la ley."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView7"
-        android:padding="15sp"
-        android:textSize="20sp" />
-</LinearLayout>
+        <com.example.personal.comunitarias.JustifyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="El Consejo de Participación Ciudadana y Control Social es una entidad autónoma que promueve e incentiva el ejercicio de los derechos a la participación ciudadana; establece e impulsa mecanismos de control en los asuntos de interés público; fomenta la transparencia en la gestión de lo público, investiga actos que generen corrupción o afecten la participación ciudadana; y designa a las autoridades que le corresponde de acuerdo con la Constitución y la ley.
+            "
+            android:id="@+id/txt_mision"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="-10dp"
+            android:textSize="20sp" />
+
+        <!--
+        <TextView
+            android:text="El Consejo de Participación Ciudadana y Control Social es una entidad autónoma que promueve e incentiva el ejercicio de los derechos a la participación ciudadana; establece e impulsa mecanismos de control en los asuntos de interés público; fomenta la transparencia en la gestión de lo público, investiga actos que generen corrupción o afecten la participación ciudadana; y designa a las autoridades que le corresponde de acuerdo con la Constitución y la ley."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView7"
+            android:padding="15sp"
+            android:textSize="20sp" />-->
+    </LinearLayout>
+</ScrollView>
