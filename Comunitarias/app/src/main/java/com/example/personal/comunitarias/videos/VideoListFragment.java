@@ -60,13 +60,14 @@ public class VideoListFragment extends ListFragment{
                                   .setAction("Youtube", new View.OnClickListener() {
                                       @Override
                                       public void onClick(View view) {
-                                          String version = YouTubeIntents.getInstalledYouTubeVersionName(YoutubeVideos.getVista());
+                                          String version = YouTubeIntents.getInstalledYouTubeVersionName(YoutubeVideos.getContext());
                                           if (version != null) {
-                                              Intent intent = YouTubeIntents.createChannelIntent(YoutubeVideos.getVista(), CHANNEL_ID);
+                                              Intent intent = YouTubeIntents.createChannelIntent(YoutubeVideos.getContext(), CHANNEL_ID);
                                               intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                              YoutubeVideos.getVista().startActivity(intent);
+                                              YoutubeVideos.getContext().startActivity(intent);
+
                                           } else {
-                                              youtubeWebView(YoutubeVideos.getVista());
+                                              youtubeWebView(YoutubeVideos.getContext());
                                           }
                                       }
                                   })

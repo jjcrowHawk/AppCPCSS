@@ -15,6 +15,8 @@ import com.example.personal.comunitarias.R;
 public class TwitterActivity extends AppCompatActivity {
 
     private ProgressDialog pd;
+    private String embedTweet;
+    private WebView displayTweeteTimeline;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,35 +27,50 @@ public class TwitterActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        String embedTweet = "<a class=\"twitter-timeline\" href=\"https://twitter.com/CPCCS\"></a> <script async src=\"//platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>";
+        embedTweet = "<a class=\"twitter-timeline\" href=\"https://twitter.com/CPCCS\"></a> <script async src=\"//platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>";
 
 
-        WebView displayTweeteTimeline = (WebView) findViewById(R.id.mWebView);
+        displayTweeteTimeline = (WebView) findViewById(R.id.mWebView);
         pd = new ProgressDialog(this);
         pd.setMessage("Cargando...");
+        pd.setCancelable(false);
         pd.show();
         displayTweeteTimeline.setWebViewClient(new TwitterActivity.MyWebViewClient());
         WebSettings webSettings = displayTweeteTimeline.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
         displayTweeteTimeline.loadDataWithBaseURL("https://twitter.com", embedTweet, "text/html", "UTF-8", null);
+
     }
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        finish();
+        if(displayTweeteTimeline.canGoBack()) {
+            displayTweeteTimeline.loadUrl(embedTweet);
+            displayTweeteTimeline.goBack();
+            displayTweeteTimeline.goBack();
+            displayTweeteTimeline.goBack();
+        }
+        else if(!displayTweeteTimeline.canGoBack()){
+            finish();
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
 
     private class MyWebViewClient extends WebViewClient {
+
+
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            view.loadUrl(url);
+            if(isOnlineNet()){
+                view.loadUrl(url);
 
-            if (!pd.isShowing()) {
-                pd.show();
+                if (!pd.isShowing()) {
+                    pd.show();
+                }
             }
 
             return true;
@@ -67,6 +84,22 @@ public class TwitterActivity extends AppCompatActivity {
             }
 
         }
+    }
+
+    public Boolean isOnlineNet() {
+
+        try {
+            Process p = Runtime.getRuntime().exec("ping -c 1 www.google.es");
+
+            int val = p.waitFor();
+            boolean reachable = (val == 0);
+            return reachable;
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return false;
     }
 
 

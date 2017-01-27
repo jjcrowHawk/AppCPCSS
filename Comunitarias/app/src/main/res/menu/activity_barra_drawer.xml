@@ -27,7 +27,7 @@
         <item
             android:id="@+id/nav_tv"
             android:icon="@drawable/video_camera"
-            android:title="Cppcs TV" />
+            android:title="Cpccs TV" />
 
     </group>
 

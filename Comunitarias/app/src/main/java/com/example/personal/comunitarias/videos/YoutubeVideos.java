@@ -104,7 +104,7 @@ public class YoutubeVideos extends AppCompatActivity implements OnFullscreenList
         view.setLayoutParams(params);
     }
 
-    public static Context getVista(){
+    public static Context getContext(){
 
         return  context;
     }
