@@ -37,6 +37,7 @@ public class CpccsTv extends AppCompatActivity {
         myWebView = (WebView) findViewById(R.id.mWebView);
         pd = new ProgressDialog(this);
         pd.setMessage("Cargando...");
+        pd.setCancelable(false);
         pd.show();
         myWebView.setWebViewClient(new MyWebViewClient());
         myWebView.getSettings().setJavaScriptEnabled(true);
@@ -47,8 +48,16 @@ public class CpccsTv extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        myWebView.destroy();
-        finish();
+
+        if(myWebView.canGoBack()) {
+            myWebView.goBack();
+        }
+        else if(!myWebView.canGoBack()){
+            myWebView.destroy();
+            finish();
+        }
+
+
 
         return super.onOptionsItemSelected(item);
     }
