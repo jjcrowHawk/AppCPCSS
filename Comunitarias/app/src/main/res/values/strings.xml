@@ -15,4 +15,40 @@
     <string name="youtube_not_installed">YouTube no está instalado en este dispositivo.</string>
     <string name="title_activity_cpccs_tv">CpccsTv</string>
 
+    <string-array name="si_no">
+        <item>Si</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="tipo_identificacion">
+        <item>Cédula</item>
+        <item>RUC</item>
+        <item>Pasaporte</item>
+    </string-array>
+
+    <string-array name="genero">
+        <item>Femenino</item>
+        <item>Masculino</item>
+    </string-array>
+
+    <string-array name="estado_civil">
+        <item>Soltero</item>
+        <item>Casado</item>
+        <item>Divorciado</item>
+        <item>Viudo</item>
+        <item>Unión Libre</item>
+    </string-array>
+
+    <string-array name="nivel__educacion">
+        <item>Primaria</item>
+        <item>Secundaria</item>
+        <item>Tercer Nivel</item>
+        <item>Cuarto Nivel</item>
+    </string-array>
+
+    <string-array name="nacionalidad">
+        <item>Ecuatoriana</item>
+        <item>Extranjero</item>
+    </string-array>
+
 </resources>
