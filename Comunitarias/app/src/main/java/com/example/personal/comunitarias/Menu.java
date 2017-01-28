@@ -1,6 +1,9 @@
 package com.example.personal.comunitarias;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -126,6 +129,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             startActivity (new Intent(getApplicationContext(), vision.class));
 
         } else if (id == R.id.nav_oficinas) {
+
             if(!isOnlineNet())
                 Snackbar.make((ViewGroup) ((ViewGroup) this
                         .findViewById(android.R.id.content)).getChildAt(0), "Necesita conexión a Internet", Snackbar.LENGTH_LONG)
@@ -133,14 +137,12 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             else
                 startActivity (new Intent(getApplicationContext(), IntroOficinas.class));
 
-
-
-
         } else if (id == R.id.nav_videos) {
-            if(!isOnlineNet())
+            if(!isOnlineNet()){
                 Snackbar.make((ViewGroup) ((ViewGroup) this
                         .findViewById(android.R.id.content)).getChildAt(0), "Necesita conexión a Internet", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+            }
             else
                 startActivity (new Intent(getApplicationContext(), IntroVideos.class));
 
@@ -168,17 +170,33 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
     public Boolean isOnlineNet() {
 
-        try {
-            Process p = Runtime.getRuntime().exec("ping -c 1 www.google.es");
+        ConnectivityManager cm;
+        NetworkInfo ni;
+        cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ni = cm.getActiveNetworkInfo();
+        boolean tipoConexion1 = false;
+        boolean tipoConexion2 = false;
 
-            int val = p.waitFor();
-            boolean reachable = (val == 0);
-            return reachable;
+        if (ni != null) {
+            ConnectivityManager connManager1 = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo mWifi = connManager1.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            ConnectivityManager connManager2 = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo mMobile = connManager2.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+            if (mWifi.isConnected()) {
+                tipoConexion1 = true;
+            }
+            if (mMobile.isConnected()) {
+                tipoConexion2 = true;
+            }
+
+            if (tipoConexion1 == true || tipoConexion2 == true) {
+               /* Estas conectado a internet usando wifi o redes moviles, puedes enviar tus datos */
+                return true;
+            }
         }
+
         return false;
     }
 

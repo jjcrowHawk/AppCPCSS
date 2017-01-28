@@ -4,9 +4,12 @@ import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -140,6 +143,7 @@ public class Noticias extends AppCompatActivity {
 
             try {
                 if (isOnlineNet()) {
+                    adapter.noticias.clear();
                     Document doc = Jsoup.connect(url).get();
                     for (Element article : doc.select("article")) {
                         Elements wrap = article.select("div[class=blog-wrap]");
@@ -236,17 +240,33 @@ public class Noticias extends AppCompatActivity {
     //Saber si hay conexion
     public Boolean isOnlineNet() {
 
-        try {
-            Process p = Runtime.getRuntime().exec("ping -c 1 www.google.es");
+        ConnectivityManager cm;
+        NetworkInfo ni;
+        cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ni = cm.getActiveNetworkInfo();
+        boolean tipoConexion1 = false;
+        boolean tipoConexion2 = false;
 
-            int val = p.waitFor();
-            boolean reachable = (val == 0);
-            return reachable;
+        if (ni != null) {
+            ConnectivityManager connManager1 = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo mWifi = connManager1.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            ConnectivityManager connManager2 = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo mMobile = connManager2.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+            if (mWifi.isConnected()) {
+                tipoConexion1 = true;
+            }
+            if (mMobile.isConnected()) {
+                tipoConexion2 = true;
+            }
+
+            if (tipoConexion1 == true || tipoConexion2 == true) {
+               /* Estas conectado a internet usando wifi o redes moviles, puedes enviar tus datos */
+                return true;
+            }
         }
+
         return false;
     }
 
