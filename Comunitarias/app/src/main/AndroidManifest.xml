@@ -118,6 +118,14 @@
             android:name=".Denuncias.Denuncia"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".Denuncias.Denunciado"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".Denuncias.Peticionario"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
 
 
     </application>
