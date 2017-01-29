@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.personal.comunitarias.Denuncias.Denuncia;
 import com.example.personal.comunitarias.Denuncias.Peticionario;
 import com.example.personal.comunitarias.Mision.mision;
 import com.example.personal.comunitarias.Mision.vision;
@@ -58,7 +59,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         Denuncias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(getBaseContext(), Peticionario.class);
+                Intent i=new Intent(getBaseContext(), Denuncia.class);
                 startActivity(i);
 
             }

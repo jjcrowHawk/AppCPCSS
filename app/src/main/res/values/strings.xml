@@ -3,6 +3,7 @@
     <string name="title_activity_comunidad_ec">ComunidadEC</string>
     <string name="sub_titulo">Consejo de Participación Ciudadana y Control Social</string>
     <string name="title_activity_noticias">Noticias</string>
+    <string name="title_activity_denuncia">Denuncia</string>
     <string name="title_activity_barra">Barra</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
