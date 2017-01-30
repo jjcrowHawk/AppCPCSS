@@ -86,7 +86,7 @@ public class OficinasReader extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-       // ((OficinasActivity) context).anadirMarcador(provincias);
+        ((OficinasActivity) context).anadirMarcador(provincias);
         if (pDialog.isShowing()) {
             pDialog.cancel();
         }

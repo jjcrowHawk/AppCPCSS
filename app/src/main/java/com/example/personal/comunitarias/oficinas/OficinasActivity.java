@@ -2,14 +2,10 @@ package com.example.personal.comunitarias.oficinas;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.example.personal.comunitarias.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -21,9 +17,9 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class OficinasActivity extends AppCompatActivity
-        implements OnMapReadyCallback,GoogleMap.OnCameraIdleListener,
-        NavigationView.OnNavigationItemSelectedListener {
+import java.util.TreeMap;
+
+public class OficinasActivity extends AppCompatActivity implements OnMapReadyCallback,GoogleMap.OnCameraIdleListener {
 
     private GoogleMap mMap;
     private OficinasReader officereader;
@@ -36,7 +32,7 @@ public class OficinasActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_oficinas);
+        setContentView(R.layout.app_bar_oficinas);
 
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -46,46 +42,21 @@ public class OficinasActivity extends AppCompatActivity
         officereader = new OficinasReader(this);
         officereader.execute();
 
-
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
 
 
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-
-        } else {
-            super.onBackPressed();
-        }
-    }
 
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        Oficina oficina = officereader.getProvincias().get(item.getTitle());
-        anadirMarcador(oficina);
-        Toast.makeText(getApplicationContext(), "En construcción" , Toast.LENGTH_SHORT).show();
-
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+    public boolean onOptionsItemSelected(MenuItem item) {
+        finish();
+        return super.onOptionsItemSelected(item);
     }
-
-
 
 
     @Override
@@ -116,25 +87,22 @@ public class OficinasActivity extends AppCompatActivity
 
 
 
-    public void anadirMarcador(Oficina oficina){
-        mMap.clear();
-        mMap.addMarker(new MarkerOptions()
-                     .position(oficina.getCoordenada())
-                     .title(oficina.getProvincia())
-        );
-        //LatLngBounds bounds = new LatLngBounds(new LatLng(-4.708246, -92.737665),new LatLng(1.251923, -75.456171));
-       // mMap.setLatLngBoundsForCameraTarget(bounds);
+    public void anadirMarcador(TreeMap<String , Oficina> oficinas){
 
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(oficina.getCoordenada(), 15f));
+        for(Oficina oficina : oficinas.values()){
+            mMap.addMarker(new MarkerOptions()
+                    .position(oficina.getCoordenada())
+                    .title(oficina.getProvincia())
+
+
+
+            );
+        }
+
+
+
 
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        finish();
-        return super.onOptionsItemSelected(item);
-    }
-
 
 
     @Override
@@ -150,5 +118,4 @@ public class OficinasActivity extends AppCompatActivity
         }
 
     }
-
 }
