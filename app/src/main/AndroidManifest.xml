@@ -34,6 +34,9 @@
             android:name=".Menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".Tabs"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".tweets.TwitterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Tweets"
@@ -76,18 +79,14 @@
         <activity
             android:name=".oficinas.IntroOficinas"
             android:theme="@style/AppTheme.NoActionBar" >
-
-
         </activity>
+
         <activity
             android:name=".Mision.mision">
-
-
         </activity>
+
         <activity
             android:name=".Mision.vision">
-
-
         </activity>
 
         <activity
