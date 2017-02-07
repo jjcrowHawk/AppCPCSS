@@ -34,8 +34,10 @@
             android:name=".Menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Tabs"
+            android:name=".Denuncias.Tabs"
             android:theme="@style/AppTheme.NoActionBar" />
+
+
         <activity
             android:name=".tweets.TwitterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -87,20 +89,6 @@
 
         <activity
             android:name=".Mision.vision">
-        </activity>
-
-        <activity
-            android:name=".Denuncias.Denuncia"
-            android:label="@string/title_activity_denuncia"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-        <activity
-            android:name=".Denuncias.Denunciado"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-        <activity
-            android:name=".Denuncias.Peticionario"
-            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
 
         <activity

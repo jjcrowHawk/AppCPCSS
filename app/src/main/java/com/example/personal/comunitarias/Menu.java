@@ -17,7 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.personal.comunitarias.Denuncias.Denuncia;
+import com.example.personal.comunitarias.Denuncias.Tabs;
 import com.example.personal.comunitarias.Mision.mision;
 import com.example.personal.comunitarias.Mision.vision;
 import com.example.personal.comunitarias.noticias.Noticias;
@@ -57,7 +57,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         Denuncias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(getBaseContext(), Denuncia.class);
+                Intent i=new Intent(getBaseContext(), Tabs.class);
                 startActivity(i);
 
             }
@@ -68,8 +68,8 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             @Override
             public void onClick(View view) {
                // Toast.makeText(getApplicationContext(), "En construcción" , Toast.LENGTH_SHORT).show();
-                Intent i=new Intent(getBaseContext(), Tabs.class);
-                startActivity(i);
+                //Intent i=new Intent(getBaseContext(), Tabs.class);
+               // startActivity(i);
             }
         });
 

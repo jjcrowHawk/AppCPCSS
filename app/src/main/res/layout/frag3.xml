@@ -1,15 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Fragment3"
-        android:id="@+id/textView7"
-        android:layout_gravity="center_horizontal" />
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="70dp"
+        android:layout_height="565dp">
 
-</LinearLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/lbl_Nombres"
+            android:layout_width="match_parent"
+            android:textColor="#000000"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/txt_Nombres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombres"
+                android:textSize="16sp"
+
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/lbl_Apellidos"
+            android:layout_marginTop="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/txt_Apellidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Apellidos"
+                android:textSize="16sp"
+
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:text="Género"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="140dp"
+            android:textColor="#000000"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textSize="16sp" />
+
+
+        <Spinner
+            android:gravity="left"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner1"
+            android:layout_alignTop="@+id/textView2"
+            android:layout_alignParentEnd="true" />
+
+
+
+        <TextView
+            android:text="Institución"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="200dp"
+            android:textColor="#000000"
+            android:layout_height="wrap_content"
+            android:id="@+id/textVie"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:gravity="left"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner2"
+            android:layout_alignTop="@+id/textVie"
+            android:layout_alignParentEnd="true" />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/lbl_TipoInstitucion"
+            android:layout_width="match_parent"
+            android:layout_marginTop="240dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/txt_tipoIdentificacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Cargo"
+
+                />
+        </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+
+
+
+
+        <TextView
+            android:text="Provincia"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="320dp"
+            android:textColor="#000000"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView8"
+            android:textSize="17sp" />
+
+        <Spinner
+            android:gravity="left"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner8"
+            android:layout_alignTop="@+id/textView8"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:text="Ciudad"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="370dp"
+            android:textColor="#000000"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView9"
+            android:textSize="17sp" />
+
+        <Spinner
+            android:gravity="left"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner9"
+            android:layout_alignTop="@+id/textView9"
+            android:layout_alignParentEnd="true" />
+
+
+        <Button
+            android:text="Guardar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="430dp"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimaryDark"
+            android:id="@+id/btnInfoPeticionario" />
+
+    </RelativeLayout>
+
+</ScrollView>

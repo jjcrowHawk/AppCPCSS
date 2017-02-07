@@ -51,4 +51,9 @@
         <item>Ecuatoriana</item>
         <item>Extranjero</item>
     </string-array>
+
+    <string-array name="institucion">
+        <item>Inst 1</item>
+        <item>Inst 2</item>
+    </string-array>
 </resources>
