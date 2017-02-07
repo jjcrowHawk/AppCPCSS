@@ -15,7 +15,7 @@ import android.widget.Spinner;
 import com.example.personal.comunitarias.R;
 
 
-public class Fragment1 extends Fragment implements AdapterView.OnItemSelectedListener{
+public class Peticionario extends Fragment implements AdapterView.OnItemSelectedListener{
     Spinner identidad, tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4, adapter5, adapter6, adapter7,adapter8, adapter9;
     EditText txtNombre, txtApellido, txtIdent;
@@ -25,7 +25,7 @@ public class Fragment1 extends Fragment implements AdapterView.OnItemSelectedLis
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view =  inflater.inflate(R.layout.frag1,container,false);
+        view =  inflater.inflate(R.layout.frag1_peticionario,container,false);
         InicializarComp();
         return  view;
 

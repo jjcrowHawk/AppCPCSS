@@ -12,14 +12,14 @@ import android.widget.Spinner;
 import com.example.personal.comunitarias.R;
 
 
-public class Fragment2 extends Fragment {
+public class Denuncia extends Fragment {
     Spinner comparecer, hechos;
     ArrayAdapter<CharSequence> adapter, adapter2;
     private View view;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-         view =  inflater.inflate(R.layout.frag2,container,false);
+         view =  inflater.inflate(R.layout.frag2_denuncia,container,false);
         InicializarComp();
         return  view;
 

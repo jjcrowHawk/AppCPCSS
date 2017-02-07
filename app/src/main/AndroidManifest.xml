@@ -34,7 +34,7 @@
             android:name=".Menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Denuncias.Tabs"
+            android:name=".Denuncias.TabsDenuncia"
             android:theme="@style/AppTheme.NoActionBar" />
 
 

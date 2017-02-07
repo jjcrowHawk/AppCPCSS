@@ -14,7 +14,7 @@ import android.view.MenuItem;
 
 import com.example.personal.comunitarias.R;
 
-public class Tabs extends AppCompatActivity {
+public class TabsDenuncia extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager viewPager;
@@ -23,7 +23,7 @@ public class Tabs extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tabs);
+        setContentView(R.layout.tabs_denuncia);
 
         //toolbar
        /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -64,7 +64,7 @@ public class Tabs extends AppCompatActivity {
 
     private class CustomAdapter extends FragmentPagerAdapter {
 
-        private String fragments[] = {"Fragment 1", "Fragment 2", "Fragment 3"};
+        private String fragments[] = {"Peticionario", "Denuncia", "Denunciado"};
 
         public CustomAdapter(FragmentManager supportFragmentManager, Context applicationContext) {
             super(supportFragmentManager);
@@ -74,11 +74,11 @@ public class Tabs extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new Fragment1();
+                    return new Peticionario();
                 case 1:
-                    return new Fragment2();
+                    return new Denuncia();
                 case 2:
-                    return new Fragment3();
+                    return new Denunciado();
                 default:
                     return null;
             }

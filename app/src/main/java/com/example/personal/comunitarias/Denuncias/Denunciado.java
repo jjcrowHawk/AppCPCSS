@@ -14,14 +14,14 @@ import android.widget.Spinner;
 import com.example.personal.comunitarias.R;
 
 
-public class Fragment3 extends Fragment  implements AdapterView.OnItemSelectedListener{
+public class Denunciado extends Fragment  implements AdapterView.OnItemSelectedListener{
     Spinner  genero,institucion, provincia, ciudad;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4;
     private View view;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view =  inflater.inflate(R.layout.frag3,container,false);
+        view =  inflater.inflate(R.layout.frag3_denunciado,container,false);
         InicializarComp();
         return  view;
     }
