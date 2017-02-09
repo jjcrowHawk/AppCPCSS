@@ -14,9 +14,12 @@ public class Region {
     String nombre;
     String descripcion;
 
+    public Region(){
+    }
+
     public Region(String nombre, String descripcion) {
-        this.nombre = nombre;
         this.descripcion = descripcion;
+        this.nombre = nombre;
     }
 
     public String getNombre() {
@@ -34,6 +37,13 @@ public class Region {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
+
+    public int getIdregion() {
+        return idregion;
+    }
+
+    public void setIdregion(int idregion) {
+        this.idregion = idregion;
+    }
 }
 

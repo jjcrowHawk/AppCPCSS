@@ -1,8 +1,17 @@
 package com.example.personal.comunitarias.DatabaseHelper;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
+import com.example.personal.comunitarias.BaseDeDatos.region.Region;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Kattya Desiderio on 15/01/2017.
@@ -130,14 +139,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + " TEXT" + ")";
 
     // Region table create statement
+//    private static final String CREATE_TABLE_REGION = "CREATE TABLE "
+//            + TABLE_REGION + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_REGION_NOMBRE
+//            + " TEXT," + KEY_REGION_DESCRIPCION
+//            + " TEXT" + ")";
+
     private static final String CREATE_TABLE_REGION = "CREATE TABLE "
             + TABLE_REGION + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_REGION_NOMBRE
-            + " TEXT" + ")";
+            + " TEXT," + KEY_REGION_DESCRIPCION + " TEXT" + ")";
 
     // Provincia table create statement
     private static final String CREATE_TABLE_PROVINCIA = "CREATE TABLE "
             + TABLE_PROVINCIA + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_PROVINCIA_NOMBRE
-            + " TEXT," + KEY_REGION_DESCRIPCION
             + " TEXT," + KEY_REGION_ID + " INTEGER" + ")";
 
     // Ciudad table create statement
@@ -222,11 +235,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        System.out.print(CREATE_TABLE_REGION);
         // creating required tables
         db.execSQL(CREATE_TABLE_NOTICIA);
         db.execSQL(CREATE_TABLE_REGION);
@@ -268,5 +282,120 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         if (db != null && db.isOpen())
             db.close();
+    }
+
+    //CRUDS functions
+
+    public long createRegion(Region region) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_REGION_NOMBRE, region.getNombre());
+        values.put(KEY_REGION_DESCRIPCION, region.getDescripcion());
+
+        // insert row
+        long region_id = db.insert(TABLE_REGION, null, values);
+
+        return region_id;
+    }
+
+//    public long createProvincia(Provincia provincia, long[] regiones_ids) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//
+//        ContentValues values = new ContentValues();
+//        values.put(KEY_PROVINCIA_NOMBRE, provincia.getNombre());
+//
+//        // insert row
+//        long provincia_id = db.insert(TABLE_REGION, null, values);
+//
+//        for (long region_id : regiones_ids) {
+//            //createRegionProvincia(region_id, provincia_id);
+//        }
+//
+//        return provincia_id;
+//    }
+
+    public long createProvinciaRegion(Provincia provincia, long region_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_REGION_ID, region_id);
+        values.put(KEY_PROVINCIA_NOMBRE, provincia.getNombre());
+
+        long id = db.insert(TABLE_PROVINCIA, null, values);
+
+        return id;
+    }
+
+    //SELECT
+    public Region getRegion(long region_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_REGION + " WHERE "
+                + KEY_ID + " = " + region_id;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Region r = new Region();
+        r.setIdregion((c.getInt(c.getColumnIndex(KEY_ID))));
+        r.setNombre((c.getString(c.getColumnIndex(KEY_REGION_NOMBRE))));
+        r.setDescripcion(c.getString(c.getColumnIndex(KEY_REGION_DESCRIPCION)));
+
+        return r;
+    }
+
+    //SELECT ALL REGIONS
+    public List<Region> getAllRegion() {
+        List<Region> todos = new ArrayList<Region>();
+        String selectQuery = "SELECT  * FROM " + TABLE_REGION;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Region r = new Region();
+                r.setIdregion(c.getInt((c.getColumnIndex(KEY_ID))));
+                r.setNombre((c.getString(c.getColumnIndex(KEY_REGION_NOMBRE))));
+                r.setDescripcion(c.getString(c.getColumnIndex(KEY_REGION_DESCRIPCION)));
+
+                // adding to todo list
+                todos.add(r);
+            } while (c.moveToNext());
+        }
+
+        return todos;
+    }
+
+    public List<Provincia> getAllProvincias() {
+        List<Provincia> tags = new ArrayList<Provincia>();
+        String selectQuery = "SELECT  * FROM " + TABLE_PROVINCIA;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Provincia p = new Provincia();
+                p.setIdprovincia(c.getInt((c.getColumnIndex(KEY_ID))));
+                p.setNombre(c.getString(c.getColumnIndex(KEY_PROVINCIA_NOMBRE)));
+
+                // adding to tags list
+                tags.add(p);
+            } while (c.moveToNext());
+        }
+        return tags;
     }
 }

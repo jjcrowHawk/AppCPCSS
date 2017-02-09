@@ -12,11 +12,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
+import com.example.personal.comunitarias.BaseDeDatos.region.Region;
+import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.Denuncias.TabsDenuncia;
 import com.example.personal.comunitarias.Mision.mision;
 import com.example.personal.comunitarias.Mision.vision;
@@ -27,9 +31,12 @@ import com.example.personal.comunitarias.tv.IntroTv;
 import com.example.personal.comunitarias.tweets.IntroTweets;
 import com.example.personal.comunitarias.videos.IntroVideos;
 
+import java.util.List;
+
 public class Menu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     Button Denuncias,Pedidos,Noticiase,Preguntas;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +98,39 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
             }
         });
+
+        //BASE
+        db = new DatabaseHelper(getApplicationContext());
+        //Creando Regiones
+        Region r1 = new Region("Costa","Region Costa");
+        Region r2 = new Region("Sierra","Region Sierra");
+        //Insertando en base
+        long region1_id = db.createRegion(r1);
+        long region2_id = db.createRegion(r2);
+
+        Log.d("Tag Count", "Tag Count: " + db.getAllRegion().size());
+
+        //Creando Provincias
+        Provincia p2 = new Provincia("Pichincha");
+        Provincia p1 = new Provincia("Guayas");
+
+        db.createProvinciaRegion(p1, region1_id);
+        db.createProvinciaRegion(p2, region2_id);
+
+
+        Log.d("Get Tags", "Getting All Tags");
+
+        List<Region> allRegion = db.getAllRegion();
+        for (Region r : allRegion) {
+            Log.d("Region Name", r.getNombre());
+        }
+
+        List<Provincia> allProvincia = db.getAllProvincias();
+        for (Provincia p : allProvincia) {
+            Log.d("Provincia Name", p.getNombre());
+        }
+
+        db.closeDB();
     }
 
     @Override

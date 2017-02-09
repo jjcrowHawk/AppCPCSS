@@ -14,6 +14,10 @@ public class Provincia {
     String nombre;
     int regionid; //fk
 
+    public Provincia() {
+
+    }
+
     public Provincia(String nombre) {
         this.nombre = nombre;
     }
@@ -25,6 +29,12 @@ public class Provincia {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    
+
+    public int getIdprovincia() {
+        return idprovincia;
+    }
+
+    public void setIdprovincia(int idprovincia) {
+        this.idprovincia = idprovincia;
+    }
 }
