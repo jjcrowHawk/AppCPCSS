@@ -45,5 +45,7 @@ public class Region {
     public void setIdregion(int idregion) {
         this.idregion = idregion;
     }
+
+
 }
 

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.BaseDeDatos.region.Region;
 
@@ -127,7 +128,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_NIVELEDUCACION_NOMBRE = "nombre";
     private static final String KEY_NIVELEDUCACION_DESCRIPCION = "descripcion";
 
-    // Table Create Statements
+    //------------- Table Create Statements --------------------------------------------//
     // Noticia table create statement
     private static final String CREATE_TABLE_NOTICIA = "CREATE TABLE "
             + TABLE_NOTICIA + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NOTICIA_TITULO
@@ -237,7 +238,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
     }
-
+    //--------------------------- FIN CREATE ----------------------------------------------------//
     @Override
     public void onCreate(SQLiteDatabase db) {
         System.out.print(CREATE_TABLE_REGION);
@@ -284,7 +285,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
     }
 
-    //CRUDS functions
+    //-----------------------------------------CRUDS functions---------------------------------------//
 
     public long createRegion(Region region) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -328,7 +329,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return id;
     }
 
-    //SELECT
+    public long createCiudad(Ciudad ciudad, long provincia_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_PROVINCIA_ID, provincia_id);
+        values.put(KEY_CIUDAD_NOMBRE, ciudad.getNombre());
+
+        long id = db.insert(TABLE_CIUDAD, null, values);
+
+        return id;
+    }
+
+    //---------------------SELECT-------------------------------------------------
     public Region getRegion(long region_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -349,6 +362,50 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return r;
     }
+
+    public Provincia getProvincia(long provincia_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_PROVINCIA + " WHERE "
+                + KEY_ID + " = " + provincia_id;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Provincia p = new Provincia();
+        p.setIdprovincia((c.getInt(c.getColumnIndex(KEY_ID))));
+        p.setNombre((c.getString(c.getColumnIndex(KEY_PROVINCIA_NOMBRE))));
+        p.setRegionid((c.getInt(c.getColumnIndex(KEY_REGION_ID))));
+
+        return p;
+    }
+
+    public Ciudad getCiudad(long ciudad_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_CIUDAD + " WHERE "
+                + KEY_ID + " = " + ciudad_id;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Ciudad ci = new Ciudad();
+        ci.setIdciudad(c.getInt(c.getColumnIndex(KEY_ID)));
+        ci.setNombre(c.getString(c.getColumnIndex(KEY_CIUDAD_NOMBRE)));
+        ci.setProvinciaid(c.getInt(c.getColumnIndex(KEY_PROVINCIA_ID)));
+
+        return ci;
+    }
+
+    //---------------------- SELECT ALL ------------------------
 
     //SELECT ALL REGIONS
     public List<Region> getAllRegion() {
@@ -375,7 +432,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return todos;
     }
-
+    //SELECT ALL PROVINICIA
     public List<Provincia> getAllProvincias() {
         List<Provincia> tags = new ArrayList<Provincia>();
         String selectQuery = "SELECT  * FROM " + TABLE_PROVINCIA;
@@ -398,4 +455,69 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return tags;
     }
+
+    //SELECT ALL CIUDAD
+    public List<Ciudad> getAllCiudades() {
+        List<Ciudad> tags = new ArrayList<Ciudad>();
+        String selectQuery = "SELECT  * FROM " + TABLE_CIUDAD;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Ciudad ci = new Ciudad();
+                ci.setIdciudad(c.getInt((c.getColumnIndex(KEY_ID))));
+                ci.setNombre(c.getString(c.getColumnIndex(KEY_CIUDAD_NOMBRE)));
+                ci.setProvinciaid(c.getInt(c.getColumnIndex(KEY_PROVINCIA_ID)));
+
+                // adding to tags list
+                tags.add(ci);
+            } while (c.moveToNext());
+        }
+        return tags;
+    }
+
+    //------------------------------------ UPDATE -------------------------------------------//
+    public void updateProvincia_Nombre(int id,String nombre){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_PROVINCIA_NOMBRE, nombre);
+        db.update(TABLE_PROVINCIA, values, KEY_ID+"'"+id+"'", null);
+    }
+
+    public void updateRegion_Nombre(int id,String nombre){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_REGION_NOMBRE, nombre);
+        db.update(TABLE_REGION, values, KEY_ID+"'"+id+"'", null);
+    }
+
+    public void updateCiudad_Nombre(int id,String nombre){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_CIUDAD_NOMBRE, nombre);
+        db.update(TABLE_CIUDAD, values, KEY_ID+"='"+id+"'", null);
+    }
+
+    //------------------------------ DELETE --------------------------------------
+
+    public boolean deleteProvincia(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_PROVINCIA, KEY_ID + "='" + id+"'", null) > 0;
+    }
+
+    public boolean deleteRegion(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_REGION, KEY_ID + "='" + id+"'", null) > 0;
+    }
+
+    public boolean deleteCiudad(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_CIUDAD, KEY_ID + "='" + id+"'", null) > 0;
+    }
+
 }

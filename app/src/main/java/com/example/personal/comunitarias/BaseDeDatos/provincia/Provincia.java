@@ -18,6 +18,12 @@ public class Provincia {
 
     }
 
+    public Provincia(int idprovincia, String nombre, int regionid) {
+        this.idprovincia = idprovincia;
+        this.nombre = nombre;
+        this.regionid = regionid;
+    }
+
     public Provincia(String nombre) {
         this.nombre = nombre;
     }
@@ -36,5 +42,13 @@ public class Provincia {
 
     public void setIdprovincia(int idprovincia) {
         this.idprovincia = idprovincia;
+    }
+
+    public int getRegionid() {
+        return regionid;
+    }
+
+    public void setRegionid(int regionid) {
+        this.regionid = regionid;
     }
 }

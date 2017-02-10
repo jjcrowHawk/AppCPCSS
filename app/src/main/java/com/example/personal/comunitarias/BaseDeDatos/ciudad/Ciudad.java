@@ -14,6 +14,15 @@ public class Ciudad {
     String nombre;
     int provinciaid; // fk
 
+    public Ciudad() {
+    }
+
+    public Ciudad(int idciudad, String nombre, int provinciaid) {
+        this.idciudad = idciudad;
+        this.nombre = nombre;
+        this.provinciaid = provinciaid;
+    }
+
     public Ciudad(String nombre) {
         this.nombre = nombre;
     }
@@ -25,5 +34,20 @@ public class Ciudad {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
+    public int getIdciudad() {
+        return idciudad;
+    }
+
+    public void setIdciudad(int idciudad) {
+        this.idciudad = idciudad;
+    }
+
+    public int getProvinciaid() {
+        return provinciaid;
+    }
+
+    public void setProvinciaid(int provinciaid) {
+        this.provinciaid = provinciaid;
+    }
 }
