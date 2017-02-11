@@ -15,6 +15,8 @@
     <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
     <string name="youtube_not_installed">YouTube no está instalado en este dispositivo.</string>
     <string name="title_activity_cpccs_tv">CpccsTv</string>
+    <string name="title_activity_mision">Misión</string>
+    <string name="title_activity_vision">Visión</string>
 
     <string-array name="si_no">
         <item>Si</item>

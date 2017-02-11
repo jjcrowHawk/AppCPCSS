@@ -84,11 +84,15 @@
         </activity>
 
         <activity
-            android:name=".Mision.Mision">
+            android:name=".Mision.Mision"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/title_activity_mision">
         </activity>
 
         <activity
-            android:name=".Mision.Vision">
+            android:name=".Mision.Vision"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/title_activity_vision">
         </activity>
 
         <activity
