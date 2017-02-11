@@ -143,7 +143,7 @@ public class Noticias extends AppCompatActivity {
 
             try {
                 if (isOnlineNet()) {
-                    adapter.noticias.clear();
+                    //adapter.noticias.clear();
                     Document doc = Jsoup.connect(url).get();
                     for (Element article : doc.select("article")) {
                         Elements wrap = article.select("div[class=blog-wrap]");
@@ -185,7 +185,8 @@ public class Noticias extends AppCompatActivity {
                         bd.close();
                     }
                 }
-
+                //Limpiar recycler
+                adapter.noticias.clear();
                 //Se lee de la base de datos
                     DatabaseHelper DBHelper= new DatabaseHelper(Noticias.this);
                     SQLiteDatabase bd = DBHelper.getWritableDatabase();
@@ -201,7 +202,7 @@ public class Noticias extends AppCompatActivity {
                             String n_mes = fila_db.getString(fila_db.getColumnIndex("mes"));
                             String n_contenido = fila_db.getString(fila_db.getColumnIndex("contenidoprevio"));
                             String n_urlimg = fila_db.getString(fila_db.getColumnIndex("urlimagen"));
-                            adapter.noticias.add(new Noticia(n_titulo, n_link, n_dia+"/"+n_mes, n_contenido, n_urlimg));
+                            adapter.noticias.add(new Noticia(n_titulo, n_link, Integer.valueOf(n_dia),Integer.valueOf(n_mes), n_contenido, n_urlimg));
                             fila_db.moveToNext();
                         }
                     }

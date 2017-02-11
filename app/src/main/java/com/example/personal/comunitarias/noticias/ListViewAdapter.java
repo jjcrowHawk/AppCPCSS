@@ -56,7 +56,7 @@ public class ListViewAdapter extends BaseAdapter {
         Txtdes = (TextView)itemView.findViewById(R.id.des_not);
         imagen_noticia =(ImageView)itemView.findViewById(R.id.img_noti);
         txtTitle.setText(noticias.get(position).getTitulo());
-        txtFecha.setText(noticias.get(position).getFecha());
+        txtFecha.setText(noticias.get(position).getDia()+"/"+noticias.get(position).getMes());
         Txtdes.setText(noticias.get(position).getDescripcion());
         String linke = noticias.get(position).getS_img();
         //Bitmap i_noticia = getBitmapFromURL("http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/sign-check-icon.png");

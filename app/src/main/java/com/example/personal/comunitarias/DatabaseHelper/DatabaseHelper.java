@@ -10,6 +10,7 @@ import android.util.Log;
 import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.BaseDeDatos.region.Region;
+import com.example.personal.comunitarias.noticias.Noticia;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -287,6 +288,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //-----------------------------------------CRUDS functions---------------------------------------//
 
+    //Region
     public long createRegion(Region region) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -316,7 +318,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        return provincia_id;
 //    }
-
+    //Provincia
     public long createProvinciaRegion(Provincia provincia, long region_id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -328,7 +330,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return id;
     }
-
+    //Ciudad
     public long createCiudad(Ciudad ciudad, long provincia_id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -340,6 +342,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return id;
     }
+
+    //Noticia
+    public long createNoticia(Noticia noticia, int dia, int mes) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NOTICIA_TITULO, noticia.getTitulo());
+        values.put(KEY_NOTICIA_CONTENIDOPREVIO, noticia.getDescripcion());
+        values.put(KEY_NOTICIA_DIA, dia);
+        values.put(KEY_NOTICIA_MES, mes);
+        values.put(KEY_NOTICIA_LINK, noticia.getUrl());
+        values.put(KEY_NOTICIA_URLIMAGEN, noticia.getS_img());
+
+        long id = db.insert(TABLE_NOTICIA, null, values);
+
+        return id;
+    }
+
+
 
     //---------------------SELECT-------------------------------------------------
     public Region getRegion(long region_id) {
@@ -404,6 +425,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return ci;
     }
+
+    public Noticia getNoticia(long noticia_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_CIUDAD + " WHERE "
+                + KEY_ID + " = " + noticia_id;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Noticia n = new Noticia();
+        n.setTitulo(c.getString(c.getColumnIndex(KEY_NOTICIA_TITULO)));
+        n.setDescripcion(c.getString(c.getColumnIndex(KEY_NOTICIA_CONTENIDOPREVIO)));
+        n.setUrl(c.getString(c.getColumnIndex(KEY_NOTICIA_LINK)));
+        n.setS_img(c.getString(c.getColumnIndex(KEY_NOTICIA_URLIMAGEN)));
+        n.setDia(c.getInt(c.getColumnIndex(KEY_NOTICIA_DIA)));
+        n.setMes(c.getInt(c.getColumnIndex(KEY_NOTICIA_MES)));
+
+        return n;
+    }
+
+
 
     //---------------------- SELECT ALL ------------------------
 
@@ -481,6 +528,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return tags;
     }
 
+    //SELECT ALL NOTICIA
+    public List<Noticia> getAllNoticias() {
+        List<Noticia> tags = new ArrayList<Noticia>();
+        String selectQuery = "SELECT  * FROM " + TABLE_NOTICIA;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Noticia n = new Noticia();
+                n.setTitulo(c.getString(c.getColumnIndex(KEY_NOTICIA_TITULO)));
+                n.setDescripcion(c.getString(c.getColumnIndex(KEY_NOTICIA_CONTENIDOPREVIO)));
+                n.setUrl(c.getString(c.getColumnIndex(KEY_NOTICIA_LINK)));
+                n.setS_img(c.getString(c.getColumnIndex(KEY_NOTICIA_URLIMAGEN)));
+                n.setDia(c.getInt(c.getColumnIndex(KEY_NOTICIA_DIA)));
+                n.setMes(c.getInt(c.getColumnIndex(KEY_NOTICIA_MES)));
+
+                // adding to tags list
+                tags.add(n);
+            } while (c.moveToNext());
+        }
+        return tags;
+    }
+
     //------------------------------------ UPDATE -------------------------------------------//
     public void updateProvincia_Nombre(int id,String nombre){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -503,6 +578,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.update(TABLE_CIUDAD, values, KEY_ID+"='"+id+"'", null);
     }
 
+    public void updateNoticia_Titulo(int id,String titulo){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_NOTICIA_TITULO, titulo);
+        db.update(TABLE_NOTICIA, values, KEY_ID+"='"+id+"'", null);
+    }
+
     //------------------------------ DELETE --------------------------------------
 
     public boolean deleteProvincia(int id){
@@ -518,6 +600,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean deleteCiudad(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_CIUDAD, KEY_ID + "='" + id+"'", null) > 0;
+    }
+
+    public boolean deleteNoticia(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NOTICIA, KEY_ID + "='" + id+"'", null) > 0;
     }
 
 }
