@@ -22,8 +22,8 @@ import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.BaseDeDatos.region.Region;
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.Denuncias.TabsDenuncia;
-import com.example.personal.comunitarias.Mision.mision;
-import com.example.personal.comunitarias.Mision.vision;
+import com.example.personal.comunitarias.Mision.Mision;
+import com.example.personal.comunitarias.Mision.Vision;
 import com.example.personal.comunitarias.noticias.Noticias;
 import com.example.personal.comunitarias.oficinas.IntroOficinas;
 import com.example.personal.comunitarias.preguntas.PreguntasFrecuentes;
@@ -159,10 +159,10 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
         if (id == R.id.nav_mision) {
             // Handle the camera action
-            startActivity (new Intent(getApplicationContext(), mision.class));
+            startActivity (new Intent(getApplicationContext(), Mision.class));
 
         } else if (id == R.id.nav_vision) {
-            startActivity (new Intent(getApplicationContext(), vision.class));
+            startActivity (new Intent(getApplicationContext(), Vision.class));
 
         } else if (id == R.id.nav_oficinas) {
 

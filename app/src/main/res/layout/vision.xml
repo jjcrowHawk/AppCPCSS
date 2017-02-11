@@ -28,20 +28,10 @@
             android:textSize="30sp"
             android:layout_marginLeft="10dp"/>
 
-        <Space
+        <WebView
             android:layout_width="match_parent"
-            android:layout_height="25dp" />
-
-        <com.example.personal.comunitarias.JustifyTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="El Consejo de Participación Ciudadana y Control Social es un organismo reconocido por la ciudadanía por la promoción efectiva de los derechos de participación ciudadana, que impulsa mecanismos de control social, contribuye a la transparencia y lucha contra la corrupción; bajo los enfoques de territorialidad, desconcentración, plurinacionalidad, interculturalidad, género y generacional.
-            "
-            android:id="@+id/txt_vision"
-
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="-10dp"
-            android:textSize="20sp" />
+            android:layout_height="250dp"
+            android:id="@+id/webView_vision" />
 
         <!--
         <TextView

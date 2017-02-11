@@ -27,11 +27,13 @@
             android:textSize="30sp"
             android:layout_marginLeft="10dp"/>
 
-        <Space
+        <WebView
             android:layout_width="match_parent"
-            android:layout_height="25dp" />
+            android:layout_height="250dp"
+            android:id="@+id/webView_mision" />
 
-        <com.example.personal.comunitarias.JustifyTextView
+
+        <!--<com.example.personal.comunitarias.JustifyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="El Consejo de Participación Ciudadana y Control Social es una entidad autónoma que promueve e incentiva el ejercicio de los derechos a la participación ciudadana; establece e impulsa mecanismos de control en los asuntos de interés público; fomenta la transparencia en la gestión de lo público, investiga actos que generen corrupción o afecten la participación ciudadana; y designa a las autoridades que le corresponde de acuerdo con la Constitución y la ley.
@@ -40,7 +42,7 @@
 
             android:layout_marginLeft="10dp"
             android:layout_marginRight="-10dp"
-            android:textSize="20sp" />
+            android:textSize="20sp" />-->
 
         <!--
         <TextView
