@@ -42,9 +42,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nombres"
-                    android:textSize="16sp"
-
-                    />
+                    android:maxLength="25"
+                    android:inputType="textCapWords"
+                    android:textSize="16sp"  />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -58,7 +58,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Apellidos"
+                    android:maxLength="25"
                     android:textSize="16sp"
+                    android:inputType="textCapWords"
 
                     />
             </android.support.design.widget.TextInputLayout>
@@ -84,7 +86,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Identificación"
-
+                    android:inputType="number"
+                    android:maxLength="11"
                     />
             </android.support.design.widget.TextInputLayout>
 
@@ -159,9 +162,9 @@
                 android:id="@+id/txt_ocupacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ocupación"
-
-                />
+                android:maxLength="25"
+                android:inputType="textCapWords"
+                android:hint="Ocupación"/>
         </android.support.design.widget.TextInputLayout>
 
             <TextView
@@ -240,6 +243,10 @@
                 android:textColor="#ffffff"
                 android:background="@color/colorPrimaryDark"
                 android:id="@+id/btnInfoPeticionario" />
+
+
+
+
 
         </RelativeLayout>
 
