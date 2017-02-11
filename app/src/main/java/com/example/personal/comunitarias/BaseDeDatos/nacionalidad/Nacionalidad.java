@@ -13,6 +13,9 @@ public class Nacionalidad {
     int idnacionalidad; //pk
     String nombre;
 
+    public Nacionalidad() {
+    }
+
     public Nacionalidad(String nombre) {
         this.nombre = nombre;
     }
@@ -24,5 +27,12 @@ public class Nacionalidad {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
+    public int getIdnacionalidad() {
+        return idnacionalidad;
+    }
+
+    public void setIdnacionalidad(int idnacionalidad) {
+        this.idnacionalidad = idnacionalidad;
+    }
 }

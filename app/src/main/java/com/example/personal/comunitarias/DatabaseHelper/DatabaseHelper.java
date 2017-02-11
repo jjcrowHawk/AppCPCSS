@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
+import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.BaseDeDatos.region.Region;
 import com.example.personal.comunitarias.noticias.Noticia;
@@ -450,6 +451,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return n;
     }
 
+    public Nacionalidad getNacionalidad(long nacionalidad_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_NACIONALIDAD + " WHERE "
+                + KEY_ID + " = " + nacionalidad_id;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Nacionalidad n = new Nacionalidad();
+        n.setIdnacionalidad(c.getInt(c.getColumnIndex(KEY_ID)));
+        n.setNombre(c.getString(c.getColumnIndex(KEY_NACIONALIDAD_NOMBRE)));
+
+        return n;
+    }
 
 
     //---------------------- SELECT ALL ------------------------
@@ -556,6 +576,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return tags;
     }
 
+    //SELECT ALL NACIONALIDAD
+    public List<Nacionalidad> getAllNacionalidades() {
+        List<Nacionalidad> tags = new ArrayList<Nacionalidad>();
+        String selectQuery = "SELECT  * FROM " + TABLE_NACIONALIDAD;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Nacionalidad n = new Nacionalidad();
+                n.setIdnacionalidad(c.getInt(c.getColumnIndex(KEY_ID)));
+                n.setNombre(c.getString(c.getColumnIndex(KEY_NACIONALIDAD_NOMBRE)));
+
+                // adding to tags list
+                tags.add(n);
+            } while (c.moveToNext());
+        }
+        return tags;
+    }
+
+
     //------------------------------------ UPDATE -------------------------------------------//
     public void updateProvincia_Nombre(int id,String nombre){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -585,6 +630,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.update(TABLE_NOTICIA, values, KEY_ID+"='"+id+"'", null);
     }
 
+    public void updateNacionalidad_Nombre(int id,String nombre){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_NACIONALIDAD_NOMBRE, nombre);
+        db.update(TABLE_NACIONALIDAD, values, KEY_ID+"='"+id+"'", null);
+    }
+
     //------------------------------ DELETE --------------------------------------
 
     public boolean deleteProvincia(int id){
@@ -605,6 +657,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean deleteNoticia(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NOTICIA, KEY_ID + "='" + id+"'", null) > 0;
+    }
+
+    public boolean deleteNacionalidad(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NACIONALIDAD, KEY_ID + "='" + id+"'", null) > 0;
     }
 
 }
