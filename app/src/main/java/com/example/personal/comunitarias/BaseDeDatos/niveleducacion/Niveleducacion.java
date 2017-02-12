@@ -14,9 +14,20 @@ public class Niveleducacion {
     String nombre;
     String descripcion;
 
+    public Niveleducacion() {
+    }
+
     public Niveleducacion(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+    }
+
+    public int getIdniveleducacion() {
+        return idniveleducacion;
+    }
+
+    public void setIdniveleducacion(int idniveleducacion) {
+        this.idniveleducacion = idniveleducacion;
     }
 
     public String getNombre() {

@@ -13,6 +13,17 @@ public class Estadocivil {
     int estadocivil; //pk
     String nombre;
 
+    public Estadocivil() {
+    }
+
+    public int getEstadocivil() {
+        return estadocivil;
+    }
+
+    public void setEstadocivil(int estadocivil) {
+        this.estadocivil = estadocivil;
+    }
+
     public Estadocivil(String nombre) {
         this.nombre = nombre;
     }

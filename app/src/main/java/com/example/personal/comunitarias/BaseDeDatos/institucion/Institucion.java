@@ -20,6 +20,28 @@ public class Institucion {
     String publica;
     int sectorid; //fk
 
+
+    public Institucion() {
+    }
+
+    public Institucion(String competencia, String descripcion, String email, String nombre, String publica, String representante, String url) {
+        this.competencia = competencia;
+        this.descripcion = descripcion;
+        this.email = email;
+        this.nombre = nombre;
+        this.publica = publica;
+        this.representante = representante;
+        this.url = url;
+    }
+
+    public int getIdinstitucion() {
+        return idinstitucion;
+    }
+
+    public void setIdinstitucion(int idinstitucion) {
+        this.idinstitucion = idinstitucion;
+    }
+
     public String getUrl() {
         return url;
     }

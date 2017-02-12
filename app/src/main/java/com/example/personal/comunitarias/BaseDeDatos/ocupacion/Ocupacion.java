@@ -14,6 +14,22 @@ public class Ocupacion {
     String nombre;
     String descripcion;
 
+    public Ocupacion() {
+    }
+
+    public Ocupacion(String descripcion, String nombre) {
+        this.descripcion = descripcion;
+        this.nombre = nombre;
+    }
+
+    public int getIdocupacion() {
+        return idocupacion;
+    }
+
+    public void setIdocupacion(int idocupacion) {
+        this.idocupacion = idocupacion;
+    }
+
     public String getNombre() {
         return nombre;
     }

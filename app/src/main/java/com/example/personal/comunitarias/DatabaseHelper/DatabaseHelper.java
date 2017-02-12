@@ -8,9 +8,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
+import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
+import com.example.personal.comunitarias.BaseDeDatos.institucion.Institucion;
 import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
+import com.example.personal.comunitarias.BaseDeDatos.niveleducacion.Niveleducacion;
+import com.example.personal.comunitarias.BaseDeDatos.ocupacion.Ocupacion;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.BaseDeDatos.region.Region;
+import com.example.personal.comunitarias.BaseDeDatos.sector.Sector;
 import com.example.personal.comunitarias.noticias.Noticia;
 
 import java.util.ArrayList;
@@ -361,7 +366,87 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return id;
     }
 
+    //Sector
+    public long createSector(Sector sector) {
+        SQLiteDatabase db = this.getWritableDatabase();
 
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_SECTOR_NOMBRE, sector.getNombre());
+        values.put(KEY_SECTOR_DESCRIPCION, sector.getDescripcion());
+        values.put(KEY_SECTOR_CONTROL, sector.getControl());
+        values.put(KEY_SECTOR_MENSAJE, sector.getMensaje());
+
+        // insert row
+        long sector_id = db.insert(TABLE_SECTOR, null, values);
+
+        return sector_id;
+    }
+
+    //Institucion
+    public long createInstitucion(Institucion institucion, long sector_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_INSTITUCION_NOMBRE, institucion.getNombre());
+        values.put(KEY_INSTITUCION_DESCRIPCION, institucion.getDescripcion());
+        values.put(KEY_INSTITUCION_URL, institucion.getUrl());
+        values.put(KEY_INSTITUCION_EMAIL, institucion.getEmail());
+        values.put(KEY_INSTITUCION_COMPETENCIA, institucion.getCompetencia());
+        values.put(KEY_INSTITUCION_REPRESENTANTE, institucion.getRepresentante());
+        values.put(KEY_INSTITUCION_PUBLICA, institucion.getPublica());
+        values.put(KEY_SECTOR_ID, sector_id);
+
+        // insert row
+        long institucion_id = db.insert(TABLE_INSTITUCION, null, values);
+
+        return institucion_id;
+    }
+
+    //Ocupacion
+    public long createOcupacion(Ocupacion ocupacion) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_OCUPACION_NOMBRE, ocupacion.getNombre());
+        values.put(KEY_OCUPACION_DESCRIPCION, ocupacion.getDescripcion());
+
+        // insert row
+        long ocupacion_id = db.insert(TABLE_OCUPACION, null, values);
+
+        return ocupacion_id;
+    }
+
+    //EstadoCivil
+    public long createEstadoCivil(Estadocivil estadocivil) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_ESTADOCIVIL_NOMBRE, estadocivil.getNombre());
+
+        // insert row
+        long estadocivil_id = db.insert(TABLE_ESTADOCIVIL, null, values);
+
+        return estadocivil_id;
+    }
+
+    //NivelEducacion
+    public long createNivelEducacion(Niveleducacion niveleducacion) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NIVELEDUCACION_NOMBRE, niveleducacion.getNombre());
+        values.put(KEY_NIVELEDUCACION_DESCRIPCION, niveleducacion.getDescripcion());
+
+        // insert row
+        long niveleducacion_id = db.insert(TABLE_NIVELEDUCACION, null, values);
+
+        return niveleducacion_id;
+    }
 
     //---------------------SELECT-------------------------------------------------
     public Region getRegion(long region_id) {
@@ -469,6 +554,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         n.setNombre(c.getString(c.getColumnIndex(KEY_NACIONALIDAD_NOMBRE)));
 
         return n;
+    }
+
+    public Sector getSector(long sector_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_SECTOR+ " WHERE "
+                + KEY_ID + " = " + sector_id;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Sector s = new Sector();
+        s.setIdsector((c.getInt(c.getColumnIndex(KEY_ID))));
+        s.setNombre((c.getString(c.getColumnIndex(KEY_SECTOR_NOMBRE))));
+        s.setDescripcion(c.getString(c.getColumnIndex(KEY_SECTOR_DESCRIPCION)));
+        s.setControl((c.getString(c.getColumnIndex(KEY_SECTOR_CONTROL))));
+        s.setMensaje(c.getString(c.getColumnIndex(KEY_SECTOR_MENSAJE)));
+
+        return s;
     }
 
 

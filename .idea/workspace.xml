@@ -11,10 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="eef7c6ce-6d07-4c7e-8021-de998258c6d0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/provincia/Provincia.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/provincia/Provincia.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/region/Region.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/region/Region.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/estadocivil/Estadocivil.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/estadocivil/Estadocivil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/institucion/Institucion.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/institucion/Institucion.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/niveleducacion/Niveleducacion.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/niveleducacion/Niveleducacion.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/ocupacion/Ocupacion.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/ocupacion/Ocupacion.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/sector/Sector.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/sector/Sector.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/DatabaseHelper/DatabaseHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/DatabaseHelper/DatabaseHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/Menu.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/Menu.java" />
     </list>
     <ignored path="AppCPCSS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,59 +50,101 @@
     <favorites_list name="AppCPCSS" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Region.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/region/Region.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseHelper.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/DatabaseHelper/DatabaseHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="299" column="0" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getRegion#0;class#DatabaseHelper#0" expanded="false" />
-                <element signature="method#getAllProvincias#0;class#DatabaseHelper#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/Menu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2929#3267#0" expanded="true" />
-                <element signature="e#3040#3130#0" expanded="false" />
-                <element signature="e#3266#3267#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Provincia.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/provincia/Provincia.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-              <folding>
-                <element signature="e#489#490#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Region.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/region/Region.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="391">
+                  <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#675#676#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DatabaseHelper.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/DatabaseHelper/DatabaseHelper.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="187">
+                  <caret line="368" column="12" selection-start-line="368" selection-start-column="12" selection-end-line="368" selection-end-column="12" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#createRegion#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="method#createProvinciaRegion#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="method#createCiudad#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="method#createNoticia#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="method#createSector#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="method#createInstitucion#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="method#createOcupacion#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="method#createEstadoCivil#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="method#getRegion#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="method#getProvincia#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="method#getCiudad#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="method#getNoticia#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="method#getNacionalidad#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="method#getSector#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="method#getAllRegion#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="e#24239#24247#0" expanded="true" />
+                    <element signature="method#getAllProvincias#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="e#25107#25118#0" expanded="true" />
+                    <element signature="method#getAllCiudades#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="e#25888#25896#0" expanded="true" />
+                    <element signature="method#getAllNoticias#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="e#26739#26748#0" expanded="true" />
+                    <element signature="method#getAllNacionalidades#0;class#DatabaseHelper#0" expanded="false" />
+                    <element signature="e#27855#27869#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="Institucion.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/institucion/Institucion.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="51">
+                  <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Estadocivil.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/estadocivil/Estadocivil.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="85">
+                  <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+                  <folding>
+                    <element signature="e#431#432#0" expanded="true" />
+                    <element signature="e#465#466#0" expanded="true" />
+                    <element signature="e#516#517#0" expanded="true" />
+                    <element signature="e#562#563#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Niveleducacion.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/niveleducacion/Niveleducacion.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="340">
+                  <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+                  <folding>
+                    <element signature="e#648#649#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -159,6 +203,11 @@
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareDebugDependencies" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.nhaarman.supertooltips:library:3.0.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComNhaarmanSupertooltipsLibrary300Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -893,6 +942,11 @@
                 <option name="name" value="prepareDebugDependencies" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.nhaarman.supertooltips:library:3.0.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComNhaarmanSupertooltipsLibrary300Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="processReleaseJavaRes" />
               </ExternalTaskPojo>
@@ -1599,7 +1653,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="C:\Users\Kattya Desiderio\Documents\Android\AppCPCSS" value="4458276908037" />
+        <entry key="C:\Users\Kattya Desiderio\Documents\Android\AppCPCSS" value="4459818431310" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1939,7 +1993,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/provincia/Provincia.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/region/Region.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/Menu.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/sector/Sector.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/ocupacion/Ocupacion.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/institucion/Institucion.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/estadocivil/Estadocivil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/DatabaseHelper/DatabaseHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/niveleducacion/Niveleducacion.java" />
       </list>
     </option>
   </component>
@@ -1974,6 +2033,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1982,11 +2044,124 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppCPCSS" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppCPCSS" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppCPCSS" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="comunitarias" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppCPCSS" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="comunitarias" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BaseDeDatos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sector" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppCPCSS" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="comunitarias" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BaseDeDatos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppCPCSS" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="comunitarias" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BaseDeDatos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="niveleducacion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -2326,33 +2501,33 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1874" height="1096" extended-state="0" />
-    <editor active="false" />
+    <frame x="54" y="-8" width="1874" height="1096" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32409382" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2028666" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20507166" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32965213" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39978677" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2413,41 +2588,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/DatabaseHelper/DatabaseHelper.java</url>
-          <line>242</line>
+          <line>539</line>
           <properties />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/DatabaseHelper/DatabaseHelper.java</url>
-          <line>244</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/Menu.java</url>
-          <line>102</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/DatabaseHelper/DatabaseHelper.java</url>
-          <line>319</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/DatabaseHelper/DatabaseHelper.java</url>
-          <line>355</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/DatabaseHelper/DatabaseHelper.java</url>
-          <line>263</line>
-          <properties />
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="8" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2456,7 +2602,71 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="e#675#676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/DatabaseHelper/DatabaseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#createRegion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createProvinciaRegion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createCiudad#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createNoticia#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createSector#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createInstitucion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createOcupacion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createEstadoCivil#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getRegion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getProvincia#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getCiudad#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getNoticia#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getNacionalidad#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getSector#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getAllRegion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#24239#24247#0" expanded="true" />
+            <element signature="method#getAllProvincias#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#25107#25118#0" expanded="true" />
+            <element signature="method#getAllCiudades#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#25888#25896#0" expanded="true" />
+            <element signature="method#getAllNoticias#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#26739#26748#0" expanded="true" />
+            <element signature="method#getAllNacionalidades#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#27855#27869#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/provincia/Provincia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+          <folding>
+            <element signature="e#1125#1126#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/region/Region.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="e#675#676#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2464,7 +2674,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#675#676#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2474,8 +2686,30 @@
           <caret line="295" column="0" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#createRegion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createProvinciaRegion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createCiudad#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createNoticia#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createSector#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createInstitucion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createOcupacion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createEstadoCivil#0;class#DatabaseHelper#0" expanded="false" />
             <element signature="method#getRegion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getProvincia#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getCiudad#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getNoticia#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getNacionalidad#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getSector#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getAllRegion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#24239#24247#0" expanded="true" />
             <element signature="method#getAllProvincias#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#25107#25118#0" expanded="true" />
+            <element signature="method#getAllCiudades#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#25888#25896#0" expanded="true" />
+            <element signature="method#getAllNoticias#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#26739#26748#0" expanded="true" />
+            <element signature="method#getAllNacionalidades#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#27855#27869#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2484,12 +2718,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1309">
           <caret line="108" column="32" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2929#3267#0" expanded="true" />
-            <element signature="e#3040#3130#0" expanded="false" />
-            <element signature="e#3266#3267#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2498,7 +2727,7 @@
         <state relative-caret-position="272">
           <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
           <folding>
-            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#1125#1126#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2546,45 +2775,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/region/Region.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/provincia/Provincia.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+        <state relative-caret-position="510">
+          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
           <folding>
-            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#1125#1126#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
+        <state relative-caret-position="181">
           <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/sector/Sector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2929#3267#0" expanded="true" />
-            <element signature="e#3040#3130#0" expanded="false" />
-            <element signature="e#3266#3267#0" expanded="true" />
+            <element signature="e#698#699#0" expanded="true" />
+            <element signature="e#729#730#0" expanded="true" />
+            <element signature="e#774#775#0" expanded="true" />
+            <element signature="e#814#815#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/region/Region.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#675#676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/ocupacion/Ocupacion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="57" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
+          <folding>
+            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+            <element signature="e#715#716#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/institucion/Institucion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/estadocivil/Estadocivil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="e#431#432#0" expanded="true" />
+            <element signature="e#465#466#0" expanded="true" />
+            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#562#563#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/BaseDeDatos/niveleducacion/Niveleducacion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+          <folding>
+            <element signature="e#648#649#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/personal/comunitarias/DatabaseHelper/DatabaseHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="299" column="0" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="368" column="12" selection-start-line="368" selection-start-column="12" selection-end-line="368" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#createRegion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createProvinciaRegion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createCiudad#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createNoticia#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createSector#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createInstitucion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createOcupacion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#createEstadoCivil#0;class#DatabaseHelper#0" expanded="false" />
             <element signature="method#getRegion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getProvincia#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getCiudad#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getNoticia#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getNacionalidad#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getSector#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="method#getAllRegion#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#24239#24247#0" expanded="true" />
             <element signature="method#getAllProvincias#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#25107#25118#0" expanded="true" />
+            <element signature="method#getAllCiudades#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#25888#25896#0" expanded="true" />
+            <element signature="method#getAllNoticias#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#26739#26748#0" expanded="true" />
+            <element signature="method#getAllNacionalidades#0;class#DatabaseHelper#0" expanded="false" />
+            <element signature="e#27855#27869#0" expanded="true" />
           </folding>
         </state>
       </provider>

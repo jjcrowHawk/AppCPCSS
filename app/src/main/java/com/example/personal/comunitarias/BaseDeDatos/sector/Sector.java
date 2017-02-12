@@ -16,11 +16,23 @@ public class Sector {
  String control; //char(5)
  String mensaje;
 
+
+    public Sector() {
+
+    }
     public Sector(String nombre, String descripcion, String control, String mensaje) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.control = control;
         this.mensaje = mensaje;
+    }
+
+    public int getIdsector() {
+        return idsector;
+    }
+
+    public void setIdsector(int idsector) {
+        this.idsector = idsector;
     }
 
     public String getNombre() {
