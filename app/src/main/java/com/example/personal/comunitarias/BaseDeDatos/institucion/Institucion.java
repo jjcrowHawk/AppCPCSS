@@ -34,6 +34,14 @@ public class Institucion {
         this.url = url;
     }
 
+    public int getSectorid() {
+        return sectorid;
+    }
+
+    public void setSectorid(int sectorid) {
+        this.sectorid = sectorid;
+    }
+
     public int getIdinstitucion() {
         return idinstitucion;
     }

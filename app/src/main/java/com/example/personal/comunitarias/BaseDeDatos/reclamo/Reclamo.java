@@ -29,6 +29,17 @@ public class Reclamo {
     int provinciadenuncianteid; //fk
     int provinciadenunciadoid; //fk
 
+    public Reclamo() {
+    }
+
+    public int getIdreclamo() {
+        return idreclamo;
+    }
+
+    public void setIdreclamo(int idreclamo) {
+        this.idreclamo = idreclamo;
+    }
+
     public Reclamo(String nombresapellidosdenunciante, String tipoidentificacion, String numidenti, String direccion, String email, String nombresapellidosdenunciado, String telefono, String cargo, String comparecer, String documentores, String identidadreservada, String resideextrangero) {
         this.nombresapellidosdenunciante = nombresapellidosdenunciante;
         this.tipoidentificacion = tipoidentificacion;
@@ -138,5 +149,45 @@ public class Reclamo {
 
     public void setResideextrangero(String resideextrangero) {
         this.resideextrangero = resideextrangero;
+    }
+
+    public int getCiudaddeldenunciadoid() {
+        return ciudaddeldenunciadoid;
+    }
+
+    public void setCiudaddeldenunciadoid(int ciudaddeldenunciadoid) {
+        this.ciudaddeldenunciadoid = ciudaddeldenunciadoid;
+    }
+
+    public int getCiudaddeldenuncianteid() {
+        return ciudaddeldenuncianteid;
+    }
+
+    public void setCiudaddeldenuncianteid(int ciudaddeldenuncianteid) {
+        this.ciudaddeldenuncianteid = ciudaddeldenuncianteid;
+    }
+
+    public int getInstitucionimplicadaid() {
+        return institucionimplicadaid;
+    }
+
+    public void setInstitucionimplicadaid(int institucionimplicadaid) {
+        this.institucionimplicadaid = institucionimplicadaid;
+    }
+
+    public int getProvinciadenunciadoid() {
+        return provinciadenunciadoid;
+    }
+
+    public void setProvinciadenunciadoid(int provinciadenunciadoid) {
+        this.provinciadenunciadoid = provinciadenunciadoid;
+    }
+
+    public int getProvinciadenuncianteid() {
+        return provinciadenuncianteid;
+    }
+
+    public void setProvinciadenuncianteid(int provinciadenuncianteid) {
+        this.provinciadenuncianteid = provinciadenuncianteid;
     }
 }

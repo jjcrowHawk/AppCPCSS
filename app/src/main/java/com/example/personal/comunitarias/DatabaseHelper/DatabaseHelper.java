@@ -14,6 +14,7 @@ import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
 import com.example.personal.comunitarias.BaseDeDatos.niveleducacion.Niveleducacion;
 import com.example.personal.comunitarias.BaseDeDatos.ocupacion.Ocupacion;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
+import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.BaseDeDatos.region.Region;
 import com.example.personal.comunitarias.BaseDeDatos.sector.Sector;
 import com.example.personal.comunitarias.noticias.Noticia;
@@ -448,6 +449,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return niveleducacion_id;
     }
 
+    //Reclamo
+    public long createReclamo(Reclamo reclamo,long ciudaddeldenunciante_id,
+                              long ciudaddeldenunciado_id, long institucionimplicada_id,
+                              long provinciadenunciante_id, long provinciadenunciado_id) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_RECLAMO_NOMBRESAPELLIDOSDENUNCIANTE, reclamo.getNombresapellidosdenunciante());
+        values.put(KEY_RECLAMO_TIPOIDENTIFICACION,reclamo.getTipoidentificacion());
+        values.put(KEY_RECLAMO_NUMIDENTI,reclamo.getNumidenti());
+        values.put(KEY_RECLAMO_DIRECCION,reclamo.getDireccion());
+        values.put(KEY_RECLAMO_EMAIL,reclamo.getEmail());
+        values.put(KEY_RECLAMO_NOMBRESAPELLIDOSDENUNCIADO,reclamo.getNombresapellidosdenunciado());
+        values.put(KEY_RECLAMO_TELEFONO,reclamo.getTelefono());
+        values.put(KEY_RECLAMO_CARGO,reclamo.getCargo());
+        values.put(KEY_RECLAMO_COMPARECER,reclamo.getComparecer());
+        values.put(KEY_RECLAMO_DOCUMENTORES,reclamo.getDocumentores());
+        values.put(KEY_RECLAMO_IDENTIDADRESERVADA,reclamo.getIdentidadreservada());
+        values.put(KEY_RECLAMO_RESIDEEXTRANJERO,reclamo.getResideextrangero());
+        values.put(KEY_RECLAMO_NUMIDENTI,reclamo.getNumidenti());
+        values.put(KEY_CIUDADDENUNCIANTE_ID, ciudaddeldenunciante_id);
+        values.put(KEY_CIUDADDENUNCIADO_ID,ciudaddeldenunciado_id);
+        values.put(KEY_RECLAMOINSTITUCIONIMPLICADA_ID,institucionimplicada_id);
+        values.put(KEY_PROVINCIADENUNCIANTE_ID,provinciadenunciante_id);
+        values.put(KEY_PROVINCIADENUNCIADO_ID,provinciadenunciado_id);
+
+        // insert row
+        long reclamo_id = db.insert(TABLE_RECLAMO, null, values);
+
+        return reclamo_id;
+    }
+
     //---------------------SELECT-------------------------------------------------
     public Region getRegion(long region_id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -577,6 +612,132 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         s.setMensaje(c.getString(c.getColumnIndex(KEY_SECTOR_MENSAJE)));
 
         return s;
+    }
+
+    public Ocupacion getOcupacion(long ocupacion_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_OCUPACION+ " WHERE "
+                + KEY_ID + " = " + ocupacion_id;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Ocupacion o = new Ocupacion();
+        o.setIdocupacion((c.getInt(c.getColumnIndex(KEY_ID))));
+        o.setNombre((c.getString(c.getColumnIndex(KEY_OCUPACION_NOMBRE))));
+        o.setDescripcion(c.getString(c.getColumnIndex(KEY_OCUPACION_DESCRIPCION)));
+
+
+        return o;
+    }
+
+    public Institucion getInstitucion(long institucion_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_INSTITUCION+ " WHERE "
+                + KEY_ID + " = " + institucion_id;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Institucion i = new Institucion();
+        i.setIdinstitucion((c.getInt(c.getColumnIndex(KEY_ID))));
+        i.setNombre((c.getString(c.getColumnIndex(KEY_INSTITUCION_NOMBRE))));
+        i.setDescripcion(c.getString(c.getColumnIndex(KEY_INSTITUCION_DESCRIPCION)));
+        i.setUrl(c.getString(c.getColumnIndex(KEY_INSTITUCION_URL)));
+        i.setEmail(c.getString(c.getColumnIndex(KEY_INSTITUCION_EMAIL)));
+        i.setCompetencia(c.getString(c.getColumnIndex(KEY_INSTITUCION_COMPETENCIA)));
+        i.setRepresentante(c.getString(c.getColumnIndex(KEY_INSTITUCION_REPRESENTANTE)));
+        i.setPublica(c.getString(c.getColumnIndex(KEY_INSTITUCION_PUBLICA)));
+        i.setSectorid(c.getInt(c.getColumnIndex(KEY_SECTOR_ID)));
+
+
+        return i;
+    }
+
+    public Estadocivil getEstadocivil(long estadocivil_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_ESTADOCIVIL+ " WHERE "
+                + KEY_ID + " = " + estadocivil_id;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Estadocivil e = new Estadocivil();
+        e.setIdestadocivil((c.getInt(c.getColumnIndex(KEY_ID))));
+        e.setNombre((c.getString(c.getColumnIndex(KEY_ESTADOCIVIL_NOMBRE))));
+
+        return e;
+    }
+
+    public Niveleducacion getNiveleducacion(long niveleducacion_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_NIVELEDUCACION+ " WHERE "
+                + KEY_ID + " = " + niveleducacion_id;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Niveleducacion ne = new Niveleducacion();
+        ne.setIdniveleducacion((c.getInt(c.getColumnIndex(KEY_ID))));
+        ne.setNombre((c.getString(c.getColumnIndex(KEY_NIVELEDUCACION_NOMBRE))));
+        ne.setDescripcion((c.getString(c.getColumnIndex(KEY_NIVELEDUCACION_DESCRIPCION))));
+
+        return ne;
+    }
+
+    public Reclamo getReclamo(long reclamo_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_RECLAMO+ " WHERE "
+                + KEY_ID + " = " + reclamo_id;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Reclamo r = new Reclamo();
+        r.setIdreclamo((c.getInt(c.getColumnIndex(KEY_ID))));
+        r.setNombresapellidosdenunciante((c.getString(c.getColumnIndex(KEY_RECLAMO_NOMBRESAPELLIDOSDENUNCIANTE))));
+        r.setNumidenti((c.getString(c.getColumnIndex(KEY_RECLAMO_NUMIDENTI))));
+        r.setDireccion((c.getString(c.getColumnIndex(KEY_RECLAMO_DIRECCION))));
+        r.setEmail((c.getString(c.getColumnIndex(KEY_RECLAMO_EMAIL))));
+        r.setNombresapellidosdenunciado((c.getString(c.getColumnIndex(KEY_RECLAMO_NOMBRESAPELLIDOSDENUNCIADO))));
+        r.setTelefono((c.getString(c.getColumnIndex(KEY_RECLAMO_TELEFONO))));
+        r.setCargo((c.getString(c.getColumnIndex(KEY_RECLAMO_CARGO))));
+        r.setComparecer((c.getString(c.getColumnIndex(KEY_RECLAMO_COMPARECER))));
+        r.setDocumentores((c.getString(c.getColumnIndex(KEY_RECLAMO_DOCUMENTORES))));
+        r.setIdentidadreservada((c.getString(c.getColumnIndex(KEY_RECLAMO_IDENTIDADRESERVADA))));
+        r.setResideextrangero((c.getString(c.getColumnIndex(KEY_RECLAMO_RESIDEEXTRANJERO))));
+        r.setCiudaddeldenuncianteid((c.getInt(c.getColumnIndex(KEY_CIUDADDENUNCIANTE_ID))));
+        r.setCiudaddeldenunciadoid((c.getInt(c.getColumnIndex(KEY_CIUDADDENUNCIADO_ID))));
+        r.setInstitucionimplicadaid((c.getInt(c.getColumnIndex(KEY_RECLAMOINSTITUCIONIMPLICADA_ID))));
+        r.setProvinciadenuncianteid((c.getInt(c.getColumnIndex(KEY_PROVINCIADENUNCIANTE_ID))));
+        r.setProvinciadenunciadoid((c.getInt(c.getColumnIndex(KEY_PROVINCIADENUNCIADO_ID))));
+
+        return r;
     }
 
 

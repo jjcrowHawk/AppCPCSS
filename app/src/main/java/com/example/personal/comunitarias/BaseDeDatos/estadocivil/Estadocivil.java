@@ -10,18 +10,18 @@ package com.example.personal.comunitarias.BaseDeDatos.estadocivil;
  * @author Kattya Desiderio
  */
 public class Estadocivil {
-    int estadocivil; //pk
+    int idestadocivil; //pk
     String nombre;
 
     public Estadocivil() {
     }
 
-    public int getEstadocivil() {
-        return estadocivil;
+    public int getIdestadocivil() {
+        return idestadocivil;
     }
 
-    public void setEstadocivil(int estadocivil) {
-        this.estadocivil = estadocivil;
+    public void setIdestadocivil(int estadocivil) {
+        this.idestadocivil = estadocivil;
     }
 
     public Estadocivil(String nombre) {
