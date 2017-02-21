@@ -11,7 +11,7 @@ import com.example.personal.comunitarias.R;
 import com.squareup.picasso.Picasso;
 
 /**
- * Created by kleberstevendiazcoello on 23/1/17.
+ * Created by PC-JANINA on 21/2/2017.
  */
 
 public class Vision extends AppCompatActivity {

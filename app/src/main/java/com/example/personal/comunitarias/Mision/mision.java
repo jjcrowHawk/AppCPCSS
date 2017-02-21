@@ -5,14 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ImageView;
 
 import com.example.personal.comunitarias.R;
 import com.squareup.picasso.Picasso;
 
 /**
- * Created by kleberstevendiazcoello on 23/1/17.
+ * Created by PC-JANINA on 21/2/2017.
  */
 
 public class Mision extends AppCompatActivity {
