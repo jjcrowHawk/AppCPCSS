@@ -5,11 +5,13 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.reclamo;
 
+import com.example.personal.comunitarias.DatabaseRemote._Default;
+
 /**
  *
  * @author Kattya Desiderio
  */
-public class Reclamo {
+public class Reclamo extends _Default {
     int idreclamo; //pk
     String nombresapellidosdenunciante;
     String tipoidentificacion;
@@ -30,6 +32,25 @@ public class Reclamo {
     int provinciadenunciadoid; //fk
 
     public Reclamo() {
+        super();
+        this.idreclamo = -1;
+        this.nombresapellidosdenunciado="";
+        this.tipoidentificacion="";
+        this.numidenti="";
+        this.direccion="";
+        this.email="";
+        this.nombresapellidosdenunciado="";
+        this.telefono="";
+        this.cargo="";
+        this.comparecer="";
+        this.documentores="";
+        this.identidadreservada="";
+        this.resideextrangero="";
+        this.ciudaddeldenunciadoid=-1; //fk
+        this.ciudaddeldenunciadoid=-1; //fk
+        this.institucionimplicadaid=-1; //fk
+        this.provinciadenuncianteid=-1; //fk
+        this.provinciadenunciadoid=-1; //fk
     }
 
     public int getIdreclamo() {
