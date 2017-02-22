@@ -390,17 +390,20 @@
     </string-array>
     <string-array name="localidades_tungurahua">
         <item>Ambato</item>
+        <item>Tungurahua</item>
         <item>Baños</item>
         <item>Cevallos</item>
         <item>Mocha</item>
         <item>Patate</item>
+        <item>Pelileo</item>
+        <item>Píllaro</item>
         <item>Quero</item>
-        <item>San Pedro de Pelileo</item>
-        <item>Santiago Píllaro</item>
         <item>Tisaleo</item>
 
     </string-array>
     <string-array name="localidades_zamora_chinchipe">
+        <item>Zamora Chinchipe</item>
+         <item>Zamora</item>
         <item>Centinela del Cóndor</item>
         <item>Chinchipe</item>
         <item>El Pangui</item>
@@ -409,7 +412,6 @@
         <item>Paquisha</item>
         <item>Yacuambi</item>
         <item>Yantzaza</item>
-        <item>Zamora</item>
 
     </string-array>
 
