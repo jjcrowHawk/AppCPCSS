@@ -56,21 +56,23 @@
         <item>Zamora Chinchipe</item>
     </string-array>
     <string-array name="localidades_azuay">
-        <item>Camilo Ponce Enriquez</item>
-        <item>Cuenca</item>
+        <item>Chordeleg</item>
+        <item>El Pan</item>
         <item>Girón</item>
         <item>Guachapala</item>
-        <item>Gualaceo</item>
         <item>Nabon</item>
         <item>Oña</item>
         <item>Paute</item>
+        <item>Ponce Enríquez</item>
         <item>Pucará</item>
         <item>San Fernando</item>
         <item>Santa Isabel</item>
-        <item>Sígsig</item>
-        <item>Chordeleg</item>
-        <item>El Pangui</item>
         <item>Sevilla de Oro</item>
+        <item>Sígsig</item>
+        <item>Cuenca</item>
+        <item>Azuay</item>
+       
+        
 
 
 
