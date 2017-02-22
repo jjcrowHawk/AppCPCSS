@@ -173,12 +173,11 @@
     <string-array name="localidades_esmeraldas">
         <item>Atacames</item>
         <item>Eloy Alfaro</item>
-        <item>Esmeraldas</item>
-        <item>La Concordia</item>
         <item>Muisne</item>
         <item>Quinindé</item>
         <item>Río Verde</item>
         <item>San Lorenzo</item>
+        <item>Esmeraldas</item>
 
     </string-array>
 
@@ -186,35 +185,39 @@
         <item>Isabela</item>
         <item>San Cristóbal</item>
         <item>Santa Cruz</item>
+        <item>Galápagos</item>
+        <item>Puerto Baquerizo Moreno</item>
 
     </string-array>
     <string-array name="localidades_guayas">
-        <item>Guayaquil</item>
         <item>Alfredo Baqurizo Moreno</item>
         <item>Balao</item>
         <item>Balzar</item>
         <item>Colimes</item>
+        <item>Coronel Marcelino Maridueña</item>
+        <item>Guayaquil</item>
+        <item>Milagro</item>
         <item>Daule</item>
         <item>Durán</item>
+        <item>Guayas</item>
+        <item>Eloy Alfaro</item>
         <item>El Empalme</item>
         <item>El Triunfo</item>
-        <item>Milagro</item>
+        <item>Bucay</item>
+        <item>Isidro Ayora</item>
+        <item>Lomas de Sargentillo</item>
         <item>Naranjal</item>
         <item>Naranjito</item>
+        <item>Nobol</item>
         <item>Palestina</item>
         <item>Pedro Carbo</item>
-        <item>Samborondón</item>
-        <item>Santa Lucía</item>
-        <item>Urbina Jado</item>
-        <item>Yaguachi</item>
         <item>Playas</item>
+        <item>Samborondón</item>
+        <item>Salitre</item>
+        <item>San Jacinto de Yaguachi</item>
+        <item>Santa Lucía</item>
         <item>Simón Bolívar</item>
-        <item>Coronel Marcelino Maridueña</item>
-        <item>Lomas de Sargentillo</item>
-        <item>Nobol</item>
-        <item>General Antonio Elizalde</item>
-        <item>Isidro Ayora</item>
-
+     
     </string-array>
     <string-array name="localidades_imbabura">
         <item>Ibarra</item>
