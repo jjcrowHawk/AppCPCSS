@@ -331,17 +331,20 @@
 
     </string-array>
     <string-array name="localidades_orellana">
-        <item>Aguarico</item>
-        <item>La Joya de los Sachas</item>
-        <item>Loreto</item>
         <item>Orellana</item>
-
+        <item>Francisco de Orellana</item>
+        <item>Puerto Francisco de Orellana</item>
+        <item>Aguarico</item>
+        <item>Joya de las Sachas</item>
+        <item>Loreto</item>
+  
     </string-array>
 
     <string-array name="localidades_pastaza">
-        <item>Arajuno</item>
-        <item>Mera</item>
         <item>Pastaza</item>
+        <item>Puyo</item>
+        <item>Arajano</item>
+        <item>Mera</item>
         <item>Santa Clara</item>
 
     </string-array>
@@ -350,6 +353,10 @@
 
     <string-array name="localidades_pichincha">
         <item>Cayambe</item>
+        <item>Velasco Ibarra</item>
+        <item>Mejía</item>
+        <item>Quito</item>
+        <item>Sangolquí</item>
         <item>Mejía</item>
         <item>Pedro Moncayo</item>
         <item>Pedro Vicente Maldonado</item>
