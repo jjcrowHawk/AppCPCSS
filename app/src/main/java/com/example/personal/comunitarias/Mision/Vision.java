@@ -11,28 +11,28 @@ import com.example.personal.comunitarias.R;
 import com.squareup.picasso.Picasso;
 
 /**
- * Created by PC-JANINA on 21/2/2017.
+ * Created by Sianna-chan on 21/02/2017.
  */
 
-public class Mision extends AppCompatActivity {
-    ImageView i_mision;
+public class Vision extends AppCompatActivity {
+    ImageView i_vision;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mision);
+        setContentView(R.layout.vision);
 
         //toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //Setear imagen misión
-        i_mision = (ImageView) findViewById(R.id.mision_img);
-        Picasso.with(getApplicationContext()).load("http://www.cpccs.gob.ec/wp-content/uploads/2015/11/MISIO%CC%81N.jpg").into(i_mision);
+        //Setear imagen Visión
+        i_vision = (ImageView) findViewById(R.id.vision_img);
+        Picasso.with(getApplicationContext()).load("http://www.cpccs.gob.ec/wp-content/uploads/2015/11/VISIO%CC%81N.jpg").into(i_vision);
 
-        //Descripción de Misión en WebView para el texto justificado
-        WebView webView = (WebView) findViewById(R.id.webView_mision);
-        webView.loadUrl("file:///android_asset/mision.html");
+        //Descripción de Visión en WebView para el texto justificado
+        WebView webView = (WebView) findViewById(R.id.webView_vision);
+        webView.loadUrl("file:///android_asset/vision.html");
 
     }
 
