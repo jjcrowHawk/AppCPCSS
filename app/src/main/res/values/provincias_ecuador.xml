@@ -366,23 +366,27 @@
 
     </string-array>
     <string-array name="localidades_sta_elena">
-        <item>Salinas</item>
+        <item>La Libertad</item>
         <item>Santa Elena</item>
+        <item>Salinas</item>
+        
 
     </string-array>
     <string-array name="localidades_sto_dgo">
-        <item>Santo Domingo de los Colorados</item>
+        <item>La Concordia</item>
+        <item>Santo Domingo de los Tsáchilas</item>
 
     </string-array>
     <string-array name="localidades_sucumbios">
+        <item>Nueva Loja</item>
+        <item>Shushufindi</item>
+        <item>Sucumbíos</item>
         <item>Cascales</item>
         <item>Cuyabeno</item>
         <item>Gonzalo Pizarro</item>
         <item>Lago Agrio</item>
         <item>Putumayo</item>
-        <item>Shushufindi</item>
-        <item>Sucumbíos</item>
-
+ 
     </string-array>
     <string-array name="localidades_tungurahua">
         <item>Ambato</item>
