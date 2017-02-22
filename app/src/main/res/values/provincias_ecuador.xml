@@ -221,6 +221,8 @@
     </string-array>
     <string-array name="localidades_imbabura">
         <item>Ibarra</item>
+        <item>Otavalo</item>
+        <item>Imbabura</item>
         <item>Antonio Ante</item>
         <item>Cotacachi</item>
         <item>Otavalo</item>
@@ -238,28 +240,34 @@
         <item>Gonzanamá</item>
         <item>Macará</item>
         <item>Paltas</item>
+        <item>Pindal</item>
         <item>Puyango</item>
+        <item>Quilanga</item>
         <item>Saraguro</item>
         <item>Sozoranga</item>
         <item>Zapotillo</item>
-        <item>Pindal</item>
-        <item>Quilanga</item>
-        <item>Olmedo</item>
+       
     </string-array>
     <string-array name="localidades_los_rios">
-        <item>Baba</item>
+        <item>Quevedo</item>
+        <item>Babahoyo</item>
+        <item>Ventanas</item>
+        <item>Buena Fe</item>
+        <item>Montalvo</item>
+        <item>Los Ríos</item>
         <item>Babahoyo</item>
         <item>Buena Fe</item>
-        <item>Mocachi</item>
+        <item>Mocache</item>
         <item>Montalvo</item>
         <item>Palenque</item>
         <item>Pueblo Viejo</item>
         <item>Quevedo</item>
-        <item>Quisaloma</item>
         <item>Urdaneta</item>
-        <item>Valencia</item>
         <item>Ventanas</item>
         <item>Vinces</item>
+        <item>Valencia</item>
+        
+        
 
 
     </string-array>
