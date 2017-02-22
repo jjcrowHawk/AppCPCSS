@@ -115,30 +115,40 @@
 
     </string-array>
     <string-array name="localidades_chimborazo">
-        <item>Riobamba</item>
         <item>Alausí</item>
-        <item>Colta</item>
         <item>Chambo</item>
         <item>Chunchi</item>
-        <item>Guamote</item>
-        <item>Guano</item>
+        <item>Colta</item>
+        <item>Cumandá</item>
         <item>Pallatanga</item>
         <item>Penipe</item>
-        <item>Cumandá</item>
+        <item>Guamote</item>
+        <item>Riobamba</item>
+        <item>Guano</item>
+        <item>Chimborazo</item>
+        
+        
+        
 
     </string-array>
     <string-array name="localidades_cotopaxi">
-        <item>Latacunga</item>
         <item>La maná</item>
         <item>Pangua</item>
-        <item>Pujilí</item>
         <item>Salcedo</item>
         <item>Saquisilí</item>
         <item>Sigchos</item>
+        <item>Pujilí</item>
+        <item>Latacunga</item>
+        <item>Cotopaxi</item>
+        
+        
+        
+        
+        
+        
 
     </string-array>
     <string-array name="localidades_el_oro">
-        <item>Machala</item>
         <item>Arenillas</item>
         <item>Atahualpa</item>
         <item>Balsas</item>
@@ -152,6 +162,12 @@
         <item>Portovelo</item>
         <item>Santa Rosa</item>
         <item>Zaruma</item>
+        <item>Machala</item>
+        <item>Pasaje</item>
+        <item>Santa Rosa</item>}
+        <item>Huaquillas</item>
+        <item>El Oro</item>
+        
 
     </string-array>
     <string-array name="localidades_esmeraldas">
