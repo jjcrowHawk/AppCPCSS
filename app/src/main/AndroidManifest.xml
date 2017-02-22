@@ -133,6 +133,28 @@
             android:label="@string/title_activity_preguntas"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".preguntas.Pregunta7"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".preguntas.Pregunta8"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".preguntas.Pregunta9"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".preguntas.Pregunta10"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar"  />
     </application>
 
 </manifest>

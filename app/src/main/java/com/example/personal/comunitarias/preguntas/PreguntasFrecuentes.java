@@ -39,7 +39,7 @@ public class PreguntasFrecuentes extends AppCompatActivity {
             "Cuándo hacer una denuncia?",
             "¿Qué ocurre cuando envío mi denuncia?",
             "¿Qué ocurre cuando no se envía mi denuncia?",
-            "¿Qué es un pedido\n"};
+            "¿Cuando hacer un pedido?\n"};
 
     Integer image_id[] = {R.drawable.d_flecha, R.drawable.d_flecha,
             R.drawable.d_flecha, R.drawable.d_flecha, R.drawable.d_flecha,
@@ -100,6 +100,26 @@ public class PreguntasFrecuentes extends AppCompatActivity {
                 //e¿Por qué no se muestran las noticias
                 if(position == 5){
                     Intent i = new Intent(PreguntasFrecuentes.this, Pregunta6.class);
+                    startActivity(i);
+                }
+
+                if(position == 6){
+                    Intent i = new Intent(PreguntasFrecuentes.this, Pregunta7.class);
+                    startActivity(i);
+                }
+
+                if(position == 7){
+                    Intent i = new Intent(PreguntasFrecuentes.this, Pregunta8.class);
+                    startActivity(i);
+                }
+
+                if(position == 8){
+                    Intent i = new Intent(PreguntasFrecuentes.this, Pregunta9.class);
+                    startActivity(i);
+                }
+
+                if(position == 9){
+                    Intent i = new Intent(PreguntasFrecuentes.this, Pregunta10.class);
                     startActivity(i);
                 }
             }
