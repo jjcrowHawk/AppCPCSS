@@ -5,7 +5,10 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.predenuncia;
 
-import com.example.personal.comunitarias.DatabaseRemote._Default;
+import com.example.personal.comunitarias.DatabaseRemote.*;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -38,6 +41,63 @@ public class Predenuncia extends _Default {
         this.generodenunciado="";
         this.funcionariopublico="";
 
+    }
+
+    //Obtener la lista de todas las per-denuncias
+    public ArrayList<Predenuncia> getListaPredenuncia(){
+        DB db = new DB();
+        ArrayList<Predenuncia> lista = new ArrayList<>();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM public.usuario");
+            if (resultSet != null){
+                while (resultSet.next()){
+                    Predenuncia obj = new Predenuncia();
+                    obj.setIdpredenuncia(resultSet.getInt("id"));
+                    obj.setTipodenuncia(resultSet.getString("tipodenuncia"));
+                    obj.setDescripcioninvestigacion(resultSet.getString("descripcioninvestigacion"));
+                    obj.setGenerodenunciado(resultSet.getString("generodenunciado"));
+                    obj.setFuncionariopublico(resultSet.getString("funcionariopublico"));
+                    obj.setGenerodenunciante(resultSet.getString("generodenunciante"));
+                    obj.setNiveleducaciondenunciateid(resultSet.getInt("niveleducaciondenuncianteid"));
+                    obj.setOcupaciondenuncianteid(resultSet.getInt("ocupaciondenuncianteid"));
+                    obj.setEstadocivildenuncianteid(resultSet.getInt("estadocivildenuncianteid"));
+                    obj.setInstitucionimplicadaid(resultSet.getInt("institucionimplicadaid"));
+                    obj.setNacionalidaddenuncianteid(resultSet.getInt("nacionalidaddenuncianteid"));
+                    lista.add(obj);
+                    obj = null;
+                }
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return lista;
+    }
+
+
+    public void guardarPredenuncia(){
+        String comando = "";
+        if (this.getIdpredenuncia() == -1){
+            comando = String.format("INSERT INTO cpccs.predenuncia(\n" +
+                            "\tdescripcioninvestigacion,generodenunciado, funcionariopublico, generodenunciante,  niveleducaciondenuncianteid, ocupaciondenuncianteid, estadocivildenuncianteid, institucionimplicadaid, nacionalidaddenuncianteid)\n" +
+                            "\tVALUES ('%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d');",
+                    this.getDescripcioninvestigacion(),this.generodenunciado, this.getFuncionariopublico(),this.getNiveleducaciondenunciateid(),this.getOcupaciondenuncianteid(),this.getEstadocivildenuncianteid(), this.getInstitucionimplicadaid(), this.getNacionalidaddenuncianteid());
+        }else{
+            comando = String.format("UPDATE cpccs.usuario SET nome = '%s', email = '%s', telefone = '%s' WHERE id = %d;", //cambiar
+                    this.getDescripcioninvestigacion(),this.generodenunciado, this.getFuncionariopublico(),this.getNiveleducaciondenunciateid(),this.getOcupaciondenuncianteid(),this.getEstadocivildenuncianteid(), this.getInstitucionimplicadaid(), this.getNacionalidaddenuncianteid());
+        }
+        DB db = new DB();
+        db.execute(comando);
+        this._mensagem = db._mensagem;
+        this._status = db._status;
+    }
+
+    public void eliminarPredenuncia(){
+        String comando = String.format("DELETE FROM cpccs.predenuncia WHERE id = %d;",this.getIdpredenuncia());
+        DB db = new DB();
+        db.execute(comando);
+        this._mensagem = db._mensagem;
+        this._status = db._status;
     }
 
     public int getIdpredenuncia() {
@@ -127,4 +187,6 @@ public class Predenuncia extends _Default {
     public void setFuncionariopublico(String funcionariopublico) {
         this.funcionariopublico = funcionariopublico;
     }
+
+
 }
