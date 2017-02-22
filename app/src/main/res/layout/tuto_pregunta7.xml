@@ -29,7 +29,7 @@
         android:layout_height="594dp">
 
         <TextView
-            android:text="¿Qué sucede si el teléfono no tiene conexión de internet?"
+            android:text="¿Cuándo hacer una denuncia?"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView2"
@@ -42,7 +42,7 @@
 
 
         <TextView
-            android:text="Si usted desea ver tweets, youtube, publicaciones de facebook, enviar una denuncia o pedido debe estar conectado a internet caso contrario no podrá ejecutar ninguna de las acciones nombradas."
+            android:text="Cuando usted como ciudadano quiere informar sobre actos que generen corrupción o que afecten los derechos de participación ciudadana."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="45dp"

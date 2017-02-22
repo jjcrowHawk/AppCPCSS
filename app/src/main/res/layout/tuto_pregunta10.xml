@@ -29,7 +29,7 @@
         android:layout_height="594dp">
 
         <TextView
-            android:text="¿Qué sucede si el teléfono no tiene conexión de internet?"
+            android:text="¿Qué es un pedido?"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView2"
@@ -42,7 +42,7 @@
 
 
         <TextView
-            android:text="Si usted desea ver tweets, youtube, publicaciones de facebook, enviar una denuncia o pedido debe estar conectado a internet caso contrario no podrá ejecutar ninguna de las acciones nombradas."
+            android:text="Recibe y tramita los pedidos de la ciudadanía sobre asuntos que afecten la participación y el control social que no hayan sido atendidos por instituciones del sector público o persona natural o jurídica privada que preste servicios públicos, manejen recursos públicos o desarrolle actividades de interés público."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="45dp"
