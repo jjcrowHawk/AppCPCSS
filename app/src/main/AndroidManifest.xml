@@ -121,6 +121,18 @@
             android:label="@string/title_activity_preguntas"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".preguntas.Pregunta5"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".preguntas.Pregunta6"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>

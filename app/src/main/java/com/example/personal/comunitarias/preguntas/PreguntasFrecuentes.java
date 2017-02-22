@@ -33,9 +33,18 @@ public class PreguntasFrecuentes extends AppCompatActivity {
             "¿Cómo puede ver una noticia?",
             "¿Cómo puedo ver un vídeo de CPCCS?",
             "¿Cómo puedo ver los tweets de CPCCS?",
-            "Oficinas por provincia de CPCCS?"};
+            "Oficinas por provincia de CPCCS?",
+            "¿Por qué no se muestran las noticias?",
+            "¿Qué sucede si el teléfono no tiene conexión de internet?",
+            "Cuándo hacer una denuncia?",
+            "¿Qué ocurre cuando envío mi denuncia?",
+            "¿Qué ocurre cuando no se envía mi denuncia?",
+            "¿Qué es un pedido\n"};
 
-    Integer image_id[] = {R.drawable.d_flecha, R.drawable.d_flecha, R.drawable.d_flecha, R.drawable.d_flecha};
+    Integer image_id[] = {R.drawable.d_flecha, R.drawable.d_flecha,
+            R.drawable.d_flecha, R.drawable.d_flecha, R.drawable.d_flecha,
+            R.drawable.d_flecha,R.drawable.d_flecha,R.drawable.d_flecha,
+            R.drawable.d_flecha,R.drawable.d_flecha};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +88,18 @@ public class PreguntasFrecuentes extends AppCompatActivity {
                 //twitters
                 if(position == 3){
                     Intent i = new Intent(PreguntasFrecuentes.this, Pregunta4.class);
+                    startActivity(i);
+                }
+
+                //e¿Por qué no se muestran las noticias
+                if(position == 4){
+                    Intent i = new Intent(PreguntasFrecuentes.this, Pregunta5.class);
+                    startActivity(i);
+                }
+
+                //e¿Por qué no se muestran las noticias
+                if(position == 5){
+                    Intent i = new Intent(PreguntasFrecuentes.this, Pregunta6.class);
                     startActivity(i);
                 }
             }
