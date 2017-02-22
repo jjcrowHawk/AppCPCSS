@@ -272,11 +272,16 @@
 
     </string-array>
     <string-array name="localidades_manabi">
-        <item>Veinticuatro de Mayo</item>
+        <item>Portoviejo</item>
+        <item>Manta</item>
+        <item>Chone</item>
+        <item>EL Carmen</item>
+        <item>Jipijapa</item>
+        <item>Manabí</item>
         <item>Bolívar</item>
         <item>Chone</item>
         <item>EL Carmen</item>
-        <item>Flavio Alfaro</item>
+         <item>Flavio Alfaro</item>
         <item>Jama</item>
         <item>Jaramijó</item>
         <item>Jipijapa</item>
@@ -287,20 +292,22 @@
         <item>Paján</item>
         <item>Pedernales</item>
         <item>Pichincha</item>
-        <item>Porto Viejo</item>
+        <item>Portoviejo</item>
         <item>Puerto López</item>
         <item>Rocafuerte</item>
-        <item>Santana</item>
+        <item>San Vicente</item>
+        <item>Santa Ana</item>
         <item>Sucre</item>
         <item>Tosagua</item>
+        <item>Veinticuatro de Mayo</item>
 
     </string-array>
     <string-array name="localidades_morona_santiago">
+        <item>Macas</item>
         <item>Gualaquiza</item>
         <item>Huamboya</item>
         <item>Limón Indianza</item>
         <item>Logroño</item>
-        <item>Morona</item>
         <item>Pablo Sexto</item>
         <item>Palora</item>
         <item>San Juan Bosco</item>
@@ -308,14 +315,19 @@
         <item>Sucúa</item>
         <item>Taisha</item>
         <item>Tiwintza</item>
+        <item>Morona Santiago</item>
+        
+        
 
     </string-array>
     <string-array name="localidades_napo">
+        <item>Tena</item>
+        <item>Napo</item>
         <item>Archidona</item>
-        <item>Carlos Julio Arosemena</item>
+        <item>Carlos Julio Arosemena Tola</item>
         <item>El Chaco</item>
         <item>Quijos</item>
-        <item>Tena</item>
+        
 
     </string-array>
     <string-array name="localidades_orellana">
