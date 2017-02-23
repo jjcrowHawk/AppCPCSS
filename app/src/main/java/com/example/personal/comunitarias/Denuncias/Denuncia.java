@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.personal.comunitarias.R;
 
@@ -22,6 +24,7 @@ public class Denuncia extends Fragment {
     private View view;
     private TabsDenuncia tabs;
     private Button sgteDenuciado;
+    EditText descripcion;
 
     public Denuncia(ViewPager viewPager) {
         this.viewPager = viewPager;
@@ -32,7 +35,7 @@ public class Denuncia extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
          view =  inflater.inflate(R.layout.frag2_denuncia,container,false);
         InicializarComp();
-        view.findViewById(R.id.btnDenuncia).setOnClickListener(new View.OnClickListener() {
+       /* view.findViewById(R.id.btnDenuncia).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 viewPager.setCurrentItem(2);
@@ -40,7 +43,7 @@ public class Denuncia extends Fragment {
                 //tabs.DesbloquearTabs();
 
             }
-        });
+        });*/
         return  view;
 
     }
@@ -60,5 +63,21 @@ public class Denuncia extends Fragment {
                 R.array.si_no, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         hechos.setAdapter(adapter2);
+
+        descripcion = (EditText) view.findViewById(R.id.txt_descripcion);
+        sgteDenuciado = (Button) view.findViewById(R.id.btnDenuncia);
+
+        sgteDenuciado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(descripcion.getText().toString().equals("")){
+                    Toast.makeText(getContext(),"Por favor, describa su denuncia",Toast.LENGTH_LONG).show();
+                }else {
+                    viewPager.setCurrentItem(2);
+                }
+            }
+        });
+
+
     }
 }

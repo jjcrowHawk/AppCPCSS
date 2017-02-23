@@ -137,7 +137,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         btn_seguir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewPager.setCurrentItem(1);
+
                 String Nombre, Apellido, Email, Identidad,Ocupacion,IdentidadReservada,TipoIden,Genero,Estado_civil,NivelEdu,Nacio,reside, provi,Ciuda;
 
                 Nombre = txtNombre.getText().toString();
@@ -145,6 +145,14 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 Identidad = txtApellido.getText().toString();
                 Ocupacion = txtOcupacion.getText().toString();
                 Email = txtCorreo.getText().toString();
+
+                if(Nombre.equals("")|| Apellido.equals("")||
+                        Identidad.equals("") || Ocupacion.equals("") ||
+                        Email.equals("")){
+                    Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
+                }else {
+                    viewPager.setCurrentItem(1);
+                }
 
                 IdentidadReservada = identidad.getSelectedItem().toString();
                 TipoIden = tipoIdentificacion.getSelectedItem().toString();
