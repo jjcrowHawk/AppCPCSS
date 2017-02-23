@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
 public class Peticionario extends Fragment implements AdapterView.OnItemSelectedListener{
     Spinner identidad, tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4, adapter5, adapter6, adapter7,adapter8, adapter9;
-    private EditText txtNombre, txtApellido, txtIdent , txtOcupacion;
+    private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtOcupacion;
     Button btn_seguir;
     Reclamo rec;
 
@@ -111,6 +111,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         txtApellido = (EditText)view.findViewById(R.id.txt_Apellidos);
         txtIdent = (EditText)view.findViewById(R.id.txt_tipoIdentificacion);
         txtOcupacion = (EditText)view.findViewById(R.id.txt_ocupacion);
+        txtCorreo = (EditText)view.findViewById(R.id.txt_correo);
 
         loadSpinnerProvincias();
         //focusableEditText();
@@ -120,12 +121,13 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         btn_seguir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Nombre, Apellido, Identidad,Ocupacion,IdentidadReservada,TipoIden,Genero,Estado_civil,NivelEdu,Nacio,reside, provi,Ciuda;
+                String Nombre, Apellido, Email, Identidad,Ocupacion,IdentidadReservada,TipoIden,Genero,Estado_civil,NivelEdu,Nacio,reside, provi,Ciuda;
 
                 Nombre = txtNombre.getText().toString();
                 Apellido = txtApellido.getText().toString();
                 Identidad = txtApellido.getText().toString();
                 Ocupacion = txtOcupacion.getText().toString();
+                Email = txtCorreo.getText().toString();
 
                 IdentidadReservada = identidad.getSelectedItem().toString();
                 TipoIden = tipoIdentificacion.getSelectedItem().toString();
@@ -139,8 +141,29 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
                 rec = new Reclamo();
 
-                rec.setNombresapellidosdenunciado(Nombre);
+                rec.setNombresapellidosdenunciante(Nombre + " "+ Apellido);
+                rec.setTipoidentificacion(TipoIden);
+                rec.setNumidenti(Identidad);
+                //rec.setDireccion(); //Será capaz con lo de geolocalización
+                rec.setEmail(Email);
+                //rec.setNombresapellidosdenunciado();
+                //rec.setTelefono(); //no hay ese campo en el layout
                 rec.setCargo(Ocupacion);
+                //rec.setComparecer(); //está en el TAB Denuncia
+                //rec.setDocumentores(); //está en el TAB Denuncia, asumo que el campo de si está siendo investigado
+
+                if (IdentidadReservada.equals("Si")) rec.setIdentidadreservada("1");
+                if (IdentidadReservada.equals("No")) rec.setIdentidadreservada("0");
+
+                if (Nacio.equals("Extranjero")) rec.setResideextrangero("1");
+                if (!Nacio.equals("Extranjero")) rec.setResideextrangero("0");
+
+                //rec.setCiudaddeldenuncianteid(); hay que colocar ID, que se necesita una función que me devuelva ese ID
+                //rec.setCiudaddeldenunciadoid();
+                //rec.setInstitucionimplicadaid();
+                //rec.getProvinciadenuncianteid();
+                //rec.getProvinciadenunciadoid();
+
                 rec.Guardar_Reclamo();
                 Log.d("myTag",rec.get_mensagem());
 
