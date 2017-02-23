@@ -50,6 +50,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         //data peticionario
 
         rec = new Reclamo();
+        Log.e("inicializarComp","entra");
 
         //Spinner identidad reservada
         identidad = (Spinner) view.findViewById(R.id.spinner);
