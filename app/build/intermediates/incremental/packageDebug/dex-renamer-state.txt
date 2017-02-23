@@ -1,7 +1,4 @@
-#Thu Feb 23 11:32:03 ECT 2017
-base.0=/Users/kleberstevendiazcoello/Desktop/AppCPCSS/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_01badcf4d0f58d2e485a1705ae43d4ab55563578
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=/Users/kleberstevendiazcoello/Desktop/AppCPCSS/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ddf34b26b2deead0a7f653974b2b13d185ab18e1/classes.dex
-base.1=/Users/kleberstevendiazcoello/Desktop/AppCPCSS/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ddf34b26b2deead0a7f653974b2b13d185ab18e1
-file.0=/Users/kleberstevendiazcoello/Desktop/AppCPCSS/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_01badcf4d0f58d2e485a1705ae43d4ab55563578/classes.dex
+#Thu Feb 23 12:06:14 COT 2017
+base.0=C\:\\Users\\Personal\\Documents\\ESPOL\\COMUNITARIAS\\AppCPCSS\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+renamed.0=classes.dex
+file.0=C\:\\Users\\Personal\\Documents\\ESPOL\\COMUNITARIAS\\AppCPCSS\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

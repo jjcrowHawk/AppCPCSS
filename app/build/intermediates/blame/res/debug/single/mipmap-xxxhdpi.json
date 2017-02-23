@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/Users/kleberstevendiazcoello/Desktop/AppCPCSS/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
-        "source": "/Users/kleberstevendiazcoello/Desktop/AppCPCSS/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\kleberstevendiazcoello\\Desktop\\AppCPCSS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\kleberstevendiazcoello\\Desktop\\AppCPCSS\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Personal\\Documents\\ESPOL\\COMUNITARIAS\\AppCPCSS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\Personal\\Documents\\ESPOL\\COMUNITARIAS\\AppCPCSS\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     }
 ]

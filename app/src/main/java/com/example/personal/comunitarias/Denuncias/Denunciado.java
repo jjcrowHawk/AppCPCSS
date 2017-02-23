@@ -123,7 +123,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                 comparecer_d = d.getComparecer_d();
                 hechos_d = d.getHechos_d();
                 Descripciion_D = d.getDescripcion_Denuncia();
-                Log.d("MYTAG, Nombre_P);
+                
                 Log.d("myTag", "no es nada"+hechos_d);
                 String Nombre_D, Apellido_D,Cargo_D,Unafectada,Perdjudicada_d,Genero_d,Provincia_d,CIudad_d,Institucion_d;
                 Nombre_D = txtNombre.getText().toString();
