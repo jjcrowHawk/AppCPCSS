@@ -83,16 +83,16 @@ public class Predenuncia extends _Default {
                     this.getDescripcioninvestigacion(),this.generodenunciado, this.getFuncionariopublico(),this.getNiveleducaciondenunciateid(),this.getOcupaciondenuncianteid(),this.getEstadocivildenuncianteid(), this.getInstitucionimplicadaid(), this.getNacionalidaddenuncianteid());
         DB db = new DB();
         db.execute(comando);
-        this._mensagem = db._mensagem;
-        this._status = db._status;
+        this._mensagem = db.get_mensagem();
+        this._status = db.is_status();
     }
 
     public void eliminarPredenuncia(){
         String comando = String.format("DELETE FROM cpccs.predenuncia WHERE id = %d;",this.getIdpredenuncia());
         DB db = new DB();
         db.execute(comando);
-        this._mensagem = db._mensagem;
-        this._status = db._status;
+        this._mensagem = db.get_mensagem();
+        this._status = db.is_status();
     }
 
     public int getIdpredenuncia() {

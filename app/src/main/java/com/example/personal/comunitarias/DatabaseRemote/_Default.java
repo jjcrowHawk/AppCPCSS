@@ -4,8 +4,8 @@ package com.example.personal.comunitarias.DatabaseRemote;
  * Created by sianna-chan on 21/02/2017.
  */
 public class _Default {
-    public String _mensagem;
-    public boolean _status;
+    protected String _mensagem;
+    protected boolean _status;
 
     public _Default(){
         this._status = true;
