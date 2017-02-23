@@ -5,11 +5,16 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.institucion;
 
+import com.example.personal.comunitarias.DatabaseRemote.DB;
+import com.example.personal.comunitarias.DatabaseRemote._Default;
+
+import java.sql.ResultSet;
+
 /**
  *
  * @author Kattya Desiderio
  */
-public class Institucion {
+public class Institucion extends _Default {
     int idinstitucion; //pk
     String url;
     String descripcion;
@@ -32,6 +37,21 @@ public class Institucion {
         this.publica = publica;
         this.representante = representante;
         this.url = url;
+    }
+
+    public int getID_DB(String nombre){
+        int id_encontrada=-1;
+        DB db = new DB();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.institucion WHERE nombre='"+nombre+"'");
+            if (resultSet != null) {
+                id_encontrada=resultSet.getInt("id");
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return id_encontrada;
     }
 
     public int getSectorid() {

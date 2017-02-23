@@ -5,11 +5,16 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.niveleducacion;
 
+import com.example.personal.comunitarias.DatabaseRemote.DB;
+import com.example.personal.comunitarias.DatabaseRemote._Default;
+
+import java.sql.ResultSet;
+
 /**
  *
  * @author Kattya Desiderio
  */
-public class Niveleducacion {
+public class Niveleducacion extends _Default {
     int idniveleducacion;
     String nombre;
     String descripcion;
@@ -24,6 +29,21 @@ public class Niveleducacion {
 
     public int getIdniveleducacion() {
         return idniveleducacion;
+    }
+
+    public int getID_DB(String nombre){
+        int id_encontrada=-1;
+        DB db = new DB();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.niveleducacion WHERE nombre='"+nombre+"'");
+            if (resultSet != null) {
+                id_encontrada=resultSet.getInt("id");
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return id_encontrada;
     }
 
     public void setIdniveleducacion(int idniveleducacion) {

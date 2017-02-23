@@ -5,15 +5,35 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.estadocivil;
 
+import com.example.personal.comunitarias.DatabaseRemote.DB;
+import com.example.personal.comunitarias.DatabaseRemote._Default;
+
+import java.sql.ResultSet;
+
 /**
  *
  * @author Kattya Desiderio
  */
-public class Estadocivil {
+public class Estadocivil extends _Default {
     int idestadocivil; //pk
     String nombre;
 
     public Estadocivil() {
+    }
+
+    public int getID_DB(String nombre){
+        int id_encontrada=-1;
+        DB db = new DB();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.estadocivil WHERE nombre='"+nombre+"'");
+            if (resultSet != null) {
+                id_encontrada=resultSet.getInt("id");
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return id_encontrada;
     }
 
     public int getIdestadocivil() {

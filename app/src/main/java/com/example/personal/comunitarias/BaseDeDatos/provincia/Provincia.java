@@ -5,11 +5,16 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.provincia;
 
+import com.example.personal.comunitarias.DatabaseRemote.DB;
+import com.example.personal.comunitarias.DatabaseRemote._Default;
+
+import java.sql.ResultSet;
+
 /**
  *
  * @author Kattya Desiderio
  */
-public class Provincia {
+public class Provincia extends _Default {
     int idprovincia; //pk
     String nombre;
     int regionid; //fk
@@ -22,6 +27,21 @@ public class Provincia {
         this.idprovincia = idprovincia;
         this.nombre = nombre;
         this.regionid = regionid;
+    }
+
+    public int getID_DB(String nombre){
+        int id_encontrada=-1;
+        DB db = new DB();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.provincia WHERE nombre='"+nombre+"'");
+            if (resultSet != null) {
+                id_encontrada=resultSet.getInt("id");
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return id_encontrada;
     }
 
     public Provincia(String nombre) {

@@ -5,11 +5,16 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.ocupacion;
 
+import com.example.personal.comunitarias.DatabaseRemote.DB;
+import com.example.personal.comunitarias.DatabaseRemote._Default;
+
+import java.sql.ResultSet;
+
 /**
  *
  * @author Kattya Desiderio
  */
-public class Ocupacion {
+public class Ocupacion extends _Default {
     int idocupacion; //pk
     String nombre;
     String descripcion;
@@ -20,6 +25,21 @@ public class Ocupacion {
     public Ocupacion(String descripcion, String nombre) {
         this.descripcion = descripcion;
         this.nombre = nombre;
+    }
+
+    public int getID_DB(String nombre){
+        int id_encontrada=-1;
+        DB db = new DB();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.ocupacion WHERE nombre='"+nombre+"'");
+            if (resultSet != null) {
+                id_encontrada=resultSet.getInt("id");
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return id_encontrada;
     }
 
     public int getIdocupacion() {

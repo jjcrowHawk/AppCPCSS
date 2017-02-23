@@ -48,7 +48,7 @@ public class Predenuncia extends _Default {
         DB db = new DB();
         ArrayList<Predenuncia> lista = new ArrayList<>();
         try {
-            ResultSet resultSet = db.select("SELECT * FROM public.usuario");
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.predenuncia");
             if (resultSet != null){
                 while (resultSet.next()){
                     Predenuncia obj = new Predenuncia();

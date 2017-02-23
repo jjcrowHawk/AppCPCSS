@@ -5,11 +5,16 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.region;
 
+import com.example.personal.comunitarias.DatabaseRemote.DB;
+import com.example.personal.comunitarias.DatabaseRemote._Default;
+
+import java.sql.ResultSet;
+
 /**
  *
  * @author Kattya Desiderio
  */
-public class Region {
+public class Region extends _Default {
     int idregion; //pk
     String nombre;
     String descripcion;
@@ -20,6 +25,21 @@ public class Region {
     public Region(String nombre, String descripcion) {
         this.descripcion = descripcion;
         this.nombre = nombre;
+    }
+
+    public int getID_DB(String nombre){
+        int id_encontrada=-1;
+        DB db = new DB();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.region WHERE nombre='"+nombre+"'");
+            if (resultSet != null) {
+                id_encontrada=resultSet.getInt("id");
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return id_encontrada;
     }
 
     public String getNombre() {
