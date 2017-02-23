@@ -1,37 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
     abi="x86_64,x86"
-    api-level="25"
-    density="560dpi"
+    api-level="21"
+    density="xhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="14121862324422"
-    token="-5647213862890642342"
-    verifier="FULL_BUILD_REQUESTED" >
+    timestamp="44152210668086"
+    token="-8919659448180920640"
+    verifier="CLASS_ADDED" >
 
     <task
         name="javac"
-        duration="1247" />
+        duration="504" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="793" />
+        duration="275" />
     <task
         name="verifier"
-        duration="76" />
+        duration="42" />
 
     <artifact
-        location="/Users/kleberstevendiazcoello/Desktop/AppCPCSS/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+        type="RESOURCES" />
+    <artifact
+        location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_6\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_5\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
+        type="DEX" />
+    <artifact
+        location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+        type="DEX" />
 
     <build
-        timestamp="14121862324422"
+        timestamp="43647513937378"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/Users/kleberstevendiazcoello/Desktop/AppCPCSS/app/build/outputs/apk/app-debug.apk"
+            location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="44152210668086"
+        verifier="CLASS_ADDED" >
+        <artifact
+            location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
+        <artifact
+            location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_6\classes.dex"
+            type="DEX" />
+        <artifact
+            location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+            type="DEX" />
+        <artifact
+            location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+            type="DEX" />
+        <artifact
+            location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_5\classes.dex"
+            type="DEX" />
+        <artifact
+            location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
+            type="DEX" />
+        <artifact
+            location="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

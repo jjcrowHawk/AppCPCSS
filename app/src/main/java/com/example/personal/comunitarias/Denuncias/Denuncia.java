@@ -29,21 +29,24 @@ public class Denuncia extends Fragment {
     static String Comparecer_d;
     static String  Hechos_d;
 
+    public Denuncia(ViewPager viewPager) {
+        this.viewPager = viewPager;
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
          view =  inflater.inflate(R.layout.frag2_denuncia,container,false);
         InicializarComp();
-       /* view.findViewById(R.id.btnDenuncia).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btnDenunciaAnterior).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                viewPager.setCurrentItem(2);
+                viewPager.setCurrentItem(0);
                 //tabs = new TabsDenuncia();
                 //tabs.DesbloquearTabs();
 
             }
-        });*/
+        });
         return  view;
 
     }
@@ -112,8 +115,6 @@ public class Denuncia extends Fragment {
         Hechos_d = hechos_d;
     }
 
-    public Denuncia(ViewPager viewPager) {
-        this.viewPager = viewPager;
-    }
+
 
 }

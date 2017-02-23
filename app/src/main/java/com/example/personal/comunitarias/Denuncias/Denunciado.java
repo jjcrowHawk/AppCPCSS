@@ -53,9 +53,14 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     private View view;
     private TabsDenuncia tabs;
 
+    public  Denunciado(){
+
+    }
+
     public Denunciado(ViewPager viewPager) {
 
         this.viewPager = viewPager;
+        //pruebaaaaaaaaaaaaaaaaaaaaaaaaaaa
     }
 
     @Nullable
@@ -63,6 +68,15 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.frag3_denunciado,container,false);
         InicializarComp();
+        view.findViewById(R.id.btn_anterior).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                viewPager.setCurrentItem(1);
+                //tabs = new TabsDenuncia();
+                //tabs.DesbloquearTabs();
+
+            }
+        });
         return  view;
     }
 

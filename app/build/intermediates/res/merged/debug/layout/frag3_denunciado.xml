@@ -172,14 +172,24 @@
         </android.support.design.widget.TextInputLayout>
 
         <Button
-            android:text="Guardar"
-            android:layout_width="match_parent"
+            android:text="Anterior"
+            android:layout_width="100dp"
             android:layout_height="40dp"
-            android:layout_gravity="center"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="550dp"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimaryDark"
+            android:id="@+id/btn_anterior" />
+        <Button
+            android:text="Guardar"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="550dp"
             android:textColor="#ffffff"
             android:background="@color/colorPrimaryDark"
             android:id="@+id/btn_enviar" />
+
 
     </RelativeLayout>
 
