@@ -5,9 +5,7 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.reclamo;
 
-import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
@@ -221,13 +219,17 @@ public class Reclamo extends _Default {
         Log.d("myTag", "Entre al query");
         String comando = "";
         if (this.getIdreclamo() == -1) {
-        comando = String.format(" INSERT INTO cpccs.reclamo (nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddeldenuncianteid,ciudaddeldenunciadoid,insttitucionimplicadaid,provinciadenuncianteid,provinciadenunciadoid)VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d,%d,%d,%d);",
-                "Janina Costa", "0125455", "12345", "mapasingue", "jlcosta", "Domenica Vera", "1245", "12345", "1", "1", "1", "1", 1, 1, 1, 1, 1);
+        //comando = String.format(" INSERT INTO cpccs.reclamo (nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddeldenuncianteid,ciudaddeldenunciadoid,insttitucionimplicadaid,provinciadenuncianteid,provinciadenunciadoid)VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d,%d,%d,%d);",
+          //"SIANNA", "0125455", "12345", "mapasingue", "jlcosta", "Domenica Vera", "1245", "12345", "1", "1", "1", "1", 1, 1, 1, 1, 1);
+
+            comando = String.format(" INSERT INTO cpccs.reclamo (nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddeldenuncianteid,ciudaddeldenunciadoid,insttitucionimplicadaid,provinciadenuncianteid,provinciadenunciadoid)Values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d,%d,%d,%d);",
+                    this.getNombresapellidosdenunciante(),this.getTipoidentificacion(),this.getNumidenti(),this.getDireccion(),this.getEmail(),this.getNombresapellidosdenunciado(),this.getTelefono(),this.getCargo(),this.getComparecer(),this.getDocumentores(),this.getIdentidadreservada(),this.getResideextrangero(),this.getCiudaddeldenuncianteid(),this.getCiudaddeldenunciadoid(),this.getInstitucionimplicadaid(),this.getProvinciadenuncianteid(),this.getProvinciadenunciadoid());
+            Log.d("Enviado  : ", this.getNombresapellidosdenunciante() + this.getTipoidentificacion() + this.getNumidenti() + this.getDireccion()+ this.getEmail() + this.getNombresapellidosdenunciado() + this.getTelefono() + this.getCargo() + this.getComparecer() + this.getDocumentores() + this.getIdentidadreservada() + this.getResideextrangero() + this.getCiudaddeldenuncianteid() + this.getCiudaddeldenunciadoid() + this.getInstitucionimplicadaid() + this.getProvinciadenuncianteid() + this.getProvinciadenunciadoid());
         }
 
 
-        // comando = String.format(" INSERT INTO cpccs.reclamo (nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddeldenuncianteid,ciudaddeldenunciadoid,insttitucionimplicadaid,provinciadenuncianteid,provinciadenunciadoid)Values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d,%d,%d,%d);",
-        //      this.getNombresapellidosdenunciante(),"0125455","12345",this.getDireccion(),this.getEmail(),getNombresapellidosdenunciado(),this.getTelefono(),this.getCargo(),this.getComparecer(),this.getDocumentores(),this.getIdentidadreservada(),this.getResideextrangero(),this.getCiudaddeldenuncianteid(),this.getCiudaddeldenunciadoid(),this.getInstitucionimplicadaid(),this.getProvinciadenuncianteid(),this.getCiudaddeldenunciadoid());
+
+
         DB db = new DB();
         db.execute(comando);
         this._mensagem = db.get_mensagem();

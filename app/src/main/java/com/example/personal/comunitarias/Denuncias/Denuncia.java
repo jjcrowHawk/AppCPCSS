@@ -25,10 +25,10 @@ public class Denuncia extends Fragment {
     private TabsDenuncia tabs;
     private Button sgteDenuciado;
     EditText descripcion;
+    static String Descripcion_Denuncia;
+    static String Comparecer_d;
+    static String  Hechos_d;
 
-    public Denuncia(ViewPager viewPager) {
-        this.viewPager = viewPager;
-    }
 
     @Nullable
     @Override
@@ -73,6 +73,14 @@ public class Denuncia extends Fragment {
                 if(descripcion.getText().toString().equals("")){
                     Toast.makeText(getContext(),"Por favor, describa su denuncia",Toast.LENGTH_LONG).show();
                 }else {
+                    Peticionario d = new Peticionario(viewPager);
+
+                    Descripcion_Denuncia= descripcion.getText().toString();
+                    if (comparecer.getSelectedItem().equals("Si")) Comparecer_d ="1";
+                    if (comparecer.getSelectedItem().equals("No")) Comparecer_d ="0";
+                    if (hechos.getSelectedItem().equals("Si")) Hechos_d="1";
+                    if (hechos.getSelectedItem().equals("No")) Hechos_d="0";
+                    //
                     viewPager.setCurrentItem(2);
                 }
             }
@@ -80,4 +88,32 @@ public class Denuncia extends Fragment {
 
 
     }
+    public static String getDescripcion_Denuncia() {
+        return Descripcion_Denuncia;
+    }
+
+    public static void setDescripcion_Denuncia(String descripcion_Denuncia) {
+        Descripcion_Denuncia = descripcion_Denuncia;
+    }
+
+    public static String getComparecer_d() {
+        return Comparecer_d;
+    }
+
+    public static void setComparecer_d(String comparecer_d) {
+        Comparecer_d = comparecer_d;
+    }
+
+    public static String getHechos_d() {
+        return Hechos_d;
+    }
+
+    public static void setHechos_d(String hechos_d) {
+        Hechos_d = hechos_d;
+    }
+
+    public Denuncia(ViewPager viewPager) {
+        this.viewPager = viewPager;
+    }
+
 }

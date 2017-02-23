@@ -6,8 +6,6 @@ import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.text.InputFilter;
-import android.text.Spanned;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +16,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
+import com.example.personal.comunitarias.BaseDeDatos.institucion.Institucion;
+import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
+import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.R;
 
 import java.util.Properties;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.mail.Authenticator;
 import javax.mail.BodyPart;
@@ -35,10 +35,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import static android.R.attr.filter;
 
-
-public class Denunciado extends Fragment  implements AdapterView.OnItemSelectedListener{
+public class Denunciado extends Fragment implements AdapterView.OnItemSelectedListener{
     Spinner  genero,institucion, provincia, ciudad;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4;
 
@@ -47,6 +45,8 @@ public class Denunciado extends Fragment  implements AdapterView.OnItemSelectedL
     String correo;
     String contraseña;
     Session session;
+    String Nombre_P,Apellido_P,Mail_P,Identidad_P,Ocupacion_P,Estadocivil_P,provi_P,Ciudad_P,Nacio_p,Reside_p,Nivel_P,TipoIde_P,Genero_P,Reservada_p;
+    String Descripciion_D,comparecer_d,hechos_d;
 
     /******/
     private ViewPager viewPager;
@@ -54,6 +54,7 @@ public class Denunciado extends Fragment  implements AdapterView.OnItemSelectedL
     private TabsDenuncia tabs;
 
     public Denunciado(ViewPager viewPager) {
+
         this.viewPager = viewPager;
     }
 
@@ -103,8 +104,90 @@ public class Denunciado extends Fragment  implements AdapterView.OnItemSelectedL
         btn_enviar_r.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Denuncia d = new Denuncia(viewPager);
+                Peticionario p = new Peticionario(viewPager);
+                Nombre_P = p.getNombre();
+                Apellido_P = p.getApellido();
+                Mail_P= p.getEmail();
+                Identidad_P=p.getIdentidad();
+                Reservada_p=p.getIdentidadReservada();
+                Ocupacion_P=p.getOcupacion();
+                Estadocivil_P= p.getEstado_civil();
+                provi_P= p.getProvi();
+                Ciudad_P=p.getCiuda();
+                Nacio_p=p.getNacio();
+                Reside_p=p.getReside();
+                Nivel_P=p.getNivelEdu();
+                TipoIde_P=p.getTipoIden();
+                Genero_P=p.getGenero();
+                comparecer_d = d.getComparecer_d();
+                hechos_d = d.getHechos_d();
+                Descripciion_D = d.getDescripcion_Denuncia();
+                Log.d("MYTAG, Nombre_P);
+                Log.d("myTag", "no es nada"+hechos_d);
+                String Nombre_D, Apellido_D,Cargo_D,Unafectada,Perdjudicada_d,Genero_d,Provincia_d,CIudad_d,Institucion_d;
+                Nombre_D = txtNombre.getText().toString();
+                Apellido_D = txtApellido.getText().toString();
+                Cargo_D = txtCargo.getText().toString();
+                Unafectada = txtUnAfectada.getText().toString();
+                Perdjudicada_d = txtPerjud.getText().toString();
+                  if (genero.equals("Masculino")){
+                      Genero_d ="1";
+                  }else{
+                      Genero_d="2";
+                  }
+                Provincia_d = provincia.getSelectedItem().toString();
+                CIudad_d = ciudad.getSelectedItem().toString();
+                Institucion_d = institucion.getSelectedItem().toString();
 
-                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                Provincia IdPr = new Provincia();
+                int IdObtenido = IdPr.getID_DB(provi_P);
+                int IdObtenido_Denunciado = IdPr.getID_DB(Provincia_d);
+                Ciudad c = new Ciudad();
+                int IdCiudad = c.getID_DB(Ciudad_P);
+                int IdCiudad_denucniado = c.getID_DB(CIudad_d);
+                Institucion I = new Institucion();
+                int Id_Institucion = I.getID_DB(Institucion_d);
+                /*Log.d("myTag", "Ciudad"+IdCiudad );
+                Log.d("myTag", "Ciudad"+IdCiudad_denucniado );
+                Log.d("myTag", "Provincia"+IdObtenido );
+                Log.d("myTag", "Provincia"+IdObtenido_Denunciado );*/
+
+                Reclamo reclamo = new Reclamo();
+                reclamo.setCargo(Ocupacion_P);
+                reclamo.setCiudaddeldenunciadoid(1);
+                reclamo.setCiudaddeldenuncianteid(1);
+                reclamo.setComparecer(comparecer_d);
+                reclamo.setDireccion("Samanes");
+                reclamo.setDocumentores(hechos_d);
+                reclamo.setEmail(Mail_P);
+                reclamo.setResideextrangero("1");
+                reclamo.setIdentidadreservada("1");
+                reclamo.setNombresapellidosdenunciado(Nombre_D);
+                reclamo.setNombresapellidosdenunciante(Nombre_P);
+                reclamo.setInstitucionimplicadaid(1);
+                reclamo.setNumidenti(Identidad_P);
+                reclamo.setProvinciadenunciadoid(1);
+                reclamo.setProvinciadenuncianteid(1);
+                reclamo.setTelefono("2164536");
+                reclamo.setTipoidentificacion("Cedula");
+                reclamo.Guardar_Reclamo();
+                if(reclamo.is_status()){
+                    Log.d("myTag", "Si inserto");
+
+                }
+
+
+
+
+
+
+
+
+
+                /* MAIL+++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
                 StrictMode.setThreadPolicy(policy);
                 Properties properties = new Properties();
                 properties.put("mail.smtp.host","smtp.googlemail.com");
@@ -138,7 +221,7 @@ public class Denunciado extends Fragment  implements AdapterView.OnItemSelectedL
                         Message message = new MimeMessage(session);
                         message.setFrom(new InternetAddress(correo));
                         message.setSubject("Confirmaciòn De Envio");
-                        message.setRecipients(Message.RecipientType.TO , InternetAddress.parse("prueba.recibo.formulario@gmail.com"));
+                        message.setRecipients(Message.RecipientType.TO , InternetAddress.parse(Mail_P));
                         message.setContent(multiparte);
 
 

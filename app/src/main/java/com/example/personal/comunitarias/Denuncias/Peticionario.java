@@ -2,14 +2,9 @@ package com.example.personal.comunitarias.Denuncias;
 
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.Spanned;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,10 +18,6 @@ import android.widget.Toast;
 
 import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.R;
-import com.google.api.client.repackaged.com.google.common.base.Converter;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 
 public class Peticionario extends Fragment implements AdapterView.OnItemSelectedListener{
@@ -39,7 +30,28 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     private ViewPager viewPager;
     private View view;
     private TabsDenuncia tabs;
+    static String Nombre ="";
+    static String  Apellido;
+    static String Email;
+    static String Identidad;
+    static String Ocupacion;
+    static String IdentidadReservada;
+    static String TipoIden;
+    static String Genero;
+    static String Estado_civil;
+    static String NivelEdu;
+    static String Nacio;
+    static String reside;
+    static String provi;
+    static String Ciuda;
 
+    public static String getNombre() {
+        return Nombre;
+    }
+
+    public static void setNombre(String nombre) {
+        Nombre = nombre;
+    }
 
     public Peticionario(ViewPager viewPager) {
         this.viewPager = viewPager;
@@ -70,7 +82,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
         //Spinner identidad reservada
         identidad = (Spinner) view.findViewById(R.id.spinner);
-        adapter = ArrayAdapter.createFromResource(getContext(),R.array.si_no, android.R.layout.simple_spinner_item);
+        adapter = ArrayAdapter.createFromResource(getContext(), R.array.si_no, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         identidad.setAdapter(adapter);
 
@@ -138,21 +150,13 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
             @Override
             public void onClick(View v) {
 
-                String Nombre, Apellido, Email, Identidad,Ocupacion,IdentidadReservada,TipoIden,Genero,Estado_civil,NivelEdu,Nacio,reside, provi,Ciuda;
+
 
                 Nombre = txtNombre.getText().toString();
                 Apellido = txtApellido.getText().toString();
-                Identidad = txtApellido.getText().toString();
+                Identidad = txtIdent.getText().toString();
                 Ocupacion = txtOcupacion.getText().toString();
                 Email = txtCorreo.getText().toString();
-
-                if(Nombre.equals("")|| Apellido.equals("")||
-                        Identidad.equals("") || Ocupacion.equals("") ||
-                        Email.equals("")){
-                    Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
-                }else {
-                    viewPager.setCurrentItem(1);
-                }
 
                 IdentidadReservada = identidad.getSelectedItem().toString();
                 TipoIden = tipoIdentificacion.getSelectedItem().toString();
@@ -164,24 +168,34 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 provi = provincia.getSelectedItem().toString();
                 Ciuda = ciudad.getSelectedItem().toString();
 
-                rec = new Reclamo();
+                if(Nombre.equals("")|| Apellido.equals("")||
+                        Identidad.equals("") || Ocupacion.equals("") ||
+                        Email.equals("")){
+                    Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
+                }else {
+                    viewPager.setCurrentItem(1);
+                }
+
+
+
+               /* rec = new Reclamo();
 
                 rec.setNombresapellidosdenunciante(Nombre + " "+ Apellido);
                 rec.setTipoidentificacion(TipoIden);
-                rec.setNumidenti(Identidad);
+                rec.setNumidenti(Identidad);*/
                 //rec.setDireccion(); //Será capaz con lo de geolocalización
-                rec.setEmail(Email);
+                //rec.setEmail(Email);
                 //rec.setNombresapellidosdenunciado();
                 //rec.setTelefono(); //no hay ese campo en el layout
-                rec.setCargo(Ocupacion);
+                //rec.setCargo(Ocupacion);
                 //rec.setComparecer(); //está en el TAB Denuncia
                 //rec.setDocumentores(); //está en el TAB Denuncia, asumo que el campo de si está siendo investigado
 
-                if (IdentidadReservada.equals("Si")) rec.setIdentidadreservada("1");
+               /* if (IdentidadReservada.equals("Si")) rec.setIdentidadreservada("1");
                 if (IdentidadReservada.equals("No")) rec.setIdentidadreservada("0");
 
                 if (Nacio.equals("Extranjero")) rec.setResideextrangero("1");
-                if (!Nacio.equals("Extranjero")) rec.setResideextrangero("0");
+                if (!Nacio.equals("Extranjero")) rec.setResideextrangero("0");*/
 
                 //rec.setCiudaddeldenuncianteid(); hay que colocar ID, que se necesita una función que me devuelva ese ID
                 //rec.setCiudaddeldenunciadoid();
@@ -189,11 +203,11 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 //rec.getProvinciadenuncianteid();
                 //rec.getProvinciadenunciadoid();
 
-                rec.Guardar_Reclamo();
+              /*  rec.Guardar_Reclamo();
                 Log.d("myTag",rec.get_mensagem());
 
                 if (rec.is_status())
-                    Log.e("status","si inserta");
+                    Log.e("status","si inserta");*/
 
 
 
@@ -204,6 +218,15 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
 
     }
+
+
+
+
+
+
+
+
+
 
     public void Ir_Segundo_Fragment(){
 
@@ -264,6 +287,12 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         }
 
     }
+
+
+
+
+
+
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) { }
@@ -400,5 +429,115 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         }
     }
 
+
+
+    public static String getApellido() {
+        return Apellido;
+    }
+
+    public static void setApellido(String apellido) {
+        Apellido = apellido;
+    }
+
+    public static String getEmail() {
+        return Email;
+    }
+
+    public static void setEmail(String email) {
+        Email = email;
+    }
+
+    public static String getIdentidad() {
+        return Identidad;
+    }
+
+    public static void setIdentidad(String identidad) {
+        Identidad = identidad;
+    }
+
+    public static String getOcupacion() {
+        return Ocupacion;
+    }
+
+    public static void setOcupacion(String ocupacion) {
+        Ocupacion = ocupacion;
+    }
+
+    public static String getIdentidadReservada() {
+        return IdentidadReservada;
+    }
+
+    public static void setIdentidadReservada(String identidadReservada) {
+        IdentidadReservada = identidadReservada;
+    }
+
+    public static String getTipoIden() {
+        return TipoIden;
+    }
+
+    public static void setTipoIden(String tipoIden) {
+        TipoIden = tipoIden;
+    }
+
+    public static String getGenero() {
+        return Genero;
+    }
+
+    public static void setGenero(String genero) {
+        Genero = genero;
+    }
+
+    public static String getEstado_civil() {
+        return Estado_civil;
+    }
+
+    public static void setEstado_civil(String estado_civil) {
+        Estado_civil = estado_civil;
+    }
+
+    public static String getNivelEdu() {
+        return NivelEdu;
+    }
+
+    public static void setNivelEdu(String nivelEdu) {
+        NivelEdu = nivelEdu;
+    }
+
+    public static String getNacio() {
+        return Nacio;
+    }
+
+    public static void setNacio(String nacio) {
+        Nacio = nacio;
+    }
+
+    public static String getReside() {
+        return reside;
+    }
+
+    public static void setReside(String reside) {
+        Peticionario.reside = reside;
+    }
+
+    public static String getProvi() {
+        return provi;
+    }
+
+    public static void setProvi(String provi) {
+        Peticionario.provi = provi;
+    }
+
+    public static String getCiuda() {
+        return Ciuda;
+    }
+
+    public static void setCiuda(String ciuda) {
+        Ciuda = ciuda;
+    }
+
+
 }
+
+
+
 
