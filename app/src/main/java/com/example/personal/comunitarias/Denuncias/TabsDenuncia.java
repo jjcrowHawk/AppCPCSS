@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 
 import com.example.personal.comunitarias.R;
 
@@ -18,6 +19,7 @@ public class TabsDenuncia extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager viewPager;
+    LinearLayout tabStrip;
 
 
     @Override
@@ -40,6 +42,9 @@ public class TabsDenuncia extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
 
+        tabStrip = ((LinearLayout) tabLayout.getChildAt(0));
+        BloquearTabs();
+
 
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -60,6 +65,19 @@ public class TabsDenuncia extends AppCompatActivity {
         });
 
     }
+    public void BloquearTabs(){
+        tabStrip.getChildAt(0).setClickable(false);
+        tabStrip.getChildAt(1).setClickable(false);
+        tabStrip.getChildAt(2).setClickable(false);
+    }
+
+    public void DesbloquearTabs(){
+        tabStrip.getChildAt(0).setClickable(true);
+        tabStrip.getChildAt(1).setClickable(true);
+        tabStrip.getChildAt(2).setClickable(true);
+    }
+
+
 
 
     private class CustomAdapter extends FragmentPagerAdapter {
@@ -74,11 +92,11 @@ public class TabsDenuncia extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new Peticionario();
+                    return new Peticionario(viewPager);
                 case 1:
-                    return new Denuncia();
+                    return new Denuncia(viewPager);
                 case 2:
-                    return new Denunciado();
+                    return new Denunciado(viewPager);
                 default:
                     return null;
             }

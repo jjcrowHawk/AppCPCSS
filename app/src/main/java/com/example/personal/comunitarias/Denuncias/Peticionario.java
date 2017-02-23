@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.Spanned;
@@ -34,14 +35,29 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtOcupacion;
     Button btn_seguir;
     Reclamo rec;
-
+    /******/
+    private ViewPager viewPager;
     private View view;
+    private TabsDenuncia tabs;
+
+
+    public Peticionario(ViewPager viewPager) {
+        this.viewPager = viewPager;
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.frag1_peticionario,container,false);
         InicializarComp();
+        view.findViewById(R.id.btnInfoPeticionario).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                viewPager.setCurrentItem(1);
+                //tabs.DesbloquearPrimTb();
+            }
+        });
         return  view;
 
     }
