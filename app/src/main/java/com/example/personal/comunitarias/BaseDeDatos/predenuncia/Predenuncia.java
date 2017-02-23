@@ -78,9 +78,9 @@ public class Predenuncia extends _Default {
     public void guardarPredenuncia(){
         String comando = "";
             comando = String.format("INSERT INTO cpccs.predenuncia(\n" +
-                            "\tdescripcioninvestigacion,generodenunciado, funcionariopublico, generodenunciante,  niveleducaciondenuncianteid, ocupaciondenuncianteid, estadocivildenuncianteid, institucionimplicadaid, nacionalidaddenuncianteid)\n" +
-                            "\tVALUES ('%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d');",
-                    this.getDescripcioninvestigacion(),this.generodenunciado, this.getFuncionariopublico(),this.getNiveleducaciondenunciateid(),this.getOcupaciondenuncianteid(),this.getEstadocivildenuncianteid(), this.getInstitucionimplicadaid(), this.getNacionalidaddenuncianteid());
+                            "\t tipodenuncia,generodenunciante,descripcioninvestigacion,generodenunciado, funcionariopublico,   niveleducaciondenuncianteid, ocupaciondenuncianteid, estadocivildenuncianteid, institucionimplicadaid, nacionalidaddenuncianteid)\n" +
+                            "\tVALUES ('%s','%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d');",
+                    this.getTipodenuncia(),this.getOcupaciondenuncianteid(),this.getDescripcioninvestigacion(),this.getGenerodenunciado(), this.getFuncionariopublico(),this.getNiveleducaciondenunciateid(),this.getOcupaciondenuncianteid(),this.getEstadocivildenuncianteid(), this.getInstitucionimplicadaid(), this.getNacionalidaddenuncianteid());
         DB db = new DB();
         db.execute(comando);
         this._mensagem = db.get_mensagem();

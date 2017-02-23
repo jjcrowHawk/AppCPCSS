@@ -1,6 +1,7 @@
 package com.example.personal.comunitarias.Denuncias;
 
 import android.content.res.TypedArray;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
@@ -18,12 +19,16 @@ import android.widget.Spinner;
 
 import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
 import com.example.personal.comunitarias.BaseDeDatos.institucion.Institucion;
+import com.example.personal.comunitarias.BaseDeDatos.predenuncia.Predenuncia;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.R;
 
 import java.util.Properties;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.Authenticator;
 import javax.mail.BodyPart;
 import javax.mail.Message;
@@ -162,10 +167,6 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                 int IdCiudad_denucniado = c.getID_DB(CIudad_d);
                 Institucion I = new Institucion();
                 int Id_Institucion = I.getID_DB(Institucion_d);
-                /*Log.d("myTag", "Ciudad"+IdCiudad );
-                Log.d("myTag", "Ciudad"+IdCiudad_denucniado );
-                Log.d("myTag", "Provincia"+IdObtenido );
-                Log.d("myTag", "Provincia"+IdObtenido_Denunciado );*/
 
                 Reclamo reclamo = new Reclamo();
                 reclamo.setCargo(Ocupacion_P);
@@ -192,61 +193,27 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                 }
 
 
+               Predenuncia pd = new Predenuncia();
+                pd.setTipodenuncia("1");
+                pd.setDescripcioninvestigacion(Descripciion_D);
+                pd.setFuncionariopublico("SOY UN FUNCIONARIO");
+                pd.setGenerodenunciado("1");
+                pd.setGenerodenunciante("1");
+                pd.setNiveleducaciondenunciateid(1);
+                pd.setOcupaciondenuncianteid(1);
+                pd.setEstadocivildenuncianteid(1);
+                pd.setInstitucionimplicadaid(1);
+                pd.setNacionalidaddenuncianteid(1);
 
+                pd.guardarPredenuncia();
+                if(reclamo.is_status()){
+                    Log.d("myTag", "Si inserto Predenuncia");
+                    SendMail();
 
-
-
-
-
-
-                /* MAIL+++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-
-                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-                StrictMode.setThreadPolicy(policy);
-                Properties properties = new Properties();
-                properties.put("mail.smtp.host","smtp.googlemail.com");
-                properties.put("mail.smtp.socketFactory.port","465");
-                properties.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
-                properties.put("mail.smtp.auth","true");
-                properties.put("mail.smtp.port","465");
-
-                try{
-                    session= Session.getDefaultInstance(properties, new Authenticator() {
-                        @Override
-                        protected PasswordAuthentication getPasswordAuthentication() {
-                            return new PasswordAuthentication(correo,contraseña);
-                        }
-                    });
-
-                    if(session!=null){
-
-                        BodyPart texto = new MimeBodyPart();
-                        texto.setText("HOLA PRUEBA MULTI PART");
-                        BodyPart imagen = new MimeBodyPart();
-                        //imagen.setDataHandler(new DataHandler(new FileDataSource()));
-                        //imagen.setFileName("Imagen de prueba");
-                        imagen.setText("Se ha Enviado Su peticiòn Correctamente");
-
-                        MimeMultipart multiparte = new MimeMultipart();
-                        multiparte.addBodyPart(texto);
-                        multiparte.addBodyPart(imagen);
-
-
-                        Message message = new MimeMessage(session);
-                        message.setFrom(new InternetAddress(correo));
-                        message.setSubject("Confirmaciòn De Envio");
-                        message.setRecipients(Message.RecipientType.TO , InternetAddress.parse(Mail_P));
-                        message.setContent(multiparte);
-
-
-
-                        Transport.send(message);
-
-                    }
-
-                }catch (Exception e){
-                    e.printStackTrace();
                 }
+
+
+
 
             }
         });
@@ -405,6 +372,81 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
             return false;
         }
     }
+
+
+    public void SendMail(){
+                       /* MAIL+++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host","smtp.googlemail.com");
+        properties.put("mail.smtp.socketFactory.port","465");
+        properties.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
+        properties.put("mail.smtp.auth","true");
+        properties.put("mail.smtp.port","465");
+
+        try{
+            session= Session.getDefaultInstance(properties, new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(correo,contraseña);
+                }
+            });
+
+            if(session!=null){
+
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress(correo));
+                message.setSubject("Confirmaciòn Envio De Formulario");
+                message.setRecipients(Message.RecipientType.TO , InternetAddress.parse(Mail_P));
+
+
+                MimeMultipart multipart = new MimeMultipart("related");
+
+                BodyPart messageBodyPart = new MimeBodyPart();
+                String htmlText = "<H1>Envio Exitoso</H1>" +
+                        "<p>Sr(a) "+ Nombre_P + " "+Apellido_P +" su Denuncia ha sido Enviada Correctamente</p>" +
+                        "<H3>Denuncia :</H3>" +
+                        ""+Descripciion_D+"";
+                messageBodyPart.setContent(htmlText, "text/html");
+                // add it
+                multipart.addBodyPart(messageBodyPart);
+
+                // second part (the image)
+                       /* messageBodyPart = new MimeBodyPart();
+                        Uri fileUri = Uri.parse("android.resource://com.example.personal.comunitarias/" + R.drawable.fondo2);
+                        String path1 = fileUri.getPath();
+                        DataSource fds = new FileDataSource(
+                               path1);
+                        messageBodyPart.setDataHandler(new DataHandler(fds));
+
+                        messageBodyPart.setHeader("Content-ID", "<image>");
+
+                        // add image to the multipart*/
+
+                //multipart.addBodyPart(messageBodyPart);
+
+                // put everything together
+                message.setContent(multipart);
+
+
+
+
+
+
+
+
+
+                Transport.send(message);
+
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
     /*
     public void validateSe(){

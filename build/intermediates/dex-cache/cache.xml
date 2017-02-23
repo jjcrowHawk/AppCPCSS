@@ -3,291 +3,291 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_3d86999a2ac174652dcc87521a26975c8fdccdf9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\libs\additionnal.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\additionnal_f94443631c31342069f12cef117ee57ca6dd1b03\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.8.0_6efc36db85129f67ff1ae2ff3e56dcbdd37ca979\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.0_3c0e8ee7286b4a3ea5b6746bc1d687351b99b542\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\libs\jsoup-1.10.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="6b471012876a440ae746860d80738be2dd104655">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\jsoup-1.10.1_937a3ffd9aa7f983380601e530bb9a9b422a34d6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.0_cfbea9cdcbd052f049066c902bff4979ec7354c0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_c40e496655122e8a0bd4d0399c8cf72d7f202a29\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\libs\google-api-client-auth-oauth2-1.2.3-alpha.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="a7e82cb29e546004f0fc2772c67c4e792fa07d81">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\google-api-client-auth-oauth2-1.2.3-alpha_5cc4b5c3c5070759aaa2603d6d1b352bd12f43a1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="d38084015027549951cbaea5d5f6fb795cc81151">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.0_41ea87a8311ea2156c1c2c24681dbdc2164b39e7\classes.dex" />
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.0_420b37c6a29ae827ce4aeef5f87245ba9d4a23cb\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="04c2f07c60319f12981a89569a8756a4532e24fa">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_a25db6b5e7f88a90b7319d60ff600dabbc8a3181\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jar="C:\Users\Kleber\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.0_314c7c3c3551cc597a843091521a531741b1c081\classes.dex" />
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.0_739a9f30e610a121bd1126092c8de56147631d76\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.nhaarman.supertooltips\library\3.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="cf8057bbfa009f0962998abe6112b31f94cf1f10">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.nhaarman.supertooltips-library-3.0.0_3ec25684fd1a253e9abd45aff53f8695dc441aea\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\libs\google-api-services-youtube-v3-rev180-1.22.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="335c4f76f220864776f6b4c39c35b8e8580d2d7b">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\google-api-services-youtube-v3-rev180-1.22.0_7ac1601145d032cfb45c92097d452af2bef1f4c5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.0_4f0fbdc1ae315219f92b21fcd4bdd027eb74d4a2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\libs\google-api-client-1.22.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="22aeef8463139fde1af1dcb69c5ecafb4142d340">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\google-api-client-1.22.0_fc20082c678e4b355e8109b5f85fa7768cfaeb27\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\libs\activation.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\activation_9ca057fbd1306784262dd31defea6bfdce6a165a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.8.0\jars\classes.jar"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.8.0_a402c577bb8ce4d798eb98d7e40474fbbf7a3b19\classes.dex" />
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.8.0_51cc6a403a293c4dc1f73bd556e11a8d13187d08\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.8.0\jars\classes.jar"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="7e92aadd0697922316d1395c1887a23aebec640a">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.8.0_561110b661cbe74d60bc99fe6fc7e88d73094514\classes.dex" />
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.8.0_a2c08dd711ddcd73c31c668a241e72595467827a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="b9e030a1ba50dd8b5ccbd465486bf981767a1370">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_00a3636a6a23fb6c3d2a2ba9a71d1e40206a5ca7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.0_1e6aa71d86db496e2b1f8a610e51f36bd8e7ef92\classes.dex" />
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.0_1a84a7a326fb3f6105db0959b9ef388ac7022985\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\libs\mail.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="428e267abff0d10802ccde86b915da2c20471160">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\mail_6cf81cb307400362744b6a7875442bdbc6aa4c51\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\.gradle\caches\modules-2\files-2.1\org.postgresql\postgresql\9.4-1201-jdbc41\870b0e689b514304461a9c1aba11920dc5de4321\postgresql-9.4-1201-jdbc41.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="870b0e689b514304461a9c1aba11920dc5de4321">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\postgresql-9.4-1201-jdbc41_c1e604e6d7c7443a73862554816537a68ad9a9d2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="38597d0616ebefd4cae67380807cfd968b6e920a">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_985961a3b08ba5ce41c95f36d669c83c66bf78be\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.0_457dbb19841f5863207771a1e47eefcf5a9b7762\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_8209601a9b9b6756368e068254b17abbb2dd0dca\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="122ec9237acd8a57d974b9d529987f1ee6ca5aea">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.8.0_90dd33bb80018fb16a9ddcd3f0d164ea0ac7c663\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\libs\google-http-client-1.22.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="3451dc7c3e18faaaa38821311e4d01336872700e">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\google-http-client-1.22.0_27865b5419b0189f42ee7dc6e944a7a9d15d98f9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.0_38c6eaa5e31398632fe5765e14da66cba1f6eeeb\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.0_dd3db8214955d5901ae48e97c1cea6678bcd8345\classes.dex" />
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.0_9e1dedf93109730fc90d29ce3faa23233a5a38d0\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PC-JANINA\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.nhaarman.supertooltips\library\3.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\library-2.4.0_1ee05cbb25e0505ddd39ce32d039392bed69f59f\classes.dex" />
+        sha1="cf8057bbfa009f0962998abe6112b31f94cf1f10">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.nhaarman.supertooltips-library-3.0.0_54e3c682c768d4b37f5418e498c12bae51d0ce30\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.0_7d58d678a258c9ff86fb4db65ca64f3e52e06b4a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_698ead09cf5c9bc250bf1b22d55ffc0debc7dc52\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\libs\YouTubeAndroidPlayerApi.jar"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\libs\YouTubeAndroidPlayerApi.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="3c4f96ff493456651cc7bdb0b47e10eb25545a16">
-        <dex dex="C:\Users\PC-JANINA\Documents\GIT\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\YouTubeAndroidPlayerApi_4af571c224dc2fe084464baaeea4bae48b3bf6dc\classes.dex" />
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\YouTubeAndroidPlayerApi_67d0d47337f55272103f7601d6746f8608f1081e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\libs\jsoup-1.10.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="6b471012876a440ae746860d80738be2dd104655">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\jsoup-1.10.1_e9360aee7bfd4d0419e3ba0cccb411d6463d34d1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.0_257eb8f2122031e127b5c280a43cd08b9ae46757\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_e96099e75fbd4a64caccfa40f6a4e4aef5501d16\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\libs\additionnal.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\additionnal_3c23d7d2548b870e410b979484340697c36b011d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\libs\google-api-services-youtube-v3-rev180-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="335c4f76f220864776f6b4c39c35b8e8580d2d7b">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\google-api-services-youtube-v3-rev180-1.22.0_f6278f072fcedea31971c38c9dd078d0c31e4b2c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="122ec9237acd8a57d974b9d529987f1ee6ca5aea">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.8.0_2b15800689a7443cb5c55bef272d9caf5ed22574\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_aea5cb4de3385b8f61241aed4aeff4acf8688732\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_0a442fe230919fb0a49d458c579c7155d4e0bbeb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\.gradle\caches\modules-2\files-2.1\org.postgresql\postgresql\9.4-1201-jdbc41\870b0e689b514304461a9c1aba11920dc5de4321\postgresql-9.4-1201-jdbc41.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="870b0e689b514304461a9c1aba11920dc5de4321">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\postgresql-9.4-1201-jdbc41_0b296348889326dc1198cf0a20e9d317cc294163\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\library-2.4.0_6586f76725fcdfbbff174e0877342e3b877567e7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\libs\google-api-client-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="22aeef8463139fde1af1dcb69c5ecafb4142d340">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\google-api-client-1.22.0_a9e50e99c0ff5af7e8f12cc18c2bd719ddba684c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.0_4762a8b7ac834c7e8f198717c21504c76a5f1fb0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\libs\mail.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="428e267abff0d10802ccde86b915da2c20471160">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\mail_2643d2749f473205bd14818c4caeff3f89fff0ba\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\libs\activation.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\activation_ee888922ffabd65aa83ee81f1e393e0d543bbc23\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.0_47519549dd43639ce7d8a7a9716f3f30ff4d4bf4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.0_10c102a6c68e7960b278b7be0758f1cf203e8fe8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.0_2befe04c5ba1c14d605424bfd094b343917e8802\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d0a750b62282c50c987bc9b5d9c832a26c9783bb">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_be245f2bd91a5dcd475bef9ac0b6ad77ea098751\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_676208a0e8ec89b8636a5be0ae64c7a77829f493\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="7e92aadd0697922316d1395c1887a23aebec640a">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.8.0_da5ac73cce63422633aadfee4f36b81dc7f835df\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\libs\google-api-client-auth-oauth2-1.2.3-alpha.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="a7e82cb29e546004f0fc2772c67c4e792fa07d81">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\google-api-client-auth-oauth2-1.2.3-alpha_e11f9469fcfb8f2e5c5d14583b749a8335c5098e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\libs\google-http-client-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3451dc7c3e18faaaa38821311e4d01336872700e">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\2\google-http-client-1.22.0_6c265f2e26f741bd6a9919325f64fceaeba9d29d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="C:\Users\Kleber\Desktop\AppCPCSS\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.0_3cc348dc44e33f529c32fbf4801db1ddee3db0fb\classes.dex" />
     </item>
 
 </items>
