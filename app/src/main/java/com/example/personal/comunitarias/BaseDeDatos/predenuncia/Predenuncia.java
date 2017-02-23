@@ -77,15 +77,10 @@ public class Predenuncia extends _Default {
 
     public void guardarPredenuncia(){
         String comando = "";
-        if (this.getIdpredenuncia() == -1){
             comando = String.format("INSERT INTO cpccs.predenuncia(\n" +
                             "\tdescripcioninvestigacion,generodenunciado, funcionariopublico, generodenunciante,  niveleducaciondenuncianteid, ocupaciondenuncianteid, estadocivildenuncianteid, institucionimplicadaid, nacionalidaddenuncianteid)\n" +
                             "\tVALUES ('%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d');",
                     this.getDescripcioninvestigacion(),this.generodenunciado, this.getFuncionariopublico(),this.getNiveleducaciondenunciateid(),this.getOcupaciondenuncianteid(),this.getEstadocivildenuncianteid(), this.getInstitucionimplicadaid(), this.getNacionalidaddenuncianteid());
-        }else{
-            comando = String.format("UPDATE cpccs.usuario SET nome = '%s', email = '%s', telefone = '%s' WHERE id = %d;", //cambiar
-                    this.getDescripcioninvestigacion(),this.generodenunciado, this.getFuncionariopublico(),this.getNiveleducaciondenunciateid(),this.getOcupaciondenuncianteid(),this.getEstadocivildenuncianteid(), this.getInstitucionimplicadaid(), this.getNacionalidaddenuncianteid());
-        }
         DB db = new DB();
         db.execute(comando);
         this._mensagem = db._mensagem;

@@ -2,6 +2,7 @@ package com.example.personal.comunitarias.Denuncias;
 
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.InputFilter;
@@ -12,13 +13,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.personal.comunitarias.R;
 
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.mail.Authenticator;
+import javax.mail.BodyPart;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 import static android.R.attr.filter;
 
@@ -28,7 +42,10 @@ public class Denunciado extends Fragment  implements AdapterView.OnItemSelectedL
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4;
     private View view;
     private EditText txtNombre, txtApellido, txtCargo, txtUnAfectada, txtPerjud;
-
+    Button btn_enviar_r;
+    String correo;
+    String contraseña;
+    Session session;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -65,9 +82,66 @@ public class Denunciado extends Fragment  implements AdapterView.OnItemSelectedL
         txtCargo = (EditText)view.findViewById(R.id.txt_cargo);
         txtUnAfectada = (EditText)view.findViewById(R.id.txt_unidadafectada);
         txtPerjud = (EditText)view.findViewById(R.id.txt_num_perjudicados);
+        correo ="prueba.envio.formulario@gmail.com";
+        contraseña="espol1234";
 
         loadSpinnerProvincias();
         ValidarCampos();
+
+        btn_enviar_r =(Button)view.findViewById(R.id.btn_enviar);
+        btn_enviar_r.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+                Properties properties = new Properties();
+                properties.put("mail.smtp.host","smtp.googlemail.com");
+                properties.put("mail.smtp.socketFactory.port","465");
+                properties.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
+                properties.put("mail.smtp.auth","true");
+                properties.put("mail.smtp.port","465");
+
+                try{
+                    session= Session.getDefaultInstance(properties, new Authenticator() {
+                        @Override
+                        protected PasswordAuthentication getPasswordAuthentication() {
+                            return new PasswordAuthentication(correo,contraseña);
+                        }
+                    });
+
+                    if(session!=null){
+
+                        BodyPart texto = new MimeBodyPart();
+                        texto.setText("HOLA PRUEBA MULTI PART");
+                        BodyPart imagen = new MimeBodyPart();
+                        //imagen.setDataHandler(new DataHandler(new FileDataSource()));
+                        //imagen.setFileName("Imagen de prueba");
+                        imagen.setText("Se ha Enviado Su peticiòn Correctamente");
+
+                        MimeMultipart multiparte = new MimeMultipart();
+                        multiparte.addBodyPart(texto);
+                        multiparte.addBodyPart(imagen);
+
+
+                        Message message = new MimeMessage(session);
+                        message.setFrom(new InternetAddress(correo));
+                        message.setSubject("Confirmaciòn De Envio");
+                        message.setRecipients(Message.RecipientType.TO , InternetAddress.parse("prueba.recibo.formulario@gmail.com"));
+                        message.setContent(multiparte);
+
+
+
+                        Transport.send(message);
+
+                    }
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
 
 
 

@@ -13,7 +13,7 @@ public class DB extends _Default implements Runnable {
     private String db = "omkbmadd";
     private int port = 5432;
     private String user = "omkbmadd";
-    private String pass = "Q3jJK_Ialm15awmmOT625kr3eXEw-F5X";
+    private String pass = "jK72m7jV5797WwXGbFX9CV0p86-gBU4x";
     private String url = "jdbc:postgresql://%s:%d/%s";
 
     public DB() {

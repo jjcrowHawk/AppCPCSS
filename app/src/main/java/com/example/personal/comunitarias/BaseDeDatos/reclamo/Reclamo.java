@@ -5,6 +5,11 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.reclamo;
 
+import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
+
+import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
 /**
@@ -211,4 +216,27 @@ public class Reclamo extends _Default {
     public void setProvinciadenuncianteid(int provinciadenuncianteid) {
         this.provinciadenuncianteid = provinciadenuncianteid;
     }
+
+    public void Guardar_Reclamo(){
+        Log.d("myTag", "Entre al query");
+        String comando = "";
+        if (this.getIdreclamo() == -1) {
+            comando = String.format(" INSERT INTO cpccs.reclamo (nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddeldenuncianteid,ciudaddeldenunciadoid,insttitucionimplicadaid,provinciadenuncianteid,provinciadenunciadoid)Values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d,%d,%d,%d);",
+                    "KLEBER DIAZ", "0125455", "12345", "samanes", "kleber", "Domenica Vera", "1245", "12345", "1", "1", "1", "1", 1, 1, 1, 1, 1);
+        }
+
+
+       // comando = String.format(" INSERT INTO cpccs.reclamo (nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddeldenuncianteid,ciudaddeldenunciadoid,insttitucionimplicadaid,provinciadenuncianteid,provinciadenunciadoid)Values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d,%d,%d,%d);",
+         //      this.getNombresapellidosdenunciante(),"0125455","12345",this.getDireccion(),this.getEmail(),getNombresapellidosdenunciado(),this.getTelefono(),this.getCargo(),this.getComparecer(),this.getDocumentores(),this.getIdentidadreservada(),this.getResideextrangero(),this.getCiudaddeldenuncianteid(),this.getCiudaddeldenunciadoid(),this.getInstitucionimplicadaid(),this.getProvinciadenuncianteid(),this.getCiudaddeldenunciadoid());
+        DB db = new DB();
+        db.execute(comando);
+        this._mensagem = db._mensagem;
+        this._status = db._status;
+        Log.d("myTag", _mensagem);
+        Log.d("myTag", _status + "Mi status");
+
+
+
+        }
+
 }

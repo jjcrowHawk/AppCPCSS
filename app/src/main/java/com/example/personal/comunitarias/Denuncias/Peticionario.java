@@ -15,9 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.R;
 import com.google.api.client.repackaged.com.google.common.base.Converter;
 
@@ -29,6 +32,8 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     Spinner identidad, tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4, adapter5, adapter6, adapter7,adapter8, adapter9;
     private EditText txtNombre, txtApellido, txtIdent , txtOcupacion;
+    Button btn_seguir;
+    Reclamo rec;
 
     private View view;
 
@@ -43,6 +48,8 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
     private  void InicializarComp(){
         //data peticionario
+
+        rec = new Reclamo();
 
         //Spinner identidad reservada
         identidad = (Spinner) view.findViewById(R.id.spinner);
@@ -108,7 +115,56 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         //focusableEditText();
         ValidarCampos();
 
+        btn_seguir =(Button) view.findViewById(R.id.btnInfoPeticionario);
+        btn_seguir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String Nombre, Apellido, Identidad,Ocupacion,IdentidadReservada,TipoIden,Genero,Estado_civil,NivelEdu,Nacio,reside, provi,Ciuda;
+
+                Nombre = txtNombre.getText().toString();
+                Apellido = txtApellido.getText().toString();
+                Identidad = txtApellido.getText().toString();
+                Ocupacion = txtOcupacion.getText().toString();
+
+                IdentidadReservada = identidad.getSelectedItem().toString();
+                TipoIden = tipoIdentificacion.getSelectedItem().toString();
+                Genero = genero.getSelectedItem().toString();
+                Estado_civil = estado_civil.getSelectedItem().toString();
+                NivelEdu = nivelEducacion.getSelectedItem().toString();
+                Nacio = nacionalidad.getSelectedItem().toString();
+                reside = residencia.getSelectedItem().toString();
+                provi = provincia.getSelectedItem().toString();
+                Ciuda = ciudad.getSelectedItem().toString();
+
+                rec.setNombresapellidosdenunciado(Nombre);
+                rec.setCargo(Ocupacion);
+                rec.Guardar_Reclamo();
+                Log.d("myTag",rec.get_mensagem());
+
+
+
+               // new Denuncia();
+
+
+            }
+        });
+
+
+
     }
+
+    public void Ir_Segundo_Fragment(){
+
+        //Spinner identidad, tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad;
+
+
+
+
+
+
+
+    }
+
 
     private void loadSpinnerProvincias() {
         // Create an ArrayAdapter using the string array and a default spinner

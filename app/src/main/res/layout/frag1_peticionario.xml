@@ -2,15 +2,14 @@
 <ScrollView android:layout_height="fill_parent"
     android:layout_width="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
-
+    
         <RelativeLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="70dp"
-            android:layout_height="900dp">
+            android:layout_height="940dp">
 
             <TextView
                 android:text="Identidad Reservada"
@@ -65,10 +64,28 @@
                     />
             </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/lbl_Correo"
+                android:layout_marginTop="170dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/txt_correo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Correo electrónico"
+                    android:maxLength="25"
+                    android:textSize="16sp"
+                    android:inputType="textEmailAddress"
+
+                    />
+            </android.support.design.widget.TextInputLayout>
+
             <TextView
                 android:text="Tipo de Identificación"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="190dp"
+                android:layout_marginTop="250dp"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView2"
@@ -78,7 +95,7 @@
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/lbl_TipoIdentificacion"
                 android:layout_width="match_parent"
-                android:layout_marginTop="240dp"
+                android:layout_marginTop="300dp"
                 android:layout_height="wrap_content">
 
                 <EditText
@@ -104,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="320dp"
+                android:layout_marginTop="380dp"
                 android:id="@+id/textView3"
                 android:textSize="17sp" />
 
@@ -122,7 +139,7 @@
                 android:layout_width="wrap_content"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="370dp"
+                android:layout_marginTop="430dp"
                 android:id="@+id/textView4"
                 android:textSize="17sp" />
 
@@ -139,7 +156,7 @@
                 android:layout_width="wrap_content"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="420dp"
+                android:layout_marginTop="480dp"
                 android:id="@+id/textView5"
                 android:textSize="17sp" />
 
@@ -155,7 +172,7 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/lbl_TipoOcupacion"
             android:layout_width="match_parent"
-            android:layout_marginTop="470dp"
+            android:layout_marginTop="530dp"
             android:layout_height="wrap_content">
 
             <EditText
@@ -170,7 +187,7 @@
             <TextView
                 android:text="Nacionalidad"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="550dp"
+                android:layout_marginTop="610dp"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView6"
@@ -186,7 +203,7 @@
             <TextView
                 android:text="Residencia"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="600dp"
+                android:layout_marginTop="660dp"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView7"
@@ -203,7 +220,7 @@
             <TextView
                 android:text="Provincia"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="650dp"
+                android:layout_marginTop="710dp"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView8"
@@ -220,7 +237,7 @@
             <TextView
                 android:text="Ciudad"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="700dp"
+                android:layout_marginTop="760dp"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView9"
@@ -239,16 +256,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="760dp"
+                android:layout_marginTop="810dp"
                 android:textColor="#ffffff"
                 android:background="@color/colorPrimaryDark"
                 android:id="@+id/btnInfoPeticionario" />
-
-
-
-
-
         </RelativeLayout>
-
-
 </ScrollView>
