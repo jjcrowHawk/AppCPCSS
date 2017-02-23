@@ -50,14 +50,14 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.frag1_peticionario,container,false);
         InicializarComp();
-        view.findViewById(R.id.btnInfoPeticionario).setOnClickListener(new View.OnClickListener() {
+       /* view.findViewById(R.id.btnInfoPeticionario).setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
                 viewPager.setCurrentItem(1);
                 //tabs.DesbloquearPrimTb();
             }
-        });
+        });*/
         return  view;
 
     }
@@ -137,6 +137,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         btn_seguir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                viewPager.setCurrentItem(1);
                 String Nombre, Apellido, Email, Identidad,Ocupacion,IdentidadReservada,TipoIden,Genero,Estado_civil,NivelEdu,Nacio,reside, provi,Ciuda;
 
                 Nombre = txtNombre.getText().toString();
@@ -187,8 +188,6 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                     Log.e("status","si inserta");
 
 
-
-               // new Denuncia();
 
 
             }
