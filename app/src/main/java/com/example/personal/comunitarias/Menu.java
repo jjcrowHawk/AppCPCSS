@@ -99,6 +99,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             }
         });
 
+        /*
         //BASE
         db = new DatabaseHelper(getApplicationContext());
         //Creando Regiones
@@ -130,7 +131,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             Log.d("Provincia Name", p.getNombre());
         }
 
-        db.closeDB();
+        db.closeDB();*/
     }
 
     @Override

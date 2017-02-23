@@ -39,23 +39,23 @@ public class Reclamo extends _Default {
     public Reclamo() {
         super();
         this.idreclamo = -1;
-        this.nombresapellidosdenunciado="";
-        this.tipoidentificacion="";
-        this.numidenti="";
-        this.direccion="";
-        this.email="";
-        this.nombresapellidosdenunciado="";
-        this.telefono="";
-        this.cargo="";
-        this.comparecer="";
-        this.documentores="";
-        this.identidadreservada="";
-        this.resideextrangero="";
-        this.ciudaddeldenunciadoid=-1; //fk
-        this.ciudaddeldenunciadoid=-1; //fk
-        this.institucionimplicadaid=-1; //fk
-        this.provinciadenuncianteid=-1; //fk
-        this.provinciadenunciadoid=-1; //fk
+        this.nombresapellidosdenunciado = "";
+        this.tipoidentificacion = "";
+        this.numidenti = "";
+        this.direccion = "";
+        this.email = "";
+        this.nombresapellidosdenunciado = "";
+        this.telefono = "";
+        this.cargo = "";
+        this.comparecer = "";
+        this.documentores = "";
+        this.identidadreservada = "";
+        this.resideextrangero = "";
+        this.ciudaddeldenunciadoid = -1; //fk
+        this.ciudaddeldenunciadoid = -1; //fk
+        this.institucionimplicadaid = -1; //fk
+        this.provinciadenuncianteid = -1; //fk
+        this.provinciadenunciadoid = -1; //fk
     }
 
     public int getIdreclamo() {
@@ -217,26 +217,26 @@ public class Reclamo extends _Default {
         this.provinciadenuncianteid = provinciadenuncianteid;
     }
 
-    public void Guardar_Reclamo(){
+    public void Guardar_Reclamo() {
         Log.d("myTag", "Entre al query");
         String comando = "";
-        if (this.getIdreclamo() == -1) {
-            comando = String.format(" INSERT INTO cpccs.reclamo (nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddeldenuncianteid,ciudaddeldenunciadoid,insttitucionimplicadaid,provinciadenuncianteid,provinciadenunciadoid)Values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d,%d,%d,%d);",
-                    "KLEBER DIAZ", "0125455", "12345", "samanes", "kleber", "Domenica Vera", "1245", "12345", "1", "1", "1", "1", 1, 1, 1, 1, 1);
-        }
+        //if (this.getIdreclamo() == -1) {
+        comando = String.format(" INSERT INTO cpccs.reclamo (nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddeldenuncianteid,ciudaddeldenunciadoid,insttitucionimplicadaid,provinciadenuncianteid,provinciadenunciadoid)VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d,%d,%d,%d);",
+                "KLEBER DIAZ", "0125455", "12345", "samanes", "kleber", "Domenica Vera", "1245", "12345", "1", "1", "1", "1", 1, 1, 1, 1, 1);
+        //}
 
 
-       // comando = String.format(" INSERT INTO cpccs.reclamo (nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddeldenuncianteid,ciudaddeldenunciadoid,insttitucionimplicadaid,provinciadenuncianteid,provinciadenunciadoid)Values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d,%d,%d,%d);",
-         //      this.getNombresapellidosdenunciante(),"0125455","12345",this.getDireccion(),this.getEmail(),getNombresapellidosdenunciado(),this.getTelefono(),this.getCargo(),this.getComparecer(),this.getDocumentores(),this.getIdentidadreservada(),this.getResideextrangero(),this.getCiudaddeldenuncianteid(),this.getCiudaddeldenunciadoid(),this.getInstitucionimplicadaid(),this.getProvinciadenuncianteid(),this.getCiudaddeldenunciadoid());
+        // comando = String.format(" INSERT INTO cpccs.reclamo (nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddeldenuncianteid,ciudaddeldenunciadoid,insttitucionimplicadaid,provinciadenuncianteid,provinciadenunciadoid)Values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d,%d,%d,%d);",
+        //      this.getNombresapellidosdenunciante(),"0125455","12345",this.getDireccion(),this.getEmail(),getNombresapellidosdenunciado(),this.getTelefono(),this.getCargo(),this.getComparecer(),this.getDocumentores(),this.getIdentidadreservada(),this.getResideextrangero(),this.getCiudaddeldenuncianteid(),this.getCiudaddeldenunciadoid(),this.getInstitucionimplicadaid(),this.getProvinciadenuncianteid(),this.getCiudaddeldenunciadoid());
         DB db = new DB();
         db.execute(comando);
-        this._mensagem = db._mensagem;
-        this._status = db._status;
-        Log.d("myTag", _mensagem);
-        Log.d("myTag", _status + "Mi status");
+        this._mensagem = db.get_mensagem();
+        this._status = db.is_status();
+        //Log.d("myTag", _mensagem);
+        //Log.d("myTag", _status + "Mi status");
 
 
+    }
 
-        }
 
 }

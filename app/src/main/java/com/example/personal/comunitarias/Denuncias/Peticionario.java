@@ -49,7 +49,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     private  void InicializarComp(){
         //data peticionario
 
-        rec = new Reclamo();
+
         Log.e("inicializarComp","entra");
 
         //Spinner identidad reservada
@@ -137,10 +137,15 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 provi = provincia.getSelectedItem().toString();
                 Ciuda = ciudad.getSelectedItem().toString();
 
+                rec = new Reclamo();
+
                 rec.setNombresapellidosdenunciado(Nombre);
                 rec.setCargo(Ocupacion);
                 rec.Guardar_Reclamo();
                 Log.d("myTag",rec.get_mensagem());
+
+                if (rec.is_status())
+                    Log.e("status","si inserta");
 
 
 
