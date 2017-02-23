@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.util.Log;
@@ -40,12 +41,22 @@ import static android.R.attr.filter;
 public class Denunciado extends Fragment  implements AdapterView.OnItemSelectedListener{
     Spinner  genero,institucion, provincia, ciudad;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4;
-    private View view;
+
     private EditText txtNombre, txtApellido, txtCargo, txtUnAfectada, txtPerjud;
     Button btn_enviar_r;
     String correo;
     String contraseña;
     Session session;
+
+    /******/
+    private ViewPager viewPager;
+    private View view;
+    private TabsDenuncia tabs;
+
+    public Denunciado(ViewPager viewPager) {
+        this.viewPager = viewPager;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

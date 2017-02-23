@@ -3,10 +3,12 @@ package com.example.personal.comunitarias.Denuncias;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import com.example.personal.comunitarias.R;
@@ -15,12 +17,30 @@ import com.example.personal.comunitarias.R;
 public class Denuncia extends Fragment {
     Spinner comparecer, hechos;
     ArrayAdapter<CharSequence> adapter, adapter2;
+    /******/
+    private ViewPager viewPager;
     private View view;
+    private TabsDenuncia tabs;
+    private Button sgteDenuciado;
+
+    public Denuncia(ViewPager viewPager) {
+        this.viewPager = viewPager;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
          view =  inflater.inflate(R.layout.frag2_denuncia,container,false);
         InicializarComp();
+        view.findViewById(R.id.btnDenuncia).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                viewPager.setCurrentItem(2);
+                //tabs = new TabsDenuncia();
+                //tabs.DesbloquearTabs();
+
+            }
+        });
         return  view;
 
     }
