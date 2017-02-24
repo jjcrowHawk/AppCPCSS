@@ -1,5 +1,8 @@
 package com.example.personal.comunitarias.Denuncias;
 
+import android.annotation.TargetApi;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Bundle;
@@ -186,12 +189,6 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                 reclamo.setProvinciadenuncianteid(1);
                 reclamo.setTelefono("2164536");
                 reclamo.setTipoidentificacion("Cedula");
-                reclamo.Guardar_Reclamo();
-                if(reclamo.is_status()){
-                    Log.d("myTag", "Si inserto");
-
-                }
-
 
                Predenuncia pd = new Predenuncia();
                 pd.setTipodenuncia("1");
@@ -205,11 +202,33 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                 pd.setInstitucionimplicadaid(1);
                 pd.setNacionalidaddenuncianteid(1);
 
+
+
+                reclamo.Guardar_Reclamo();
                 pd.guardarPredenuncia();
-                if(reclamo.is_status()){
-                    Log.d("myTag", "Si inserto Predenuncia");
+
+                if(reclamo.is_status() && pd.is_status()){
+                    Log.d("myTag", "Si inserto");
+
                     SendMail();
 
+                    new AlertDialog.Builder(getContext()).setMessage("Denuncia enviado con éxito")
+                            .setTitle("Mensaje")
+                            .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                                @TargetApi(11)
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            }).show();
+                }else{
+                    new AlertDialog.Builder(getContext()).setMessage("Existe problema con la conexión.\n Por favor, Intente nuevamente")
+                            .setTitle("Conexión fallida")
+                            .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                                @TargetApi(11)
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            }).show();
                 }
 
 

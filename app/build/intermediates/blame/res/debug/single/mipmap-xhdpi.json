@@ -2,5 +2,9 @@
     {
         "merged": "C:\\Github\\AppCPCSS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
         "source": "C:\\Github\\AppCPCSS\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Personal\\Documents\\ESPOL\\COMUNITARIAS\\AppCPCSS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\Personal\\Documents\\ESPOL\\COMUNITARIAS\\AppCPCSS\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     }
 ]
