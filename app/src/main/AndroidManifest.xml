@@ -26,11 +26,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".noticias.Noticias"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_noticias"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".Menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -42,15 +37,6 @@
             android:name=".tweets.TwitterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Tweets"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".oficinas.OfficeDialog"
-            android:label=" "
-            android:theme="@android:style/Theme.Dialog" />
-        <activity
-            android:name=".oficinas.OficinasActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="Oficinas"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".videos.YoutubeVideos"
@@ -76,11 +62,6 @@
             android:name=".tv.IntroTv"
             android:theme="@style/AppTheme.NoActionBar" >
 
-        </activity>
-
-        <activity
-            android:name=".oficinas.IntroOficinas"
-            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
 
         <activity
@@ -155,6 +136,54 @@
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_preguntas"
             android:theme="@style/AppTheme.NoActionBar"  />
+
+
+        <activity
+            android:name=".noticias.MainActivity"
+            android:label="Noticias Y Boletines"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".noticias.DetailActivity"
+            android:parentActivityName=".noticias.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".noticias.MainActivity" />
+        </activity>
+        <activity
+            android:name=".noticias.Intro_noticias"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <activity
+            android:name=".oficinas.OfficeDialog"
+            android:label=" "
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name=".oficinas.OficinasActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Oficinas"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".oficinas.IntroOficinas"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".IntroFacebook"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".FacebookActivity"
+            android:label="Facebook"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

@@ -2,6 +2,9 @@ package com.example.personal.comunitarias;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -12,26 +15,24 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
-import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
-import com.example.personal.comunitarias.BaseDeDatos.region.Region;
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.Denuncias.TabsDenuncia;
 import com.example.personal.comunitarias.Mision.Mision;
 import com.example.personal.comunitarias.Mision.Vision;
-import com.example.personal.comunitarias.noticias.Noticias;
+import com.example.personal.comunitarias.noticias.BoletinesDataBase;
+import com.example.personal.comunitarias.noticias.Intro_noticias;
+import com.example.personal.comunitarias.noticias.NoticiasDataBase;
 import com.example.personal.comunitarias.oficinas.IntroOficinas;
 import com.example.personal.comunitarias.preguntas.PreguntasFrecuentes;
 import com.example.personal.comunitarias.tv.IntroTv;
 import com.example.personal.comunitarias.tweets.IntroTweets;
 import com.example.personal.comunitarias.videos.IntroVideos;
-
-import java.util.List;
 
 public class Menu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -83,9 +84,21 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         Noticiase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(getBaseContext(), Noticias.class);
-                startActivity(i);
-                //finish();
+                SQLiteOpenHelper DBHelperBoletines =new BoletinesDataBase(Menu.this) ;
+                SQLiteDatabase bd1 = DBHelperBoletines.getWritableDatabase();
+                SQLiteOpenHelper DBHelperNoticias =new NoticiasDataBase(Menu.this) ;
+                SQLiteDatabase bd2 = DBHelperNoticias.getWritableDatabase();
+                Cursor fila_db1 = bd1.rawQuery("select * from boletin", null);
+                Cursor fila_db2 = bd2.rawQuery("select * from noticia", null);
+                if(!isOnlineNet() && (fila_db1.getCount()== 0 || fila_db2.getCount() == 0)){
+                    Toast.makeText(Menu.this,"No hay informacion para presentar",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Intent i=new Intent(getBaseContext(), Intro_noticias.class);
+                    startActivity(i);
+                    //finish();
+                }
+
             }
         });
 
@@ -190,6 +203,13 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
                         .setAction("Action", null).show();
             else
                 startActivity (new Intent(getApplicationContext(), IntroTweets.class));
+        } else if (id == R.id.nav_facebook) {
+            if(!isOnlineNet())
+                Snackbar.make((ViewGroup) ((ViewGroup) this
+                        .findViewById(android.R.id.content)).getChildAt(0), "Necesita conexión a Internet", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            else
+                startActivity (new Intent(getApplicationContext(), IntroFacebook.class));
         }
         else if (id == R.id.nav_tv) {
             if(!isOnlineNet())

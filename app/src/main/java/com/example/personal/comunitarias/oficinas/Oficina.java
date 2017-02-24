@@ -5,16 +5,17 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class Oficina {
 
-    private String telefono, ciudad,provincia,direccion;
+    private String telefono, ciudad,provincia,direccion,twitter;
     private LatLng coordenada;
 
 
-    public Oficina(String provincia, String ciudad, String telefono, LatLng coordenada , String direccion) {
+    public Oficina(String provincia, String ciudad, String telefono, LatLng coordenada , String direccion, String twitter) {
         this.telefono = telefono;
         this.ciudad = ciudad;
         this.provincia = provincia;
         this.coordenada = coordenada;
         this.direccion =  direccion;
+        this.twitter = twitter;
     }
 
     public Oficina(String ciudad , String telefono, LatLng coordenada){
@@ -27,6 +28,13 @@ public class Oficina {
     }
 
 
+    public String getTwitter() {
+        return twitter;
+    }
+
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
+    }
 
     public String getTelefono() {
         return telefono;

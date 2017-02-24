@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.1.0_35bac538207588588be23e7939a5b66400550247.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\libs\additionnal.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\additionnal_df25036eabb4632607920c1e6212993328b46786.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.0_f84de9aaac3f90e46a7b3343f90fe19402101dbe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\libs\mail.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="428e267abff0d10802ccde86b915da2c20471160">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\mail_1c3cfd103814f4fe6a6265e2e1fc58c3c663e1b0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Palacios\.gradle\caches\modules-2\files-2.1\org.postgresql\postgresql\9.4-1201-jdbc41\870b0e689b514304461a9c1aba11920dc5de4321\postgresql-9.4-1201-jdbc41.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="870b0e689b514304461a9c1aba11920dc5de4321">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\postgresql-9.4-1201-jdbc41_ab9bc3fc8d4c1ba415063a8b0e73a03d4dd638c1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\libs\activation.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\activation_79b3e20595081e021531ac0d7e906cf9647d324e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.1.0_524ae21b277d3fb5f170cb5450dc31f44f271d19.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Palacios\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\library-2.4.0_de954417c52f13172159faa48ed41e4232da54bc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="122ec9237acd8a57d974b9d529987f1ee6ca5aea">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-maps-9.8.0_a112a6b1d5e77842d2e678f8e4422e2ec044d7f4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.1.0_2bb04323a9f4558a3ad909eef68303b0836de5f6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.1.0_3b8f7f8374dbb9ef5b2375716dfa05f603a0d779.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\support-annotations-25.1.0_02baeb670494e05445d1d19bd633f25b3b7164c6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.1.0_005df5068a0213825cc14c374d96c44ee6b8f9ac.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\libs\google-api-services-youtube-v3-rev180-1.22.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="335c4f76f220864776f6b4c39c35b8e8580d2d7b">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\google-api-services-youtube-v3-rev180-1.22.0_88f6e4ce903312b75a04f2f3878a7e76b23460ef.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-9.8.0_de384dae3e349d3217a7f4def84a61ed8dd4d812.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Palacios\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\picasso-2.5.2_0891c81c7178214fa65a046ecb927714e2dc3a35.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\libs\jsoup-1.10.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="6b471012876a440ae746860d80738be2dd104655">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\jsoup-1.10.1_f980d9eca372e156e8bfc94b4abd0b1c07ad5466.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.android.support-design-25.1.0_c2de2db030734101dc79b056d4c34b25547b674e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="7e92aadd0697922316d1395c1887a23aebec640a">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-9.8.0_8f0d1d1d68ef564a8f18a0970d9aa82d7dca6b63.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.0_b4b4a40c33b552e1501d84346afddf49948a5ef1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="7f2420506110902f033406b25697cf97ee8c38b2">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-25.1.0_472a7679b9f7c5631eba0b59e9a9ae1d1c4257fd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\libs\google-api-client-auth-oauth2-1.2.3-alpha.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="a7e82cb29e546004f0fc2772c67c4e792fa07d81">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\google-api-client-auth-oauth2-1.2.3-alpha_f2c2ae837a289083d99cd5442290048ebca1b0a6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.1.0_e1f64ba2b698e4de6d6a545fecdcbf5b71d1bf41.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.1.0_73beb0c8e1da01cbcc1fa6c10845bb1768f10ba2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.1.0_ba842319bfe989c0481eb6cfc1459331fc38b2bc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\libs\google-http-client-1.22.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3451dc7c3e18faaaa38821311e4d01336872700e">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\google-http-client-1.22.0_df9e1b22b076dbfbcf0a51f391de42acc54e0adf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\libs\YouTubeAndroidPlayerApi.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3c4f96ff493456651cc7bdb0b47e10eb25545a16">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\YouTubeAndroidPlayerApi_cb950ba14928b22852ed0ed7670c1536d3ac4ffc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.1.0_547012368f43eee26971888ad4f704eb6bd193f5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-9.8.0_91dbfec0b809edf2f9ca57daa0892fe4821f2082.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\build\intermediates\exploded-aar\com.nhaarman.supertooltips\library\3.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="cf8057bbfa009f0962998abe6112b31f94cf1f10">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\com.nhaarman.supertooltips-library-3.0.0_353fc665c75405ac6f624484d7ac9c51196ec19b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Github\AppCPCSS\app\libs\google-api-client-1.22.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="22aeef8463139fde1af1dcb69c5ecafb4142d340">
+        <dex dex="C:\Github\AppCPCSS\app\build\intermediates\pre-dexed\debug\google-api-client-1.22.0_1ed7797924630a8b285f1eb17f6eda18c384c403.jar" />
+    </item>
+
+</items>

@@ -66,8 +66,11 @@ public class OficinasReader extends AsyncTask<String, Void, String> {
                     String latitud = provincia.getString("latitud");
                     String longitud = provincia.getString("longitud");
                     String telefono = provincia.getString("telefono");
+                    String ciudad = provincia.getString("ciudad");
+                    String direccion = provincia.getString("direccion");
+                    String twitter = provincia.getString("twitter");
                     LatLng ubicacion = new LatLng(Double.parseDouble(latitud), Double.parseDouble(longitud));
-                    this.provincias.put(nombre, new Oficina(nombre, "ciudad", telefono, ubicacion, "direccion"));
+                    this.provincias.put(nombre, new Oficina(nombre, ciudad, telefono, ubicacion, direccion,"@"+twitter));
 
                 }
             } catch (final JSONException e) {

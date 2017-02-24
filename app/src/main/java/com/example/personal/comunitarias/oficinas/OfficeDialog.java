@@ -19,10 +19,12 @@ public class OfficeDialog extends Activity {
         TextView ciudad = (TextView) findViewById(R.id.ciudadtil);
         TextView direccion = (TextView) findViewById(R.id.direcciontil);
         TextView telefono = (TextView) findViewById(R.id.telefonotil);
+        TextView twitter = (TextView) findViewById(R.id.twitter);
         provincia.setText(oficina.getProvincia());
         ciudad.setText(oficina.getCiudad());
         direccion.setText(oficina.getDireccion());
         telefono.setText(oficina.getTelefono());
+        twitter.setText(oficina.getTwitter());
 
 
     }

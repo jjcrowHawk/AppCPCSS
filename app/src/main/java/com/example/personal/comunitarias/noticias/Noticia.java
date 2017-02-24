@@ -5,18 +5,14 @@ package com.example.personal.comunitarias.noticias;
 public class Noticia {
     private String titulo;
     private String url;
-    private String des, s_img;
-    private int dia,mes;
+    private String fecha , des, s_img;
 
 
-    public Noticia() {
-    }
 
-    public Noticia(String titulo, String url, int dia, int mes, String descripcion, String s_img) {
+    public Noticia(String titulo, String url, String fecha, String descripcion, String s_img) {
         this.titulo = titulo;
         this.url = url;
-        this.dia=dia;
-        this.mes=mes;
+        this.fecha = fecha;
         this.des = descripcion;
         this.s_img = s_img;
     }
@@ -37,20 +33,12 @@ public class Noticia {
         this.url = url;
     }
 
-    public int getDia() {
-        return dia;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setDia(int dia) {
-        this.dia = dia;
-    }
-
-    public int getMes() {
-        return mes;
-    }
-
-    public void setMes(int mes) {
-        this.mes = mes;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public String getDescripcion() {

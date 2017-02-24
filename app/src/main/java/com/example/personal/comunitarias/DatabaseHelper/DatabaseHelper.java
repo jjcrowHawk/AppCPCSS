@@ -547,29 +547,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return ci;
     }
 
-    public Noticia getNoticia(long noticia_id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        String selectQuery = "SELECT  * FROM " + TABLE_CIUDAD + " WHERE "
-                + KEY_ID + " = " + noticia_id;
-
-        Log.e(LOG, selectQuery);
-
-        Cursor c = db.rawQuery(selectQuery, null);
-
-        if (c != null)
-            c.moveToFirst();
-
-        Noticia n = new Noticia();
-        n.setTitulo(c.getString(c.getColumnIndex(KEY_NOTICIA_TITULO)));
-        n.setDescripcion(c.getString(c.getColumnIndex(KEY_NOTICIA_CONTENIDOPREVIO)));
-        n.setUrl(c.getString(c.getColumnIndex(KEY_NOTICIA_LINK)));
-        n.setS_img(c.getString(c.getColumnIndex(KEY_NOTICIA_URLIMAGEN)));
-        n.setDia(c.getInt(c.getColumnIndex(KEY_NOTICIA_DIA)));
-        n.setMes(c.getInt(c.getColumnIndex(KEY_NOTICIA_MES)));
-
-        return n;
-    }
+   // public Noticia getNoticia(long noticia_id) {
+   //     SQLiteDatabase db = this.getReadableDatabase();
+//
+   //     String selectQuery = "SELECT  * FROM " + TABLE_CIUDAD + " WHERE "
+   //             + KEY_ID + " = " + noticia_id;
+//
+   //     Log.e(LOG, selectQuery);
+//
+   //     Cursor c = db.rawQuery(selectQuery, null);
+//
+   //     if (c != null)
+   //         c.moveToFirst();
+//
+   //     Noticia n = new Noticia();
+   //     n.setTitulo(c.getString(c.getColumnIndex(KEY_NOTICIA_TITULO)));
+   //     n.setDescripcion(c.getString(c.getColumnIndex(KEY_NOTICIA_CONTENIDOPREVIO)));
+   //     n.setUrl(c.getString(c.getColumnIndex(KEY_NOTICIA_LINK)));
+   //     n.setS_img(c.getString(c.getColumnIndex(KEY_NOTICIA_URLIMAGEN)));
+   //     n.setDia(c.getInt(c.getColumnIndex(KEY_NOTICIA_DIA)));
+   //     n.setMes(c.getInt(c.getColumnIndex(KEY_NOTICIA_MES)));
+//
+   //     return n;
+   // }
 
     public Nacionalidad getNacionalidad(long nacionalidad_id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -817,33 +817,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return tags;
     }
 
-    //SELECT ALL NOTICIA
-    public List<Noticia> getAllNoticias() {
-        List<Noticia> tags = new ArrayList<Noticia>();
-        String selectQuery = "SELECT  * FROM " + TABLE_NOTICIA;
-
-        Log.e(LOG, selectQuery);
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.rawQuery(selectQuery, null);
-
-        // looping through all rows and adding to list
-        if (c.moveToFirst()) {
-            do {
-                Noticia n = new Noticia();
-                n.setTitulo(c.getString(c.getColumnIndex(KEY_NOTICIA_TITULO)));
-                n.setDescripcion(c.getString(c.getColumnIndex(KEY_NOTICIA_CONTENIDOPREVIO)));
-                n.setUrl(c.getString(c.getColumnIndex(KEY_NOTICIA_LINK)));
-                n.setS_img(c.getString(c.getColumnIndex(KEY_NOTICIA_URLIMAGEN)));
-                n.setDia(c.getInt(c.getColumnIndex(KEY_NOTICIA_DIA)));
-                n.setMes(c.getInt(c.getColumnIndex(KEY_NOTICIA_MES)));
-
-                // adding to tags list
-                tags.add(n);
-            } while (c.moveToNext());
-        }
-        return tags;
-    }
+   // //SELECT ALL NOTICIA
+   // public List<Noticia> getAllNoticias() {
+   //     List<Noticia> tags = new ArrayList<Noticia>();
+   //     String selectQuery = "SELECT  * FROM " + TABLE_NOTICIA;
+//
+   //     Log.e(LOG, selectQuery);
+//
+   //     SQLiteDatabase db = this.getReadableDatabase();
+   //     Cursor c = db.rawQuery(selectQuery, null);
+//
+   //     // looping through all rows and adding to list
+   //     if (c.moveToFirst()) {
+   //         do {
+   //             Noticia n = new Noticia();
+   //             n.setTitulo(c.getString(c.getColumnIndex(KEY_NOTICIA_TITULO)));
+   //             n.setDescripcion(c.getString(c.getColumnIndex(KEY_NOTICIA_CONTENIDOPREVIO)));
+   //             n.setUrl(c.getString(c.getColumnIndex(KEY_NOTICIA_LINK)));
+   //             n.setS_img(c.getString(c.getColumnIndex(KEY_NOTICIA_URLIMAGEN)));
+   //             n.setDia(c.getInt(c.getColumnIndex(KEY_NOTICIA_DIA)));
+   //             n.setMes(c.getInt(c.getColumnIndex(KEY_NOTICIA_MES)));
+//
+   //             // adding to tags list
+   //             tags.add(n);
+   //         } while (c.moveToNext());
+   //     }
+   //     return tags;
+   // }
 
     //SELECT ALL NACIONALIDAD
     public List<Nacionalidad> getAllNacionalidades() {

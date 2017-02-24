@@ -1,40 +1,41 @@
 package com.example.personal.comunitarias.oficinas;
 
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.example.personal.comunitarias.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.util.TreeMap;
-
 public class OficinasActivity extends AppCompatActivity
-        implements OnMapReadyCallback,GoogleMap.OnCameraIdleListener,
-        NavigationView.OnNavigationItemSelectedListener {
+        implements OnMapReadyCallback, GoogleMap.OnCameraIdleListener,
+        NavigationView.OnNavigationItemSelectedListener{
 
     private GoogleMap mMap;
     private OficinasReader officereader;
     public static Oficina select;
-
-
-
+    private LocationManager locManager;
+    private LatLng posicion ;
+    private BottomSheetBehavior<View> mBottomSheetBehavior1;
+    private TextView bottomSheetText;
 
 
     @Override
@@ -47,10 +48,9 @@ public class OficinasActivity extends AppCompatActivity
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
         officereader = new OficinasReader(this);
         officereader.execute();
-
-
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -61,8 +61,15 @@ public class OficinasActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
+        View bottomSheet = findViewById(R.id.bottom_sheet1);
+        bottomSheetText = (TextView) findViewById(R.id.bottom_sheet_text);
+        mBottomSheetBehavior1 = BottomSheetBehavior.from(bottomSheet);
+
+
 
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -81,8 +88,8 @@ public class OficinasActivity extends AppCompatActivity
         int id = item.getItemId();
         Oficina oficina = officereader.getProvincias().get(item.getTitle());
         anadirMarcador(oficina);
-        Toast.makeText(getApplicationContext(), "En construcción" , Toast.LENGTH_SHORT).show();
-
+        //Toast.makeText(getApplicationContext(), "En construcción", Toast.LENGTH_SHORT).show();
+        bottomSheetText.setText(oficina.getProvincia());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -90,23 +97,21 @@ public class OficinasActivity extends AppCompatActivity
     }
 
 
-
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
         mMap.setMinZoomPreference(7.1f);
-        LatLngBounds bounds = new LatLngBounds(new LatLng(-4.708246, -92.737665),new LatLng(1.251923, -75.456171));
+        LatLngBounds bounds = new LatLngBounds(new LatLng(-4.708246, -92.737665), new LatLng(1.251923, -75.456171));
         mMap.setLatLngBoundsForCameraTarget(bounds);
         LatLng ecuador = new LatLng(-0.577191, -78.362055);
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ecuador, 7.2f));
-        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener()
-        {
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
 
             @Override
             public boolean onMarkerClick(Marker arg0) {
                 select = officereader.getProvincias().get(arg0.getTitle());
+
                 Intent i=new Intent(getBaseContext(), OfficeDialog.class);
                 startActivity(i);
                 return true;
@@ -117,17 +122,22 @@ public class OficinasActivity extends AppCompatActivity
 
     }
 
+    public void onClick(View view) {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.openDrawer(GravityCompat.START);
+    }
 
 
-
-    public void anadirMarcador(Oficina oficina){
+    public void anadirMarcador(Oficina oficina) {
         mMap.clear();
         mMap.addMarker(new MarkerOptions()
-                     .position(oficina.getCoordenada())
-                     .title(oficina.getProvincia())
+                .position(oficina.getCoordenada())
+                .title(oficina.getProvincia())
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_logo))
+
         );
         //LatLngBounds bounds = new LatLngBounds(new LatLng(-4.708246, -92.737665),new LatLng(1.251923, -75.456171));
-       // mMap.setLatLngBoundsForCameraTarget(bounds);
+        // mMap.setLatLngBoundsForCameraTarget(bounds);
 
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(oficina.getCoordenada(), 15f));
 
@@ -138,7 +148,6 @@ public class OficinasActivity extends AppCompatActivity
         finish();
         return super.onOptionsItemSelected(item);
     }
-
 
 
     @Override
@@ -154,5 +163,9 @@ public class OficinasActivity extends AppCompatActivity
         }
 
     }
+
+
+
+
 
 }
