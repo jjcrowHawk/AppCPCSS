@@ -1,7 +1,0 @@
-#Thu Feb 23 16:24:02 COT 2017
-base.0=C\:\\Users\\Kleber\\Desktop\\AppCPCSS\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_be245f2bd91a5dcd475bef9ac0b6ad77ea098751
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=C\:\\Users\\Kleber\\Desktop\\AppCPCSS\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_00a3636a6a23fb6c3d2a2ba9a71d1e40206a5ca7\\classes.dex
-base.1=C\:\\Users\\Kleber\\Desktop\\AppCPCSS\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_00a3636a6a23fb6c3d2a2ba9a71d1e40206a5ca7
-file.0=C\:\\Users\\Kleber\\Desktop\\AppCPCSS\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_be245f2bd91a5dcd475bef9ac0b6ad77ea098751\\classes.dex
