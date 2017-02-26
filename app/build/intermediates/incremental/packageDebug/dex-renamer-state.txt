@@ -1,7 +1,0 @@
-#Sat Feb 25 20:52:40 COT 2017
-base.0=C\:\\Users\\PC-JANINA\\Desktop\\CORREGIDO_ELIMINAR\\AppCPCSS\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_c629a0652f70e58952d847749e2cbc85ab1dba2f
-renamed.1=classes2.dex
-renamed.0=classes.dex
-file.1=C\:\\Users\\PC-JANINA\\Desktop\\CORREGIDO_ELIMINAR\\AppCPCSS\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_ebaa1c5b95a85d1f815a84c5dc0b0143c46d3ca5\\classes.dex
-base.1=C\:\\Users\\PC-JANINA\\Desktop\\CORREGIDO_ELIMINAR\\AppCPCSS\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_ebaa1c5b95a85d1f815a84c5dc0b0143c46d3ca5
-file.0=C\:\\Users\\PC-JANINA\\Desktop\\CORREGIDO_ELIMINAR\\AppCPCSS\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_c629a0652f70e58952d847749e2cbc85ab1dba2f\\classes.dex
