@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.personal.comunitarias"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="25" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name="com.example.personal.comunitarias.Intro"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.personal.comunitarias.Menu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.Denuncias.TabsDenuncia"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.tweets.TwitterActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Tweets"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.videos.YoutubeVideos"
+            android:label="Videos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.videos.IntroVideos"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.example.personal.comunitarias.tweets.IntroTweets"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.tv.CpccsTv"
+            android:label="@string/title_activity_cpccs_tv"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.tv.IntroTv"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.personal.comunitarias.Mision.Mision"
+            android:label="@string/title_activity_mision"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.personal.comunitarias.Mision.Vision"
+            android:label="@string/title_activity_vision"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.personal.comunitarias.preguntas.PreguntasFrecuentes"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.preguntas.Pregunta1"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.preguntas.Pregunta2"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.preguntas.Pregunta3"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.preguntas.Pregunta4"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.preguntas.Pregunta5"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.preguntas.Pregunta6"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.preguntas.Pregunta7"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.preguntas.Pregunta8"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.preguntas.Pregunta9"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.preguntas.Pregunta10"
+            android:configChanges="screenSize|orientation"
+            android:label="@string/title_activity_preguntas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.noticias.MainActivity"
+            android:label="Noticias Y Boletines"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.personal.comunitarias.noticias.DetailActivity"
+            android:parentActivityName="com.example.personal.comunitarias.noticias.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".noticias.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.personal.comunitarias.noticias.Intro_noticias"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.personal.comunitarias.oficinas.OfficeDialog"
+            android:label=" "
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="com.example.personal.comunitarias.oficinas.OficinasActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Oficinas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.personal.comunitarias.oficinas.IntroOficinas"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.personal.comunitarias.IntroFacebook"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.personal.comunitarias.FacebookActivity"
+            android:label="Facebook"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    </application>
+
+</manifest>

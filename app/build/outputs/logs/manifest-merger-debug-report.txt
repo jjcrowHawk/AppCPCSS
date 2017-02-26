@@ -1,0 +1,379 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:2:1-189:12
+	package
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:3:5-48
+		INJECTED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:5:5-79
+MERGED from [com.google.android.gms:play-services-maps:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.8.0\AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:5:22-76
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:6:5-67
+MERGED from [com.google.android.gms:play-services-maps:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.8.0\AndroidManifest.xml:20:5-66
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:6:22-64
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:7:5-81
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:7:22-78
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:8:5-75
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:8:22-72
+application
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:10:5-187:19
+MERGED from [com.android.support:design:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:transition:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.1.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-maps:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.8.0\AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-base:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.8.0\AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-tasks:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.8.0\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.nhaarman.supertooltips:library:3.0.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.nhaarman.supertooltips\library\3.0.0\AndroidManifest.xml:4:5-46
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:13:9-41
+	android:allowBackup
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:11:9-35
+	android:icon
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:12:9-43
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:14:9-40
+meta-data#com.google.android.geo.API_KEY
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:15:9-17:55
+	android:value
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:17:13-52
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:16:13-58
+activity#com.example.personal.comunitarias.Intro
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:19:9-27:20
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:21:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:20:13-34
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:22:13-26:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:23:17-69
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:23:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:25:17-77
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:25:27-74
+activity#com.example.personal.comunitarias.Menu
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:28:9-30:59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:30:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:29:13-33
+activity#com.example.personal.comunitarias.Denuncias.TabsDenuncia
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:31:9-33:59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:33:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:32:13-51
+activity#com.example.personal.comunitarias.tweets.TwitterActivity
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:36:9-40:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:39:13-35
+	android:configChanges
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:38:13-74
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:40:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:37:13-51
+activity#com.example.personal.comunitarias.videos.YoutubeVideos
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:41:9-44:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:43:13-35
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:44:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:42:13-49
+activity#com.example.personal.comunitarias.videos.IntroVideos
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:45:9-47:59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:47:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:46:13-47
+meta-data#com.google.android.gms.version
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:49:9-51:69
+MERGED from [com.google.android.gms:play-services-basement:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:51:13-66
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:50:13-58
+activity#com.example.personal.comunitarias.tweets.IntroTweets
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:53:9-55:59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:55:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:54:13-47
+activity#com.example.personal.comunitarias.tv.CpccsTv
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:56:9-59:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:58:13-60
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:59:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:57:13-39
+activity#com.example.personal.comunitarias.tv.IntroTv
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:61:9-65:20
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:63:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:62:13-39
+activity#com.example.personal.comunitarias.Mision.Mision
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:67:9-71:20
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:70:13-58
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:69:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:68:13-42
+activity#com.example.personal.comunitarias.Mision.Vision
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:73:9-77:20
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:76:13-58
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:75:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:74:13-42
+activity#com.example.personal.comunitarias.preguntas.PreguntasFrecuentes
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:79:9-83:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:82:13-61
+	android:configChanges
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:81:13-59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:83:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:80:13-58
+activity#com.example.personal.comunitarias.preguntas.Pregunta1
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:84:9-88:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:87:13-61
+	android:configChanges
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:86:13-59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:88:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:85:13-48
+activity#com.example.personal.comunitarias.preguntas.Pregunta2
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:89:9-93:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:92:13-61
+	android:configChanges
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:91:13-59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:93:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:90:13-48
+activity#com.example.personal.comunitarias.preguntas.Pregunta3
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:94:9-98:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:97:13-61
+	android:configChanges
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:96:13-59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:98:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:95:13-48
+activity#com.example.personal.comunitarias.preguntas.Pregunta4
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:99:9-103:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:102:13-61
+	android:configChanges
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:101:13-59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:103:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:100:13-48
+activity#com.example.personal.comunitarias.preguntas.Pregunta5
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:105:9-109:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:108:13-61
+	android:configChanges
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:107:13-59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:109:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:106:13-48
+activity#com.example.personal.comunitarias.preguntas.Pregunta6
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:111:9-115:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:114:13-61
+	android:configChanges
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:113:13-59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:115:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:112:13-48
+activity#com.example.personal.comunitarias.preguntas.Pregunta7
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:117:9-121:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:120:13-61
+	android:configChanges
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:119:13-59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:121:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:118:13-48
+activity#com.example.personal.comunitarias.preguntas.Pregunta8
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:123:9-127:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:126:13-61
+	android:configChanges
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:125:13-59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:127:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:124:13-48
+activity#com.example.personal.comunitarias.preguntas.Pregunta9
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:129:9-133:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:132:13-61
+	android:configChanges
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:131:13-59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:133:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:130:13-48
+activity#com.example.personal.comunitarias.preguntas.Pregunta10
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:134:9-138:60
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:137:13-61
+	android:configChanges
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:136:13-59
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:138:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:135:13-49
+activity#com.example.personal.comunitarias.noticias.MainActivity
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:141:9-146:20
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:143:13-49
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:144:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:142:13-50
+activity#com.example.personal.comunitarias.noticias.DetailActivity
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:147:9-154:20
+	android:parentActivityName
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:149:13-64
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:150:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:148:13-52
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:151:13-153:58
+	android:value
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:153:17-55
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:152:17-63
+activity#com.example.personal.comunitarias.noticias.Intro_noticias
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:155:9-159:20
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:157:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:156:13-52
+activity#com.example.personal.comunitarias.oficinas.OfficeDialog
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:161:9-164:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:163:13-30
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:164:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:162:13-50
+activity#com.example.personal.comunitarias.oficinas.OficinasActivity
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:165:9-169:59
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:168:13-37
+	android:configChanges
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:167:13-74
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:169:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:166:13-54
+activity#com.example.personal.comunitarias.oficinas.IntroOficinas
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:171:9-175:20
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:173:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:172:13-51
+activity#com.example.personal.comunitarias.IntroFacebook
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:176:9-180:20
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:178:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:177:13-42
+activity#com.example.personal.comunitarias.FacebookActivity
+ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:181:9-186:20
+	android:label
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:183:13-37
+	android:theme
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:184:13-56
+	android:name
+		ADDED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml:182:13-45
+uses-sdk
+INJECTED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:design:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:transition:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.1.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\AndroidManifest.xml:20:5-43
+MERGED from [com.google.android.gms:play-services-maps:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.8.0\AndroidManifest.xml:23:5-42
+MERGED from [com.google.android.gms:play-services-base:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.8.0\AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-tasks:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.8.0\AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-basement:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\AndroidManifest.xml:17:5-42
+MERGED from [com.android.support:support-v4:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.nhaarman.supertooltips:library:3.0.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.nhaarman.supertooltips\library\3.0.0\AndroidManifest.xml:2:5-72
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:25.1.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\src\main\AndroidManifest.xml
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.8.0\AndroidManifest.xml:21:5-77
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.8.0\AndroidManifest.xml:21:19-51
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.8.0\AndroidManifest.xml:21:52-75
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.8.0\AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.8.0\AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.8.0\AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:9.8.0] C:\Users\PC-JANINA\Desktop\CORREGIDO_ELIMINAR\AppCPCSS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.8.0\AndroidManifest.xml:19:19-85
