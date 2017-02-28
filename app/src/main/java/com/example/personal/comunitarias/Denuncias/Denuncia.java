@@ -36,7 +36,7 @@ public class Denuncia extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-         view =  inflater.inflate(R.layout.frag2_denuncia,container,false);
+         view =  inflater.inflate(R.layout.denuncia_tab2_denuncia,container,false);
         InicializarComp();
         view.findViewById(R.id.btnDenunciaAnterior).setOnClickListener(new View.OnClickListener() {
             @Override

@@ -25,6 +25,7 @@ import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.Denuncias.TabsDenuncia;
 import com.example.personal.comunitarias.Mision.Mision;
 import com.example.personal.comunitarias.Mision.Vision;
+import com.example.personal.comunitarias.Pedidos.TabsPedido;
 import com.example.personal.comunitarias.noticias.BoletinesDataBase;
 import com.example.personal.comunitarias.noticias.Intro_noticias;
 import com.example.personal.comunitarias.noticias.NoticiasDataBase;
@@ -75,9 +76,9 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         Pedidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Toast.makeText(getApplicationContext(), "En construcción" , Toast.LENGTH_SHORT).show();
-                //Intent i=new Intent(getBaseContext(), TabsDenuncia.class);
-               // startActivity(i);
+                Intent i=new Intent(getBaseContext(), TabsPedido.class);
+                startActivity(i);
+
             }
         });
 

@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.res.TypedArray;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
@@ -29,9 +28,6 @@ import com.example.personal.comunitarias.R;
 
 import java.util.Properties;
 
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
 import javax.mail.Authenticator;
 import javax.mail.BodyPart;
 import javax.mail.Message;
@@ -74,7 +70,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view =  inflater.inflate(R.layout.frag3_denunciado,container,false);
+        view =  inflater.inflate(R.layout.denuncia_tab3_denunciado,container,false);
         InicializarComp();
         view.findViewById(R.id.btn_anterior).setOnClickListener(new View.OnClickListener() {
             @Override

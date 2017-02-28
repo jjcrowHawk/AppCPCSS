@@ -60,7 +60,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view =  inflater.inflate(R.layout.frag1_peticionario,container,false);
+        view =  inflater.inflate(R.layout.denuncia_tab1_peticionario,container,false);
         InicializarComp();
        /* view.findViewById(R.id.btnInfoPeticionario).setOnClickListener(new View.OnClickListener() {
 

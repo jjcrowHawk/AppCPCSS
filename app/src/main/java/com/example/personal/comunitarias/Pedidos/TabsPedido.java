@@ -1,5 +1,4 @@
-package com.example.personal.comunitarias.Denuncias;
-
+package com.example.personal.comunitarias.Pedidos;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,9 +12,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
+import com.example.personal.comunitarias.Denuncias.MostrarDatos;
 import com.example.personal.comunitarias.R;
 
-public class TabsDenuncia extends AppCompatActivity {
+/**
+ * Created by PC-JANINA on 26/2/2017.
+ */
+
+public class TabsPedido extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager viewPager;
@@ -25,7 +29,7 @@ public class TabsDenuncia extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tabs_denuncia);
+        setContentView(R.layout.tabs_pedido);
 
         //toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -43,7 +47,7 @@ public class TabsDenuncia extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         tabStrip = ((LinearLayout) tabLayout.getChildAt(0));
-        BloquearTabs();
+        //BloquearTabs();
 
 
 
@@ -65,16 +69,19 @@ public class TabsDenuncia extends AppCompatActivity {
         });
 
     }
-    public void BloquearTabs(){
+
+    /* public void BloquearTabs(){
         tabStrip.getChildAt(0).setClickable(false);
         tabStrip.getChildAt(1).setClickable(false);
         tabStrip.getChildAt(2).setClickable(false);
-    }
+    }*/
+
+
 
 
     private class CustomAdapter extends FragmentPagerAdapter {
 
-        private String fragments[] = {"Peticionario", "Denuncia", "Denunciado", "Mostrar Datos"};
+        private String fragments[] = {"Peticionario", "Pedido", "Datos Entidad", "Mostrar Datos"};
 
         public CustomAdapter(FragmentManager supportFragmentManager, Context applicationContext) {
             super(supportFragmentManager);
@@ -86,13 +93,12 @@ public class TabsDenuncia extends AppCompatActivity {
                 case 0:
                     return new Peticionario(viewPager);
                 case 1:
-                    return new Denuncia(viewPager);
+                    return new Pedido(viewPager);
                 case 2:
-                    return new Denunciado(viewPager);
+                    return new DatosEntidad(viewPager);
                 case 3:
-                    return new MostrarDatos(viewPager);
-                case 4:
-                    return new MostrarDatos(viewPager);
+                    return new MostrarDatosPedido(viewPager);
+
                 default:
                     return null;
             }
@@ -116,4 +122,6 @@ public class TabsDenuncia extends AppCompatActivity {
         finish();
         return super.onOptionsItemSelected(item);
     }
+
+
 }
