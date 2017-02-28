@@ -69,6 +69,7 @@ public class TabsDenuncia extends AppCompatActivity {
         tabStrip.getChildAt(0).setClickable(false);
         tabStrip.getChildAt(1).setClickable(false);
         tabStrip.getChildAt(2).setClickable(false);
+        tabStrip.getChildAt(3).setClickable(false);
     }
 
 

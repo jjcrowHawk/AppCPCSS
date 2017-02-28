@@ -1,52 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView android:layout_height="fill_parent"
     android:layout_width="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="700dp">
-
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_height="550dp">
 
         <TextView
-            android:text="BORRADOR DE MOSTRAR DATOS"
+            android:text="Información Resumida"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:textSize="19sp"
             android:layout_centerHorizontal="true"
             android:id="@+id/textView17" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/lbl_Nombres"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="55dp"
             android:layout_width="match_parent"
             android:textColor="#000000"
             android:layout_height="wrap_content">
-
             <EditText
-                android:id="@+id/txt_Nombres"
+                android:id="@+id/m_txt_Nombres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nombres"
-                android:maxLength="25"
-                android:inputType="textCapWords"
-                android:textSize="16sp"  />
+                android:textSize="16sp"
+                android:inputType="textCapWords" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/lbl_Apellidos"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="115dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/txt_Apellidos"
+                android:id="@+id/m_txt_Apellidos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Apellidos"
-                android:maxLength="25"
                 android:textSize="16sp"
                 android:inputType="textCapWords"
 
@@ -55,7 +53,7 @@
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/lbl_Correo"
-            android:layout_marginTop="220dp"
+            android:layout_marginTop="175dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -63,8 +61,7 @@
                 android:id="@+id/txt_correo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Correo electrÃ³nico"
-                android:maxLength="25"
+                android:hint="Correo electrónico"
                 android:textSize="16sp"
                 android:inputType="textEmailAddress"
 
@@ -74,23 +71,23 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/lbl_TipoIdentificacion"
             android:layout_width="match_parent"
-            android:layout_marginTop="280dp"
+            android:layout_marginTop="235dp"
             android:layout_height="wrap_content">
 
             <EditText
                 android:id="@+id/txt_tipoIdentificacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="IdentificaciÃ³n"
+                android:hint="Identificación"
                 android:inputType="number"
-                android:maxLength="11"
+                android:textSize="16sp"
                 />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/lbl_denuciado"
             android:layout_width="match_parent"
-            android:layout_marginTop="340dp"
+            android:layout_marginTop="295dp"
             android:layout_height="wrap_content">
 
             <EditText
@@ -98,15 +95,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nombres del Denunciado"
-                android:inputType="number"
-                android:maxLength="11"
+                android:inputType="textCapWords"
+                android:textSize="16sp"
                 />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/lbl_apel_denuciado"
             android:layout_width="match_parent"
-            android:layout_marginTop="400dp"
+            android:layout_marginTop="355dp"
             android:layout_height="wrap_content">
 
             <EditText
@@ -114,71 +111,58 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Apellidos del Denunciado"
-                android:inputType="number"
-                android:maxLength="11"
+                android:textSize="16sp"
+                android:inputType="textCapWords"
                 />
         </android.support.design.widget.TextInputLayout>
 
-
+        <!--
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:background="@color/grey"
-            android:layout_marginTop="470dp"
+            android:layout_marginTop="430dp"
             android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="message icon"
-                android:paddingTop="5dp"
-                android:scaleType="fitStart"
-                android:layout_margin="5dp"
-                android:src="@drawable/mess" />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/lbl_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollbars="vertical"
-                app:counterEnabled="true"
-
-                app:counterMaxLength="150">
+                android:layout_margin="10dp"
+                >
 
                 <EditText
-                    android:id="@+id/txt_descripcion"
+                    android:id="@+id/m_txt_descripcion"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="#000000"
-                    android:hint="DescripciÃ³n de su denuncia"
+                    android:hint="Denuncia"
+                    android:textSize="16sp"
                     android:inputType="textMultiLine"
-                    android:maxLength="150"
 
                     />
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
+        -->
 
         <Button
             android:text="Anterior"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginTop="550dp"
+            android:layout_marginTop="435dp"
             android:textColor="#ffffff"
             android:background="@color/colorPrimaryDark"
-            android:id="@+id/btn_anterior" />
+            android:id="@+id/anterior" />
         <Button
-            android:text="Guardar"
+            android:text="Enviar"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="550dp"
+            android:layout_marginTop="435dp"
             android:textColor="#ffffff"
             android:background="@color/colorPrimaryDark"
-            android:id="@+id/btn_enviar" />
-
-
-
-
+            android:id="@+id/enviar" />
     </RelativeLayout>
 </ScrollView>

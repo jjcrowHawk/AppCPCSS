@@ -122,6 +122,15 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         btn_enviar_r.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                viewPager.setCurrentItem(3);
+
+            }
+        });
+
+        //codigo de kleber - no borrar!
+        /*btn_enviar_r.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Denuncia d = new Denuncia(viewPager);
                 Peticionario p = new Peticionario(viewPager);
                 Nombre_P = p.getNombre();
@@ -231,7 +240,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
 
 
             }
-        });
+        });*/
 
 
 
