@@ -51,15 +51,97 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     Session session;
     String Nombre_P,Apellido_P,Mail_P,Identidad_P,Ocupacion_P,Estadocivil_P,provi_P,Ciudad_P,Nacio_p,Reside_p,Nivel_P,TipoIde_P,Genero_P,Reservada_p;
     String Descripciion_D,comparecer_d,hechos_d;
+    static String  Nombre_D;
+    static String Apellido_D;
+    static String Cargo_D;
+    static String Unafectada;
+    static String Perdjudicada_d;
+    static String Genero_d;
+    static String Provincia_d;
+    static String CIudad_d;
+    static String Institucion_d;
+
+    public static String getNombre_D() {
+        return Nombre_D;
+    }
+
+    public static void setNombre_D(String nombre_D) {
+        Nombre_D = nombre_D;
+    }
+
+    public static String getApellido_D() {
+        return Apellido_D;
+    }
+
+    public static void setApellido_D(String apellido_D) {
+        Apellido_D = apellido_D;
+    }
+
+    public static String getCargo_D() {
+        return Cargo_D;
+    }
+
+    public static void setCargo_D(String cargo_D) {
+        Cargo_D = cargo_D;
+    }
+
+    public static String getUnafectada() {
+        return Unafectada;
+    }
+
+    public static void setUnafectada(String unafectada) {
+        Unafectada = unafectada;
+    }
+
+    public static String getPerdjudicada_d() {
+        return Perdjudicada_d;
+    }
+
+    public static void setPerdjudicada_d(String perdjudicada_d) {
+        Perdjudicada_d = perdjudicada_d;
+    }
+
+    public static String getGenero_d() {
+        return Genero_d;
+    }
+
+    public static void setGenero_d(String genero_d) {
+        Genero_d = genero_d;
+    }
+
+    public static String getProvincia_d() {
+        return Provincia_d;
+    }
+
+    public static void setProvincia_d(String provincia_d) {
+        Provincia_d = provincia_d;
+    }
+
+    public static String getCIudad_d() {
+        return CIudad_d;
+    }
+
+    public static void setCIudad_d(String CIudad_d) {
+        Denunciado.CIudad_d = CIudad_d;
+    }
+
+    public static String getInstitucion_d() {
+        return Institucion_d;
+    }
+
+    public static void setInstitucion_d(String institucion_d) {
+        Institucion_d = institucion_d;
+    }
 
     /******/
     private ViewPager viewPager;
     private View view;
     private TabsDenuncia tabs;
 
-    public  Denunciado(){
 
-    }
+  //  public  Denunciado(){
+
+   // }
 
     public Denunciado(ViewPager viewPager) {
 
@@ -122,6 +204,24 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         btn_enviar_r.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Nombre_D = txtNombre.getText().toString();
+                Apellido_D = txtApellido.getText().toString();
+                Cargo_D = txtCargo.getText().toString();
+                Unafectada = txtUnAfectada.getText().toString();
+                Perdjudicada_d = txtPerjud.getText().toString();
+                if (genero.equals("Masculino")){
+                    Genero_d ="0";
+                }else{
+                    Genero_d="1";
+                }
+                Provincia_d = provincia.getSelectedItem().toString();
+                CIudad_d = ciudad.getSelectedItem().toString();
+                Institucion_d = institucion.getSelectedItem().toString();
+
+                Log.d("Clase Denunciado",Nombre_D+""+Apellido_D+""+Cargo_D);
+
+
                 viewPager.setCurrentItem(3);
 
             }
@@ -261,6 +361,8 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         this.ciudad.setOnItemSelectedListener(this);
     }
 
+
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (parent.getId()) {
@@ -398,78 +500,8 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     }
 
 
-    public void SendMail(){
-                       /* MAIL+++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-        Properties properties = new Properties();
-        properties.put("mail.smtp.host","smtp.googlemail.com");
-        properties.put("mail.smtp.socketFactory.port","465");
-        properties.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
-        properties.put("mail.smtp.auth","true");
-        properties.put("mail.smtp.port","465");
-
-        try{
-            session= Session.getDefaultInstance(properties, new Authenticator() {
-                @Override
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(correo,contraseña);
-                }
-            });
-
-            if(session!=null){
-
-                Message message = new MimeMessage(session);
-                message.setFrom(new InternetAddress(correo));
-                message.setSubject("Confirmaciòn Envio De Formulario");
-                message.setRecipients(Message.RecipientType.TO , InternetAddress.parse(Mail_P));
 
 
-                MimeMultipart multipart = new MimeMultipart("related");
-
-                BodyPart messageBodyPart = new MimeBodyPart();
-                String htmlText = "<H1>Envio Exitoso</H1>" +
-                        "<p>Sr(a) "+ Nombre_P + " "+Apellido_P +" su Denuncia ha sido Enviada Correctamente</p>" +
-                        "<H3>Denuncia :</H3>" +
-                        ""+Descripciion_D+"";
-                messageBodyPart.setContent(htmlText, "text/html");
-                // add it
-                multipart.addBodyPart(messageBodyPart);
-
-                // second part (the image)
-                       /* messageBodyPart = new MimeBodyPart();
-                        Uri fileUri = Uri.parse("android.resource://com.example.personal.comunitarias/" + R.drawable.fondo2);
-                        String path1 = fileUri.getPath();
-                        DataSource fds = new FileDataSource(
-                               path1);
-                        messageBodyPart.setDataHandler(new DataHandler(fds));
-
-                        messageBodyPart.setHeader("Content-ID", "<image>");
-
-                        // add image to the multipart*/
-
-                //multipart.addBodyPart(messageBodyPart);
-
-                // put everything together
-                message.setContent(multipart);
-
-
-
-
-
-
-
-
-
-                Transport.send(message);
-
-            }
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
 
     /*

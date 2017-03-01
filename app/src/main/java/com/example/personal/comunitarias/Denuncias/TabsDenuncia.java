@@ -92,8 +92,8 @@ public class TabsDenuncia extends AppCompatActivity {
                     return new Denunciado(viewPager);
                 case 3:
                     return new MostrarDatos(viewPager);
-                case 4:
-                    return new MostrarDatos(viewPager);
+                //case 4:
+                    //return new MostrarDatos(viewPager);
                 default:
                     return null;
             }

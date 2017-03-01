@@ -76,7 +76,7 @@ public class Denuncia extends Fragment {
                 if(descripcion.getText().toString().equals("")){
                     Toast.makeText(getContext(),"Por favor, describa su denuncia",Toast.LENGTH_LONG).show();
                 }else {
-                    Peticionario d = new Peticionario(viewPager);
+                    //Peticionario d = new Peticionario(viewPager);
 
                     Descripcion_Denuncia= descripcion.getText().toString();
                     if (comparecer.getSelectedItem().equals("Si")) Comparecer_d ="1";
