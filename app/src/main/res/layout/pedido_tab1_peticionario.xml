@@ -13,7 +13,6 @@
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/lbl_Nombres"
-            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:textColor="#000000"
             android:layout_height="wrap_content">
@@ -30,7 +29,7 @@
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/lbl_Apellidos"
-            android:layout_marginTop="65dp"
+            android:layout_marginTop="60dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -48,7 +47,7 @@
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/lbl_Correo"
-            android:layout_marginTop="125dp"
+            android:layout_marginTop="120dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -67,7 +66,7 @@
         <TextView
             android:text="Tipo de Identificación"
             android:layout_width="wrap_content"
-            android:layout_marginTop="195dp"
+            android:layout_marginTop="200dp"
             android:textColor="#000000"
             android:layout_height="wrap_content"
             android:id="@+id/textView2"
@@ -84,7 +83,7 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/lbl_TipoIdentificacion"
             android:layout_width="match_parent"
-            android:layout_marginTop="245dp"
+            android:layout_marginTop="250dp"
             android:layout_height="wrap_content">
 
             <EditText
@@ -102,7 +101,7 @@
             android:layout_width="wrap_content"
             android:textColor="#000000"
             android:layout_height="wrap_content"
-            android:layout_marginTop="315dp"
+            android:layout_marginTop="330dp"
             android:id="@+id/textView3"
             android:textSize="17sp" />
 
@@ -119,7 +118,7 @@
             android:layout_width="wrap_content"
             android:textColor="#000000"
             android:layout_height="wrap_content"
-            android:layout_marginTop="375dp"
+            android:layout_marginTop="380dp"
             android:id="@+id/textView4"
             android:textSize="17sp" />
 
@@ -136,7 +135,7 @@
             android:layout_width="wrap_content"
             android:textColor="#000000"
             android:layout_height="wrap_content"
-            android:layout_marginTop="435dp"
+            android:layout_marginTop="430dp"
             android:id="@+id/textView5"
             android:textSize="17sp" />
 
@@ -151,7 +150,7 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/lbl_TipoOcupacion"
             android:layout_width="match_parent"
-            android:layout_marginTop="495dp"
+            android:layout_marginTop="480dp"
             android:layout_height="wrap_content">
 
             <EditText
@@ -166,7 +165,7 @@
         <TextView
             android:text="Nacionalidad"
             android:layout_width="wrap_content"
-            android:layout_marginTop="555dp"
+            android:layout_marginTop="560dp"
             android:textColor="#000000"
             android:layout_height="wrap_content"
             android:id="@+id/textView6"
@@ -183,7 +182,7 @@
         <TextView
             android:text="Residencia"
             android:layout_width="wrap_content"
-            android:layout_marginTop="615dp"
+            android:layout_marginTop="610dp"
             android:textColor="#000000"
             android:layout_height="wrap_content"
             android:id="@+id/textView7"
@@ -200,7 +199,7 @@
         <TextView
             android:text="Provincia"
             android:layout_width="wrap_content"
-            android:layout_marginTop="675dp"
+            android:layout_marginTop="660dp"
             android:textColor="#000000"
             android:layout_height="wrap_content"
             android:id="@+id/textView8"
@@ -217,7 +216,7 @@
         <TextView
             android:text="Ciudad"
             android:layout_width="wrap_content"
-            android:layout_marginTop="735dp"
+            android:layout_marginTop="710dp"
             android:textColor="#000000"
             android:layout_height="wrap_content"
             android:id="@+id/textView9"
@@ -232,6 +231,9 @@
             android:layout_alignParentEnd="true" />
 
         <!--falta edad,organizacion social,cargo,direccion,telefono-->
+        <!--distancia entre dos editText = 60dp -->
+        <!--distancia entre un editText y un spinner = 80dp -->
+        <!--distancia entre dos spinners = 50dp -->
 
     </RelativeLayout>
 </ScrollView>

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 
 import com.example.personal.comunitarias.R;
 
@@ -17,6 +18,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
     private ViewPager viewPager;
     private View view;
+    private Button siguiente;
 
     public Peticionario(ViewPager viewPager) {
         this.viewPager = viewPager;
@@ -31,6 +33,8 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         return view;
 
     }
+
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

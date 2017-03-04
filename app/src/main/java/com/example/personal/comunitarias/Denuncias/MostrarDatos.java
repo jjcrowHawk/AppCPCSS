@@ -93,7 +93,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
        correo ="prueba.envio.formulario@gmail.com";
        contraseña="espol1234";
 
-
+       obtenerinformacion();
        m_txtNombrePet.setText(Nombre_P);
        m_txtApellidoPet.setText(Apellido_P);
        txtIdent.setText(Identidad_P);
