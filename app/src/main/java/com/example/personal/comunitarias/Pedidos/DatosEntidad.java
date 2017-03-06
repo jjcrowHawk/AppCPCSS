@@ -34,6 +34,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.pedido_tab3_entidad, container, false);
         inicializarComponentesTab3();
+        ValidarCampos();
         return view;
     }
 
@@ -113,6 +114,77 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    private void ValidarCampos(){
+
+        //validacione de nombre
+        txt_Nombres_p .addTextChangedListener(new TextValidatorPedido(txt_Nombres_p) {
+            @Override
+            public void validate(EditText editText, String text) {
+                for (int index = 0; index < text.length(); index++) {
+                    String c = String.valueOf(text.charAt(index));
+                    if (isNumeric(c) || (!text.matches("[a-zA-Zá-ú? ]*"))){
+                        txt_Nombres_p.setError("Sólo ingrese letras");
+                        text = text.substring(0, text.length() - 1);
+                        txt_Nombres_p.setText(text);
+                        txt_Nombres_p.setSelection(txt_Nombres_p.getText().length());
+                    }
+                }
+                if (text.length() > 24) {
+                    txt_Nombres_p.setError("Límite excedido");
+                }
+            }
+        });
+
+
+        //validacione de Apellido
+        txt_Apellidos_p .addTextChangedListener(new TextValidatorPedido(txt_Apellidos_p) {
+            @Override
+            public void validate(EditText editText, String text) {
+                for (int index = 0; index < text.length(); index++) {
+                    String c = String.valueOf(text.charAt(index));
+                    if (isNumeric(c) || (!text.matches("[a-zA-Zá-ú? ]*"))){
+                        txt_Apellidos_p.setError("Sólo ingrese letras");
+                        text = text.substring(0, text.length() - 1);
+                        txt_Apellidos_p.setText(text);
+                        txt_Apellidos_p.setSelection(txt_Apellidos_p.getText().length());
+                    }
+                }
+                if (text.length() > 24) {
+                    txt_Apellidos_p.setError("Límite excedido");
+                }
+            }
+        });
+
+
+        //validacione de Cargo
+        txt_cargo_p.addTextChangedListener(new TextValidatorPedido(txt_cargo_p) {
+            @Override
+            public void validate(EditText editText, String text) {
+                for (int index = 0; index < text.length(); index++) {
+                    String c = String.valueOf(text.charAt(index));
+                    if (isNumeric(c) || (!text.matches("[a-zA-Zá-ú? ]*"))){
+                        txt_cargo_p.setError("Sólo ingrese letras");
+                        text = text.substring(0, text.length() - 1);
+                        txt_cargo_p.setText(text);
+                        txt_cargo_p.setSelection(txt_cargo_p.getText().length());
+                    }
+                }
+                if (text.length() > 24) {
+                    txt_cargo_p.setError("Límite excedido");
+                }
+            }
+        });
+    }
+    //funcion para ver si es un numero
+    private static boolean isNumeric(String cadena){
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException nfe){
+            return false;
+        }
     }
 }
 
