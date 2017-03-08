@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 
 import com.example.personal.comunitarias.R;
 
@@ -23,6 +24,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
     private ViewPager viewPager;
     private View view;
     private TabsPedido tabs;
+    private Button anterior;
 
     public MostrarDatosPedido(ViewPager viewPager) {
 
@@ -36,15 +38,19 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.pedido_tab4_mostrar_dat,container,false);
-        //InicializarComp();
-        /*view.findViewById(R.id.btn_anterior).setOnClickListener(new View.OnClickListener() {
+        InicializarComp();
+        view.findViewById(R.id.anteriorMostrar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                viewPager.setCurrentItem(1);
+                viewPager.setCurrentItem(2);
 
             }
-        });*/
+        });
         return  view;
+    }
+
+    private void InicializarComp() {
+        //anterior = (Button)view.findViewById(R.id.anteriorMostrar);
     }
 
 

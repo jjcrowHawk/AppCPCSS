@@ -9,7 +9,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
-        android:layout_height="950dp">
+        android:layout_height="900dp">
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/lbl_Nombres"
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/txt_Nombres"
+                android:id="@+id/txt_Nombres_petic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nombres"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/txt_Apellidos"
+                android:id="@+id/txt_Apellidos_petic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Apellidos"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/txt_correo"
+                android:id="@+id/txt_correo_petic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Correo electrónico"
@@ -76,7 +76,7 @@
             android:gravity="left"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner2"
+            android:id="@+id/spinner_pet_tipIden"
             android:layout_alignTop="@+id/textView2"
             android:layout_alignParentEnd="true" />
 
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/txt_tipoIdentificacion"
+                android:id="@+id/txt_tipoIdent_petic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Identificación"
@@ -109,7 +109,7 @@
             android:gravity="left"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner3"
+            android:id="@+id/spinner_pet_gener"
             android:layout_alignTop="@+id/textView3"
             android:layout_alignParentEnd="true" />
 
@@ -126,7 +126,7 @@
             android:gravity="left"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner4"
+            android:id="@+id/spinner_pet_estado_civil"
             android:layout_alignTop="@+id/textView4"
             android:layout_alignParentEnd="true" />
 
@@ -143,7 +143,7 @@
             android:gravity="left"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner5"
+            android:id="@+id/spinner_pet_educa"
             android:layout_alignTop="@+id/textView5"
             android:layout_alignParentEnd="true" />
 
@@ -154,7 +154,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/txt_ocupacion"
+                android:id="@+id/txt_ocupacion_petic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="25"
@@ -175,7 +175,7 @@
             android:gravity="left"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner6"
+            android:id="@+id/spinner_pet_naciona"
             android:layout_alignTop="@+id/textView6"
             android:layout_alignParentEnd="true" />
 
@@ -192,7 +192,7 @@
             android:gravity="left"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner7"
+            android:id="@+id/spinner_pet_resid"
             android:layout_alignTop="@+id/textView7"
             android:layout_alignParentEnd="true" />
 
@@ -209,7 +209,7 @@
             android:gravity="left"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner8"
+            android:id="@+id/spinner_pet_provin"
             android:layout_alignTop="@+id/textView8"
             android:layout_alignParentEnd="true" />
 
@@ -226,7 +226,7 @@
             android:gravity="left"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner9"
+            android:id="@+id/spinner_pet_ciud"
             android:layout_alignTop="@+id/textView9"
             android:layout_alignParentEnd="true" />
 
@@ -234,6 +234,16 @@
         <!--distancia entre dos editText = 60dp -->
         <!--distancia entre un editText y un spinner = 80dp -->
         <!--distancia entre dos spinners = 50dp -->
+
+        <Button
+            android:text="Siguiente"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="770dp"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimaryDark"
+            android:id="@+id/btnSiguiente_petic" />
 
     </RelativeLayout>
 </ScrollView>

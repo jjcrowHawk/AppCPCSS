@@ -47,7 +47,7 @@ public class TabsPedido extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         tabStrip = ((LinearLayout) tabLayout.getChildAt(0));
-        //BloquearTabs();
+        BloquearTabs();
 
 
 
@@ -70,11 +70,12 @@ public class TabsPedido extends AppCompatActivity {
 
     }
 
-    /* public void BloquearTabs(){
+    public void BloquearTabs(){
         tabStrip.getChildAt(0).setClickable(false);
         tabStrip.getChildAt(1).setClickable(false);
         tabStrip.getChildAt(2).setClickable(false);
-    }*/
+        tabStrip.getChildAt(3).setClickable(false);
+    }
 
 
 

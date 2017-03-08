@@ -42,8 +42,6 @@ public class Denuncia extends Fragment {
             @Override
             public void onClick(View arg0) {
                 viewPager.setCurrentItem(0);
-                //tabs = new TabsDenuncia();
-                //tabs.DesbloquearTabs();
 
             }
         });

@@ -142,7 +142,7 @@
             android:layout_marginTop="448dp"
             android:textColor="#ffffff"
             android:background="@color/colorPrimaryDark"
-            android:id="@+id/btnSiguiente_p" />
+            android:id="@+id/btnSiguiente_entidad" />
 
         <Button
             android:text="Anterior"
@@ -152,7 +152,7 @@
             android:layout_marginTop="448dp"
             android:textColor="#ffffff"
             android:background="@color/colorPrimaryDark"
-            android:id="@+id/btnPedidoAnterior_p" />
+            android:id="@+id/btnAnterior_entidad" />
 
     </RelativeLayout>
 </ScrollView>

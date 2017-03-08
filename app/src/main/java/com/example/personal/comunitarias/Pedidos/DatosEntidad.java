@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.personal.comunitarias.R;
 
@@ -20,8 +21,9 @@ import com.example.personal.comunitarias.R;
 public class DatosEntidad extends Fragment implements AdapterView.OnItemSelectedListener {
     private Spinner spinner_inst_p, spinner_gen_p, spinner_prov_p, spinner_ciu_p;
     private EditText txt_Nombres_p, txt_Apellidos_p,txt_cargo_p ;
+    private String Nombre, Apellido, Cargo;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4, adapter5, adapter6, adapter7,adapter8, adapter9;
-
+    private Button siguiente;
     private ViewPager viewPager;
     private View view;
 
@@ -35,6 +37,12 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
         view = inflater.inflate(R.layout.pedido_tab3_entidad, container, false);
         inicializarComponentesTab3();
         ValidarCampos();
+        view.findViewById(R.id.btnAnterior_entidad).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                viewPager.setCurrentItem(1);
+            }
+        });
         return view;
     }
 
@@ -59,6 +67,21 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
                 R.array.genero, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_gen_p.setAdapter(adapter3);
+        siguiente = (Button)view.findViewById(R.id.btnSiguiente_entidad) ;
+        siguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Nombre = txt_Nombres_p.getText().toString();
+                Apellido = txt_Apellidos_p.getText().toString();
+                Cargo = txt_cargo_p.getText().toString();
+
+                if(Nombre.equals("")||Apellido.equals("")||Cargo.equals("")){
+                    Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
+                }else {
+                    viewPager.setCurrentItem(3);
+                }
+            }
+        });
 
     }
 
