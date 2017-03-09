@@ -1,6 +1,8 @@
 package com.example.personal.comunitarias.Denuncias;
 
+import android.app.ProgressDialog;
 import android.content.res.TypedArray;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,8 +18,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
+import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.R;
+
+import java.util.ArrayList;
 
 
 public class Peticionario extends Fragment implements AdapterView.OnItemSelectedListener{
@@ -26,6 +32,10 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtOcupacion;
     Button btn_seguir;
     Reclamo rec;
+
+    //Progress
+    private ProgressDialog mProgressDialog;
+    private ArrayList<String> ciudades;
     /******/
     private ViewPager viewPager;
     private View view;
@@ -95,6 +105,11 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
         //Spinner género
         genero = (Spinner) view.findViewById(R.id.spinner3);
+        /*
+        ArrayList<String> lista = new ArrayList<>();
+        lista.add("FEMMENINO");lista.add("MASSCULINO");
+        ArrayAdapter<String> myadapter = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_item, lista);*/
         adapter3 = ArrayAdapter.createFromResource(getContext(),
                 R.array.genero, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -166,6 +181,11 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 Nacio = nacionalidad.getSelectedItem().toString();
                 reside = residencia.getSelectedItem().toString();
                 provi = provincia.getSelectedItem().toString();
+                ///
+                Provincia p= new Provincia();
+                Log.d("provi: ", provi+ " id: "+ p.getID_DB(provi));
+                Log.d("provi: ", provi+ " ciudades: "+ new Ciudad().getListaCiudad_prov(new Provincia().getID_DB(provi)));
+                //
                 Ciuda = ciudad.getSelectedItem().toString();
 
                 if(Nombre.equals("")|| Apellido.equals("")||
@@ -244,8 +264,12 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     private void loadSpinnerProvincias() {
         // Create an ArrayAdapter using the string array and a default spinner
         // layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                getContext(), R.array.provincias, android.R.layout.simple_spinner_item);
+        Provincia p= new Provincia();
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_item, p.getListaNombreProvincia());
+        /*ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                getContext(), R.array.provincias, android.R.layout.simple_spinner_item);*/
+
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
@@ -262,16 +286,25 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
             case R.id.spinner8:
 
                 // Retrieves an array
-                TypedArray arrayLocalidades = getResources().obtainTypedArray(
+                /*TypedArray arrayLocalidades = getResources().obtainTypedArray(
                         R.array.array_provincia_a_localidades);
 
                 CharSequence[] localidades = arrayLocalidades.getTextArray(position);
-                arrayLocalidades.recycle();
+                arrayLocalidades.recycle();*/
 
                 // Create an ArrayAdapter using the string array and a default
                 // spinner layout
-                ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(
-                        getContext(), android.R.layout.simple_spinner_item, android.R.id.text1, localidades);
+                /*ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(
+                        getContext(), android.R.layout.simple_spinner_item, android.R.id.text1, localidades);*/
+
+                //Obtener las ciudades correspondiente a la provincia seleccionada
+                ArrayList<String> ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_DB(provincia.getSelectedItem().toString()));
+                //ciudades= new ArrayList<String>();
+                //new ProgressCiudades().execute();
+
+                //creando adapter para spinner
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+                        android.R.layout.simple_spinner_item, ciudades);
 
                 // Specify the layout to use when the list of choices appears
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -289,7 +322,37 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     }
 
 
+    public class ProgressCiudades extends AsyncTask<Void, Void, Void> {
+        String name_provincia;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            name_provincia= provincia.getSelectedItem().toString();
+            mProgressDialog = new ProgressDialog(Peticionario.this.getContext());
+            mProgressDialog.setMessage("Cargando ciudades...");
+            mProgressDialog.setIndeterminate(false);
+            mProgressDialog.show();
+        }
 
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_DB(name_provincia));
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+            mProgressDialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            mProgressDialog.dismiss();
+            mProgressDialog.cancel();
+        }
+    }
 
 
 

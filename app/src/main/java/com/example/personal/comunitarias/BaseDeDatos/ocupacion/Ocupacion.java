@@ -33,6 +33,7 @@ public class Ocupacion extends _Default {
         try {
             ResultSet resultSet = db.select("SELECT * FROM cpccs.ocupacion WHERE nombre='"+nombre+"'");
             if (resultSet != null) {
+                resultSet.next();
                 id_encontrada=resultSet.getInt("id");
             }
         }catch (Exception ex){

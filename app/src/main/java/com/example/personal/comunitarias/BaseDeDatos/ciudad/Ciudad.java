@@ -5,10 +5,12 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.ciudad;
 
+import com.example.personal.comunitarias.BaseDeDatos.predenuncia.Predenuncia;
 import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -34,6 +36,7 @@ public class Ciudad extends _Default {
         try {
             ResultSet resultSet = db.select("SELECT * FROM cpccs.ciudad WHERE nombre='"+nombre+"'");
             if (resultSet != null) {
+                resultSet.next();
                 id_encontrada=resultSet.getInt("id");
             }
         }catch (Exception ex){
@@ -41,6 +44,48 @@ public class Ciudad extends _Default {
             this._status = false;
         }
         return id_encontrada;
+    }
+
+
+    //Obtener la lista de todas las ciudades de una provincia
+    public ArrayList<Ciudad> getListaCiudad_prov(int idProvincia){
+        DB db = new DB();
+        ArrayList<Ciudad> lista = new ArrayList<>();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.ciudad WHERE provinciaid='"+idProvincia+"'");
+            if (resultSet != null){
+                while (resultSet.next()){
+                    Ciudad obj= new Ciudad();
+                    obj.setIdciudad(resultSet.getInt("id"));
+                    obj.setNombre(resultSet.getString("nombre"));
+                    obj.setProvinciaid(resultSet.getInt("provinciaid"));
+                    lista.add(obj);
+                    obj = null;
+                }
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return lista;
+    }
+
+    //Obtener la lista de todos los nombreslas ciudades de una provincia
+    public ArrayList<String> getListaNombresCiudad_prov(int idProvincia){
+        DB db = new DB();
+        ArrayList<String> lista = new ArrayList<>();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.ciudad WHERE provinciaid='"+idProvincia+"'");
+            if (resultSet != null){
+                while (resultSet.next()){
+                    lista.add(resultSet.getString("nombre"));
+                }
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return lista;
     }
 
     public Ciudad(String nombre) {
