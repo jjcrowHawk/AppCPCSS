@@ -18,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
 import com.example.personal.comunitarias.BaseDeDatos.institucion.Institucion;
@@ -222,7 +223,15 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                 Log.d("Clase Denunciado",Nombre_D+""+Apellido_D+""+Cargo_D);
 
 
-                viewPager.setCurrentItem(3);
+
+                if(Nombre_D.equals("")|| Apellido_D.equals("")||
+                        Unafectada.equals("") || Cargo_D.equals("") ||
+                        Perdjudicada_d.equals("")){
+                    Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
+                }else {
+                    viewPager.setCurrentItem(3);
+                }
+
 
             }
         });
