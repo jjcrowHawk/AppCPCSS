@@ -92,7 +92,7 @@ public class TabsPedido extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new Peticionario(viewPager);
+                    return new Peticionario_PE(viewPager);
                 case 1:
                     return new Pedido(viewPager);
                 case 2:

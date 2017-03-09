@@ -312,7 +312,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         hechos_d = d.getHechos_d();
         Descripciion_D = d.getDescripcion_Denuncia();
 
-        Log.d(" Clase Mostrar ",Descripciion_D);
+       // Log.d(" Clase Mostrar ",Descripciion_D);
 
         //Denunciado
         Nombre_DE = e.getNombre_D();

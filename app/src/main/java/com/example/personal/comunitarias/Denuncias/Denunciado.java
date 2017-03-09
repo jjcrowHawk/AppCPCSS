@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -176,11 +178,20 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         genero.setAdapter(adapter);
 
-        institucion = (Spinner) view.findViewById(R.id.spinner2);
-        adapter2 = ArrayAdapter.createFromResource(getContext(),
-                R.array.institucion, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        institucion.setAdapter(adapter2);
+        //SearchBox
+        String[] arreglo = getResources().getStringArray(R.array.institucion);
+        ArrayAdapter<String> adapterautocomplate = new ArrayAdapter<String> (getContext(),android.R.layout.select_dialog_item,arreglo);
+        AutoCompleteTextView actv= (AutoCompleteTextView)view.findViewById(R.id.autoCompleteTextView1);
+        actv.setThreshold(1);
+        actv.setAdapter(adapterautocomplate);
+        actv.setTextColor(Color.BLACK);
+
+
+        //institucion = (Spinner) view.findViewById(R.id.spinner2);
+        //adapter2 = ArrayAdapter.createFromResource(getContext(),
+        //        R.array.institucion, android.R.layout.simple_spinner_item);
+        //adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //institucion.setAdapter(adapter2);
 
         //Spinner Provincia
         provincia = (Spinner) view.findViewById(R.id.spinner8);

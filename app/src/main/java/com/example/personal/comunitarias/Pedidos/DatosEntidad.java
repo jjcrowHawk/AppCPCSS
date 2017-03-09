@@ -19,13 +19,77 @@ import com.example.personal.comunitarias.R;
 
 
 public class DatosEntidad extends Fragment implements AdapterView.OnItemSelectedListener {
-    private Spinner spinner_inst_p, spinner_gen_p, spinner_prov_p, spinner_ciu_p;
-    private EditText txt_Nombres_p, txt_Apellidos_p,txt_cargo_p ;
+    Spinner  genero,institucion, provincia, ciudad;
+    ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4;
+
+    private EditText txtNombre, txtApellido, txtCargo;
     private String Nombre, Apellido, Cargo;
-    ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4, adapter5, adapter6, adapter7,adapter8, adapter9;
     private Button siguiente;
     private ViewPager viewPager;
     private View view;
+    static String  Nombre_D;
+    static String Apellido_D;
+    static String Cargo_D;
+    static String Genero_d;
+    static String Provincia_d;
+    static String CIudad_d;
+    static String Institucion_d;
+
+    public static String getNombre_D() {
+        return Nombre_D;
+    }
+
+    public static void setNombre_D(String nombre_D) {
+        Nombre_D = nombre_D;
+    }
+
+    public static String getApellido_D() {
+        return Apellido_D;
+    }
+
+    public static void setApellido_D(String apellido_D) {
+        Apellido_D = apellido_D;
+    }
+
+    public static String getCargo_D() {
+        return Cargo_D;
+    }
+
+    public static void setCargo_D(String cargo_D) {
+        Cargo_D = cargo_D;
+    }
+
+    public static String getGenero_d() {
+        return Genero_d;
+    }
+
+    public static void setGenero_d(String genero_d) {
+        Genero_d = genero_d;
+    }
+
+    public static String getProvincia_d() {
+        return Provincia_d;
+    }
+
+    public static void setProvincia_d(String provincia_d) {
+        Provincia_d = provincia_d;
+    }
+
+    public static String getCIudad_d() {
+        return CIudad_d;
+    }
+
+    public static void setCIudad_d(String CIudad_d) {
+        DatosEntidad.CIudad_d = CIudad_d;
+    }
+
+    public static String getInstitucion_d() {
+        return Institucion_d;
+    }
+
+    public static void setInstitucion_d(String institucion_d) {
+        Institucion_d = institucion_d;
+    }
 
     public DatosEntidad(ViewPager viewPager) {
         this.viewPager = viewPager;
@@ -47,13 +111,13 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
     }
 
     private void inicializarComponentesTab3() {
-        spinner_inst_p = (Spinner) view.findViewById(R.id.spinner_inst_p);
-        spinner_gen_p = (Spinner) view.findViewById(R.id.spinner_gen_p);
-        spinner_prov_p = (Spinner) view.findViewById(R.id.spinner_prov_p);
-        spinner_ciu_p = (Spinner) view.findViewById(R.id.spinner_ciu_p);
-        txt_Nombres_p = (EditText) view.findViewById(R.id.txt_Nombres_p);
-        txt_Apellidos_p = (EditText) view.findViewById(R.id.txt_Apellidos_p);
-        txt_cargo_p = (EditText) view.findViewById(R.id.txt_cargo_p);
+        institucion = (Spinner) view.findViewById(R.id.spinner_inst_p);
+        genero = (Spinner) view.findViewById(R.id.spinner_gen_p);
+        provincia = (Spinner) view.findViewById(R.id.spinner_prov_p);
+        ciudad = (Spinner) view.findViewById(R.id.spinner_ciu_p);
+        txtNombre= (EditText) view.findViewById(R.id.txt_Nombres_p);
+        txtApellido= (EditText) view.findViewById(R.id.txt_Apellidos_p);
+        txtCargo = (EditText) view.findViewById(R.id.txt_cargo_p);
 
         loadSpinnerProvincias();
 
@@ -61,23 +125,36 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
         adapter2 = ArrayAdapter.createFromResource(getContext(),
                 R.array.institucion, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_inst_p.setAdapter(adapter2);
+        institucion.setAdapter(adapter2);
 
         adapter3 = ArrayAdapter.createFromResource(getContext(),
                 R.array.genero, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner_gen_p.setAdapter(adapter3);
+        genero.setAdapter(adapter3);
         siguiente = (Button)view.findViewById(R.id.btnSiguiente_entidad) ;
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Nombre = txt_Nombres_p.getText().toString();
-                Apellido = txt_Apellidos_p.getText().toString();
-                Cargo = txt_cargo_p.getText().toString();
+                Nombre = txtNombre.getText().toString();
+                Apellido = txtApellido.getText().toString();
+                Cargo = txtCargo.getText().toString();
 
                 if(Nombre.equals("")||Apellido.equals("")||Cargo.equals("")){
                     Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
                 }else {
+
+                    Nombre_D = txtNombre.getText().toString();
+                    Apellido_D = txtApellido.getText().toString();
+                    Cargo_D = txtCargo.getText().toString();
+                    if (genero.equals("Masculino")){
+                        Genero_d ="0";
+                    }else{
+                        Genero_d="1";
+                    }
+                    Provincia_d = provincia.getSelectedItem().toString();
+                    CIudad_d = ciudad.getSelectedItem().toString();
+                    Institucion_d = institucion.getSelectedItem().toString();
+
                     viewPager.setCurrentItem(3);
                 }
             }
@@ -93,11 +170,11 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
-        this.spinner_prov_p.setAdapter(adapter);
+        this.provincia.setAdapter(adapter);
 
         // This activity implements the AdapterView.OnItemSelectedListener
-        this.spinner_prov_p.setOnItemSelectedListener(this);
-        this.spinner_ciu_p.setOnItemSelectedListener(this);
+        this.provincia.setOnItemSelectedListener(this);
+        this.ciudad.setOnItemSelectedListener(this);
     }
 
 
@@ -122,7 +199,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                 // Apply the adapter to the spinner
-                this.spinner_ciu_p.setAdapter(adapter);
+                this.ciudad.setAdapter(adapter);
 
                 break;
 
@@ -142,60 +219,60 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
     private void ValidarCampos(){
 
         //validacione de nombre
-        txt_Nombres_p .addTextChangedListener(new TextValidatorPedido(txt_Nombres_p) {
+        txtNombre.addTextChangedListener(new TextValidatorPedido(txtNombre) {
             @Override
             public void validate(EditText editText, String text) {
                 for (int index = 0; index < text.length(); index++) {
                     String c = String.valueOf(text.charAt(index));
                     if (isNumeric(c) || (!text.matches("[a-zA-Zá-ú? ]*"))){
-                        txt_Nombres_p.setError("Sólo ingrese letras");
+                        txtNombre.setError("Sólo ingrese letras");
                         text = text.substring(0, text.length() - 1);
-                        txt_Nombres_p.setText(text);
-                        txt_Nombres_p.setSelection(txt_Nombres_p.getText().length());
+                        txtNombre.setText(text);
+                        txtNombre.setSelection(txtNombre.getText().length());
                     }
                 }
                 if (text.length() > 24) {
-                    txt_Nombres_p.setError("Límite excedido");
+                    txtNombre.setError("Límite excedido");
                 }
             }
         });
 
 
         //validacione de Apellido
-        txt_Apellidos_p .addTextChangedListener(new TextValidatorPedido(txt_Apellidos_p) {
+        txtApellido.addTextChangedListener(new TextValidatorPedido(txtApellido) {
             @Override
             public void validate(EditText editText, String text) {
                 for (int index = 0; index < text.length(); index++) {
                     String c = String.valueOf(text.charAt(index));
                     if (isNumeric(c) || (!text.matches("[a-zA-Zá-ú? ]*"))){
-                        txt_Apellidos_p.setError("Sólo ingrese letras");
+                        txtApellido.setError("Sólo ingrese letras");
                         text = text.substring(0, text.length() - 1);
-                        txt_Apellidos_p.setText(text);
-                        txt_Apellidos_p.setSelection(txt_Apellidos_p.getText().length());
+                        txtApellido.setText(text);
+                        txtApellido.setSelection(txtApellido.getText().length());
                     }
                 }
                 if (text.length() > 24) {
-                    txt_Apellidos_p.setError("Límite excedido");
+                    txtApellido.setError("Límite excedido");
                 }
             }
         });
 
 
         //validacione de Cargo
-        txt_cargo_p.addTextChangedListener(new TextValidatorPedido(txt_cargo_p) {
+        txtCargo.addTextChangedListener(new TextValidatorPedido(txtCargo) {
             @Override
             public void validate(EditText editText, String text) {
                 for (int index = 0; index < text.length(); index++) {
                     String c = String.valueOf(text.charAt(index));
                     if (isNumeric(c) || (!text.matches("[a-zA-Zá-ú? ]*"))){
-                        txt_cargo_p.setError("Sólo ingrese letras");
+                        txtCargo.setError("Sólo ingrese letras");
                         text = text.substring(0, text.length() - 1);
-                        txt_cargo_p.setText(text);
-                        txt_cargo_p.setSelection(txt_cargo_p.getText().length());
+                        txtCargo.setText(text);
+                        txtCargo.setSelection(txtCargo.getText().length());
                     }
                 }
                 if (text.length() > 24) {
-                    txt_cargo_p.setError("Límite excedido");
+                    txtCargo.setError("Límite excedido");
                 }
             }
         });

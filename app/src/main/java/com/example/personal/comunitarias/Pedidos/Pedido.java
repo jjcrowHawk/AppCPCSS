@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,12 +21,48 @@ import com.example.personal.comunitarias.R;
 public class Pedido extends Fragment implements AdapterView.OnItemSelectedListener {
 
     ArrayAdapter<CharSequence> adapter1, adapter2,adapter3;
-    Spinner sp1, sp2, sp3;
+    Spinner hechos,compadecer,doc_exist;
     private ViewPager viewPager;
     private View view;
     private Button siguiente;
     private EditText descripcion;
-    private String des;
+    static String Descripcion_Pedido;
+    static String Comparecer_d;
+
+    public static String getDescripcion_Pedido() {
+        return Descripcion_Pedido;
+    }
+
+    public static void setDescripcion_Pedido(String descripcion_Pedido) {
+        Descripcion_Pedido = descripcion_Pedido;
+    }
+
+    public static String getComparecer_d() {
+        return Comparecer_d;
+    }
+
+    public static void setComparecer_d(String comparecer_d) {
+        Comparecer_d = comparecer_d;
+    }
+
+    public static String getHechos_d() {
+        return Hechos_d;
+    }
+
+    public static void setHechos_d(String hechos_d) {
+        Hechos_d = hechos_d;
+    }
+
+    public static String getDoc() {
+        return Doc;
+    }
+
+    public static void setDoc(String doc) {
+        Doc = doc;
+    }
+
+    static String  Hechos_d;
+    static String Doc;
 
     public Pedido(ViewPager viewPager) {
         this.viewPager = viewPager;
@@ -49,20 +86,20 @@ public class Pedido extends Fragment implements AdapterView.OnItemSelectedListen
     }
 
     private void inicializarComponentes() {
-        sp1 = (Spinner) view.findViewById(R.id.spinner_comparecer);
+        compadecer = (Spinner) view.findViewById(R.id.spinner_comparecer);
         adapter1 = ArrayAdapter.createFromResource(getContext(), R.array.si_no, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp1.setAdapter(adapter1);
+        compadecer.setAdapter(adapter1);
 
-        sp2 = (Spinner) view.findViewById(R.id.spinner_hechos);
+        hechos = (Spinner) view.findViewById(R.id.spinner_hechos);
         adapter2 = ArrayAdapter.createFromResource(getContext(), R.array.si_no, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp2.setAdapter(adapter2);
+        hechos.setAdapter(adapter2);
 
-        sp3 = (Spinner) view.findViewById(R.id.spinner_investigados);
+        doc_exist = (Spinner) view.findViewById(R.id.spinner_investigados);
         adapter3 = ArrayAdapter.createFromResource(getContext(), R.array.si_no, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp3.setAdapter(adapter3);
+        doc_exist.setAdapter(adapter3);
 
         siguiente = (Button) view.findViewById(R.id.btnSiguientePedido);
         descripcion = (EditText) view.findViewById(R.id.txt_descripcion_ped);
@@ -70,10 +107,20 @@ public class Pedido extends Fragment implements AdapterView.OnItemSelectedListen
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                des = descripcion.getText().toString();
-                if(des.equals("")){
+                Descripcion_Pedido = descripcion.getText().toString();
+                if(Descripcion_Pedido.equals("")){
                     Toast.makeText(getContext(),"Por favor, ingrese su pedido",Toast.LENGTH_LONG).show();
                 }else {
+                    Descripcion_Pedido= descripcion.getText().toString();
+                    if (compadecer.getSelectedItem().equals("Si")) Comparecer_d ="1";
+                    if (compadecer.getSelectedItem().equals("No")) Comparecer_d ="0";
+                    if (hechos.getSelectedItem().equals("Si")) Hechos_d="1";
+                    if (hechos.getSelectedItem().equals("No")) Hechos_d="0";
+                    if (doc_exist.getSelectedItem().equals("Si")) Doc="1";
+                    if (doc_exist.getSelectedItem().equals("No")) Doc="0";
+
+                    Log.d("PEDIDO", Descripcion_Pedido +" " + Comparecer_d +" "+ Hechos_d +"" +" "+ Doc);
+
                     viewPager.setCurrentItem(2);
                 }
             }
