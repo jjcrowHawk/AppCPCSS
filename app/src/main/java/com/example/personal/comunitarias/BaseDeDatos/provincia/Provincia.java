@@ -5,10 +5,12 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.provincia;
 
+import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
 import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -35,13 +37,53 @@ public class Provincia extends _Default {
         try {
             ResultSet resultSet = db.select("SELECT * FROM cpccs.provincia WHERE nombre='"+nombre+"'");
             if (resultSet != null) {
-                id_encontrada=resultSet.getInt("id");
+                resultSet.next();
+                id_encontrada= resultSet.getInt("id");
             }
         }catch (Exception ex){
             this._mensagem = ex.getMessage();
             this._status = false;
         }
         return id_encontrada;
+    }
+    //Devuelve la lista de todas las provincias
+    public ArrayList<Provincia> getListaProvincia(){
+        DB db = new DB();
+        ArrayList<Provincia> lista = new ArrayList<>();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.provincia");
+            if (resultSet != null){
+                while (resultSet.next()){
+                    Provincia obj= new Provincia();
+                    obj.setIdprovincia(resultSet.getInt("id"));
+                    obj.setNombre(resultSet.getString("nombre"));
+                    lista.add(obj);
+                    obj = null;
+                }
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return lista;
+    }
+
+    //Devuelve la lista de todos nombres las provincias
+    public ArrayList<String> getListaNombreProvincia(){
+        DB db = new DB();
+        ArrayList<String> lista = new ArrayList<>();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.provincia");
+            if (resultSet != null){
+                while (resultSet.next()){
+                    lista.add(resultSet.getString("nombre"));
+                }
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return lista;
     }
 
     public Provincia(String nombre) {

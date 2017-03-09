@@ -27,6 +27,7 @@ public class Nacionalidad extends _Default {
         try {
             ResultSet resultSet = db.select("SELECT * FROM cpccs.nacionalida WHERE nombre='"+nombre+"'");
             if (resultSet != null) {
+                resultSet.next();
                 id_encontrada=resultSet.getInt("id");
             }
         }catch (Exception ex){
