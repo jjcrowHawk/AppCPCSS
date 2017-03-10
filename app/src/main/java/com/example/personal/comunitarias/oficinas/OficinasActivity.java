@@ -32,10 +32,6 @@ public class OficinasActivity extends AppCompatActivity
     private GoogleMap mMap;
     private OficinasReader officereader;
     public static Oficina select;
-    private LocationManager locManager;
-    private LatLng posicion ;
-    private BottomSheetBehavior<View> mBottomSheetBehavior1;
-    private TextView bottomSheetText;
 
 
     @Override
@@ -61,9 +57,7 @@ public class OficinasActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        View bottomSheet = findViewById(R.id.bottom_sheet1);
-        bottomSheetText = (TextView) findViewById(R.id.bottom_sheet_text);
-        mBottomSheetBehavior1 = BottomSheetBehavior.from(bottomSheet);
+
 
 
 
@@ -88,8 +82,8 @@ public class OficinasActivity extends AppCompatActivity
         int id = item.getItemId();
         Oficina oficina = officereader.getProvincias().get(item.getTitle());
         anadirMarcador(oficina);
-        //Toast.makeText(getApplicationContext(), "En construcción", Toast.LENGTH_SHORT).show();
-        bottomSheetText.setText(oficina.getProvincia());
+        //Toast.makeText(getApplicationContext(), oficina.getProvincia(), Toast.LENGTH_SHORT).show();
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -136,8 +130,6 @@ public class OficinasActivity extends AppCompatActivity
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_logo))
 
         );
-        //LatLngBounds bounds = new LatLngBounds(new LatLng(-4.708246, -92.737665),new LatLng(1.251923, -75.456171));
-        // mMap.setLatLngBoundsForCameraTarget(bounds);
 
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(oficina.getCoordenada(), 15f));
 

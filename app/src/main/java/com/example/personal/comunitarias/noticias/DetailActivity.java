@@ -29,15 +29,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.personal.comunitarias.R;
 import com.squareup.picasso.Picasso;
 
-/**
- * Provides UI for the Detail page with Collapsing Toolbar.
- */
+
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "position";
@@ -49,11 +48,9 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        // Set Collapsing Toolbar layout to the screen
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        // Set title of Detail page
-        // collapsingToolbar.setTitle(getString(R.string.item_title));
+
 
         final Noticia noticia = CardContentFragment.ViewHolder.select;
 
@@ -67,13 +64,13 @@ public class DetailActivity extends AppCompatActivity {
         ImageView placePicutre = (ImageView) findViewById(R.id.image);
 
         if (noticia.getS_img().isEmpty()) {
-            Picasso.with(this).load("http://ecuadoruniversitario.com/wp-content/uploads/2015/02/consejo-participacion-ciudadana-cpccs.jpg").into(placePicutre);
+            placePicutre.setImageResource(R.drawable.ic_cpccs);
         } else
             Picasso.with(this).load(noticia.getS_img()).into(placePicutre);
 
-        // Adding Floating Action Button to bottom right of main view
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        // accion del boton ver noticia completa
+        Button verNoticia = (Button) findViewById(R.id.verNoticia);
+        verNoticia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 noticiaWebView(noticia);

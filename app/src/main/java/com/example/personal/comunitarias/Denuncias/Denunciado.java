@@ -29,6 +29,8 @@ import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.R;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -179,12 +181,16 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         genero.setAdapter(adapter);
 
         //SearchBox
-        String[] arreglo = getResources().getStringArray(R.array.institucion);
-        ArrayAdapter<String> adapterautocomplate = new ArrayAdapter<String> (getContext(),android.R.layout.select_dialog_item,arreglo);
-        AutoCompleteTextView actv= (AutoCompleteTextView)view.findViewById(R.id.autoCompleteTextView1);
-        actv.setThreshold(1);
-        actv.setAdapter(adapterautocomplate);
-        actv.setTextColor(Color.BLACK);
+        final List<String> lista_instituciones = new LinkedList<>();
+        //añado las instituciones a la lista
+        for(String institucion : getResources().getStringArray(R.array.institucion)) {
+            lista_instituciones.add(institucion);
+        }
+        ArrayAdapter<String> adapterautocomplate = new ArrayAdapter<String> (getContext(),android.R.layout.select_dialog_item,lista_instituciones);
+        final AutoCompleteTextView search= (AutoCompleteTextView)view.findViewById(R.id.autoCompleteTextView1);
+        search.setThreshold(1);
+        search.setAdapter(adapterautocomplate);
+        search.setTextColor(Color.BLACK);
 
 
         //institucion = (Spinner) view.findViewById(R.id.spinner2);
@@ -229,7 +235,8 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                 }
                 Provincia_d = provincia.getSelectedItem().toString();
                 CIudad_d = ciudad.getSelectedItem().toString();
-                Institucion_d = institucion.getSelectedItem().toString();
+                //Institucion_d = institucion.getSelectedItem().toString();
+                Institucion_d = search.getText().toString();
 
                 Log.d("Clase Denunciado",Nombre_D+""+Apellido_D+""+Cargo_D);
 
@@ -237,8 +244,13 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
 
                 if(Nombre_D.equals("")|| Apellido_D.equals("")||
                         Unafectada.equals("") || Cargo_D.equals("") ||
-                        Perdjudicada_d.equals("")){
-                    Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
+                        Perdjudicada_d.equals("")) {
+                    Toast.makeText(getContext(), "Por favor, llene todos los campos", Toast.LENGTH_LONG).show();
+
+                // validacion de institucion valida
+                }else if(! lista_instituciones.contains(Institucion_d)){
+                    Toast.makeText(getContext(), "Por favor, elija una institución válida", Toast.LENGTH_LONG).show();
+
                 }else {
                     viewPager.setCurrentItem(3);
                 }
@@ -380,6 +392,8 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         this.provincia.setOnItemSelectedListener(this);
         this.ciudad.setOnItemSelectedListener(this);
     }
+
+
 
 
 

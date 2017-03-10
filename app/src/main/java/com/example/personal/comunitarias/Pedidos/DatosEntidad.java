@@ -1,6 +1,7 @@
 package com.example.personal.comunitarias.Pedidos;
 
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,12 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.personal.comunitarias.R;
+
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class DatosEntidad extends Fragment implements AdapterView.OnItemSelectedListener {
@@ -111,7 +116,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
     }
 
     private void inicializarComponentesTab3() {
-        institucion = (Spinner) view.findViewById(R.id.spinner_inst_p);
+
         genero = (Spinner) view.findViewById(R.id.spinner_gen_p);
         provincia = (Spinner) view.findViewById(R.id.spinner_prov_p);
         ciudad = (Spinner) view.findViewById(R.id.spinner_ciu_p);
@@ -121,11 +126,23 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
 
         loadSpinnerProvincias();
 
+        //SearchBox
+        final List<String> lista_instituciones = new LinkedList<>();
+        //añado las instituciones a la lista
+        for(String institucion : getResources().getStringArray(R.array.institucion)) {
+            lista_instituciones.add(institucion);
+        }
+        ArrayAdapter<String> adapterautocomplate = new ArrayAdapter<> (getContext(),android.R.layout.select_dialog_item,lista_instituciones);
+        final AutoCompleteTextView search= (AutoCompleteTextView)view.findViewById(R.id.autoCompleteTextView1);
+        search.setThreshold(1);
+        search.setAdapter(adapterautocomplate);
+        search.setTextColor(Color.BLACK);
 
-        adapter2 = ArrayAdapter.createFromResource(getContext(),
-                R.array.institucion, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        institucion.setAdapter(adapter2);
+        //institucion = (Spinner) view.findViewById(R.id.spinner_inst_p);
+        //adapter2 = ArrayAdapter.createFromResource(getContext(),
+        //        R.array.institucion, android.R.layout.simple_spinner_item);
+        //adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //institucion.setAdapter(adapter2);
 
         adapter3 = ArrayAdapter.createFromResource(getContext(),
                 R.array.genero, android.R.layout.simple_spinner_item);
@@ -138,9 +155,14 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
                 Nombre = txtNombre.getText().toString();
                 Apellido = txtApellido.getText().toString();
                 Cargo = txtCargo.getText().toString();
+                Institucion_d = search.getText().toString();
 
-                if(Nombre.equals("")||Apellido.equals("")||Cargo.equals("")){
-                    Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
+                if(Nombre.equals("")||Apellido.equals("")||Cargo.equals("")) {
+                    Toast.makeText(getContext(), "Por favor, llene todos los campos", Toast.LENGTH_LONG).show();
+                    // validacion de institucion valida
+                }else if(! lista_instituciones.contains(Institucion_d)){
+                    Toast.makeText(getContext(), "Por favor, elija una institución válida", Toast.LENGTH_LONG).show();
+
                 }else {
 
                     Nombre_D = txtNombre.getText().toString();
@@ -153,7 +175,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
                     }
                     Provincia_d = provincia.getSelectedItem().toString();
                     CIudad_d = ciudad.getSelectedItem().toString();
-                    Institucion_d = institucion.getSelectedItem().toString();
+                    Institucion_d = search.getText().toString();
 
                     viewPager.setCurrentItem(3);
                 }

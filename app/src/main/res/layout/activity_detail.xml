@@ -86,21 +86,23 @@
                 android:id="@+id/place_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="@string/detail_location" />
+                tools:text="fecha" />
 
 
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="92dp"
-        android:layout_height="77dp"
-        android:clickable="true"
-        app:fabSize="normal"
-        app:srcCompat="@android:drawable/ic_menu_view"
-        android:id="@+id/fab"
+    <Button
+        android:text="Ver Noticia Completa"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:textColor="#ffffff"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
-        android:layout_gravity="bottom|end" />
+        android:layout_gravity="bottom|end"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/verNoticia" />
+
+
 </android.support.design.widget.CoordinatorLayout>

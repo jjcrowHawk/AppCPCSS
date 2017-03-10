@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
 
-    tools:context="com.example.personal.comunitarias.noticias.Noticias">
+    tools:context="com.example.personal.comunitarias.noticias.MainActivity">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -17,17 +17,33 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="?attr/colorAccent"
-        android:text="Cargando...."
-        android:textSize="@dimen/article_titles"
-        android:gravity="center"
-        android:layout_marginBottom="122dp"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="14dp" />
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <ProgressBar
+            android:id="@+id/footer"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorAccent"
+            android:text="Cargando...."
+            android:textSize="@dimen/article_titles"
+            android:gravity="center"
+            android:layout_marginBottom="122dp"
+            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="14dp" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>

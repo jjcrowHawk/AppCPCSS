@@ -24,6 +24,7 @@
 
     <include layout="@layout/content_oficinas" />
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,7 +34,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/footer" />
+            android:background="@drawable/footer"
+            android:id="@+id/imageView4" />
+
+        <Button
+            android:text="Selecciona tu Provincia"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:textColor="#ffffff"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="13dp"
+            android:layout_gravity="bottom|end"
+            android:background="@color/colorPrimaryDark"
+            android:id="@+id/eligeProvincia"
+            android:onClick="onClick"
+            android:layout_above="@+id/imageView4"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 
