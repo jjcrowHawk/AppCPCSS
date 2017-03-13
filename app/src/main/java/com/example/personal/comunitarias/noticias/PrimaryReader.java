@@ -134,7 +134,7 @@ public class PrimaryReader extends AsyncTask<String, Void, Void> {
             //bd.close();
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 

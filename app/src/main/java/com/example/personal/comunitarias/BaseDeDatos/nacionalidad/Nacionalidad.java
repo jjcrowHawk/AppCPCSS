@@ -5,10 +5,12 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.nacionalidad;
 
+import com.example.personal.comunitarias.BaseDeDatos.niveleducacion.Niveleducacion;
 import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,6 +21,8 @@ public class Nacionalidad extends _Default {
     String nombre;
 
     public Nacionalidad() {
+        idnacionalidad=-1;
+        nombre="";
     }
 
     public int getID_DB(String nombre){
@@ -35,6 +39,28 @@ public class Nacionalidad extends _Default {
             this._status = false;
         }
         return id_encontrada;
+    }
+
+    //Obtener la lista de estadoCivil
+    public ArrayList<Nacionalidad> getListaNacionalidad(){
+        DB db = new DB();
+        ArrayList<Nacionalidad> lista = new ArrayList<Nacionalidad>();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.nacionalidad");
+            if (resultSet != null){
+                while (resultSet.next()){
+                    Nacionalidad obj = new Nacionalidad();
+                    obj.setIdnacionalidad(resultSet.getInt("id"));
+                    obj.setNombre(resultSet.getString("nombre"));
+                    lista.add(obj);
+                    obj = null;
+                }
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return lista;
     }
 
     public Nacionalidad(String nombre) {

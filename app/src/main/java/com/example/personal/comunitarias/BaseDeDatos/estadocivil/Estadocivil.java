@@ -5,10 +5,12 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.estadocivil;
 
+import com.example.personal.comunitarias.BaseDeDatos.predenuncia.Predenuncia;
 import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,6 +21,8 @@ public class Estadocivil extends _Default {
     String nombre;
 
     public Estadocivil() {
+        idestadocivil=-1;
+        nombre="";
     }
 
     public int getID_DB(String nombre){
@@ -35,6 +39,28 @@ public class Estadocivil extends _Default {
             this._status = false;
         }
         return id_encontrada;
+    }
+
+    //Obtener la lista de estadoCivil
+    public ArrayList<Estadocivil> getListaEstadoCivil(){
+        DB db = new DB();
+        ArrayList<Estadocivil> lista = new ArrayList<>();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.estadocivil");
+            if (resultSet != null){
+                while (resultSet.next()){
+                    Estadocivil obj = new Estadocivil();
+                    obj.setIdestadocivil(resultSet.getInt("id"));
+                    obj.setNombre(resultSet.getString("nombre"));
+                    lista.add(obj);
+                    obj = null;
+                }
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return lista;
     }
 
     public int getIdestadocivil() {

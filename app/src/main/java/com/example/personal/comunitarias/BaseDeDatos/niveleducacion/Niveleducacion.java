@@ -5,10 +5,12 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.niveleducacion;
 
+import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
 import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -20,6 +22,9 @@ public class Niveleducacion extends _Default {
     String descripcion;
 
     public Niveleducacion() {
+        idniveleducacion=-1;
+        nombre="";
+        descripcion="";
     }
 
     public Niveleducacion(String nombre, String descripcion) {
@@ -45,6 +50,29 @@ public class Niveleducacion extends _Default {
             this._status = false;
         }
         return id_encontrada;
+    }
+
+    //Obtener la lista de estadoCivil
+    public ArrayList<Niveleducacion> getListaNivelEducacion(){
+        DB db = new DB();
+        ArrayList<Niveleducacion> lista = new ArrayList<>();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.niveleducacion");
+            if (resultSet != null){
+                while (resultSet.next()){
+                    Niveleducacion obj = new Niveleducacion();
+                    obj.setIdniveleducacion(resultSet.getInt("id"));
+                    obj.setNombre(resultSet.getString("nombre"));
+                    obj.setDescripcion(resultSet.getString("descripcion"));
+                    lista.add(obj);
+                    obj = null;
+                }
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return lista;
     }
 
     public void setIdniveleducacion(int idniveleducacion) {

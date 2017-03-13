@@ -94,7 +94,7 @@ public class FacebookActivity extends AppCompatActivity {
             return reachable;
 
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
         return false;

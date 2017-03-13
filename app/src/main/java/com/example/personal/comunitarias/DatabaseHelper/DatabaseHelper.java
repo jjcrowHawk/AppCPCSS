@@ -293,6 +293,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
     }
 
+    //----------------------------------Inicilizar base con datos de la base remota--------------------------------------//
+    public void inicializar(){
+        inicializar_estadocivil();
+        inicializar_niveleducacion();
+        inicializar_nacionalidad();
+        inicializar_provincia();
+        inicializar_ciudad();
+    }
+
+    public void inicializar_estadocivil(){
+        ArrayList<Estadocivil> lista = new Estadocivil().getListaEstadoCivil();
+        for (Estadocivil e: lista){
+            createEstadoCivil(e);
+        }
+    }
+
+    public void inicializar_niveleducacion(){
+        ArrayList<Niveleducacion> lista = new Niveleducacion().getListaNivelEducacion();
+        for (Niveleducacion n: lista){
+            createNivelEducacion(n);
+        }
+    }
+
+    public void inicializar_nacionalidad(){
+        ArrayList<Nacionalidad> lista = new Nacionalidad().getListaNacionalidad();
+        for (Nacionalidad n: lista){
+            createNacionalidad(n);
+        }
+    }
+
+    public void inicializar_provincia(){
+        ArrayList<Provincia> lista = new Provincia().getListaProvincia();
+        for (Provincia p: lista){
+            createProvincia(p);
+        }
+    }
+
+    public void inicializar_ciudad(){
+        ArrayList<Ciudad> lista = new Ciudad().getListaCiudad();
+        for (Ciudad p: lista){
+            createCiudad(p);
+        }
+    }
+
+
     //-----------------------------------------CRUDS functions---------------------------------------//
 
     //Region
@@ -325,7 +370,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //        return provincia_id;
 //    }
-    //Provincia
+    //ProvinciaRegion
     public long createProvinciaRegion(Provincia provincia, long region_id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -337,8 +382,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return id;
     }
+
+    //Provincia
+    public long createProvincia(Provincia provincia) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        long id=-1;
+
+        if (getProvincia(provincia.getIdprovincia()).getNombre().equals("")) {
+            values.put(KEY_ID, provincia.getIdprovincia());
+            values.put(KEY_PROVINCIA_NOMBRE, provincia.getNombre());
+            values.put(KEY_REGION_ID, 0);
+        }
+
+        id = db.insert(TABLE_PROVINCIA, null, values);
+
+        return id;
+    }
+
     //Ciudad
-    public long createCiudad(Ciudad ciudad, long provincia_id) {
+    public long createCiudad_prov(Ciudad ciudad, long provincia_id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -346,6 +409,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_CIUDAD_NOMBRE, ciudad.getNombre());
 
         long id = db.insert(TABLE_CIUDAD, null, values);
+
+        return id;
+    }
+
+    public long createCiudad(Ciudad ciudad) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        long id=-1;
+
+        if (getCiudad(ciudad.getIdciudad()).getNombre().equals("")) {
+            values.put(KEY_ID, ciudad.getIdciudad());
+            values.put(KEY_PROVINCIA_ID, ciudad.getProvinciaid());
+            values.put(KEY_CIUDAD_NOMBRE, ciudad.getNombre());
+        }
+
+        id = db.insert(TABLE_CIUDAD, null, values);
 
         return id;
     }
@@ -423,13 +502,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //EstadoCivil
     public long createEstadoCivil(Estadocivil estadocivil) {
         SQLiteDatabase db = this.getWritableDatabase();
-
-
         ContentValues values = new ContentValues();
-        values.put(KEY_ESTADOCIVIL_NOMBRE, estadocivil.getNombre());
+        long estadocivil_id=-1;
 
-        // insert row
-        long estadocivil_id = db.insert(TABLE_ESTADOCIVIL, null, values);
+        if (getEstadocivil(estadocivil.getIdestadocivil()).getNombre().equals("")){
+
+            values.put(KEY_ESTADOCIVIL_NOMBRE, estadocivil.getNombre());
+            values.put(KEY_ID, estadocivil.getIdestadocivil());
+            // insert row
+            estadocivil_id = db.insert(TABLE_ESTADOCIVIL, null, values);
+        }
 
         return estadocivil_id;
     }
@@ -437,16 +519,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //NivelEducacion
     public long createNivelEducacion(Niveleducacion niveleducacion) {
         SQLiteDatabase db = this.getWritableDatabase();
-
-
         ContentValues values = new ContentValues();
-        values.put(KEY_NIVELEDUCACION_NOMBRE, niveleducacion.getNombre());
-        values.put(KEY_NIVELEDUCACION_DESCRIPCION, niveleducacion.getDescripcion());
+        long niveleducacion_id=-1;
+
+        if (getNiveleducacion(niveleducacion.getIdniveleducacion()).getNombre().equals("")) {
+            values.put(KEY_ID, niveleducacion.getIdniveleducacion());
+            values.put(KEY_NIVELEDUCACION_NOMBRE, niveleducacion.getNombre());
+            values.put(KEY_NIVELEDUCACION_DESCRIPCION, niveleducacion.getDescripcion());
+        }
 
         // insert row
-        long niveleducacion_id = db.insert(TABLE_NIVELEDUCACION, null, values);
+        niveleducacion_id = db.insert(TABLE_NIVELEDUCACION, null, values);
 
         return niveleducacion_id;
+    }
+
+    //Nacinalidad
+    public long createNacionalidad(Nacionalidad nacionalidad) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        long id=-1;
+
+        if (getNacionalidad(nacionalidad.getIdnacionalidad()).getNombre().equals("")) {
+            values.put(KEY_ID, nacionalidad.getIdnacionalidad());
+            values.put(KEY_NACIONALIDAD_NOMBRE, nacionalidad.getNombre());
+        }
+
+        // insert row
+        id = db.insert(TABLE_NACIONALIDAD, null, values);
+
+        return id;
     }
 
     //Reclamo
@@ -509,20 +611,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selectQuery = "SELECT  * FROM " + TABLE_PROVINCIA + " WHERE "
-                + KEY_ID + " = " + provincia_id;
+                + KEY_ID + " ='" + provincia_id+"'";
 
         Log.e(LOG, selectQuery);
 
         Cursor c = db.rawQuery(selectQuery, null);
-
-        if (c != null)
-            c.moveToFirst();
-
         Provincia p = new Provincia();
-        p.setIdprovincia((c.getInt(c.getColumnIndex(KEY_ID))));
-        p.setNombre((c.getString(c.getColumnIndex(KEY_PROVINCIA_NOMBRE))));
-        p.setRegionid((c.getInt(c.getColumnIndex(KEY_REGION_ID))));
-
+        if (c.moveToFirst()) {
+            p.setIdprovincia((c.getInt(c.getColumnIndex(KEY_ID))));
+            p.setNombre((c.getString(c.getColumnIndex(KEY_PROVINCIA_NOMBRE))));
+            p.setRegionid((c.getInt(c.getColumnIndex(KEY_REGION_ID))));
+        }
         return p;
     }
 
@@ -530,19 +629,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selectQuery = "SELECT  * FROM " + TABLE_CIUDAD + " WHERE "
-                + KEY_ID + " = " + ciudad_id;
+                + KEY_ID + " ='" + ciudad_id+"'";
 
         Log.e(LOG, selectQuery);
 
         Cursor c = db.rawQuery(selectQuery, null);
-
-        if (c != null)
-            c.moveToFirst();
-
         Ciudad ci = new Ciudad();
-        ci.setIdciudad(c.getInt(c.getColumnIndex(KEY_ID)));
-        ci.setNombre(c.getString(c.getColumnIndex(KEY_CIUDAD_NOMBRE)));
-        ci.setProvinciaid(c.getInt(c.getColumnIndex(KEY_PROVINCIA_ID)));
+
+        if (c.moveToFirst()) {
+            ci.setIdciudad(c.getInt(c.getColumnIndex(KEY_ID)));
+            ci.setNombre(c.getString(c.getColumnIndex(KEY_CIUDAD_NOMBRE)));
+            ci.setProvinciaid(c.getInt(c.getColumnIndex(KEY_PROVINCIA_ID)));
+        }
 
         return ci;
     }
@@ -575,18 +673,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selectQuery = "SELECT  * FROM " + TABLE_NACIONALIDAD + " WHERE "
-                + KEY_ID + " = " + nacionalidad_id;
+                + KEY_ID + " ='" + nacionalidad_id+"'";
 
         Log.e(LOG, selectQuery);
 
         Cursor c = db.rawQuery(selectQuery, null);
-
-        if (c != null)
-            c.moveToFirst();
-
         Nacionalidad n = new Nacionalidad();
-        n.setIdnacionalidad(c.getInt(c.getColumnIndex(KEY_ID)));
-        n.setNombre(c.getString(c.getColumnIndex(KEY_NACIONALIDAD_NOMBRE)));
+
+        if (c.moveToFirst()) {
+            n.setIdnacionalidad(c.getInt(c.getColumnIndex(KEY_ID)));
+            n.setNombre(c.getString(c.getColumnIndex(KEY_NACIONALIDAD_NOMBRE)));
+        }
 
         return n;
     }
@@ -668,18 +765,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selectQuery = "SELECT  * FROM " + TABLE_ESTADOCIVIL+ " WHERE "
-                + KEY_ID + " = " + estadocivil_id;
+                + KEY_ID + " = '" + estadocivil_id+"'";
 
         Log.e(LOG, selectQuery);
 
         Cursor c = db.rawQuery(selectQuery, null);
 
-        if (c != null)
-            c.moveToFirst();
-
         Estadocivil e = new Estadocivil();
-        e.setIdestadocivil(c.getInt(c.getColumnIndex(KEY_ID)));
-        e.setNombre(c.getString(c.getColumnIndex(KEY_ESTADOCIVIL_NOMBRE)));
+
+        if (c.moveToFirst()) {
+            e.setIdestadocivil(c.getInt(c.getColumnIndex(KEY_ID)));
+            e.setNombre(c.getString(c.getColumnIndex(KEY_ESTADOCIVIL_NOMBRE)));
+        }
 
         return e;
     }
@@ -688,19 +785,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selectQuery = "SELECT  * FROM " + TABLE_NIVELEDUCACION+ " WHERE "
-                + KEY_ID + " = " + niveleducacion_id;
+                + KEY_ID + " = '" + niveleducacion_id+"'";
 
         Log.e(LOG, selectQuery);
 
         Cursor c = db.rawQuery(selectQuery, null);
 
-        if (c != null)
-            c.moveToFirst();
-
         Niveleducacion ne = new Niveleducacion();
-        ne.setIdniveleducacion(c.getInt(c.getColumnIndex(KEY_ID)));
-        ne.setNombre(c.getString(c.getColumnIndex(KEY_NIVELEDUCACION_NOMBRE)));
-        ne.setDescripcion(c.getString(c.getColumnIndex(KEY_NIVELEDUCACION_DESCRIPCION)));
+
+        if (c.moveToFirst()){
+            ne.setIdniveleducacion(c.getInt(c.getColumnIndex(KEY_ID)));
+            ne.setNombre(c.getString(c.getColumnIndex(KEY_NIVELEDUCACION_NOMBRE)));
+            ne.setDescripcion(c.getString(c.getColumnIndex(KEY_NIVELEDUCACION_DESCRIPCION)));
+        }
 
         return ne;
     }
@@ -761,7 +858,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 r.setNombre((c.getString(c.getColumnIndex(KEY_REGION_NOMBRE))));
                 r.setDescripcion(c.getString(c.getColumnIndex(KEY_REGION_DESCRIPCION)));
 
-                // adding to todo list
+
                 todos.add(r);
             } while (c.moveToNext());
         }
@@ -792,6 +889,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return tags;
     }
 
+    public List<String> getAllProvinciasNombres() {
+        List<String> tags = new ArrayList<String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_PROVINCIA;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                // adding to tags list
+                tags.add(c.getString(c.getColumnIndex(KEY_PROVINCIA_NOMBRE)));
+            } while (c.moveToNext());
+        }
+        return tags;
+    }
+
     //SELECT ALL CIUDAD
     public List<Ciudad> getAllCiudades() {
         List<Ciudad> tags = new ArrayList<Ciudad>();
@@ -812,6 +928,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                 // adding to tags list
                 tags.add(ci);
+            } while (c.moveToNext());
+        }
+        return tags;
+    }
+
+    public List<String> getAllCiudadesNombres_prov(long provinciaid) {
+        List<String> tags = new ArrayList<String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_CIUDAD+ " where "+KEY_PROVINCIA_ID+"='"+provinciaid+"'";
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                // adding to tags list
+                tags.add(c.getString(c.getColumnIndex(KEY_CIUDAD_NOMBRE)));
             } while (c.moveToNext());
         }
         return tags;
@@ -869,6 +1004,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return tags;
     }
 
+    public List<String> getAllNacionalidadNombres() {
+        List<String> tags = new ArrayList<String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_NACIONALIDAD;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                // adding to tags list
+                tags.add(c.getString(c.getColumnIndex(KEY_NACIONALIDAD_NOMBRE)));
+            } while (c.moveToNext());
+        }
+        return tags;
+    }
+
     //SELECT ALL SECTOR
     public List<Sector> getAllSector() {
         List<Sector> todos = new ArrayList<Sector>();
@@ -889,7 +1043,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 s.setControl(c.getString(c.getColumnIndex(KEY_SECTOR_CONTROL)));
                 s.setMensaje(c.getString(c.getColumnIndex(KEY_SECTOR_MENSAJE)));
 
-                // adding to todo list
+
                 todos.add(s);
             } while (c.moveToNext());
         }
@@ -915,7 +1069,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 o.setNombre(c.getString(c.getColumnIndex(KEY_OCUPACION_NOMBRE)));
                 o.setDescripcion(c.getString(c.getColumnIndex(KEY_OCUPACION_DESCRIPCION)));
 
-                // adding to todo list
                 todos.add(o);
             } while (c.moveToNext());
         }
@@ -947,7 +1100,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 i.setPublica(c.getString(c.getColumnIndex(KEY_INSTITUCION_PUBLICA)));
                 i.setSectorid(c.getInt(c.getColumnIndex(KEY_SECTOR_ID)));
 
-                // adding to todo list
                 todos.add(i);
             } while (c.moveToNext());
         }
@@ -972,11 +1124,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 e.setIdestadocivil(c.getInt(c.getColumnIndex(KEY_ID)));
                 e.setNombre(c.getString(c.getColumnIndex(KEY_ESTADOCIVIL_NOMBRE)));
 
-                // adding to todo list
                 todos.add(e);
             } while (c.moveToNext());
         }
 
+        return todos;
+    }
+
+    //SELECT ALL ESTADOCIVIL nombres
+    public List<String> getAllEstadocivilNombres() {
+        List<String> todos = new ArrayList<String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_ESTADOCIVIL;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                todos.add(c.getString(c.getColumnIndex(KEY_ESTADOCIVIL_NOMBRE)));
+            } while (c.moveToNext());
+        }
         return todos;
     }
 
@@ -998,8 +1168,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ne.setNombre(c.getString(c.getColumnIndex(KEY_NIVELEDUCACION_NOMBRE)));
                 ne.setDescripcion(c.getString(c.getColumnIndex(KEY_NIVELEDUCACION_DESCRIPCION)));
 
-                // adding to todo list
                 todos.add(ne);
+            } while (c.moveToNext());
+        }
+
+        return todos;
+    }
+
+    public List<String> getAllNiveleducacionNombres() {
+        List<String> todos = new ArrayList<String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_NIVELEDUCACION;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                todos.add(c.getString(c.getColumnIndex(KEY_NIVELEDUCACION_NOMBRE)));
             } while (c.moveToNext());
         }
 
@@ -1038,7 +1226,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 r.setProvinciadenuncianteid(c.getInt(c.getColumnIndex(KEY_PROVINCIADENUNCIANTE_ID)));
                 r.setProvinciadenunciadoid(c.getInt(c.getColumnIndex(KEY_PROVINCIADENUNCIADO_ID)));
 
-                // adding to todo list
+
                 todos.add(r);
             } while (c.moveToNext());
         }

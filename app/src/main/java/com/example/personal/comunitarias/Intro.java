@@ -4,11 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.WindowManager;
+
+import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
+import com.example.personal.comunitarias.DatabaseRemote.DB;
 
 public class Intro extends AppCompatActivity {
 
-    private int tiempo = 30;
+    private int tiempo = 20;
     int pStatus = 0;
     private Handler handler = new Handler();
 
@@ -18,7 +22,10 @@ public class Intro extends AppCompatActivity {
         setContentView(R.layout.activity_intro);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        Thread thread = new Thread() {
+
+
+
+       Thread thread = new Thread() {
             public void run() {
                 while (pStatus < 100) {
                     pStatus += 1;
@@ -34,9 +41,20 @@ public class Intro extends AppCompatActivity {
 
                     }
                 }
+
+                //Inicializando la base
+                DatabaseHelper DBHelper = new DatabaseHelper(getApplicationContext());
+                DBHelper.inicializar();
+                Log.d("SIZE estado civil: ", ""+DBHelper.getAllEstadocivil().size());
+                Log.d("SIZE nivel: ", ""+DBHelper.getAllEstadocivil().size());
+
+                //Inicializar actividad Menu
                 Intent i=new Intent(getBaseContext(),Menu.class);
                 startActivity(i);
                 finish();
+
+
+
 
             }
         };

@@ -22,6 +22,9 @@ public class Ciudad extends _Default {
     int provinciaid; // fk
 
     public Ciudad() {
+        idciudad=-1;
+        nombre="";
+        provinciaid=-1;
     }
 
     public Ciudad(int idciudad, String nombre, int provinciaid) {
@@ -79,6 +82,29 @@ public class Ciudad extends _Default {
             if (resultSet != null){
                 while (resultSet.next()){
                     lista.add(resultSet.getString("nombre"));
+                }
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return lista;
+    }
+
+    //Obtener la lista de todas las ciudades
+    public ArrayList<Ciudad> getListaCiudad(){
+        DB db = new DB();
+        ArrayList<Ciudad> lista = new ArrayList<>();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.ciudad");
+            if (resultSet != null){
+                while (resultSet.next()){
+                    Ciudad obj= new Ciudad();
+                    obj.setIdciudad(resultSet.getInt("id"));
+                    obj.setNombre(resultSet.getString("nombre"));
+                    obj.setProvinciaid(resultSet.getInt("provinciaid"));
+                    lista.add(obj);
+                    obj = null;
                 }
             }
         }catch (Exception ex){

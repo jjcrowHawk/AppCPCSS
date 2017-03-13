@@ -43,7 +43,7 @@ public class Predenuncia extends _Default {
 
     }
 
-    //Obtener la lista de todas las per-denuncias
+    //Obtener la lista de todas las pre-denuncias
     public ArrayList<Predenuncia> getListaPredenuncia(){
         DB db = new DB();
         ArrayList<Predenuncia> lista = new ArrayList<>();

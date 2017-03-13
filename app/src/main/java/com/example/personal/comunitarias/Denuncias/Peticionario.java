@@ -1,6 +1,7 @@
 package com.example.personal.comunitarias.Denuncias;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -21,14 +22,17 @@ import android.widget.Toast;
 import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
+import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Peticionario extends Fragment implements AdapterView.OnItemSelectedListener{
     Spinner identidad, tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad;
-    ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4, adapter5, adapter6, adapter7,adapter8, adapter9;
+    ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter7,adapter8, adapter9;
+    ArrayAdapter<String> adapter4,adapter5,adapter6;
     private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtOcupacion;
     Button btn_seguir;
     Reclamo rec;
@@ -117,22 +121,29 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
         //Spinner estado_civil
         estado_civil = (Spinner) view.findViewById(R.id.spinner4);
-        adapter4 = ArrayAdapter.createFromResource(getContext(),
-                R.array.estado_civil, android.R.layout.simple_spinner_item);
+        //Se lee los datos de la base de datos
+        adapter4 = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllEstadocivilNombres());
+        /*adapter4 = ArrayAdapter.createFromResource(getContext(),
+                R.array.estado_civil, android.R.layout.simple_spinner_item);*/
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         estado_civil.setAdapter(adapter4);
 
         //Spinner Nivel educacion
         nivelEducacion = (Spinner) view.findViewById(R.id.spinner5);
-        adapter5 = ArrayAdapter.createFromResource(getContext(),
-                R.array.nivel__educacion, android.R.layout.simple_spinner_item);
+        adapter5 = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllNiveleducacionNombres());
+        /*adapter5 = ArrayAdapter.createFromResource(getContext(),
+                R.array.nivel__educacion, android.R.layout.simple_spinner_item);*/
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         nivelEducacion.setAdapter(adapter5);
 
         //Spinner Nivel Nacionalidad
         nacionalidad = (Spinner) view.findViewById(R.id.spinner6);
-        adapter6 = ArrayAdapter.createFromResource(getContext(),
-                R.array.nacionalidad, android.R.layout.simple_spinner_item);
+        adapter6 = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllNacionalidadNombres());
+        /*adapter6 = ArrayAdapter.createFromResource(getContext(),
+                R.array.nacionalidad, android.R.layout.simple_spinner_item);*/
         adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         nacionalidad.setAdapter(adapter6);
 
@@ -181,11 +192,11 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 Nacio = nacionalidad.getSelectedItem().toString();
                 reside = residencia.getSelectedItem().toString();
                 provi = provincia.getSelectedItem().toString();
-                ///
+                /*
                 Provincia p= new Provincia();
                 Log.d("provi: ", provi+ " id: "+ p.getID_DB(provi));
                 Log.d("provi: ", provi+ " ciudades: "+ new Ciudad().getListaCiudad_prov(new Provincia().getID_DB(provi)));
-                //
+                */
                 Ciuda = ciudad.getSelectedItem().toString();
 
                 if(Nombre.equals("")|| Apellido.equals("")||
@@ -242,21 +253,9 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
 
 
-
-
-
-
-
-
     public void Ir_Segundo_Fragment(){
 
         //Spinner identidad, tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad;
-
-
-
-
-
-
 
     }
 
@@ -264,9 +263,8 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     private void loadSpinnerProvincias() {
         // Create an ArrayAdapter using the string array and a default spinner
         // layout
-        Provincia p= new Provincia();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, p.getListaNombreProvincia());
+                android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllProvinciasNombres());
         /*ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 getContext(), R.array.provincias, android.R.layout.simple_spinner_item);*/
 
@@ -297,8 +295,12 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 /*ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(
                         getContext(), android.R.layout.simple_spinner_item, android.R.id.text1, localidades);*/
 
-                //Obtener las ciudades correspondiente a la provincia seleccionada
-                ArrayList<String> ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_DB(provincia.getSelectedItem().toString()));
+                //Obtener las ciudades correspondiente a la provincia seleccionada de la base remota
+                //ArrayList<String> ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_DB(provincia.getSelectedItem().toString()));
+
+                //Obtener las ciudades correspondiente a la provincia seleccionada de la base LOCAL
+                List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new Provincia().getID_DB(provincia.getSelectedItem().toString()));
+
                 //ciudades= new ArrayList<String>();
                 //new ProgressCiudades().execute();
 

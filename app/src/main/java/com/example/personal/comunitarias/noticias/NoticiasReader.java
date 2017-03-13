@@ -137,7 +137,7 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
             }
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 

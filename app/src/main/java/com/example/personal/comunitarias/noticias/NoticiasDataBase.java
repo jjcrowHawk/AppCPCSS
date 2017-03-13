@@ -14,7 +14,7 @@ public class NoticiasDataBase extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // Database Name
-    private static final String DATABASE_NAME = "cpccs";
+    private static final String DATABASE_NAME = "cpccs_noticias";
 
     // Table Names
     private static final String TABLE_NOTICIA = "noticia";

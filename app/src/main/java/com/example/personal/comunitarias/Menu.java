@@ -15,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,11 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        /*Cargando la base de datos*/
+        SQLiteOpenHelper DBHelper = new DatabaseHelper(getApplicationContext());
+        SQLiteDatabase bd = DBHelper.getWritableDatabase();
+        Cursor fila = bd.rawQuery("select * from estadocivil", null);
+        ///////////////
 
         Denuncias = (Button)findViewById(R.id.idTarea);
         Pedidos = (Button)findViewById(R.id.idExamen);
@@ -66,6 +72,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         Denuncias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent i=new Intent(getBaseContext(), TabsDenuncia.class);
                 startActivity(i);
 

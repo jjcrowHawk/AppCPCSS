@@ -22,7 +22,9 @@ public class Provincia extends _Default {
     int regionid; //fk
 
     public Provincia() {
-
+        idprovincia=-1;
+        regionid=-1;
+        nombre="";
     }
 
     public Provincia(int idprovincia, String nombre, int regionid) {
