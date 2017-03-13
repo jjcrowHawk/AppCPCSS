@@ -47,6 +47,7 @@ public class Intro extends AppCompatActivity {
                 DBHelper.inicializar();
                 Log.d("SIZE estado civil: ", ""+DBHelper.getAllEstadocivil().size());
                 Log.d("SIZE nivel: ", ""+DBHelper.getAllEstadocivil().size());
+                Log.d("SIZE ciudades: ", ""+DBHelper.getAllCiudades().size());
 
                 //Inicializar actividad Menu
                 Intent i=new Intent(getBaseContext(),Menu.class);
