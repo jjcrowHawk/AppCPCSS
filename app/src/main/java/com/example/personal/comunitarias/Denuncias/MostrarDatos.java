@@ -94,7 +94,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
        contraseña="espol1234";
 
        obtenerinformacion();
-       m_txtNombrePet.setText(Nombre_P);
+       m_txtNombrePet.setText(new Denunciado(viewPager).getNombre_D());
        m_txtApellidoPet.setText(Apellido_P);
        txtIdent.setText(Identidad_P);
        txtCorreo.setText(Mail_P);

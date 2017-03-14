@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.personal.comunitarias.BaseDeDatos.institucion.Institucion;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.R;
@@ -129,7 +130,8 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
         loadSpinnerProvincias();
 
         //SearchBox
-        final List<String> lista_instituciones =  new DatabaseHelper(getContext()).getAllInstitucionNombres();
+        //final List<String> lista_instituciones =  new DatabaseHelper(getContext()).getAllInstitucionNombres();
+        final List<String> lista_instituciones =  new Institucion().getListaInstitucionNombres();
         //añado las instituciones a la lista
         for(String institucion : getResources().getStringArray(R.array.institucion)) {
             lista_instituciones.add(institucion);
