@@ -109,11 +109,6 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
         //Spinner género
         genero = (Spinner) view.findViewById(R.id.spinner3);
-        /*
-        ArrayList<String> lista = new ArrayList<>();
-        lista.add("FEMMENINO");lista.add("MASSCULINO");
-        ArrayAdapter<String> myadapter = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, lista);*/
         adapter3 = ArrayAdapter.createFromResource(getContext(),
                 R.array.genero, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
