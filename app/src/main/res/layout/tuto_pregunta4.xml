@@ -29,7 +29,7 @@
         android:layout_height="fill_parent">
         <RelativeLayout
             android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_height="603dp">
+            android:layout_height="725dp">
 
             <!-- Here you put the rest of your current view-->
             <TextView
@@ -91,7 +91,7 @@
                 android:layout_marginTop="450dp" />
 
             <TextView
-                android:text="Paso 4: Luego se mostrará un mapa con ubicaciones de las oficinas del CPCCS por provincia."
+                android:text="Paso 4: Dar un toque en el botón “Selecciona tu provincia” y aparecerá la lista de provincias del Ecuador."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView6"
@@ -99,7 +99,29 @@
                 android:layout_marginRight="30dp"
                 android:layout_gravity="center_vertical|right"
                 android:textSize="17sp"
-                android:layout_marginTop="530dp" />
+                android:layout_marginTop="535dp" />
+
+            <TextView
+                android:text="Paso 5: Escoger una provincia y de inmediato aparecerá la ubicación de la oficina con el logo del CPCCS."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView7"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_gravity="center_vertical|right"
+                android:textSize="17sp"
+                android:layout_marginTop="630dp" />
+
+            <TextView
+                android:text="Paso 6: Al dar un toque en el logo aparecerá toda la información sobre la oficina escogida."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView8"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_gravity="center_vertical|right"
+                android:textSize="17sp"
+                android:layout_marginTop="720dp" />
 
 
             <ImageView

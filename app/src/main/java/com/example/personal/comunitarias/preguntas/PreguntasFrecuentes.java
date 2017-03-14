@@ -36,15 +36,21 @@ public class PreguntasFrecuentes extends AppCompatActivity {
             "Ubicación de oficinas por provincia de CPCCS?",
             "¿Por qué no se muestran las noticias?",
             "¿Qué sucede si el teléfono no tiene conexión de internet?",
-            "Cuándo hacer una denuncia?",
+            "¿Cuándo hacer una denuncia?",
             "¿Qué ocurre cuando envío mi denuncia?",
             "¿Qué ocurre cuando no se envía mi denuncia?",
-            "¿Qué es un pedido?\n"};
+            "¿Qué datos necesito para poder realizar una denuncia?",
+            "¿Cuándo hacer un pedido?",
+            "¿Qué ocurre cuando envío mi pedido?",
+            "¿Cómo ver las publicaciones de facebook de la página del CPCCS?\n"};
+
 
     Integer image_id[] = {R.drawable.d_flecha, R.drawable.d_flecha,
             R.drawable.d_flecha, R.drawable.d_flecha, R.drawable.d_flecha,
             R.drawable.d_flecha,R.drawable.d_flecha,R.drawable.d_flecha,
-            R.drawable.d_flecha,R.drawable.d_flecha};
+           R.drawable.d_flecha,R.drawable.d_flecha,
+            R.drawable.d_flecha,R.drawable.d_flecha,R.drawable.d_flecha,
+            R.drawable.d_flecha, R.drawable.d_flecha  };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +128,23 @@ public class PreguntasFrecuentes extends AppCompatActivity {
                     Intent i = new Intent(PreguntasFrecuentes.this, Pregunta10.class);
                     startActivity(i);
                 }
+
+                if(position == 10){
+                    Intent i = new Intent(PreguntasFrecuentes.this, Pregunta12.class);
+                    startActivity(i);
+                }
+
+                if(position == 11){
+                    Intent i = new Intent(PreguntasFrecuentes.this, Pregunta13.class);
+                    startActivity(i);
+                }
+
+                if(position == 12){
+                    Intent i = new Intent(PreguntasFrecuentes.this, Pregunta11.class);
+                    startActivity(i);
+                }
+
+
             }
         });
 

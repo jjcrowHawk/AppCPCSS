@@ -28,12 +28,13 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
+
         <RelativeLayout
             android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_height="618dp">
+            android:layout_height="494dp">
 
             <TextView
-                android:text="¿Cómo ver un video"
+                android:text="¿Cómo ver las publicaciones de"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView2"
@@ -44,7 +45,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true" />
             <TextView
-                android:text="del CPCCS?"
+                android:text="facebook de la página del CPCCS?"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView30"
@@ -59,7 +60,7 @@
                 android:text="Paso 1: En el menú principal dar un toque en “Menú”, en el ícono que se muestra a continuación:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="65dp"
                 android:id="@+id/textView3"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
@@ -69,7 +70,7 @@
                 android:textAlignment="textStart" />
 
             <TextView
-                android:text="Paso 2: Luego, aparecerá una lista y da un toque en “videos”."
+                android:text="Paso 2: Luego, aparecerá una lista y debe dar un toque en “Facebook”."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView4"
@@ -77,10 +78,10 @@
                 android:layout_marginRight="30dp"
                 android:textSize="17sp"
                 android:textAlignment="textStart"
-                android:layout_marginTop="330dp" />
+                android:layout_marginTop="340dp" />
 
             <TextView
-                android:text="Paso 3: Esperar unos segundos y se mostrará en la parte superior un video principal y en la parte inferior aparecerá una lista de videos del CPCCS."
+                android:text="Se mostrará la página oficial de facebook del CPCCS con su información respectiva."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView5"
@@ -88,18 +89,8 @@
                 android:layout_marginRight="30dp"
                 android:textSize="17sp"
                 android:textAlignment="textStart"
-                android:layout_marginTop="450dp" />
+                android:layout_marginTop="460dp" />
 
-            <TextView
-                android:text="Paso 4: Dar un toque en el video que desea ver."
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView6"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_gravity="center_vertical|right"
-                android:textSize="17sp"
-                android:layout_marginTop="560dp" />
 
 
             <ImageView
@@ -107,16 +98,17 @@
                 android:layout_height="35dp"
                 app:srcCompat="@drawable/ic_menu_peque"
                 android:id="@+id/imageView3"
-                android:layout_marginTop="270dp"
+                android:layout_marginTop="280dp"
                 android:layout_centerHorizontal="true" />
 
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                app:srcCompat="@drawable/youtube"
+                app:srcCompat="@drawable/facebook_logo"
                 android:id="@+id/imageView30"
-                android:layout_marginTop="390dp"
+                android:layout_marginTop="400dp"
                 android:layout_centerHorizontal="true" />
+
         </RelativeLayout>
     </ScrollView>
 
