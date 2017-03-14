@@ -300,6 +300,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         inicializar_nacionalidad();
         inicializar_provincia();
         inicializar_ciudad();
+        inicializar_institucion();
     }
 
     public void inicializar_estadocivil(){
@@ -334,6 +335,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<Ciudad> lista = new Ciudad().getListaCiudad();
         for (Ciudad p: lista){
             createCiudad(p);
+        }
+    }
+
+    public void inicializar_institucion(){
+        ArrayList<Institucion> lista = new Institucion().getListaInstitucion();
+        for (Institucion i: lista){
+            createInstitucion(i);
         }
     }
 
@@ -482,6 +490,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long institucion_id = db.insert(TABLE_INSTITUCION, null, values);
 
         return institucion_id;
+    }
+
+    public long createInstitucion(Institucion institucion) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        long id=-1;
+
+        if (getInstitucion(institucion.getIdinstitucion()).getNombre().equals("")) {
+            values.put(KEY_ID, institucion.getIdinstitucion());
+            values.put(KEY_INSTITUCION_NOMBRE, institucion.getNombre());
+        }
+
+        // insert row
+        id = db.insert(TABLE_INSTITUCION, null, values);
+
+        return id;
     }
 
     //Ocupacion
@@ -720,14 +744,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.e(LOG, selectQuery);
 
         Cursor c = db.rawQuery(selectQuery, null);
-
-        if (c != null)
-            c.moveToFirst();
-
         Ocupacion o = new Ocupacion();
-        o.setIdocupacion(c.getInt(c.getColumnIndex(KEY_ID)));
-        o.setNombre(c.getString(c.getColumnIndex(KEY_OCUPACION_NOMBRE)));
-        o.setDescripcion(c.getString(c.getColumnIndex(KEY_OCUPACION_DESCRIPCION)));
+
+        if (c.moveToFirst()) {
+            o.setIdocupacion(c.getInt(c.getColumnIndex(KEY_ID)));
+            o.setNombre(c.getString(c.getColumnIndex(KEY_OCUPACION_NOMBRE)));
+            o.setDescripcion(c.getString(c.getColumnIndex(KEY_OCUPACION_DESCRIPCION)));
+        }
 
 
         return o;
@@ -737,27 +760,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selectQuery = "SELECT  * FROM " + TABLE_INSTITUCION+ " WHERE "
-                + KEY_ID + " = " + institucion_id;
+                + KEY_ID + " ='" + institucion_id+"'";
 
         Log.e(LOG, selectQuery);
 
         Cursor c = db.rawQuery(selectQuery, null);
-
-        if (c != null)
-            c.moveToFirst();
-
         Institucion i = new Institucion();
-        i.setIdinstitucion((c.getInt(c.getColumnIndex(KEY_ID))));
-        i.setNombre(c.getString(c.getColumnIndex(KEY_INSTITUCION_NOMBRE)));
-        i.setDescripcion(c.getString(c.getColumnIndex(KEY_INSTITUCION_DESCRIPCION)));
-        i.setUrl(c.getString(c.getColumnIndex(KEY_INSTITUCION_URL)));
-        i.setEmail(c.getString(c.getColumnIndex(KEY_INSTITUCION_EMAIL)));
-        i.setCompetencia(c.getString(c.getColumnIndex(KEY_INSTITUCION_COMPETENCIA)));
-        i.setRepresentante(c.getString(c.getColumnIndex(KEY_INSTITUCION_REPRESENTANTE)));
-        i.setPublica(c.getString(c.getColumnIndex(KEY_INSTITUCION_PUBLICA)));
-        i.setSectorid(c.getInt(c.getColumnIndex(KEY_SECTOR_ID)));
 
-
+        if (c.moveToFirst()) {
+            i.setIdinstitucion((c.getInt(c.getColumnIndex(KEY_ID))));
+            i.setNombre(c.getString(c.getColumnIndex(KEY_INSTITUCION_NOMBRE)));
+            /*i.setDescripcion(c.getString(c.getColumnIndex(KEY_INSTITUCION_DESCRIPCION)));
+            i.setUrl(c.getString(c.getColumnIndex(KEY_INSTITUCION_URL)));
+            i.setEmail(c.getString(c.getColumnIndex(KEY_INSTITUCION_EMAIL)));
+            i.setCompetencia(c.getString(c.getColumnIndex(KEY_INSTITUCION_COMPETENCIA)));
+            i.setRepresentante(c.getString(c.getColumnIndex(KEY_INSTITUCION_REPRESENTANTE)));
+            i.setPublica(c.getString(c.getColumnIndex(KEY_INSTITUCION_PUBLICA)));
+            i.setSectorid(c.getInt(c.getColumnIndex(KEY_SECTOR_ID)));*/
+        }
         return i;
     }
 
@@ -1101,6 +1121,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 i.setSectorid(c.getInt(c.getColumnIndex(KEY_SECTOR_ID)));
 
                 todos.add(i);
+            } while (c.moveToNext());
+        }
+
+        return todos;
+    }
+
+    public List<String> getAllInstitucionNombres() {
+        List<String> todos = new ArrayList<String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_INSTITUCION;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                todos.add(c.getString(c.getColumnIndex(KEY_INSTITUCION_NOMBRE)));
             } while (c.moveToNext());
         }
 

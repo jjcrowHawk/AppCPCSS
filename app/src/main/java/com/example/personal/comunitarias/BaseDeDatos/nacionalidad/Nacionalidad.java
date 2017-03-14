@@ -41,7 +41,7 @@ public class Nacionalidad extends _Default {
         return id_encontrada;
     }
 
-    //Obtener la lista de estadoCivil
+    //Obtener la lista de Nacionalidad
     public ArrayList<Nacionalidad> getListaNacionalidad(){
         DB db = new DB();
         ArrayList<Nacionalidad> lista = new ArrayList<Nacionalidad>();

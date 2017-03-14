@@ -182,11 +182,11 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         genero.setAdapter(adapter);
 
         //SearchBox
-        final List<String> lista_instituciones = new LinkedList<>();
+        final List<String> lista_instituciones =  new DatabaseHelper(getContext()).getAllInstitucionNombres();
         //añado las instituciones a la lista
-        for(String institucion : getResources().getStringArray(R.array.institucion)) {
+        /*for(String institucion : getResources().getStringArray(R.array.institucion)) {
             lista_instituciones.add(institucion);
-        }
+        }*/
         ArrayAdapter<String> adapterautocomplate = new ArrayAdapter<String> (getContext(),android.R.layout.select_dialog_item,lista_instituciones);
         final AutoCompleteTextView search= (AutoCompleteTextView)view.findViewById(R.id.autoCompleteTextView1);
         search.setThreshold(1);

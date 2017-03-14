@@ -46,8 +46,9 @@ public class Intro extends AppCompatActivity {
                 DatabaseHelper DBHelper = new DatabaseHelper(getApplicationContext());
                 DBHelper.inicializar();
                 Log.d("SIZE estado civil: ", ""+DBHelper.getAllEstadocivil().size());
-                Log.d("SIZE nivel: ", ""+DBHelper.getAllEstadocivil().size());
+                Log.d("SIZE nivel: ", ""+DBHelper.getAllNiveleducacion().size());
                 Log.d("SIZE ciudades: ", ""+DBHelper.getAllCiudades().size());
+                Log.d("SIZE inst: ", ""+DBHelper.getAllInstitucionNombres().size());
 
                 //Inicializar actividad Menu
                 Intent i=new Intent(getBaseContext(),Menu.class);

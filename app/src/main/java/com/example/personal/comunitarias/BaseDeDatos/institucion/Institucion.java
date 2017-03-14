@@ -5,10 +5,12 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.institucion;
 
+import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
 import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -27,6 +29,8 @@ public class Institucion extends _Default {
 
 
     public Institucion() {
+        idinstitucion=-1;
+        nombre="";
     }
 
     public Institucion(String competencia, String descripcion, String email, String nombre, String publica, String representante, String url) {
@@ -53,6 +57,27 @@ public class Institucion extends _Default {
             this._status = false;
         }
         return id_encontrada;
+    }
+
+    public ArrayList<Institucion> getListaInstitucion(){
+        DB db = new DB();
+        ArrayList<Institucion> lista = new ArrayList<Institucion>();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.institucion");
+            if (resultSet != null){
+                while (resultSet.next()){
+                    Institucion obj = new Institucion();
+                    obj.setIdinstitucion(resultSet.getInt("id"));
+                    obj.setNombre(resultSet.getString("nombre"));
+                    lista.add(obj);
+                    obj = null;
+                }
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return lista;
     }
 
     public int getSectorid() {
