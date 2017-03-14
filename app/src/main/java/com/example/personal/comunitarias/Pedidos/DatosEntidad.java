@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
+import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.R;
 
 import java.util.LinkedList;
@@ -127,7 +129,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
         loadSpinnerProvincias();
 
         //SearchBox
-        final List<String> lista_instituciones = new LinkedList<>();
+        final List<String> lista_instituciones =  new DatabaseHelper(getContext()).getAllInstitucionNombres();
         //añado las instituciones a la lista
         for(String institucion : getResources().getStringArray(R.array.institucion)) {
             lista_instituciones.add(institucion);
@@ -187,8 +189,8 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
     private void loadSpinnerProvincias() {
         // Create an ArrayAdapter using the string array and a default spinner
         // layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                getContext(), R.array.provincias, android.R.layout.simple_spinner_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllProvinciasNombres());
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
@@ -205,17 +207,12 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
         switch (parent.getId()) {
             case R.id.spinner_prov_p:
 
-                // Retrieves an array
-                TypedArray arrayLocalidades = getResources().obtainTypedArray(
-                        R.array.array_provincia_a_localidades);
+                //Obtener las ciudades correspondiente a la provincia seleccionada de la base LOCAL
+                List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new Provincia().getID_DB(provincia.getSelectedItem().toString()));
 
-                CharSequence[] localidades = arrayLocalidades.getTextArray(position);
-                arrayLocalidades.recycle();
-
-                // Create an ArrayAdapter using the string array and a default
-                // spinner layout
-                ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(
-                        getContext(), android.R.layout.simple_spinner_item, android.R.id.text1, localidades);
+                //creando adapter para spinner
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+                        android.R.layout.simple_spinner_item, ciudades);
 
                 // Specify the layout to use when the list of choices appears
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
