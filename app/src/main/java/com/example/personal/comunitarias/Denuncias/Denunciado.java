@@ -182,7 +182,8 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         genero.setAdapter(adapter);
 
         //SearchBox
-        final List<String> lista_instituciones =  new DatabaseHelper(getContext()).getAllInstitucionNombres();
+        //final List<String> lista_instituciones =  new DatabaseHelper(getContext()).getAllInstitucionNombres();
+        final List<String> lista_instituciones =  new Institucion().getListaInstitucionNombres();
         //añado las instituciones a la lista
         /*for(String institucion : getResources().getStringArray(R.array.institucion)) {
             lista_instituciones.add(institucion);

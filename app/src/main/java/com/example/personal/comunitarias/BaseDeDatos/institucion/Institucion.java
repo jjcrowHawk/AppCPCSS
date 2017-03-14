@@ -80,6 +80,23 @@ public class Institucion extends _Default {
         return lista;
     }
 
+    public ArrayList<String> getListaInstitucionNombres(){
+        DB db = new DB();
+        ArrayList<String> lista = new ArrayList<String>();
+        try {
+            ResultSet resultSet = db.select("SELECT * FROM cpccs.institucion");
+            if (resultSet != null){
+                while (resultSet.next()){
+                    lista.add(resultSet.getString("nombre"));
+                }
+            }
+        }catch (Exception ex){
+            this._mensagem = ex.getMessage();
+            this._status = false;
+        }
+        return lista;
+    }
+
     public int getSectorid() {
         return sectorid;
     }

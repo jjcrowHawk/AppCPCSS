@@ -98,8 +98,8 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
        m_txtApellidoPet.setText(Apellido_P);
        txtIdent.setText(Identidad_P);
        txtCorreo.setText(Mail_P);
-       txtNombreDenunciado.setText(Nombre_DE);
-       txtApellidoDenunciado.setText(Apellido_DE);
+       txtNombreDenunciado.setText(new Denunciado(viewPager).getNombre_D());
+       txtApellidoDenunciado.setText(new Denunciado(viewPager).getApellido_D());
 
        guardar = (Button) view.findViewById(R.id.enviar);
 
@@ -181,9 +181,11 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
 
 
         reclamo.Guardar_Reclamo();
+        boolean status_reclamo=reclamo.is_status();
         pd.guardarPredenuncia();
+        boolean status_pred=pd.is_status();
 
-        if(reclamo.is_status() && pd.is_status()){
+        if(status_reclamo && status_pred){
             Log.d("myTag", "Si inserto");
 
             SendMail();

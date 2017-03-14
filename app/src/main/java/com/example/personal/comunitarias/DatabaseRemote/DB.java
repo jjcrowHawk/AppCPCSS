@@ -34,11 +34,8 @@ public class DB extends _Default implements Runnable {
     @Override
     public void run() {
         try{
-
             Class.forName("org.postgresql.Driver");
             this.conn = DriverManager.getConnection(this.url,this.user,this.pass);
-
-            mProgressDialog.show();
         }catch (Exception e){
             this._mensagem = e.getMessage();
             this._status = false;

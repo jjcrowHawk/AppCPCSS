@@ -300,7 +300,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         inicializar_nacionalidad();
         inicializar_provincia();
         inicializar_ciudad();
-        inicializar_institucion();
+        //inicializar_institucion();
     }
 
     public void inicializar_estadocivil(){
