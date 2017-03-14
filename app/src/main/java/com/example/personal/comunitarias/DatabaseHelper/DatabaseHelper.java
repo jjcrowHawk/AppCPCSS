@@ -631,6 +631,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return r;
     }
 
+    //GET PROVINCIA
+
     public Provincia getProvincia(long provincia_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -649,6 +651,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return p;
     }
 
+    public int getProvincia(String nombre) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_PROVINCIA + " WHERE "
+                + KEY_PROVINCIA_NOMBRE + " ='" + nombre+"'";
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+        Provincia p = new Provincia();
+        if (c.moveToFirst()) {
+            p.setIdprovincia((c.getInt(c.getColumnIndex(KEY_ID))));
+            p.setNombre((c.getString(c.getColumnIndex(KEY_PROVINCIA_NOMBRE))));
+            p.setRegionid((c.getInt(c.getColumnIndex(KEY_REGION_ID))));
+        }
+        return p.getIdprovincia();
+    }
+    //
+
+    //GET CIUDAD
     public Ciudad getCiudad(long ciudad_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -667,6 +689,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return ci;
+    }
+
+    public int getCiudad_id(String nombre) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_CIUDAD + " WHERE "
+                + KEY_CIUDAD_NOMBRE + " ='" + nombre+"'";
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+        Ciudad ci = new Ciudad();
+
+        if (c.moveToFirst()) {
+            ci.setIdciudad(c.getInt(c.getColumnIndex(KEY_ID)));
+            ci.setNombre(c.getString(c.getColumnIndex(KEY_CIUDAD_NOMBRE)));
+            ci.setProvinciaid(c.getInt(c.getColumnIndex(KEY_PROVINCIA_ID)));
+        }
+
+        return ci.getIdciudad();
     }
 
    // public Noticia getNoticia(long noticia_id) {
@@ -693,6 +735,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
    //     return n;
    // }
 
+    //GET NACIONALIDAD
     public Nacionalidad getNacionalidad(long nacionalidad_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -712,6 +755,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return n;
     }
 
+    public int getNacionalidad_id(String nombre) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_NACIONALIDAD + " WHERE "
+                + KEY_NACIONALIDAD_NOMBRE+ " ='" + nombre+"'";
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+        Nacionalidad n = new Nacionalidad();
+
+        if (c.moveToFirst()) {
+            n.setIdnacionalidad(c.getInt(c.getColumnIndex(KEY_ID)));
+            n.setNombre(c.getString(c.getColumnIndex(KEY_NACIONALIDAD_NOMBRE)));
+        }
+
+        return n.getIdnacionalidad();
+    }
+    //
+
+    //GET SECTOR
     public Sector getSector(long sector_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -756,6 +820,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return o;
     }
 
+    //GET INSTITUCION
     public Institucion getInstitucion(long institucion_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -781,6 +846,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return i;
     }
 
+    public int getInstitucion_id(String nombre) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_INSTITUCION+ " WHERE "
+                + KEY_INSTITUCION_NOMBRE + " ='" + nombre+"'";
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+        Institucion i = new Institucion();
+
+        if (c.moveToFirst()) {
+            i.setIdinstitucion((c.getInt(c.getColumnIndex(KEY_ID))));
+            i.setNombre(c.getString(c.getColumnIndex(KEY_INSTITUCION_NOMBRE)));
+            /*i.setDescripcion(c.getString(c.getColumnIndex(KEY_INSTITUCION_DESCRIPCION)));
+            i.setUrl(c.getString(c.getColumnIndex(KEY_INSTITUCION_URL)));
+            i.setEmail(c.getString(c.getColumnIndex(KEY_INSTITUCION_EMAIL)));
+            i.setCompetencia(c.getString(c.getColumnIndex(KEY_INSTITUCION_COMPETENCIA)));
+            i.setRepresentante(c.getString(c.getColumnIndex(KEY_INSTITUCION_REPRESENTANTE)));
+            i.setPublica(c.getString(c.getColumnIndex(KEY_INSTITUCION_PUBLICA)));
+            i.setSectorid(c.getInt(c.getColumnIndex(KEY_SECTOR_ID)));*/
+        }
+        return i.getIdinstitucion();
+    }
+
+    //
+
+    //GET ESTADO CIVIL
     public Estadocivil getEstadocivil(long estadocivil_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -800,6 +893,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return e;
     }
+
+    public int getEstadocivil_id(String nombre) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_ESTADOCIVIL+ " WHERE "
+                + KEY_ESTADOCIVIL_NOMBRE + " = '" + nombre+"'";
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        Estadocivil e = new Estadocivil();
+
+        if (c.moveToFirst()) {
+            e.setIdestadocivil(c.getInt(c.getColumnIndex(KEY_ID)));
+            e.setNombre(c.getString(c.getColumnIndex(KEY_ESTADOCIVIL_NOMBRE)));
+        }
+
+        return e.getIdestadocivil();
+    }
+    //
+
+    //GET NIVEL EDUCACION
 
     public Niveleducacion getNiveleducacion(long niveleducacion_id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -822,6 +938,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return ne;
     }
 
+    public int getNiveleducacion_id(String nombre) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_NIVELEDUCACION+ " WHERE "
+                + KEY_NIVELEDUCACION_NOMBRE + " = '" + nombre+"'";
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        Niveleducacion ne = new Niveleducacion();
+
+        if (c.moveToFirst()){
+            ne.setIdniveleducacion(c.getInt(c.getColumnIndex(KEY_ID)));
+            ne.setNombre(c.getString(c.getColumnIndex(KEY_NIVELEDUCACION_NOMBRE)));
+            ne.setDescripcion(c.getString(c.getColumnIndex(KEY_NIVELEDUCACION_DESCRIPCION)));
+        }
+
+        return ne.getIdniveleducacion();
+    }
+    //
+
+    //GET RECLAMO
     public Reclamo getReclamo(long reclamo_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
