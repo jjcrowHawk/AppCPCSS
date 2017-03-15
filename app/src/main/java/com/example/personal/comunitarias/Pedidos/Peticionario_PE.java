@@ -44,119 +44,12 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
     static String Identidad;
     static String Ocupacion;
     static String IdentidadReservada;
-
-    public static String getNombre() {
-        return Nombre;
-    }
-
-    public static void setNombre(String nombre) {
-        Nombre = nombre;
-    }
-
-    public static String getApellido() {
-        return Apellido;
-    }
-
-    public static void setApellido(String apellido) {
-        Apellido = apellido;
-    }
-
-    public static String getEmail() {
-        return Email;
-    }
-
-    public static void setEmail(String email) {
-        Email = email;
-    }
-
-    public static String getIdentidad() {
-        return Identidad;
-    }
-
-    public static void setIdentidad(String identidad) {
-        Identidad = identidad;
-    }
-
-    public static String getOcupacion() {
-        return Ocupacion;
-    }
-
-    public static void setOcupacion(String ocupacion) {
-        Ocupacion = ocupacion;
-    }
-
-    public static String getIdentidadReservada() {
-        return IdentidadReservada;
-    }
-
-    public static void setIdentidadReservada(String identidadReservada) {
-        IdentidadReservada = identidadReservada;
-    }
-
-    public static String getTipoIden() {
-        return TipoIden;
-    }
-
-    public static void setTipoIden(String tipoIden) {
-        TipoIden = tipoIden;
-    }
-
-    public static String getGenero() {
-        return Genero;
-    }
-
-    public static void setGenero(String genero) {
-        Genero = genero;
-    }
-
-    public static String getEstado_civil() {
-        return Estado_civil;
-    }
-
-    public static void setEstado_civil(String estado_civil) {
-        Estado_civil = estado_civil;
-    }
-
-    public static String getNivelEdu() {
-        return NivelEdu;
-    }
-
-    public static void setNivelEdu(String nivelEdu) {
-        NivelEdu = nivelEdu;
-    }
-
-    public static String getNacio() {
-        return Nacio;
-    }
-
-    public static void setNacio(String nacio) {
-        Nacio = nacio;
-    }
-
-    public static String getReside() {
-        return reside;
-    }
-
-    public static void setReside(String reside) {
-        Peticionario_PE.reside = reside;
-    }
-
-    public static String getProvi() {
-        return provi;
-    }
-
-    public static void setProvi(String provi) {
-        Peticionario_PE.provi = provi;
-    }
-
-    public static String getCiuda() {
-        return Ciuda;
-    }
-
-    public static void setCiuda(String ciuda) {
-        Ciuda = ciuda;
-    }
-
+    static Integer idocupacionP;
+    static Integer idNivelEduca;
+    static Integer idestado;
+    static Integer idNacionalidad;
+    static Integer  idCiuP;
+    static Integer idProvp;
     static String TipoIden;
     static String Genero;
     static String Estado_civil;
@@ -278,6 +171,12 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
                 provi = provincia.getSelectedItem().toString();
                 Ciuda = ciudad.getSelectedItem().toString();
 
+                idestado = new DatabaseHelper(getContext()).getEstadocivil_id(Estado_civil);
+                idNivelEduca = new DatabaseHelper(getContext()).getNiveleducacion_id(NivelEdu);
+                idNacionalidad = new DatabaseHelper(getContext()).getNacionalidad_id(Nacio);
+                idProvp = new DatabaseHelper(getContext()).getProvincia(provi);
+                idCiuP = new DatabaseHelper(getContext()).getCiudad_id(Ciuda);
+
                 if(Nombre.equals("")|| Apellido.equals("")||
                         Identidad.equals("") || Ocupacion.equals("") ||
                         Email.equals("")){
@@ -343,11 +242,173 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
     }
 
 
+    public static Integer getIdocupacionP() {
+        return idocupacionP;
+    }
+
+    public static void setIdocupacionP(Integer idocupacionP) {
+        Peticionario_PE.idocupacionP = idocupacionP;
+    }
+
+    public static Integer getIdNivelEduca() {
+        return idNivelEduca;
+    }
+
+    public static void setIdNivelEduca(Integer idNivelEduca) {
+        Peticionario_PE.idNivelEduca = idNivelEduca;
+    }
+
+    public static Integer getIdestado() {
+        return idestado;
+    }
+
+    public static void setIdestado(Integer idestado) {
+        Peticionario_PE.idestado = idestado;
+    }
+
+    public static Integer getIdNacionalidad() {
+        return idNacionalidad;
+    }
+
+    public static void setIdNacionalidad(Integer idNacionalidad) {
+        Peticionario_PE.idNacionalidad = idNacionalidad;
+    }
+
+    public static Integer getIdCiuP() {
+        return idCiuP;
+    }
+
+    public static void setIdCiuP(Integer idCiuP) {
+        Peticionario_PE.idCiuP = idCiuP;
+    }
+
+    public static Integer getIdProvp() {
+        return idProvp;
+    }
+
+    public static void setIdProvp(Integer idProvp) {
+        Peticionario_PE.idProvp = idProvp;
+    }
+
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+
+    public static String getNombre() {
+        return Nombre;
+    }
+
+    public static void setNombre(String nombre) {
+        Nombre = nombre;
+    }
+
+    public static String getApellido() {
+        return Apellido;
+    }
+
+    public static void setApellido(String apellido) {
+        Apellido = apellido;
+    }
+
+    public static String getEmail() {
+        return Email;
+    }
+
+    public static void setEmail(String email) {
+        Email = email;
+    }
+
+    public static String getIdentidad() {
+        return Identidad;
+    }
+
+    public static void setIdentidad(String identidad) {
+        Identidad = identidad;
+    }
+
+    public static String getOcupacion() {
+        return Ocupacion;
+    }
+
+    public static void setOcupacion(String ocupacion) {
+        Ocupacion = ocupacion;
+    }
+
+    public static String getIdentidadReservada() {
+        return IdentidadReservada;
+    }
+
+    public static void setIdentidadReservada(String identidadReservada) {
+        IdentidadReservada = identidadReservada;
+    }
+
+    public static String getTipoIden() {
+        return TipoIden;
+    }
+
+    public static void setTipoIden(String tipoIden) {
+        TipoIden = tipoIden;
+    }
+
+    public static String getGenero() {
+        return Genero;
+    }
+
+    public static void setGenero(String genero) {
+        Genero = genero;
+    }
+
+    public static String getEstado_civil() {
+        return Estado_civil;
+    }
+
+    public static void setEstado_civil(String estado_civil) {
+        Estado_civil = estado_civil;
+    }
+
+    public static String getNivelEdu() {
+        return NivelEdu;
+    }
+
+    public static void setNivelEdu(String nivelEdu) {
+        NivelEdu = nivelEdu;
+    }
+
+    public static String getNacio() {
+        return Nacio;
+    }
+
+    public static void setNacio(String nacio) {
+        Nacio = nacio;
+    }
+
+    public static String getReside() {
+        return reside;
+    }
+
+    public static void setReside(String reside) {
+        Peticionario_PE.reside = reside;
+    }
+
+    public static String getProvi() {
+        return provi;
+    }
+
+    public static void setProvi(String provi) {
+        Peticionario_PE.provi = provi;
+    }
+
+    public static String getCiuda() {
+        return Ciuda;
+    }
+
+    public static void setCiuda(String ciuda) {
+        Ciuda = ciuda;
+    }
+
 }
 
 

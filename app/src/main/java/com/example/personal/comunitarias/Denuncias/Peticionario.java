@@ -20,9 +20,15 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
+import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
+import com.example.personal.comunitarias.BaseDeDatos.institucion.Institucion;
+import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
+import com.example.personal.comunitarias.BaseDeDatos.niveleducacion.Niveleducacion;
+import com.example.personal.comunitarias.BaseDeDatos.ocupacion.Ocupacion;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
+import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.R;
 
 import java.util.ArrayList;
@@ -40,6 +46,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     //Progress
     private ProgressDialog mProgressDialog;
     private ArrayList<String> ciudades;
+
     /******/
     private ViewPager viewPager;
     private View view;
@@ -58,6 +65,61 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     static String reside;
     static String provi;
     static String Ciuda;
+    static Integer  idCiuP;
+    static Integer idProvp;
+
+    public static Integer getIdCiuP() {
+        return idCiuP;
+    }
+
+    public static void setIdCiuP(Integer idCiuP) {
+        Peticionario.idCiuP = idCiuP;
+    }
+
+    public static Integer getIdProvp() {
+        return idProvp;
+    }
+
+    public static void setIdProvp(Integer idProvp) {
+        Peticionario.idProvp = idProvp;
+    }
+
+    public static Integer getIdocupacionP() {
+        return idocupacionP;
+    }
+
+    public static void setIdocupacionP(Integer idocupacionP) {
+        Peticionario.idocupacionP = idocupacionP;
+    }
+
+    public static Integer getIdNivelEduca() {
+        return idNivelEduca;
+    }
+
+    public static void setIdNivelEduca(Integer idNivelEduca) {
+        Peticionario.idNivelEduca = idNivelEduca;
+    }
+
+    public static Integer getIdestado() {
+        return idestado;
+    }
+
+    public static void setIdestado(Integer idestado) {
+        Peticionario.idestado = idestado;
+    }
+
+    public static Integer getIdNacionalidad() {
+        return idNacionalidad;
+    }
+
+    public static void setIdNacionalidad(Integer idNacionalidad) {
+        Peticionario.idNacionalidad = idNacionalidad;
+    }
+
+    static Integer idocupacionP;
+    static Integer idNivelEduca;
+    static Integer idestado;
+    static Integer idNacionalidad;
 
     public static String getNombre() {
         return Nombre;
@@ -92,7 +154,6 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         //data peticionario
 
 
-        Log.e("inicializarComp","entra");
 
         //Spinner identidad reservada
         identidad = (Spinner) view.findViewById(R.id.spinner);
@@ -187,12 +248,23 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 Nacio = nacionalidad.getSelectedItem().toString();
                 reside = residencia.getSelectedItem().toString();
                 provi = provincia.getSelectedItem().toString();
-                /*
-                Provincia p= new Provincia();
-                Log.d("provi: ", provi+ " id: "+ p.getID_DB(provi));
-                Log.d("provi: ", provi+ " ciudades: "+ new Ciudad().getListaCiudad_prov(new Provincia().getID_DB(provi)));
-                */
                 Ciuda = ciudad.getSelectedItem().toString();
+
+                Log.d("pet",Ciuda +"    "+ provi);
+
+
+                //idocupacionP = new DatabaseHelper(getContext());
+                idestado = new DatabaseHelper(getContext()).getEstadocivil_id(Estado_civil);
+                idNivelEduca = new DatabaseHelper(getContext()).getNiveleducacion_id(NivelEdu);
+                idNacionalidad = new DatabaseHelper(getContext()).getNacionalidad_id(Nacio);
+                idProvp = new DatabaseHelper(getContext()).getProvincia(provi);
+                idCiuP = new DatabaseHelper(getContext()).getCiudad_id(Ciuda);
+
+
+                //idocupacionP = o.getID_DB(Ocupacion);
+
+
+                Log.d("ID PETICIONARIO","IdProvinvia"+idProvp+"  idCiudad "+idCiuP+"  IdNivelEducacion "+idNivelEduca+"   idEstado"+idestado+"  idOcupacion"+idocupacionP+"  idNacinalidad"+ idNacionalidad);
 
                 if(Nombre.equals("")|| Apellido.equals("")||
                         Identidad.equals("") || Ocupacion.equals("") ||

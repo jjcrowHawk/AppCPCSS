@@ -35,6 +35,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
     private Button siguiente;
     private ViewPager viewPager;
     private View view;
+    Institucion i = new Institucion();
     static String  Nombre_D;
     static String Apellido_D;
     static String Cargo_D;
@@ -42,6 +43,34 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
     static String Provincia_d;
     static String CIudad_d;
     static String Institucion_d;
+    static Integer idCiuDE;
+
+    public static Integer getIdIndti() {
+        return idIndti;
+    }
+
+    public static void setIdIndti(Integer idIndti) {
+        DatosEntidad.idIndti = idIndti;
+    }
+
+    public static Integer getIdProvDE() {
+        return idProvDE;
+    }
+
+    public static void setIdProvDE(Integer idProvDE) {
+        DatosEntidad.idProvDE = idProvDE;
+    }
+
+    public static Integer getIdCiuDE() {
+        return idCiuDE;
+    }
+
+    public static void setIdCiuDE(Integer idCiuDE) {
+        DatosEntidad.idCiuDE = idCiuDE;
+    }
+
+    static Integer idProvDE;
+    static Integer idIndti;
 
     public static String getNombre_D() {
         return Nombre_D;
@@ -172,7 +201,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
                     Nombre_D = txtNombre.getText().toString();
                     Apellido_D = txtApellido.getText().toString();
                     Cargo_D = txtCargo.getText().toString();
-                    if (genero.equals("Masculino")){
+                    if (genero.getSelectedItem().equals("Masculino")){
                         Genero_d ="0";
                     }else{
                         Genero_d="1";
@@ -180,6 +209,10 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
                     Provincia_d = provincia.getSelectedItem().toString();
                     CIudad_d = ciudad.getSelectedItem().toString();
                     Institucion_d = search.getText().toString();
+                    idIndti = i.getID_DB(Institucion_d);
+                    idProvDE = new DatabaseHelper(getContext()).getProvincia(Provincia_d);
+                    idCiuDE = new DatabaseHelper(getContext()).getCiudad_id(CIudad_d);
+
 
                     viewPager.setCurrentItem(3);
                 }
