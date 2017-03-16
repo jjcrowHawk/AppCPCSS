@@ -9,7 +9,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="70dp"
-            android:layout_height="950dp">
+            android:layout_height="1080dp">
 
             <TextView
                 android:text="Identidad Reservada"
@@ -82,10 +82,46 @@
                     />
             </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/lbl_telefono"
+                android:layout_marginTop="230dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/txt_telefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Teléfono"
+                    android:maxLength="10"
+                    android:textSize="16sp"
+                    android:inputType="number"
+
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/lbl_direccion"
+                android:layout_marginTop="290dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/txt_direccion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Dirección"
+                    android:maxLength="25"
+                    android:textSize="16sp"
+                    android:inputType="textCapWords"
+
+                    />
+            </android.support.design.widget.TextInputLayout>
+
             <TextView
                 android:text="Tipo de Identificación"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="250dp"
+                android:layout_marginTop="370dp"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView2"
@@ -95,7 +131,7 @@
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/lbl_TipoIdentificacion"
                 android:layout_width="match_parent"
-                android:layout_marginTop="300dp"
+                android:layout_marginTop="420dp"
                 android:layout_height="wrap_content">
 
                 <EditText
@@ -121,7 +157,7 @@
                 android:layout_width="wrap_content"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="380dp"
+                android:layout_marginTop="500dp"
                 android:id="@+id/textView3"
                 android:textSize="17sp" />
 
@@ -139,7 +175,7 @@
                 android:layout_width="wrap_content"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="430dp"
+                android:layout_marginTop="550dp"
                 android:id="@+id/textView4"
                 android:textSize="17sp" />
 
@@ -156,7 +192,7 @@
                 android:layout_width="wrap_content"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="480dp"
+                android:layout_marginTop="600dp"
                 android:id="@+id/textView5"
                 android:textSize="17sp" />
 
@@ -172,7 +208,7 @@
         <android.support.design.widget.TextInputLayout
             android:id="@+id/lbl_TipoOcupacion"
             android:layout_width="match_parent"
-            android:layout_marginTop="530dp"
+            android:layout_marginTop="650dp"
             android:layout_height="wrap_content">
 
             <EditText
@@ -187,7 +223,7 @@
             <TextView
                 android:text="Nacionalidad"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="610dp"
+                android:layout_marginTop="730dp"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView6"
@@ -203,7 +239,7 @@
             <TextView
                 android:text="Residencia"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="660dp"
+                android:layout_marginTop="780dp"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView7"
@@ -220,7 +256,7 @@
             <TextView
                 android:text="Provincia"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="710dp"
+                android:layout_marginTop="830dp"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView8"
@@ -237,7 +273,7 @@
             <TextView
                 android:text="Ciudad"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="760dp"
+                android:layout_marginTop="880dp"
                 android:textColor="#000000"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView9"
@@ -256,10 +292,15 @@
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="820dp"
+                android:layout_marginTop="940dp"
                 android:textColor="#ffffff"
                 android:background="@color/colorPrimaryDark"
                 android:id="@+id/btnInfoPeticionario" />
 
         </RelativeLayout>
 </ScrollView>
+
+    <!--falta edad,organizacion social,cargo,direccion,telefono-->
+    <!--distancia entre dos editText = 60dp -->
+    <!--distancia entre un editText y un spinner = 80dp -->
+    <!--distancia entre dos spinners = 50dp -->

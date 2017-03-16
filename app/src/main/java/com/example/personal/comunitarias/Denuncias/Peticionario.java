@@ -40,6 +40,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter7,adapter8, adapter9;
     ArrayAdapter<String> adapter4,adapter5,adapter6;
     private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtOcupacion;
+    private EditText txtTelefono, txtDireccion;
     Button btn_seguir;
     Reclamo rec;
 
@@ -54,6 +55,8 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     static String Nombre ="";
     static String  Apellido;
     static String Email;
+    static String Telefono;
+    static String Direccion;
     static String Identidad;
     static String Ocupacion;
     static String IdentidadReservada;
@@ -222,6 +225,8 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         txtIdent = (EditText)view.findViewById(R.id.txt_tipoIdentificacion);
         txtOcupacion = (EditText)view.findViewById(R.id.txt_ocupacion);
         txtCorreo = (EditText)view.findViewById(R.id.txt_correo);
+        txtTelefono = (EditText)view.findViewById(R.id.txt_telefono);
+        txtDireccion = (EditText)view.findViewById(R.id.txt_direccion);
 
         loadSpinnerProvincias();
         //focusableEditText();
@@ -239,6 +244,8 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 Identidad = txtIdent.getText().toString();
                 Ocupacion = txtOcupacion.getText().toString();
                 Email = txtCorreo.getText().toString();
+                Telefono = txtTelefono.getText().toString();
+                Direccion = txtDireccion.getText().toString();
 
                 IdentidadReservada = identidad.getSelectedItem().toString();
                 TipoIden = tipoIdentificacion.getSelectedItem().toString();
@@ -481,6 +488,17 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 //puede ser 10 u 11 por el RUC
                 if (text.length()> 0 && text.length() < 10) {
                     txtIdent.setError("Cantidad de dígitos incorrecta");
+                }
+            }
+        });
+
+        //validacion de telefono
+        txtTelefono.addTextChangedListener(new TextValidator(txtTelefono) {
+            @Override
+            public void validate(EditText editText, String text) {
+                //puede ser 10 u 11 por el RUC
+                if (text.length()> 0 && text.length() < 7) {
+                    txtTelefono.setError("Cantidad de dígitos incorrecta");
                 }
             }
         });

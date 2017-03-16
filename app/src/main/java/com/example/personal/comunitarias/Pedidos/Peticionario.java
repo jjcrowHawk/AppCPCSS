@@ -27,7 +27,9 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     private Spinner spinner_pet_tipIden, spinner_pet_gener, spinner_pet_estado_civil, spinner_pet_educa, spinner_pet_naciona, spinner_pet_resid, spinner_pet_provin, spinner_pet_ciud;
     private ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4, adapter5, adapter6, adapter7,adapter8, adapter9;
     private EditText txt_Nombres, txt_Apellidos, txt_correo, txt_tipoIdentificacion, txt_ocupacion;
+    private EditText txt_Telefono, txt_Direccion;
     private String Nombre, Apellido, Identidad, Ocupacion, Email;
+    private String telfono, direccion;
     public Peticionario(ViewPager viewPager) {
         this.viewPager = viewPager;
     }
@@ -52,6 +54,8 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         txt_correo = (EditText) view.findViewById(R.id.txt_correo_petic);
         txt_tipoIdentificacion = (EditText) view.findViewById(R.id.txt_tipoIdent_petic);
         txt_ocupacion = (EditText) view.findViewById(R.id.txt_ocupacion_petic);
+        txt_Telefono = (EditText) view.findViewById(R.id.txt_telefonop);
+        txt_Direccion = (EditText) view.findViewById(R.id.txt_direccionp);
 
         spinner_pet_tipIden = (Spinner)view.findViewById(R.id.spinner_pet_tipIden);
         spinner_pet_gener = (Spinner)view.findViewById(R.id.spinner_pet_gener);
@@ -110,6 +114,8 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 Identidad = txt_tipoIdentificacion.getText().toString();
                 Ocupacion = txt_ocupacion.getText().toString();
                 Email = txt_correo.getText().toString();
+                telfono = txt_Telefono.getText().toString();
+                direccion = txt_Direccion.getText().toString();
 
                 if(Nombre.equals("")|| Apellido.equals("")||
                         Identidad.equals("") || Ocupacion.equals("") ||
@@ -228,6 +234,17 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 //puede ser 10 u 11 por el RUC
                 if (text.length()> 0 && text.length() < 10) {
                     txt_tipoIdentificacion.setError("Cantidad de dígitos incorrecta");
+                }
+            }
+        });
+
+        //validacione de telefono
+        txt_Telefono.addTextChangedListener(new TextValidatorPedido(txt_Telefono) {
+            @Override
+            public void validate(EditText editText, String text) {
+                //puede ser 10 u 11 por el RUC
+                if (text.length()> 0 && text.length() < 10) {
+                    txt_Telefono.setError("Cantidad de dígitos incorrecta");
                 }
             }
         });
