@@ -366,7 +366,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 //ArrayList<String> ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_DB(provincia.getSelectedItem().toString()));
 
                 //Obtener las ciudades correspondiente a la provincia seleccionada de la base LOCAL
-                List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new Provincia().getID_DB(provincia.getSelectedItem().toString()));
+                List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new DatabaseHelper(getContext()).getProvincia(provincia.getSelectedItem().toString()));
 
                 //ciudades= new ArrayList<String>();
                 //new ProgressCiudades().execute();

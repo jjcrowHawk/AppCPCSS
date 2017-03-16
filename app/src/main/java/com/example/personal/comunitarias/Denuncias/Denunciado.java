@@ -242,7 +242,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                         getContext(), android.R.layout.simple_spinner_item, android.R.id.text1, localidades);*/
 
                 //Obtener las ciudades correspondiente a la provincia seleccionada de la base LOCAL
-                List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new Provincia().getID_DB(provincia.getSelectedItem().toString()));
+                List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new DatabaseHelper(getContext()).getProvincia(provincia.getSelectedItem().toString()));
 
                 //creando adapter para spinner
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),

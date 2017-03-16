@@ -220,7 +220,7 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
             case R.id.spinner8:
 
                 //Obtener las ciudades correspondiente a la provincia seleccionada de la base LOCAL
-                List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new Provincia().getID_DB(provincia.getSelectedItem().toString()));
+                List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new DatabaseHelper(getContext()).getProvincia(provincia.getSelectedItem().toString()));
 
                 //creando adapter para spinner
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),

@@ -182,7 +182,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
 
             SendMail();
 
-            new AlertDialog.Builder(getContext()).setMessage("Denuncia enviado con éxito")
+            new AlertDialog.Builder(getContext()).setMessage("Pedido enviado con éxito")
                     .setTitle("Mensaje")
                     .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                         @TargetApi(11)
