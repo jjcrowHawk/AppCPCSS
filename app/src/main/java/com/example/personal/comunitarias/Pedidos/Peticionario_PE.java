@@ -20,9 +20,12 @@ import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.Denuncias.TabsDenuncia;
+import com.example.personal.comunitarias.Denuncias.TextValidator;
 import com.example.personal.comunitarias.R;
 
 import java.util.List;
+
+
 
 
 public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelectedListener {
@@ -31,7 +34,7 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
     Spinner identidad, tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter7,adapter8, adapter9;
     ArrayAdapter<String> adapter4,adapter5,adapter6;
-    private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtOcupacion;
+    private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtOcupacion, txtTelefono, txtDireccion;
     Button btn_seguir;
     Reclamo rec;
     /******/
@@ -40,6 +43,8 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
     private TabsDenuncia tabs;
     static String Nombre ="";
     static String  Apellido;
+    static String  Telefono;
+    static String  Direccion;
     static String Email;
     static String Identidad;
     static String Ocupacion;
@@ -69,11 +74,96 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
         view = inflater.inflate(R.layout.pedido_tab1_peticionario, container, false);
         view =  inflater.inflate(R.layout.denuncia_tab1_peticionario,container,false);
         InicializarComp();
+        ValidarCamposPedidos();
 
         return view;
 
     }
 
+    private void ValidarCamposPedidos() {
+        //validacione de nombre
+        txtNombre .addTextChangedListener(new TextValidatorPedido(txtNombre) {
+            @Override
+            public void validate(EditText editText, String text) {
+                for (int index = 0; index < text.length(); index++) {
+                    String c = String.valueOf(text.charAt(index));
+                    if (isNumeric(c) || (!text.matches("[a-zA-Zá-ú? ]*"))){
+                        txtNombre.setError("Sólo ingrese letras");
+                        text = text.substring(0, text.length() - 1);
+                        txtNombre.setText(text);
+                        txtNombre.setSelection(txtNombre.getText().length());
+                    }
+                }
+                if (text.length() > 24) {
+                    txtNombre.setError("Límite excedido");
+                }
+            }
+        });
+
+
+        //validacione de Apellido
+        txtApellido .addTextChangedListener(new TextValidatorPedido(txtApellido) {
+            @Override
+            public void validate(EditText editText, String text) {
+                for (int index = 0; index < text.length(); index++) {
+                    String c = String.valueOf(text.charAt(index));
+                    if (isNumeric(c) || (!text.matches("[a-zA-Zá-ú? ]*"))){
+                        txtApellido.setError("Sólo ingrese letras");
+                        text = text.substring(0, text.length() - 1);
+                        txtApellido.setText(text);
+                        txtApellido.setSelection(txtApellido.getText().length());
+                    }
+                }
+                if (text.length() > 24) {
+                    txtApellido.setError("Límite excedido");
+                }
+            }
+        });
+
+
+        //validacione de identificación
+        txtIdent.addTextChangedListener(new TextValidatorPedido(txtIdent) {
+            @Override
+            public void validate(EditText editText, String text) {
+                //puede ser 10 u 11 por el RUC
+                if (text.length()> 0 && text.length() < 10) {
+                    txtIdent.setError("Cantidad de dígitos incorrecta");
+                }
+            }
+        });
+
+
+
+        //validacion de telefono
+        txtTelefono.addTextChangedListener(new TextValidator(txtTelefono) {
+            @Override
+            public void validate(EditText editText, String text) {
+                //puede ser 10 u 11 por el RUC
+                if (text.length()> 0 && text.length() < 7) {
+                    txtTelefono.setError("Cantidad de dígitos incorrecta");
+                }
+            }
+        });
+
+        //validacione de Cargo
+        txtOcupacion.addTextChangedListener(new TextValidatorPedido(txtOcupacion) {
+            @Override
+            public void validate(EditText editText, String text) {
+                for (int index = 0; index < text.length(); index++) {
+                    String c = String.valueOf(text.charAt(index));
+                    if (isNumeric(c) || (!text.matches("[a-zA-Zá-ú? ]*"))){
+                        txtOcupacion.setError("Sólo ingrese letras");
+                        text = text.substring(0, text.length() - 1);
+                        txtOcupacion.setText(text);
+                        txtOcupacion.setSelection(txtOcupacion.getText().length());
+                    }
+                }
+                if (text.length() > 24) {
+                    txtOcupacion.setError("Límite excedido");
+                }
+            }
+        });
+    }
 
 
     private  void InicializarComp(){
@@ -143,6 +233,8 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
         txtIdent = (EditText)view.findViewById(R.id.txt_tipoIdentificacion);
         txtOcupacion = (EditText)view.findViewById(R.id.txt_ocupacion);
         txtCorreo = (EditText)view.findViewById(R.id.txt_correo);
+        txtTelefono = (EditText)view.findViewById(R.id.txt_telefono);
+        txtDireccion = (EditText)view.findViewById(R.id.txt_direccion);
 
         loadSpinnerProvincias();
         //focusableEditText();
@@ -160,6 +252,8 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
                 Identidad = txtIdent.getText().toString();
                 Ocupacion = txtOcupacion.getText().toString();
                 Email = txtCorreo.getText().toString();
+                Telefono = txtTelefono.getText().toString();
+                Direccion = txtDireccion.getText().toString();
 
                 IdentidadReservada = identidad.getSelectedItem().toString();
                 TipoIden = tipoIdentificacion.getSelectedItem().toString();
@@ -197,6 +291,16 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
 
 
 
+    }
+
+    //funcion para ver si es un numero
+    private static boolean isNumeric(String cadena){
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException nfe){
+            return false;
+        }
     }
 
     private void loadSpinnerProvincias() {
