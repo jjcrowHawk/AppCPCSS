@@ -273,7 +273,7 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
 
                 if(Nombre.equals("")|| Apellido.equals("")||
                         Identidad.equals("") || Ocupacion.equals("") ||
-                        Email.equals("")){
+                        Email.equals("") || Telefono.equals("") || Direccion.equals("") ){
                     Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
                 }else {
 
