@@ -178,12 +178,12 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
 
 
         reclamo = new Reclamo();
-        reclamo.setCargo(Ocupacion_P);
+        reclamo.setCargo("");
         reclamo.setCiudaddeldenunciadoid(idCiuDE);
         reclamo.setCiudaddeldenuncianteid(idCiuP);
         reclamo.setComparecer(comparecer_d);
         reclamo.setDireccion("");
-        reclamo.setDocumentores(hechos_d);
+        reclamo.setDocumentores("0");
         reclamo.setEmail(Mail_P);
         reclamo.setResideextrangero(reside);
         reclamo.setIdentidadreservada(reservada);
@@ -421,7 +421,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
 
                 SendMail();
 
-                new AlertDialog.Builder(MostrarDatosPedido.this.getContext()).setMessage("Denuncia enviado con éxito")
+                new AlertDialog.Builder(MostrarDatosPedido.this.getContext()).setMessage("Pedido enviado con éxito")
                         .setTitle("Mensaje")
                         .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                             @TargetApi(11)
