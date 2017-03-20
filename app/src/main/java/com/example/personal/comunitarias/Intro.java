@@ -10,9 +10,11 @@ import android.view.WindowManager;
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.DatabaseRemote.DB;
 
+import java.sql.SQLException;
+
 public class Intro extends AppCompatActivity {
 
-    private int tiempo = 20;
+    private int tiempo = 10;
     int pStatus = 0;
     private Handler handler = new Handler();
 
@@ -45,10 +47,11 @@ public class Intro extends AppCompatActivity {
                 //Inicializando la base
                 DatabaseHelper DBHelper = new DatabaseHelper(getApplicationContext());
                 DBHelper.inicializar();
+
                 Log.d("SIZE estado civil: ", ""+DBHelper.getAllEstadocivil().size());
                 Log.d("SIZE nivel: ", ""+DBHelper.getAllNiveleducacion().size());
                 Log.d("SIZE ciudades: ", ""+DBHelper.getAllCiudades().size());
-                //Log.d("SIZE inst: ", ""+DBHelper.getAllInstitucionNombres().size());
+                Log.d("SIZE inst: ", ""+DBHelper.getAllInstitucionNombres().size());
 
                 //Inicializar actividad Menu
                 Intent i=new Intent(getBaseContext(),Menu.class);

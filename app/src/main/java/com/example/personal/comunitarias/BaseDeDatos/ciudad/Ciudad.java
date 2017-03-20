@@ -6,10 +6,14 @@
 package com.example.personal.comunitarias.BaseDeDatos.ciudad;
 
 import com.example.personal.comunitarias.BaseDeDatos.predenuncia.Predenuncia;
+import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -92,11 +96,18 @@ public class Ciudad extends _Default {
     }
 
     //Obtener la lista de todas las ciudades
-    public ArrayList<Ciudad> getListaCiudad(){
-        DB db = new DB();
+    public ArrayList<Ciudad> getListaCiudad() {
         ArrayList<Ciudad> lista = new ArrayList<>();
+
+        //Establecemos la conexión
+        Conexion c = null;
         try {
-            ResultSet resultSet = db.select("SELECT * FROM cpccs.ciudad");
+            c = new Conexion();
+            Connection conn= c.getConn();
+
+            //Creamos el query
+            Statement st = conn.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.ciudad");
             if (resultSet != null){
                 while (resultSet.next()){
                     Ciudad obj= new Ciudad();
@@ -107,10 +118,13 @@ public class Ciudad extends _Default {
                     obj = null;
                 }
             }
-        }catch (Exception ex){
-            this._mensagem = ex.getMessage();
-            this._status = false;
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
         return lista;
     }
 

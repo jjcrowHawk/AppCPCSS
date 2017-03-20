@@ -19,6 +19,7 @@ import com.example.personal.comunitarias.BaseDeDatos.region.Region;
 import com.example.personal.comunitarias.BaseDeDatos.sector.Sector;
 import com.example.personal.comunitarias.noticias.Noticia;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -294,37 +295,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //----------------------------------Inicilizar base con datos de la base remota--------------------------------------//
-    public void inicializar(){
+    public void inicializar()  {
         inicializar_estadocivil();
         inicializar_niveleducacion();
         inicializar_nacionalidad();
         inicializar_provincia();
         inicializar_ciudad();
-        //inicializar_institucion();
+        inicializar_institucion();
     }
 
-    public void inicializar_estadocivil(){
+    public void inicializar_estadocivil() {
         ArrayList<Estadocivil> lista = new Estadocivil().getListaEstadoCivil();
         for (Estadocivil e: lista){
             createEstadoCivil(e);
         }
     }
 
-    public void inicializar_niveleducacion(){
+    public void inicializar_niveleducacion()  {
         ArrayList<Niveleducacion> lista = new Niveleducacion().getListaNivelEducacion();
         for (Niveleducacion n: lista){
             createNivelEducacion(n);
         }
     }
 
-    public void inicializar_nacionalidad(){
+    public void inicializar_nacionalidad() {
         ArrayList<Nacionalidad> lista = new Nacionalidad().getListaNacionalidad();
         for (Nacionalidad n: lista){
             createNacionalidad(n);
         }
     }
 
-    public void inicializar_provincia(){
+    public void inicializar_provincia() {
         ArrayList<Provincia> lista = new Provincia().getListaProvincia();
         for (Provincia p: lista){
             createProvincia(p);

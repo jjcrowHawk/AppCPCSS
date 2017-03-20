@@ -22,6 +22,7 @@ import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.R;
 
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -137,6 +138,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.pedido_tab3_entidad, container, false);
         inicializarComponentesTab3();
+
         ValidarCampos();
         view.findViewById(R.id.btnAnterior_entidad).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,7 +149,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
         return view;
     }
 
-    private void inicializarComponentesTab3() {
+    private void inicializarComponentesTab3()  {
 
         genero = (Spinner) view.findViewById(R.id.spinner_gen_p);
         provincia = (Spinner) view.findViewById(R.id.spinner_prov_p);
@@ -159,8 +161,8 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
         loadSpinnerProvincias();
 
         //SearchBox
-        //final List<String> lista_instituciones =  new DatabaseHelper(getContext()).getAllInstitucionNombres();
-        final List<String> lista_instituciones =  new Institucion().getListaInstitucionNombres();
+        final List<String> lista_instituciones =  new DatabaseHelper(getContext()).getAllInstitucionNombres();
+        //final List<String> lista_instituciones =  new Institucion().getListaInstitucionNombres();
         //añado las instituciones a la lista
         for(String institucion : getResources().getStringArray(R.array.institucion)) {
             lista_instituciones.add(institucion);

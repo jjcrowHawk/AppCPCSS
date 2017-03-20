@@ -6,10 +6,14 @@
 package com.example.personal.comunitarias.BaseDeDatos.niveleducacion;
 
 import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
+import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -53,11 +57,19 @@ public class Niveleducacion extends _Default {
     }
 
     //Obtener la lista de estadoCivil
-    public ArrayList<Niveleducacion> getListaNivelEducacion(){
-        DB db = new DB();
+    public ArrayList<Niveleducacion> getListaNivelEducacion()  {
         ArrayList<Niveleducacion> lista = new ArrayList<>();
+
+        //Establecemos la conexión
+        Conexion c = null;
         try {
-            ResultSet resultSet = db.select("SELECT * FROM cpccs.niveleducacion");
+            c = new Conexion();
+            Connection conn= c.getConn();
+
+            //Creamos el query
+            Statement st = conn.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.niveleducacion");
+
             if (resultSet != null){
                 while (resultSet.next()){
                     Niveleducacion obj = new Niveleducacion();
@@ -68,10 +80,13 @@ public class Niveleducacion extends _Default {
                     obj = null;
                 }
             }
-        }catch (Exception ex){
-            this._mensagem = ex.getMessage();
-            this._status = false;
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
         return lista;
     }
 

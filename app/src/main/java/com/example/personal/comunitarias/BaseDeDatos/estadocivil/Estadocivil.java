@@ -6,10 +6,14 @@
 package com.example.personal.comunitarias.BaseDeDatos.estadocivil;
 
 import com.example.personal.comunitarias.BaseDeDatos.predenuncia.Predenuncia;
+import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -42,11 +46,19 @@ public class Estadocivil extends _Default {
     }
 
     //Obtener la lista de estadoCivil
-    public ArrayList<Estadocivil> getListaEstadoCivil(){
-        DB db = new DB();
+    public ArrayList<Estadocivil> getListaEstadoCivil()  {
         ArrayList<Estadocivil> lista = new ArrayList<>();
+
+        //Establecemos la conexión
+        Conexion c = null;
         try {
-            ResultSet resultSet = db.select("SELECT * FROM cpccs.estadocivil");
+            c = new Conexion();
+            Connection conn= c.getConn();
+
+            //Creamos el query
+            Statement st = conn.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.estadocivil");
+
             if (resultSet != null){
                 while (resultSet.next()){
                     Estadocivil obj = new Estadocivil();
@@ -56,10 +68,13 @@ public class Estadocivil extends _Default {
                     obj = null;
                 }
             }
-        }catch (Exception ex){
-            this._mensagem = ex.getMessage();
-            this._status = false;
+            conn.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
         return lista;
     }
 

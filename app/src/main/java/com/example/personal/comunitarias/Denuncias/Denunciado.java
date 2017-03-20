@@ -34,6 +34,7 @@ import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.R;
 
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
@@ -95,6 +96,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.denuncia_tab3_denunciado,container,false);
         InicializarComp();
+
         view.findViewById(R.id.btn_anterior).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -117,8 +119,8 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         genero.setAdapter(adapter);
 
         //SearchBox
-        //final List<String> lista_instituciones =  new DatabaseHelper(getContext()).getAllInstitucionNombres();
-        final List<String> lista_instituciones =  new Institucion().getListaInstitucionNombres();
+        final List<String> lista_instituciones =  new DatabaseHelper(getContext()).getAllInstitucionNombres();
+        //final List<String> lista_instituciones =  new Institucion().getListaInstitucionNombres();
         //añado las instituciones a la lista
         /*for(String institucion : getResources().getStringArray(R.array.institucion)) {
             lista_instituciones.add(institucion);

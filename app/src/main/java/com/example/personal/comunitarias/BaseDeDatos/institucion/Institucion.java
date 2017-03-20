@@ -6,10 +6,14 @@
 package com.example.personal.comunitarias.BaseDeDatos.institucion;
 
 import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
+import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -60,10 +64,17 @@ public class Institucion extends _Default {
     }
 
     public ArrayList<Institucion> getListaInstitucion(){
-        DB db = new DB();
         ArrayList<Institucion> lista = new ArrayList<Institucion>();
+
+        //Establecemos la conexión
+        Conexion c = null;
         try {
-            ResultSet resultSet = db.select("SELECT * FROM cpccs.institucion");
+            c = new Conexion();
+            Connection conn= c.getConn();
+
+            //Creamos el query
+            Statement st = conn.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.institucion");
             if (resultSet != null){
                 while (resultSet.next()){
                     Institucion obj = new Institucion();
@@ -73,18 +84,28 @@ public class Institucion extends _Default {
                     obj = null;
                 }
             }
-        }catch (Exception ex){
-            this._mensagem = ex.getMessage();
-            this._status = false;
+
+            conn.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
+
         return lista;
     }
 
-    public ArrayList<String> getListaInstitucionNombres(){
-        DB db = new DB();
+    public ArrayList<String> getListaInstitucionNombres() throws SQLException, ClassNotFoundException {
+        //Establecemos la conexión
+        Conexion c = new Conexion();
+        Connection conn= c.getConn();
+
         ArrayList<String> lista = new ArrayList<String>();
         try {
-            ResultSet resultSet = db.select("SELECT * FROM cpccs.institucion");
+            //Creamos el query
+            Statement st = conn.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.institucion");
             if (resultSet != null){
                 while (resultSet.next()){
                     lista.add(resultSet.getString("nombre"));
