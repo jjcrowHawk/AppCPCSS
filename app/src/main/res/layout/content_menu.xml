@@ -35,14 +35,14 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:paddingRight="20dp"
+                android:paddingRight="5dp"
                 >
 
                 <Button
                     android:id="@+id/idTarea"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/protest1" />
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/denuncias" />
 
                 <TextView
                     android:layout_width="fill_parent"
@@ -63,14 +63,14 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:paddingLeft="20dp">
+                android:paddingLeft="5dp">
 
 
                 <Button
                     android:id="@+id/idExamen"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/pencil1" />
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/pedidos" />
 
                 <TextView
                     android:layout_width="fill_parent"
@@ -102,15 +102,15 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:paddingRight="20dp"
+                android:paddingRight="5dp"
                 >
 
 
                 <Button
                     android:id="@+id/idProyecto"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/news" />
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/noticias2" />
 
                 <TextView
                     android:layout_width="fill_parent"
@@ -131,13 +131,13 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:paddingLeft="20dp">
+                android:paddingLeft="5dp">
 
                 <Button
                     android:id="@+id/idResult"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:background="@drawable/question" />
+                    android:layout_width="135dp"
+                    android:layout_height="135dp"
+                    android:background="@drawable/preguntasfrecuentes" />
 
                 <TextView
                     android:layout_width="fill_parent"
