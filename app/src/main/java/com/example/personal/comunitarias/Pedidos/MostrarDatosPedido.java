@@ -122,12 +122,13 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         contraseña="espol1234";
 
         obtenerinformacion();
-        m_txtNombrePet.setText(Nombre_P);
+        /*m_txtNombrePet.setText(Nombre_P);
         m_txtApellidoPet.setText(Apellido_P);
         txtIdent.setText(Identidad_P);
         txtCorreo.setText(Mail_P);
         txtNombreDenunciado.setText(Nombre_DE);
         txtApellidoDenunciado.setText(Apellido_DE);
+        */
 
 
         guardar = (Button) view.findViewById(R.id.enviar);
@@ -385,13 +386,13 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
     }
 
     public static  void setearDatos(){
-        Nombre_P = Peticionario.getNombre();
-        Apellido_P = Peticionario.getApellido();
-        Mail_P= Peticionario.getEmail();
-        Identidad_P=Peticionario.getIdentidad();
+        Nombre_P = Peticionario_PE.getNombre();
+        Apellido_P = Peticionario_PE.getApellido();
+        Mail_P= Peticionario_PE.getEmail();
+        Identidad_P=Peticionario_PE.getIdentidad();
 
-        Nombre_DE = Denunciado.getNombre_D();
-        Apellido_DE = Denunciado.getApellido_D();
+        Nombre_DE = DatosEntidad.getNombre_D();
+        Apellido_DE = DatosEntidad.getApellido_D();
 
         m_txtNombrePet.setText(Nombre_P);
         m_txtApellidoPet.setText(Apellido_P);
@@ -402,6 +403,5 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
 
 
     }
-
 
 }
