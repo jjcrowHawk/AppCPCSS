@@ -5,9 +5,14 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.predenuncia;
 
+import android.util.Log;
+
 import com.example.personal.comunitarias.DatabaseRemote.*;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -81,10 +86,27 @@ public class Predenuncia extends _Default {
                             "\t tipodenuncia,generodenunciante,descripcioninvestigacion,generodenunciado, funcionariopublico,   niveleducaciondenuncianteid, ocupaciondenuncianteid, estadocivildenuncianteid, institucionimplicadaid, nacionalidaddenuncianteid)\n" +
                             "\tVALUES ('%s','%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d');",
                     this.getTipodenuncia(),this.getOcupaciondenuncianteid(),this.getDescripcioninvestigacion(),this.getGenerodenunciado(), this.getFuncionariopublico(),this.getNiveleducaciondenunciateid(),this.getOcupaciondenuncianteid(),this.getEstadocivildenuncianteid(), this.getInstitucionimplicadaid(), this.getNacionalidaddenuncianteid());
-        DB db = new DB();
-        db.execute(comando);
-        this._mensagem = db.get_mensagem();
-        this._status = db.is_status();
+
+        //Establecemos la conexión
+        try {
+            Conexion c = new Conexion();
+            Connection conn= c.getConn();
+
+            //Creamos el query
+            Statement st = conn.createStatement();
+            int resultSet = st.executeUpdate(comando);
+            Log.e("Pred result:",""+resultSet);
+
+            conn.close();
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            this._status = false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            this._status = false;
+        }
+
     }
 
     public void eliminarPredenuncia(){

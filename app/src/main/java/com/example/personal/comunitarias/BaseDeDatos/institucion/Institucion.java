@@ -88,8 +88,10 @@ public class Institucion extends _Default {
             conn.close();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            this._status = false;
         } catch (SQLException e) {
             e.printStackTrace();
+            this._status = false;
         }
 
 

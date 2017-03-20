@@ -121,8 +121,10 @@ public class Ciudad extends _Default {
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            this._status = false;
         } catch (SQLException e) {
             e.printStackTrace();
+            this._status = false;
         }
 
         return lista;

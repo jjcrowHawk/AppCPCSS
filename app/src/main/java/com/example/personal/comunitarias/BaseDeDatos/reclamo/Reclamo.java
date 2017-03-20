@@ -7,8 +7,14 @@ package com.example.personal.comunitarias.BaseDeDatos.reclamo;
 
 import android.util.Log;
 
+import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -227,17 +233,25 @@ public class Reclamo extends _Default {
             Log.d("Enviado  : ", this.getNombresapellidosdenunciante() + this.getTipoidentificacion() + this.getNumidenti() + this.getDireccion()+ this.getEmail() + this.getNombresapellidosdenunciado() + this.getTelefono() + this.getCargo() + this.getComparecer() + this.getDocumentores() + this.getIdentidadreservada() + this.getResideextrangero() + this.getCiudaddeldenuncianteid() + this.getCiudaddeldenunciadoid() + this.getInstitucionimplicadaid() + this.getProvinciadenuncianteid() + this.getProvinciadenunciadoid());
         }
 
+        //Establecemos la conexión
+        try {
+            Conexion c = new Conexion();
+            Connection conn= c.getConn();
 
+            //Creamos el query
+            Statement st = conn.createStatement();
+            int resultSet = st.executeUpdate(comando);
+            Log.e("Reclamo result:",""+resultSet);
 
+            conn.close();
 
-        DB db = new DB();
-        db.execute(comando);
-        this._mensagem = db.get_mensagem();
-        this._status = db.is_status();
-        //Log.d("myTag", _mensagem);
-        //Log.d("myTag", _status + "Mi status");
-
-
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            this._status = false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            this._status = false;
+        }
     }
 
 

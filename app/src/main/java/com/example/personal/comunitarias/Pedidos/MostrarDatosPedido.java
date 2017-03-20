@@ -2,8 +2,10 @@ package com.example.personal.comunitarias.Pedidos;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
@@ -24,6 +26,7 @@ import com.example.personal.comunitarias.Denuncias.Peticionario;
 import com.example.personal.comunitarias.Menu;
 import com.example.personal.comunitarias.R;
 
+import java.sql.Connection;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -88,6 +91,11 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
     String reservada = "";
     String reside = "";
     String gen = "";
+
+    //
+    ProgressDialog mProgressDialog;
+    Predenuncia pd;
+    Reclamo reclamo;
 
     public MostrarDatosPedido(ViewPager viewPager) {
 
@@ -169,7 +177,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         int Id_Institucion = I.getID_DB(Institucion_d);*/
 
 
-        Reclamo reclamo = new Reclamo();
+        reclamo = new Reclamo();
         reclamo.setCargo(Ocupacion_P);
         reclamo.setCiudaddeldenunciadoid(idCiuDE);
         reclamo.setCiudaddeldenuncianteid(idCiuP);
@@ -188,7 +196,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         reclamo.setTelefono("");
         reclamo.setTipoidentificacion(TipoIde_P);
 
-        Predenuncia pd = new Predenuncia();
+        pd = new Predenuncia();
         pd.setTipodenuncia("1");
         pd.setDescripcioninvestigacion(Descripciion_D);
         pd.setFuncionariopublico("");
@@ -200,39 +208,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         pd.setInstitucionimplicadaid(idIndti);
         pd.setNacionalidaddenuncianteid(idNacionalidad);
 
-
-
-
-        reclamo.Guardar_Reclamo();
-        pd.guardarPredenuncia();
-
-        if(reclamo.is_status() && pd.is_status()){
-            Log.d("myTag", "Si inserto");
-
-            SendMail();
-
-            new AlertDialog.Builder(getContext()).setMessage("Pedido enviado con éxito")
-                    .setTitle("Mensaje")
-                    .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                        @TargetApi(11)
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                            Intent i=new Intent(getContext(),Menu.class);
-                            startActivity(i);
-                        }
-                    }).show();
-        }else{
-            new AlertDialog.Builder(getContext()).setMessage("Existe problema con la conexión.\n Por favor, Intente nuevamente")
-                    .setTitle("Conexión fallida")
-                    .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                        @TargetApi(11)
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    }).show();
-        }
-
-
+        new Progress_guardando().execute();
 
 
     }
@@ -402,6 +378,73 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         txtApellidoDenunciado.setText(Apellido_DE);
 
 
+    }
+
+    public class Progress_guardando extends AsyncTask<Void, Void, Void> {
+        Connection conn;
+        boolean status_reclamo,status_pred ;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mProgressDialog = new ProgressDialog(MostrarDatosPedido.this.getContext());
+            mProgressDialog.setMessage("Guardando su denuncia...");
+            mProgressDialog.setIndeterminate(false);
+            mProgressDialog.show();
+        }
+
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            reclamo.Guardar_Reclamo();
+            status_reclamo=reclamo.is_status();
+            pd.guardarPredenuncia();
+            status_pred=pd.is_status();
+
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+            mProgressDialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            mProgressDialog.dismiss();
+            mProgressDialog.cancel();
+
+            if(status_reclamo && status_pred){
+                Log.d("myTag", "Si inserto");
+
+                SendMail();
+
+                new AlertDialog.Builder(MostrarDatosPedido.this.getContext()).setMessage("Denuncia enviado con éxito")
+                        .setTitle("Mensaje")
+                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            @TargetApi(11)
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                                Intent i=new Intent(getContext(),Menu.class);
+                                startActivity(i);
+
+                            }
+                        }).show();
+
+
+            }else {
+                new AlertDialog.Builder(MostrarDatosPedido.this.getContext()).setMessage("Existe problema con la conexión.\n Por favor, Intente nuevamente")
+                        .setTitle("Conexión fallida")
+                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            @TargetApi(11)
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        }).show();
+            }
+        }
     }
 
 }
