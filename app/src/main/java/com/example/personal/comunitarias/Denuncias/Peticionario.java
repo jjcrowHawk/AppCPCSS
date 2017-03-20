@@ -304,12 +304,12 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
                 if(Nombre.equals("")|| Apellido.equals("")||
                         Identidad.equals("") || Cargo.equals("") ||
-                        Email.equals("")){
+                        Email.equals("")||Edad.equals("") ||
+                         Telefono.equals("") ||Direccion.equals("")|| OrganizacionSocial.equals("")){
                     Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
                 }else {
                     viewPager.setCurrentItem(1);
                 }
-
 
 
                /* rec = new Reclamo();

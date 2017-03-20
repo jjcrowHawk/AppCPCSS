@@ -169,6 +169,8 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
             @Override
             public void onClick(View v) {
 
+
+
                 Nombre_D = txtNombre.getText().toString();
                 Apellido_D = txtApellido.getText().toString();
                 Cargo_D = txtCargo.getText().toString();
@@ -190,16 +192,11 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
 
 
 
-
-
-
                 Log.d("ID Denunciado ","IdProvinvia"+idProvDE+"  idCiudad "+idCiuDE+"  IdINDTI "+idIndti);
 
 
 
-                if(Nombre_D.equals("")|| Apellido_D.equals("")||
-                        Unafectada.equals("") || Cargo_D.equals("") ||
-                        Perdjudicada_d.equals("")) {
+                if(Nombre_D.equals("")|| Apellido_D.equals("")|| Cargo_D.equals("") ) {
                     Toast.makeText(getContext(), "Por favor, llene todos los campos", Toast.LENGTH_LONG).show();
 
                 // validacion de institucion valida
@@ -207,8 +204,11 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                     Toast.makeText(getContext(), "Por favor, elija una institución válida", Toast.LENGTH_LONG).show();
 
                 }else {
+                    MostrarDatos.setearDatos();
                     viewPager.setCurrentItem(3);
                 }
+
+
 
 
             }

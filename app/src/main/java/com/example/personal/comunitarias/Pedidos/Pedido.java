@@ -21,7 +21,7 @@ import com.example.personal.comunitarias.R;
 public class Pedido extends Fragment implements AdapterView.OnItemSelectedListener {
 
     ArrayAdapter<CharSequence> adapter1, adapter2,adapter3;
-    Spinner hechos,compadecer,doc_exist;
+    Spinner compadecer,doc_exist;
     private ViewPager viewPager;
     private View view;
     private Button siguiente;
@@ -45,13 +45,7 @@ public class Pedido extends Fragment implements AdapterView.OnItemSelectedListen
         Comparecer_d = comparecer_d;
     }
 
-    public static String getHechos_d() {
-        return Hechos_d;
-    }
 
-    public static void setHechos_d(String hechos_d) {
-        Hechos_d = hechos_d;
-    }
 
     public static String getDoc() {
         return Doc;
@@ -91,15 +85,17 @@ public class Pedido extends Fragment implements AdapterView.OnItemSelectedListen
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         compadecer.setAdapter(adapter1);
 
-        hechos = (Spinner) view.findViewById(R.id.spinner_hechos);
+        /*hechos = (Spinner) view.findViewById(R.id.spinner_hechos);
         adapter2 = ArrayAdapter.createFromResource(getContext(), R.array.si_no, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         hechos.setAdapter(adapter2);
+        */
 
         doc_exist = (Spinner) view.findViewById(R.id.spinner_investigados);
         adapter3 = ArrayAdapter.createFromResource(getContext(), R.array.si_no, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         doc_exist.setAdapter(adapter3);
+
 
         siguiente = (Button) view.findViewById(R.id.btnSiguientePedido);
         descripcion = (EditText) view.findViewById(R.id.txt_descripcion_ped);
@@ -114,8 +110,7 @@ public class Pedido extends Fragment implements AdapterView.OnItemSelectedListen
                     Descripcion_Pedido= descripcion.getText().toString();
                     if (compadecer.getSelectedItem().equals("Si")) Comparecer_d ="1";
                     if (compadecer.getSelectedItem().equals("No")) Comparecer_d ="0";
-                    if (hechos.getSelectedItem().equals("Si")) Hechos_d="1";
-                    if (hechos.getSelectedItem().equals("No")) Hechos_d="0";
+
                     if (doc_exist.getSelectedItem().equals("Si")) Doc="1";
                     if (doc_exist.getSelectedItem().equals("No")) Doc="0";
 

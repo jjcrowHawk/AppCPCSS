@@ -213,7 +213,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
                     idProvDE = new DatabaseHelper(getContext()).getProvincia(Provincia_d);
                     idCiuDE = new DatabaseHelper(getContext()).getCiudad_id(CIudad_d);
 
-
+                    MostrarDatosPedido.setearDatos();
                     viewPager.setCurrentItem(3);
                 }
             }

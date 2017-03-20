@@ -55,13 +55,40 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
     private View view;
     private TabsDenuncia tabs;
     Button guardar;
-    EditText m_txtNombrePet, m_txtApellidoPet, txtIdent, txtCorreo, txtNombreDenunciado, txtApellidoDenunciado, txtDenuncia;
+    static EditText m_txtNombrePet;
+    static EditText m_txtApellidoPet;
+    static EditText txtIdent;
+    static EditText txtCorreo;
+    static EditText txtNombreDenunciado;
+    static EditText txtApellidoDenunciado;
+    EditText txtDenuncia;
     String correo;
     String contraseña;
     Session session;
-    String Nombre_P,Apellido_P,Mail_P,Identidad_P,Ocupacion_P,Estadocivil_P,provi_P,Ciudad_P,Nacio_p,Reside_p,Nivel_P,TipoIde_P,Genero_P,Reservada_p;
+    static String Nombre_P;
+    static String Apellido_P;
+    static String Mail_P;
+    static String Identidad_P;
+    String Ocupacion_P;
+    String Estadocivil_P;
+    String provi_P;
+    String Ciudad_P;
+    String Nacio_p;
+    String Reside_p;
+    String Nivel_P;
+    String TipoIde_P;
+    String Genero_P;
+    String Reservada_p;
     String Descripciion_D,comparecer_d,hechos_d;
-    String Nombre_DE, Apellido_DE,Cargo_DE,Unafectada_DE,Perdjudicada_DE,Genero_DE,Provincia_DE,CIudad_DE,Institucion_DE;
+    static String Nombre_DE;
+    static String Apellido_DE;
+    String Cargo_DE;
+    String Unafectada_DE;
+    String Perdjudicada_DE;
+    String Genero_DE;
+    String Provincia_DE;
+    String CIudad_DE;
+    String Institucion_DE;
     Integer idCiuDE, idCiuP , idProvDE, idProvp,idIndti,idocupacionP,idNivelEduca,idestado,idNacionalidad;
     String reservada = "";
     String reside = "";
@@ -104,14 +131,14 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
        contraseña="espol1234";
 
        obtenerinformacion();
-       m_txtNombrePet.setText(Nombre_P);
+       /*m_txtNombrePet.setText(Nombre_P);
        m_txtApellidoPet.setText(Apellido_P);
        txtIdent.setText(Identidad_P);
        txtCorreo.setText(Mail_P);
        if(txtNombreDenunciado.equals("")){
            obtenerinformacion();
            txtNombreDenunciado.setText(Nombre_DE);
-       }
+       }*/
 
 
        guardar = (Button) view.findViewById(R.id.enviar);
@@ -119,6 +146,8 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
        guardar.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
+
+               //guardar.setEnabled(true);
                obtenerinformacion();
                Guardar_Base();
            }
@@ -135,6 +164,25 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         txtNombreDenunciado.setEnabled(false);
         txtApellidoDenunciado.setEnabled(false);
         //txtDenuncia.setEnabled(false);
+    }
+
+    public static void setearDatos(){
+        Nombre_P = Peticionario.getNombre();
+        Apellido_P = Peticionario.getApellido();
+        Mail_P= Peticionario.getEmail();
+        Identidad_P=Peticionario.getIdentidad();
+
+        Nombre_DE = Denunciado.getNombre_D();
+        Apellido_DE = Denunciado.getApellido_D();
+
+        m_txtNombrePet.setText(Nombre_P);
+        m_txtApellidoPet.setText(Apellido_P);
+        txtIdent.setText(Identidad_P);
+        txtCorreo.setText(Mail_P);
+        txtNombreDenunciado.setText(Nombre_DE);
+        txtApellidoDenunciado.setText(Apellido_DE);
+
+
     }
 
     @Override
