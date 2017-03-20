@@ -325,7 +325,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         }else{
             reservada = "0";
         }
-        Ocupacion_P=p.getOcupacion();
+        //Ocupacion_P=p.getOcupacion();
         Estadocivil_P= p.getEstado_civil();
         provi_P= p.getProvi();
         Ciudad_P=p.getCiuda();
@@ -363,7 +363,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
 
         //Denuncia
         comparecer_d = d.getComparecer_d();
-        hechos_d = d.getHechos_d();
+
         Descripciion_D = d.getDescripcion_Denuncia();
 
        // Log.d(" Clase Mostrar ",Descripciion_D);

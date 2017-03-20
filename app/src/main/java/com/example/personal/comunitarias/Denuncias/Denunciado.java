@@ -54,6 +54,10 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     Spinner  genero,institucion, provincia, ciudad;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4;
 
+
+    private Spinner  ocupacion_denunciado;
+    private ArrayAdapter<CharSequence>  adapterOcupaDenunciado;
+
     private EditText txtNombre, txtApellido, txtCargo, txtUnAfectada, txtPerjud;
     Button btn_enviar_r;
     /******/
@@ -124,6 +128,15 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         search.setThreshold(1);
         search.setAdapter(adapterautocomplate);
         search.setTextColor(Color.BLACK);
+
+
+
+        //Spinner Ocupacion : empleado publico o privado
+        ocupacion_denunciado = (Spinner) view.findViewById(R.id.spinnerOcupacionDenunciado);
+        adapterOcupaDenunciado = ArrayAdapter.createFromResource(getContext(),
+                R.array.ocupacion, android.R.layout.simple_spinner_item);
+        adapterOcupaDenunciado.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ocupacion_denunciado.setAdapter(adapterOcupaDenunciado);
 
 
         //institucion = (Spinner) view.findViewById(R.id.spinner2);

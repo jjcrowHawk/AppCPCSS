@@ -36,11 +36,11 @@ import java.util.List;
 
 
 public class Peticionario extends Fragment implements AdapterView.OnItemSelectedListener{
-    Spinner identidad, tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad;
-    ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter7,adapter8, adapter9;
+    Spinner identidad, tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad, ocupacion_peticionario;
+    ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter7,adapter8, adapter9, adapterOcupaPeticionario;
     ArrayAdapter<String> adapter4,adapter5,adapter6;
     private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtOcupacion;
-    private EditText txtTelefono, txtDireccion;
+    private EditText txtTelefono, txtDireccion, txtEdad, txtOrganizacionSocial, txtCargoPeticionario;
     Button btn_seguir;
     Reclamo rec;
 
@@ -58,7 +58,6 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     static String Telefono;
     static String Direccion;
     static String Identidad;
-    static String Ocupacion;
     static String IdentidadReservada;
     static String TipoIden;
     static String Genero;
@@ -70,6 +69,14 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     static String Ciuda;
     static Integer  idCiuP;
     static Integer idProvp;
+
+    //Agregado
+    static String Edad;
+    static String Cargo;
+    static String OcupacionPeticionario;
+    static String OrganizacionSocial;
+
+
 
     public static Integer getIdCiuP() {
         return idCiuP;
@@ -213,6 +220,13 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         adapter7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         residencia.setAdapter(adapter7);
 
+        //Spinner Ocupacion : empleado publico o privado
+        ocupacion_peticionario = (Spinner) view.findViewById(R.id.spinnerOcupacion);
+        adapterOcupaPeticionario = ArrayAdapter.createFromResource(getContext(),
+                R.array.ocupacion, android.R.layout.simple_spinner_item);
+        adapterOcupaPeticionario.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ocupacion_peticionario.setAdapter(adapterOcupaPeticionario);
+
         //Spinner Provincia
         provincia = (Spinner) view.findViewById(R.id.spinner8);
 
@@ -223,10 +237,15 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         txtNombre = (EditText)view.findViewById(R.id.txt_Nombres);
         txtApellido = (EditText)view.findViewById(R.id.txt_Apellidos);
         txtIdent = (EditText)view.findViewById(R.id.txt_tipoIdentificacion);
-        txtOcupacion = (EditText)view.findViewById(R.id.txt_ocupacion);
+        //txtCargoPeticionario = (EditText)view.findViewById(R.id.txt_cargo_peticionario_d);
         txtCorreo = (EditText)view.findViewById(R.id.txt_correo);
         txtTelefono = (EditText)view.findViewById(R.id.txt_telefono);
         txtDireccion = (EditText)view.findViewById(R.id.txt_direccion);
+        txtEdad = (EditText)view.findViewById(R.id.txt_edad);
+        txtOrganizacionSocial = (EditText)view.findViewById(R.id.txt_org_social);
+        txtCargoPeticionario = (EditText)view.findViewById(R.id.txt_cargo_peticionario_d);
+
+
 
         loadSpinnerProvincias();
         //focusableEditText();
@@ -242,10 +261,17 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 Nombre = txtNombre.getText().toString();
                 Apellido = txtApellido.getText().toString();
                 Identidad = txtIdent.getText().toString();
-                Ocupacion = txtOcupacion.getText().toString();
+                //Cargo = txtOcupacion.getText().toString();
                 Email = txtCorreo.getText().toString();
                 Telefono = txtTelefono.getText().toString();
                 Direccion = txtDireccion.getText().toString();
+
+                Edad = txtEdad.getText().toString();
+                //int EdadN=Integer.parseInt(Edad);
+                Cargo=txtCargoPeticionario.getText().toString();
+                OrganizacionSocial=txtOrganizacionSocial.getText().toString();
+
+
 
                 IdentidadReservada = identidad.getSelectedItem().toString();
                 TipoIden = tipoIdentificacion.getSelectedItem().toString();
@@ -256,6 +282,9 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 reside = residencia.getSelectedItem().toString();
                 provi = provincia.getSelectedItem().toString();
                 Ciuda = ciudad.getSelectedItem().toString();
+
+                //NUEVO
+                OcupacionPeticionario= ocupacion_peticionario.getSelectedItem().toString();
 
                 Log.d("pet",Ciuda +"    "+ provi);
 
@@ -274,7 +303,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 Log.d("ID PETICIONARIO","IdProvinvia"+idProvp+"  idCiudad "+idCiuP+"  IdNivelEducacion "+idNivelEduca+"   idEstado"+idestado+"  idOcupacion"+idocupacionP+"  idNacinalidad"+ idNacionalidad);
 
                 if(Nombre.equals("")|| Apellido.equals("")||
-                        Identidad.equals("") || Ocupacion.equals("") ||
+                        Identidad.equals("") || Cargo.equals("") ||
                         Email.equals("")){
                     Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
                 }else {
@@ -503,21 +532,38 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
             }
         });
 
+        //validacione de edad
+        txtEdad .addTextChangedListener(new TextValidator(txtEdad ) {
+            @Override
+            public void validate(EditText editText, String text) {
+                for (int index = 0; index < text.length(); index++) {
+                    String c = String.valueOf(text.charAt(index));
+                    if (!isNumeric(c) ){
+                        txtEdad.setError("Sólo ingrese números");
+                        text = text.substring(0, text.length() - 1);
+                        txtEdad.setText(text);
+                        txtEdad.setSelection(txtEdad.getText().length());
+                    }
+                }
+
+            }
+        });
+
         //validacione de Cargo
-        txtOcupacion.addTextChangedListener(new TextValidator(txtOcupacion) {
+        txtCargoPeticionario.addTextChangedListener(new TextValidator(txtCargoPeticionario) {
             @Override
             public void validate(EditText editText, String text) {
                 for (int index = 0; index < text.length(); index++) {
                     String c = String.valueOf(text.charAt(index));
                     if (isNumeric(c) || (!text.matches("[a-zA-Zá-ú? ]*"))){
-                        txtOcupacion.setError("Sólo ingrese letras");
+                        txtCargoPeticionario.setError("Sólo ingrese letras");
                         text = text.substring(0, text.length() - 1);
-                        txtOcupacion.setText(text);
-                        txtOcupacion.setSelection(txtOcupacion.getText().length());
+                        txtCargoPeticionario.setText(text);
+                        txtCargoPeticionario.setSelection(txtCargoPeticionario.getText().length());
                     }
                 }
                 if (text.length() > 24) {
-                    txtOcupacion.setError("Límite excedido");
+                    txtCargoPeticionario.setError("Límite excedido");
                 }
             }
         });
@@ -605,12 +651,20 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         Identidad = identidad;
     }
 
-    public static String getOcupacion() {
-        return Ocupacion;
+    public static String getCargo() {
+        return Cargo;
     }
 
-    public static void setOcupacion(String ocupacion) {
-        Ocupacion = ocupacion;
+    public static void setCargo(String cargo) {
+        Cargo = cargo;
+    }
+
+    public static String getOrganizacionSocial() {
+        return OrganizacionSocial;
+    }
+
+    public static void setOrganizacionSocial(String orga) {
+        OrganizacionSocial = orga;
     }
 
     public static String getIdentidadReservada() {

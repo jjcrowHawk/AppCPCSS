@@ -72,7 +72,7 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.pedido_tab1_peticionario, container, false);
-        view =  inflater.inflate(R.layout.denuncia_tab1_peticionario,container,false);
+
         InicializarComp();
         ValidarCamposPedidos();
 
@@ -231,7 +231,7 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
         txtNombre = (EditText)view.findViewById(R.id.txt_Nombres);
         txtApellido = (EditText)view.findViewById(R.id.txt_Apellidos);
         txtIdent = (EditText)view.findViewById(R.id.txt_tipoIdentificacion);
-        txtOcupacion = (EditText)view.findViewById(R.id.txt_ocupacion);
+        txtOcupacion = (EditText)view.findViewById(R.id.txt_ocupacion_petic);
         txtCorreo = (EditText)view.findViewById(R.id.txt_correo);
         txtTelefono = (EditText)view.findViewById(R.id.txt_telefono);
         txtDireccion = (EditText)view.findViewById(R.id.txt_direccion);

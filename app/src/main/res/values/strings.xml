@@ -23,6 +23,11 @@
         <item>No</item>
     </string-array>
 
+    <string-array name="ocupacion">
+        <item>Empleado Público</item>
+        <item>Empleado Privado</item>
+    </string-array>
+
     <string-array name="tipo_identificacion">
         <item>Cédula</item>
         <item>RUC</item>

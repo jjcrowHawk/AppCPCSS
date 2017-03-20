@@ -27,7 +27,6 @@ public class Denuncia extends Fragment {
     EditText descripcion;
     static String Descripcion_Denuncia;
     static String Comparecer_d;
-    static String  Hechos_d;
 
     public Denuncia(ViewPager viewPager) {
         this.viewPager = viewPager;
@@ -59,11 +58,12 @@ public class Denuncia extends Fragment {
         comparecer.setAdapter(adapter);
 
         //Spinner hechos son investigados
-        hechos = (Spinner) view.findViewById(R.id.spinner_hechos);
+        /*hechos = (Spinner) view.findViewById(R.id.spinner_hechos);
         adapter2 = ArrayAdapter.createFromResource(getContext(),
                 R.array.si_no, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         hechos.setAdapter(adapter2);
+        */
 
         descripcion = (EditText) view.findViewById(R.id.txt_descripcion);
         sgteDenuciado = (Button) view.findViewById(R.id.btnDenuncia);
@@ -79,8 +79,7 @@ public class Denuncia extends Fragment {
                     Descripcion_Denuncia= descripcion.getText().toString();
                     if (comparecer.getSelectedItem().equals("Si")) Comparecer_d ="1";
                     if (comparecer.getSelectedItem().equals("No")) Comparecer_d ="0";
-                    if (hechos.getSelectedItem().equals("Si")) Hechos_d="1";
-                    if (hechos.getSelectedItem().equals("No")) Hechos_d="0";
+
                     //
                     viewPager.setCurrentItem(2);
                 }
@@ -105,13 +104,7 @@ public class Denuncia extends Fragment {
         Comparecer_d = comparecer_d;
     }
 
-    public static String getHechos_d() {
-        return Hechos_d;
-    }
 
-    public static void setHechos_d(String hechos_d) {
-        Hechos_d = hechos_d;
-    }
 
 
 
