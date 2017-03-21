@@ -252,11 +252,15 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             ConnectivityManager connManager2 = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo mMobile = connManager2.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
 
-            if (mWifi.isConnected()) {
-                tipoConexion1 = true;
+            if (mWifi !=null) {
+                if (mWifi.isConnected()) {
+                    tipoConexion1 = true;
+                }
             }
-            if (mMobile.isConnected()) {
-                tipoConexion2 = true;
+            if (mMobile !=null) {
+                if (mMobile.isConnected()) {
+                    tipoConexion2 = true;
+                }
             }
 
             if (tipoConexion1 == true || tipoConexion2 == true) {
