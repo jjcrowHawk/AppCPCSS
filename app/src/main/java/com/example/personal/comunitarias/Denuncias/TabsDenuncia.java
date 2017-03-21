@@ -3,6 +3,8 @@ package com.example.personal.comunitarias.Denuncias;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,7 +12,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.personal.comunitarias.R;
@@ -20,12 +24,15 @@ public class TabsDenuncia extends AppCompatActivity {
     TabLayout tabLayout;
     CustomViewPager viewPager;
     LinearLayout tabStrip;
+    CoordinatorLayout coordinatorLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tabs_denuncia);
+
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout1);
 
         //toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -111,11 +118,50 @@ public class TabsDenuncia extends AppCompatActivity {
         }
     }
 
+
+
+
     //Acciones del boton regresar
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        finish();
+
+        Snackbar.make(coordinatorLayout, "!Si retrocede se perderán los datos ingresados! ¿Desea regresar? ", Snackbar.LENGTH_LONG)
+                //.setActionTextColor(Color.CYAN)
+                .setActionTextColor(getResources().getColor(R.color.colorPrimary))
+                .setAction("Si", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        finish();
+                    }
+                })
+                .show();
+
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        //replaces the default 'Back' button action
+        if(keyCode==KeyEvent.KEYCODE_BACK)
+        {
+            Snackbar.make(coordinatorLayout, "!Si retrocede se perderán los datos ingresados! ¿Desea regresar? ", Snackbar.LENGTH_LONG)
+                    //.setActionTextColor(Color.CYAN)
+
+                    .setActionTextColor(getResources().getColor(R.color.colorAccent))
+                    .setDuration(6000)
+                    .setAction("Si", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            finish();
+                        }
+                    })
+                    .show();
+
+        }
+        return true;
     }
 }
