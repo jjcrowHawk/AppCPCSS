@@ -34,7 +34,7 @@
                 android:layout_height="160dp"
                 android:scrollbars="vertical"
                 app:counterEnabled="true"
-                app:counterMaxLength="250"
+                app:counterMaxLength="255"
                 android:layout_marginBottom="5dp"
                 >
                 <EditText

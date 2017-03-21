@@ -59,7 +59,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
     static EditText txtCorreo;
     static EditText txtNombreDenunciado;
     static EditText txtApellidoDenunciado;
-    EditText txtDenuncia;
+    static EditText txtPedido;
     String correo;
     String contraseña;
     Session session;
@@ -77,7 +77,8 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
     String TipoIde_P;
     String Genero_P;
     String Reservada_p;
-    String Descripciion_D,comparecer_d,hechos_d,Documentos_D;
+    static String Descripciion_D;
+    String comparecer_d,hechos_d,Documentos_D;
     static String Nombre_DE;
     static String Apellido_DE;
     String Cargo_DE;
@@ -108,16 +109,28 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.pedido_tab4_mostrar_dat,container,false);
         inicializar();
-        /*view.findViewById(R.id.btn_anterior).setOnClickListener(new View.OnClickListener() {
+        deshabilarCamposPedidos();
+        view.findViewById(R.id.anteriorMostrar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                viewPager.setCurrentItem(1);
+                viewPager.setCurrentItem(2);
 
             }
-        });*/
+        });
 
         return  view;
     }
+
+    public void deshabilarCamposPedidos(){
+        m_txtNombrePet.setEnabled(false);
+        m_txtApellidoPet.setEnabled(false);
+        txtIdent.setEnabled(false);
+        txtCorreo.setEnabled(false);
+        txtNombreDenunciado.setEnabled(false);
+        txtApellidoDenunciado.setEnabled(false);
+        txtPedido.setEnabled(false);
+    }
+
     public void inicializar() {
         m_txtNombrePet= (EditText)view.findViewById(R.id.m_txt_Nombres);
         m_txtApellidoPet= (EditText)view.findViewById(R.id.m_txt_Apellidos);
@@ -125,7 +138,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         txtCorreo = (EditText)view.findViewById(R.id.txt_correo);
         txtNombreDenunciado = (EditText)view.findViewById(R.id.txt_nombreDenunciado);
         txtApellidoDenunciado = (EditText)view.findViewById(R.id.txt_ApellidosDenunciado);
-        //txtDenuncia = (EditText)view.findViewById(R.id.m_txt_descripcion);
+        txtPedido = (EditText)view.findViewById(R.id.txt_Descripcion_D);
         correo ="prueba.envio.formulario@gmail.com";
         contraseña="espol1234";
 
@@ -270,17 +283,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
 
                 // put everything together
                 message.setContent(multipart);
-
-
-
-
-
-
-
-
-
                 Transport.send(message);
-
             }
 
         }catch (Exception e){
@@ -341,7 +344,6 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
 
         //Denuncia
         comparecer_d = d.getComparecer_d();
-
         Descripciion_D = d.getDescripcion_Pedido();
         Documentos_D = d.getDoc();
 
@@ -366,6 +368,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         Apellido_P = Peticionario_PE.getApellido();
         Mail_P= Peticionario_PE.getEmail();
         Identidad_P=Peticionario_PE.getIdentidad();
+        Descripciion_D = Pedido.getDescripcion_Pedido();
 
         Nombre_DE = DatosEntidad.getNombre_D();
         Apellido_DE = DatosEntidad.getApellido_D();
@@ -376,6 +379,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         txtCorreo.setText(Mail_P);
         txtNombreDenunciado.setText(Nombre_DE);
         txtApellidoDenunciado.setText(Apellido_DE);
+        txtPedido.setText(Descripciion_D);
 
 
     }

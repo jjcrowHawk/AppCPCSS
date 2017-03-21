@@ -100,6 +100,7 @@ public class Pedido extends Fragment implements AdapterView.OnItemSelectedListen
         siguiente = (Button) view.findViewById(R.id.btnSiguientePedido);
         descripcion = (EditText) view.findViewById(R.id.txt_descripcion_ped);
 
+
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

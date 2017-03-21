@@ -69,7 +69,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
     static EditText txtCorreo;
     static EditText txtNombreDenunciado;
     static EditText txtApellidoDenunciado;
-    EditText txtDenuncia;
+    static EditText txtDenuncia;
     String correo;
     String contraseña;
     Session session;
@@ -87,7 +87,8 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
     String TipoIde_P;
     String Genero_P;
     String Reservada_p;
-    String Descripciion_D,comparecer_d,hechos_d;
+    static String Descripciion_D;
+    String comparecer_d,hechos_d;
     static String Nombre_DE;
     static String Apellido_DE;
     String Cargo_DE;
@@ -139,7 +140,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
        txtCorreo = (EditText)view.findViewById(R.id.txt_correo);
        txtNombreDenunciado = (EditText)view.findViewById(R.id.txt_nombreDenunciado);
        txtApellidoDenunciado = (EditText)view.findViewById(R.id.txt_ApellidosDenunciado);
-       //txtDenuncia = (EditText)view.findViewById(R.id.m_txt_descripcion);
+       txtDenuncia = (EditText)view.findViewById(R.id.txt_Descripcion_De);
        correo ="prueba.envio.formulario@gmail.com";
        contraseña="espol1234";
 
@@ -176,7 +177,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         txtCorreo.setEnabled(false);
         txtNombreDenunciado.setEnabled(false);
         txtApellidoDenunciado.setEnabled(false);
-        //txtDenuncia.setEnabled(false);
+        txtDenuncia.setEnabled(false);
     }
 
     public static void setearDatos(){
@@ -188,12 +189,15 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         Nombre_DE = Denunciado.getNombre_D();
         Apellido_DE = Denunciado.getApellido_D();
 
+        Descripciion_D = Denuncia.getDescripcion_Denuncia();
+
         m_txtNombrePet.setText(Nombre_P);
         m_txtApellidoPet.setText(Apellido_P);
         txtIdent.setText(Identidad_P);
         txtCorreo.setText(Mail_P);
         txtNombreDenunciado.setText(Nombre_DE);
         txtApellidoDenunciado.setText(Apellido_DE);
+        txtDenuncia.setText(Descripciion_D);
 
 
     }

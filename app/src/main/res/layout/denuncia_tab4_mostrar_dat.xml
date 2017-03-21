@@ -9,7 +9,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
-        android:layout_height="550dp">
+        android:layout_height="800dp">
 
         <TextView
             android:text="Información Resumida"
@@ -121,42 +121,49 @@
                 />
         </android.support.design.widget.TextInputLayout>
 
-        <!--
         <LinearLayout
+            android:id="@+id/des"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:background="@color/grey"
-            android:layout_marginTop="430dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_below="@+id/lbl_apel_denuciado"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="50dp">
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/lbl_descripcion"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+
+            <EditText
+                android:id="@+id/txt_Descripcion_De"
+                android:inputType="textMultiLine"
+                android:layout_marginTop="10dp"
+                android:lines="8"
+                android:minLines="6"
+                android:textColor="#000000"
+                android:gravity="top|left"
+                android:maxLines="10"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
                 android:scrollbars="vertical"
-                android:layout_margin="10dp"
-                >
+                />
 
-                <EditText
-                    android:id="@+id/m_txt_descripcion"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textColor="#000000"
-                    android:hint="Denuncia"
-                    android:textSize="16sp"
-                    android:inputType="textMultiLine"
-
-                    />
-            </android.support.design.widget.TextInputLayout>
         </LinearLayout>
-        -->
+
+        <TextView
+            android:text="Descripción de la Denuncia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbl_apel_denuciado"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="21dp"
+            android:id="@+id/Descripción" />
 
         <Button
             android:text="Anterior"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginTop="435dp"
+            android:layout_below="@+id/des"
+            android:layout_marginTop="15dp"
             android:textColor="#ffffff"
             android:background="@color/colorPrimaryDark"
             android:id="@+id/anterior" />
@@ -165,7 +172,8 @@
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="435dp"
+            android:layout_below="@+id/des"
+            android:layout_marginTop="15dp"
             android:textColor="#ffffff"
             android:background="@color/colorPrimaryDark"
             android:id="@+id/enviar" />
