@@ -392,7 +392,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         protected void onPreExecute() {
             super.onPreExecute();
             mProgressDialog = new ProgressDialog(MostrarDatosPedido.this.getContext());
-            mProgressDialog.setMessage("Guardando su denuncia...");
+            mProgressDialog.setMessage("Guardando su pedido...");
             mProgressDialog.setIndeterminate(false);
             mProgressDialog.show();
         }
