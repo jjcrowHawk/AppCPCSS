@@ -22,7 +22,7 @@ import com.example.personal.comunitarias.R;
 public class TabsPedido extends AppCompatActivity {
 
     TabLayout tabLayout;
-    ViewPager viewPager;
+    CustomViewPager viewPager;
     LinearLayout tabStrip;
 
 
@@ -40,7 +40,8 @@ public class TabsPedido extends AppCompatActivity {
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager = (CustomViewPager) findViewById(R.id.viewPager);
+        viewPager.setPagingEnabled(false);
         viewPager.setAdapter(new CustomAdapter(getSupportFragmentManager(), getApplicationContext()));
 
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
