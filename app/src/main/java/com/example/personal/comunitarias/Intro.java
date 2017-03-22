@@ -50,6 +50,7 @@ public class Intro extends AppCompatActivity {
 
                 Log.d("SIZE estado civil: ", ""+DBHelper.getAllEstadocivil().size());
                 Log.d("SIZE nivel: ", ""+DBHelper.getAllNiveleducacion().size());
+                Log.d("SIZE ocupa: ", ""+DBHelper.getAllOcupacionNombres().size());
                 Log.d("SIZE ciudades: ", ""+DBHelper.getAllCiudades().size());
                 Log.d("SIZE inst: ", ""+DBHelper.getAllInstitucionNombres().size());
 

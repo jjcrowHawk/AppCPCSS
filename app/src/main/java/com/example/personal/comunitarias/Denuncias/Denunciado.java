@@ -57,7 +57,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
 
 
     private Spinner  ocupacion_denunciado;
-    private ArrayAdapter<CharSequence>  adapterOcupaDenunciado;
+    private ArrayAdapter<String>  adapterOcupaDenunciado;
 
     private EditText txtNombre, txtApellido, txtCargo, txtUnAfectada, txtPerjud;
     Button btn_enviar_r;
@@ -135,8 +135,10 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
 
         //Spinner Ocupacion : empleado publico o privado
         ocupacion_denunciado = (Spinner) view.findViewById(R.id.spinnerOcupacionDenunciado);
-        adapterOcupaDenunciado = ArrayAdapter.createFromResource(getContext(),
-                R.array.ocupacion, android.R.layout.simple_spinner_item);
+        adapterOcupaDenunciado = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllOcupacionNombres());
+        /*adapterOcupaDenunciado = ArrayAdapter.createFromResource(getContext(),
+                R.array.ocupacion, android.R.layout.simple_spinner_item);*/
         adapterOcupaDenunciado.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ocupacion_denunciado.setAdapter(adapterOcupaDenunciado);
 
@@ -186,8 +188,8 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                 Provincia_d = provincia.getSelectedItem().toString();
                 CIudad_d = ciudad.getSelectedItem().toString();
                 Institucion_d = search.getText().toString();
-
-                idIndti = i.getID_DB(Institucion_d);
+                //idIndti = i.getID_DB(Institucion_d);
+                idIndti = new DatabaseHelper(getContext()).getInstitucion_id(Institucion_d);
                 idProvDE = new DatabaseHelper(getContext()).getProvincia(Provincia_d);
                 idCiuDE = new DatabaseHelper(getContext()).getCiudad_id(CIudad_d);
 

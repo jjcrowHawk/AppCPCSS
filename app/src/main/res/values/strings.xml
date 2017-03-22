@@ -22,8 +22,8 @@
     <string name="title_contacto">Contáctenos</string>
 
     <string-array name="si_no">
-        <item>Si</item>
-        <item>No</item>
+        <item>SI</item>
+        <item>NO</item>
     </string-array>
 
     <string-array name="ocupacion">
@@ -32,14 +32,14 @@
     </string-array>
 
     <string-array name="tipo_identificacion">
-        <item>Cédula</item>
+        <item>CÉDULA</item>
         <item>RUC</item>
-        <item>Pasaporte</item>
+        <item>PASAPORTE</item>
     </string-array>
 
     <string-array name="genero">
-        <item>Femenino</item>
-        <item>Masculino</item>
+        <item>FEMENINO</item>
+        <item>MASCULINO</item>
     </string-array>
 
     <string-array name="estado_civil">

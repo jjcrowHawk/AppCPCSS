@@ -303,7 +303,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         Identidad_P=p.getIdentidad();
         //Reservada_p=p.getIdentidadReservada();
 
-        if(Reservada_p=="Si"){
+        if(Reservada_p=="SI"){
             reservada = "1";
 
         }else{
@@ -316,7 +316,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         Nacio_p=p.getNacio();
         Reside_p=p.getReside();
 
-        if(Reside_p=="Si"){
+        if(Reside_p=="SI"){
             reside = "1";
 
         }else{
@@ -325,7 +325,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         Nivel_P=p.getNivelEdu();
         TipoIde_P=p.getTipoIden();
         Genero_P=p.getGenero();
-        if(Genero_P=="Masculino"){
+        if(Genero_P=="MASCULINO"){
             gen = "1";
 
         }else{

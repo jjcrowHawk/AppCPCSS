@@ -211,7 +211,8 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
                     Provincia_d = provincia.getSelectedItem().toString();
                     CIudad_d = ciudad.getSelectedItem().toString();
                     Institucion_d = search.getText().toString();
-                    idIndti = i.getID_DB(Institucion_d);
+                    //idIndti = i.getID_DB(Institucion_d);
+                    idIndti = new DatabaseHelper(getContext()).getInstitucion_id(Institucion_d);
                     idProvDE = new DatabaseHelper(getContext()).getProvincia(Provincia_d);
                     idCiuDE = new DatabaseHelper(getContext()).getCiudad_id(CIudad_d);
 

@@ -5,10 +5,16 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.ocupacion;
 
+import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
+import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -20,6 +26,9 @@ public class Ocupacion extends _Default {
     String descripcion;
 
     public Ocupacion() {
+        idocupacion=-1;
+        nombre="";
+        descripcion="";
     }
 
     public Ocupacion(String descripcion, String nombre) {
@@ -41,6 +50,40 @@ public class Ocupacion extends _Default {
             this._status = false;
         }
         return id_encontrada;
+    }
+
+    //Obtener la lista de Ocupacion
+    public ArrayList<Ocupacion> getListaOcupacion() {
+        ArrayList<Ocupacion> lista = new ArrayList<Ocupacion>();
+
+        //Establecemos la conexión
+        Conexion c = null;
+        try {
+            c = new Conexion();
+            Connection conn= c.getConn();
+
+            //Creamos el query
+            Statement st = conn.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.ocupacion");
+
+            if (resultSet != null){
+                while (resultSet.next()){
+                    Ocupacion obj = new Ocupacion();
+                    obj.setIdocupacion(resultSet.getInt("id"));
+                    obj.setNombre(resultSet.getString("nombre"));
+                    lista.add(obj);
+                    obj = null;
+                }
+            }
+
+            conn.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return lista;
     }
 
     public int getIdocupacion() {
