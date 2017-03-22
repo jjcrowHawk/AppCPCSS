@@ -22,7 +22,10 @@
             android:icon="@drawable/video_camera"
             android:title="Cpccs TV" />
 
-
+        <item
+            android:id="@+id/contactenos"
+            android:icon="@drawable/contactenos"
+            android:title="Contáctenos" />
 
     </group>
 

@@ -149,11 +149,11 @@ public class TabsPedido extends AppCompatActivity {
         //replaces the default 'Back' button action
         if(keyCode==KeyEvent.KEYCODE_BACK)
         {
-            Snackbar.make(coordinatorLayout, "!Si retrocede se perderán los datos ingresados! ¿Desea regresar? ", Snackbar.LENGTH_LONG)
+            Snackbar.make(coordinatorLayout, "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar? ", Snackbar.LENGTH_LONG)
                     //.setActionTextColor(Color.CYAN)
 
                     .setActionTextColor(getResources().getColor(R.color.colorAccent))
-                    .setDuration(6000)
+                    .setDuration(7000)
                     .setAction("Si", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {

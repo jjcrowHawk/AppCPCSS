@@ -19,6 +19,7 @@
     <string name="title_activity_vision">Visión</string>
     <string name="title_denuncia">DENUNCIAS</string>
     <string name="title_pedido">PEDIDOS</string>
+    <string name="title_contacto">Contáctenos</string>
 
     <string-array name="si_no">
         <item>Si</item>

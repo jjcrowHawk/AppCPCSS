@@ -36,7 +36,10 @@
             android:name=".Pedidos.TabsPedido"
             android:theme="@style/AppTheme.NoActionBar"
             android:label="@string/title_pedido"/>
-
+        <activity
+            android:name=".Contactenos.Contacto"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/title_contacto"/>
 
         <activity
             android:name=".tweets.TwitterActivity"
