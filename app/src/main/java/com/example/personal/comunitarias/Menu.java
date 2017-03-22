@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.personal.comunitarias.Contactenos.Contacto;
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.Denuncias.TabsDenuncia;
 import com.example.personal.comunitarias.Mision.Mision;
@@ -204,6 +205,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             else
                 startActivity (new Intent(getApplicationContext(), IntroVideos.class));
 
+
         } else if (id == R.id.nav_tweets) {
             if(!isOnlineNet())
                 Snackbar.make((ViewGroup) ((ViewGroup) this
@@ -226,6 +228,8 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
                         .setAction("Action", null).show();
             else
                 startActivity (new Intent(getApplicationContext(), IntroTv.class));
+        } else if (id == R.id.contactenos) {
+                startActivity (new Intent(getApplicationContext(), Contacto.class));
         }
 
 
@@ -271,4 +275,8 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
         return false;
     }
+
+
 }
+
+
