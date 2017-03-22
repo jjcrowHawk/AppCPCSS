@@ -235,7 +235,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         pd.setGenerodenunciado(Genero_DE);
         pd.setGenerodenunciante(Genero_P);
         pd.setNiveleducaciondenunciateid(idNivelEduca);
-        pd.setOcupaciondenuncianteid(1);//falta esto
+        pd.setOcupaciondenuncianteid(idocupacionP);
         pd.setEstadocivildenuncianteid(idestado);
         pd.setInstitucionimplicadaid(idIndti);
         pd.setNacionalidaddenuncianteid(idNacionalidad);
@@ -326,7 +326,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         edad_p = p.getEdad();
         cargo_p = p.getCargo();
 
-        if(Reservada_p=="SI"){
+        if(Reservada_p.equals("SI")){
             reservada = "1";
 
         }else{
@@ -340,7 +340,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         Reside_p=p.getReside();
         telefono_p = p.getTelefono();
 
-        if(Reside_p=="SI"){
+        if(Reside_p.equals("SI")){
             reside = "1";
 
         }else{

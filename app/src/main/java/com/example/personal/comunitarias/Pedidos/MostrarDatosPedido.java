@@ -92,6 +92,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
     String reservada = "";
     String reside = "";
     String gen = "";
+    String Direccion_p,edad_p,cargo_p,telefono_p,NombreApellido_P,NombreApellido_D;
 
     //
     ProgressDialog mProgressDialog;
@@ -179,34 +180,23 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
 
     public void Guardar_Base(){
 
-// falta llenar la base
-        /*Provincia IdPr = new Provincia();
-        int IdObtenido = IdPr.getID_DB(provi_P);
-        int IdObtenido_Denunciado = IdPr.getID_DB(Provincia_d);
-        Ciudad c = new Ciudad();
-        int IdCiudad = c.getID_DB(Ciudad_P);
-        int IdCiudad_denucniado = c.getID_DB(CIudad_d);
-        Institucion I = new Institucion();
-        int Id_Institucion = I.getID_DB(Institucion_d);*/
-
-
         reclamo = new Reclamo();
-        reclamo.setCargo("");
+        reclamo.setCargo(cargo_p);
         reclamo.setCiudaddeldenunciadoid(idCiuDE);
         reclamo.setCiudaddeldenuncianteid(idCiuP);
         reclamo.setComparecer(comparecer_d);
-        reclamo.setDireccion("");
+        reclamo.setDireccion(Direccion_p);
         reclamo.setDocumentores("0");
         reclamo.setEmail(Mail_P);
         reclamo.setResideextrangero(reside);
-        reclamo.setIdentidadreservada(reservada);
-        reclamo.setNombresapellidosdenunciado("");
-        reclamo.setNombresapellidosdenunciante(Nombre_P);
+        reclamo.setIdentidadreservada("0");
+        reclamo.setNombresapellidosdenunciado(NombreApellido_D);
+        reclamo.setNombresapellidosdenunciante(NombreApellido_P);
         reclamo.setInstitucionimplicadaid(idIndti);
         reclamo.setNumidenti(Identidad_P);
         reclamo.setProvinciadenunciadoid(idProvDE);
         reclamo.setProvinciadenuncianteid(idProvp);
-        reclamo.setTelefono("");
+        reclamo.setTelefono(telefono_p);
         reclamo.setTipoidentificacion(TipoIde_P);
 
         pd = new Predenuncia();
@@ -216,7 +206,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         pd.setGenerodenunciado(Genero_DE);
         pd.setGenerodenunciante(Genero_P);
         pd.setNiveleducaciondenunciateid(idNivelEduca);
-        pd.setOcupaciondenuncianteid(1);
+        pd.setOcupaciondenuncianteid(idocupacionP);
         pd.setEstadocivildenuncianteid(idestado);
         pd.setInstitucionimplicadaid(idIndti);
         pd.setNacionalidaddenuncianteid(idNacionalidad);
@@ -299,24 +289,29 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         //Peticionario
         Nombre_P = p.getNombre();
         Apellido_P = p.getApellido();
+        NombreApellido_P = Nombre_P +" "+ Apellido_P;
         Mail_P= p.getEmail();
         Identidad_P=p.getIdentidad();
+        Direccion_p = p.getDireccion();
+        edad_p = p.getEdad();
+        cargo_p = p.getCargo_Pet();
         //Reservada_p=p.getIdentidadReservada();
 
-        if(Reservada_p=="SI"){
+        /*if(Reservada_p.equals("SI")){
             reservada = "1";
 
         }else{
             reservada = "0";
-        }
+        }*/
         //Ocupacion_P=p.getOcupacion();
         Estadocivil_P= p.getEstado_civil();
         provi_P= p.getProvi();
         Ciudad_P=p.getCiuda();
         Nacio_p=p.getNacio();
         Reside_p=p.getReside();
+        telefono_p = p.getTelefono();
 
-        if(Reside_p=="SI"){
+        if(Reside_p.equals("SI")){
             reside = "1";
 
         }else{
@@ -353,6 +348,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         //Denunciado
         Nombre_DE = e.getNombre_D();
         Apellido_DE = e.getApellido_D();
+        NombreApellido_D = Nombre_DE +" "+ Apellido_DE;
         Cargo_DE = e.getCargo_D();
         Genero_DE = e.getGenero_d();
 

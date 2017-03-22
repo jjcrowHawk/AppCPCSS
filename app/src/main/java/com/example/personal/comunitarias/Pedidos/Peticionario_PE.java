@@ -70,6 +70,7 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
     static String Edad_Pet;
     static String Cargo_Pet;
     static String Orga_Pet;
+    String ocupacion;
 
     public Peticionario_PE(ViewPager viewPager) {
         this.viewPager = viewPager;
@@ -293,13 +294,14 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
                 Nombre = txtNombre.getText().toString();
                 Apellido = txtApellido.getText().toString();
                 Identidad = txtIdent.getText().toString();
-                //Ocupacion = txtOcupacion.getText().toString();
+                ocupacion = ocupacion_peticionario_pedido.getSelectedItem().toString();
                 Email = txtCorreo.getText().toString();
                 Telefono = txtTelefono.getText().toString();
                 Direccion = txtDireccion.getText().toString();
                 Edad_Pet= txtEdadP.getText().toString();
                 Orga_Pet =  txtOrganizacionSocialP.getText().toString();
                 Cargo_Pet = txtCargoPeticionarioP.getText().toString();
+                idocupacionP = new DatabaseHelper(getContext()).getOcupacion_id(ocupacion);
 
 
                 //IdentidadReservada = identidad.getSelectedItem().toString();
@@ -563,6 +565,63 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
     public static void setCiuda(String ciuda) {
         Ciuda = ciuda;
     }
+
+    public static String getTelefono() {
+        return Telefono;
+    }
+
+    public static void setTelefono(String telefono) {
+        Telefono = telefono;
+    }
+
+    public static String getDireccion() {
+        return Direccion;
+    }
+
+    public static void setDireccion(String direccion) {
+        Direccion = direccion;
+    }
+
+    public static String getEdad() {
+        return Edad_Pet;
+    }
+
+    public static void setEdad(String edad) {
+        Edad_Pet = edad;
+    }
+
+    public static String getIdentidadReservada() {
+        return IdentidadReservada;
+    }
+
+    public static void setIdentidadReservada(String identidadReservada) {
+        IdentidadReservada = identidadReservada;
+    }
+
+    public static String getEdad_Pet() {
+        return Edad_Pet;
+    }
+
+    public static void setEdad_Pet(String edad_Pet) {
+        Edad_Pet = edad_Pet;
+    }
+
+    public static String getCargo_Pet() {
+        return Cargo_Pet;
+    }
+
+    public static void setCargo_Pet(String cargo_Pet) {
+        Cargo_Pet = cargo_Pet;
+    }
+
+    public static String getOrga_Pet() {
+        return Orga_Pet;
+    }
+
+    public static void setOrga_Pet(String orga_Pet) {
+        Orga_Pet = orga_Pet;
+    }
+
 
 }
 
