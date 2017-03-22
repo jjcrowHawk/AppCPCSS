@@ -291,7 +291,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 Log.d("pet",Ciuda +"    "+ provi);
 
 
-                //idocupacionP = new DatabaseHelper(getContext());
+                idocupacionP = new DatabaseHelper(getContext()).getOcupacion_id(OcupacionPeticionario);
                 idestado = new DatabaseHelper(getContext()).getEstadocivil_id(Estado_civil);
                 idNivelEduca = new DatabaseHelper(getContext()).getNiveleducacion_id(NivelEdu);
                 idNacionalidad = new DatabaseHelper(getContext()).getNacionalidad_id(Nacio);
@@ -739,6 +739,32 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
     public static void setCiuda(String ciuda) {
         Ciuda = ciuda;
+    }
+
+    public static String getTelefono() {
+        return Telefono;
+    }
+
+    public static void setTelefono(String telefono) {
+        Telefono = telefono;
+    }
+
+    public static String getDireccion() {
+        return Direccion;
+    }
+
+    public static void setDireccion(String direccion) {  Direccion = direccion;  }
+
+    public static String getEdad() {  return Edad;  }
+
+    public static void setEdad(String edad) { Edad = edad;  }
+
+    public static String getOcupacionPeticionario() {
+        return OcupacionPeticionario;
+    }
+
+    public static void setOcupacionPeticionario(String ocupacionPeticionario) {
+        OcupacionPeticionario = ocupacionPeticionario;
     }
 
 

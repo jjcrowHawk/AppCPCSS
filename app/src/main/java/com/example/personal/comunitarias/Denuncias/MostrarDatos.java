@@ -102,6 +102,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
     String reservada = "";
     String reside = "";
     String gen = "";
+    String Direccion_p,edad_p,cargo_p,telefono_p,NombreApellido_P,NombreApellido_D;
 
     //
     ProgressDialog mProgressDialog;
@@ -145,15 +146,6 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
        contraseña="espol1234";
 
        obtenerinformacion();
-       /*m_txtNombrePet.setText(Nombre_P);
-       m_txtApellidoPet.setText(Apellido_P);
-       txtIdent.setText(Identidad_P);
-       txtCorreo.setText(Mail_P);
-       if(txtNombreDenunciado.equals("")){
-           obtenerinformacion();
-           txtNombreDenunciado.setText(Nombre_DE);
-       }*/
-
 
        guardar = (Button) view.findViewById(R.id.enviar);
 
@@ -215,35 +207,25 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
 
     public void Guardar_Base(){
 
-// falta llenar la base
-        /*Provincia IdPr = new Provincia();
-        int IdObtenido = IdPr.getID_DB(provi_P);
-        int IdObtenido_Denunciado = IdPr.getID_DB(Provincia_d);
-        Ciudad c = new Ciudad();
-        int IdCiudad = c.getID_DB(Ciudad_P);
-        int IdCiudad_denucniado = c.getID_DB(CIudad_d);
-        Institucion I = new Institucion();
-        int Id_Institucion = I.getID_DB(Institucion_d);*/
-
         reclamo = new Reclamo();
         //reclamo.setCargo(Ocupacion_P);
-        reclamo.setCargo("");
+        reclamo.setCargo(cargo_p);
         reclamo.setCiudaddeldenunciadoid(idCiuDE);
         reclamo.setCiudaddeldenuncianteid(idCiuP);
         reclamo.setComparecer(comparecer_d);
-        reclamo.setDireccion("");
+        reclamo.setDireccion(Direccion_p);
         //reclamo.setDocumentores(hechos_d);
         reclamo.setDocumentores("0");
         reclamo.setEmail(Mail_P);
         reclamo.setResideextrangero(reside);
         reclamo.setIdentidadreservada(reservada);
-        reclamo.setNombresapellidosdenunciado(Nombre_DE);
-        reclamo.setNombresapellidosdenunciante(Nombre_P);
+        reclamo.setNombresapellidosdenunciado(NombreApellido_D);
+        reclamo.setNombresapellidosdenunciante(NombreApellido_P);
         reclamo.setInstitucionimplicadaid(idIndti);
         reclamo.setNumidenti(Identidad_P);
         reclamo.setProvinciadenunciadoid(idProvDE);
         reclamo.setProvinciadenuncianteid(idProvp);
-        reclamo.setTelefono("");
+        reclamo.setTelefono(telefono_p);
         reclamo.setTipoidentificacion(TipoIde_P);
 
         pd = new Predenuncia();
@@ -253,7 +235,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         pd.setGenerodenunciado(Genero_DE);
         pd.setGenerodenunciante(Genero_P);
         pd.setNiveleducaciondenunciateid(idNivelEduca);
-        pd.setOcupaciondenuncianteid(1);
+        pd.setOcupaciondenuncianteid(1);//falta esto
         pd.setEstadocivildenuncianteid(idestado);
         pd.setInstitucionimplicadaid(idIndti);
         pd.setNacionalidaddenuncianteid(idNacionalidad);
@@ -336,9 +318,13 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         //Peticionario
         Nombre_P = p.getNombre();
         Apellido_P = p.getApellido();
+        NombreApellido_P = Nombre_P +" " + Apellido_P;
         Mail_P= p.getEmail();
         Identidad_P=p.getIdentidad();
         Reservada_p=p.getIdentidadReservada();
+        Direccion_p = p.getDireccion();
+        edad_p = p.getEdad();
+        cargo_p = p.getCargo();
 
         if(Reservada_p=="SI"){
             reservada = "1";
@@ -352,6 +338,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         Ciudad_P=p.getCiuda();
         Nacio_p=p.getNacio();
         Reside_p=p.getReside();
+        telefono_p = p.getTelefono();
 
         if(Reside_p=="SI"){
             reside = "1";
@@ -392,6 +379,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         //Denunciado
         Nombre_DE = e.getNombre_D();
         Apellido_DE = e.getApellido_D();
+        NombreApellido_D = Nombre_DE +" "+ Apellido_DE;
         Cargo_DE = e.getCargo_D();
         Provincia_DE = e.getProvincia_d();
         CIudad_DE = e.getCIudad_d();
