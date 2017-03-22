@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias.oficinas;
+package com.example.personal.comunitarias.Oficinas;
 
 import android.content.Intent;
 import android.os.Bundle;

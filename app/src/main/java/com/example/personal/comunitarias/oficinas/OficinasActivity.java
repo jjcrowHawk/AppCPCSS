@@ -1,18 +1,17 @@
-package com.example.personal.comunitarias.oficinas;
+package com.example.personal.comunitarias.Oficinas;
 
 import android.content.Intent;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.TextView;
 
 import com.example.personal.comunitarias.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -32,6 +31,7 @@ public class OficinasActivity extends AppCompatActivity
     private GoogleMap mMap;
     private OficinasReader officereader;
     public static Oficina select;
+    MaterialTapTargetPrompt mFabPrompt;
 
 
     @Override
@@ -55,6 +55,10 @@ public class OficinasActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // setup de tap guia
+        setupHelpTap();
+
 
 
 
@@ -155,6 +159,43 @@ public class OficinasActivity extends AppCompatActivity
         }
 
     }
+
+    public void setupHelpTap()
+    {
+        if (mFabPrompt != null)
+        {
+            return;
+        }
+        mFabPrompt = new MaterialTapTargetPrompt.Builder(OficinasActivity.this)
+                .setTarget(findViewById(R.id.eligeProvincia))
+                .setPrimaryText("Elija la provincia")
+                .setSecondaryText("Seleccione la provincia de la cual desea saber la ubicacion del Consejo de Participación Ciudadana y Control Social ")
+                .setAnimationInterpolator(new FastOutSlowInInterpolator())
+                .setAutoDismiss(false)
+                .setAutoFinish(false)
+                .setCaptureTouchEventOutsidePrompt(true)
+                .setOnHidePromptListener(new MaterialTapTargetPrompt.OnHidePromptListener()
+                {
+                    @Override
+                    public void onHidePrompt(MotionEvent event, boolean tappedTarget)
+                    {
+                        if (tappedTarget)
+                        {
+                            mFabPrompt.finish();
+                            mFabPrompt = null;
+                        }
+                    }
+
+                    @Override
+                    public void onHidePromptComplete()
+                    {
+
+                    }
+                })
+                .show();
+    }
+
+
 
 
 

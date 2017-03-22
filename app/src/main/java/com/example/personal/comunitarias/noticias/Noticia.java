@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias.noticias;
+package com.example.personal.comunitarias.Noticias;
 
 
 

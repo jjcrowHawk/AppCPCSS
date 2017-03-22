@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias.tv;
+package com.example.personal.comunitarias.CpccsTV;
 
 import android.content.Intent;
 import android.os.Bundle;

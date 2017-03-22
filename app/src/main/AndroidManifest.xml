@@ -42,16 +42,16 @@
             android:label="@string/title_contacto"/>
 
         <activity
-            android:name=".tweets.TwitterActivity"
+            android:name=".Twitter.TwitterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Tweets"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".videos.YoutubeVideos"
+            android:name=".Youtube.YoutubeVideos"
             android:label="Videos"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".videos.IntroVideos"
+            android:name=".Youtube.IntroVideos"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
@@ -59,15 +59,15 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".tweets.IntroTweets"
+            android:name=".Twitter.IntroTweets"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".tv.CpccsTv"
+            android:name=".CpccsTV.CpccsTv"
             android:label="@string/title_activity_cpccs_tv"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".tv.IntroTv"
+            android:name=".CpccsTV.IntroTv"
             android:theme="@style/AppTheme.NoActionBar" >
 
         </activity>
@@ -164,47 +164,47 @@
 
 
         <activity
-            android:name=".noticias.MainActivity"
+            android:name=".Noticias.NoticiasActivity"
             android:label="Noticias Y Boletines"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
-            android:name=".noticias.DetailActivity"
-            android:parentActivityName=".noticias.MainActivity"
+            android:name=".Noticias.DetailActivity"
+            android:parentActivityName=".Noticias.NoticiasActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".noticias.MainActivity" />
+                android:value=".Noticias.NoticiasActivity" />
         </activity>
         <activity
-            android:name=".noticias.Intro_noticias"
+            android:name=".Noticias.Intro_noticias"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 
         <activity
-            android:name=".oficinas.OfficeDialog"
+            android:name=".Oficinas.OfficeDialog"
             android:label=" "
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:name=".oficinas.OficinasActivity"
+            android:name=".Oficinas.OficinasActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Oficinas"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".oficinas.IntroOficinas"
+            android:name=".Oficinas.IntroOficinas"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
-            android:name=".IntroFacebook"
+            android:name=".Facebook.IntroFacebook"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
-            android:name=".FacebookActivity"
+            android:name=".Facebook.FacebookActivity"
             android:label="Facebook"
             android:theme="@style/AppTheme.NoActionBar">
 

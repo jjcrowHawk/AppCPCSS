@@ -1,5 +1,5 @@
 
-package com.example.personal.comunitarias.noticias;
+package com.example.personal.comunitarias.Noticias;
 
 import android.content.Context;
 import android.content.Intent;

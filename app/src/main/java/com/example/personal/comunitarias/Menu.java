@@ -15,7 +15,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,17 +24,18 @@ import android.widget.Toast;
 import com.example.personal.comunitarias.Contactenos.Contacto;
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.Denuncias.TabsDenuncia;
+import com.example.personal.comunitarias.Facebook.IntroFacebook;
 import com.example.personal.comunitarias.Mision.Mision;
 import com.example.personal.comunitarias.Mision.Vision;
 import com.example.personal.comunitarias.Pedidos.TabsPedido;
-import com.example.personal.comunitarias.noticias.BoletinesDataBase;
-import com.example.personal.comunitarias.noticias.Intro_noticias;
-import com.example.personal.comunitarias.noticias.NoticiasDataBase;
-import com.example.personal.comunitarias.oficinas.IntroOficinas;
+import com.example.personal.comunitarias.Noticias.BoletinesDataBase;
+import com.example.personal.comunitarias.Noticias.Intro_noticias;
+import com.example.personal.comunitarias.Noticias.NoticiasDataBase;
+import com.example.personal.comunitarias.Oficinas.IntroOficinas;
 import com.example.personal.comunitarias.preguntas.PreguntasFrecuentes;
-import com.example.personal.comunitarias.tv.IntroTv;
-import com.example.personal.comunitarias.tweets.IntroTweets;
-import com.example.personal.comunitarias.videos.IntroVideos;
+import com.example.personal.comunitarias.CpccsTV.IntroTv;
+import com.example.personal.comunitarias.Twitter.IntroTweets;
+import com.example.personal.comunitarias.Youtube.IntroVideos;
 
 public class Menu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

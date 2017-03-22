@@ -6,7 +6,7 @@ android:id="@+id/activity_intro_videos"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 
-tools:context="com.example.personal.comunitarias.videos.IntroVideos"
+tools:context="com.example.personal.comunitarias.Youtube.IntroVideos"
 android:background="#ffffff">
 
 <ImageView

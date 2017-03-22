@@ -1,9 +1,11 @@
-package com.example.personal.comunitarias;
+package com.example.personal.comunitarias.Facebook;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
+
+import com.example.personal.comunitarias.R;
 
 public class IntroFacebook extends AppCompatActivity {
 

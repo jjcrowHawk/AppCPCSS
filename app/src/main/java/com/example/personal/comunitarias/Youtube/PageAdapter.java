@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias.videos;
+package com.example.personal.comunitarias.Youtube;
 
 import android.content.Context;
 import android.view.LayoutInflater;

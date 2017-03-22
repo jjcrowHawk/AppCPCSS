@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias.oficinas;
+package com.example.personal.comunitarias.Oficinas;
 
 
 import com.google.android.gms.maps.model.LatLng;

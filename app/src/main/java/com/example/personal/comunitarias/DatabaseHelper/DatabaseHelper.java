@@ -17,9 +17,8 @@ import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.BaseDeDatos.region.Region;
 import com.example.personal.comunitarias.BaseDeDatos.sector.Sector;
-import com.example.personal.comunitarias.noticias.Noticia;
+import com.example.personal.comunitarias.Noticias.Noticia;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 

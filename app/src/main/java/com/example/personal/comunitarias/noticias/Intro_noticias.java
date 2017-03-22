@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias.noticias;
+package com.example.personal.comunitarias.Noticias;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

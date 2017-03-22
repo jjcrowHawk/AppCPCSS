@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.personal.comunitarias.oficinas.OficinasActivity">
+    tools:context="com.example.personal.comunitarias.Oficinas.OficinasActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -37,10 +37,11 @@
             android:background="@drawable/footer"
             android:id="@+id/imageView4" />
 
-        <Button
+        <android.support.design.widget.FloatingActionButton
             android:text="Selecciona tu Provincia"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/oficinas"
             android:textColor="#ffffff"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="13dp"

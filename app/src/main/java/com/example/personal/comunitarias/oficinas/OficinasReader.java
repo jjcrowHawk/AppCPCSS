@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias.oficinas;
+package com.example.personal.comunitarias.Oficinas;
 
 import android.app.ProgressDialog;
 import android.content.Context;

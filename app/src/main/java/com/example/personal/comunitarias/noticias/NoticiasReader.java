@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias.noticias;
+package com.example.personal.comunitarias.Noticias;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -38,7 +38,7 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
         this.url = "http://www.cpccs.gob.ec/es/category/";
         this.recyclerView = recyclerView;
         // se obtiene la instancia del progrressbar
-        this.pb = (ProgressBar) ((MainActivity) context).findViewById(R.id.footer);
+        this.pb = (ProgressBar) ((NoticiasActivity) context).findViewById(R.id.footer);
     }
 
     @Override
@@ -46,103 +46,120 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
         String numeroPagina = parametros[1];
         String tipo = parametros[0];
         url = url+tipo+"/page/"+numeroPagina+"/";
+        extraerNoticias(tipo);
+        return null;
+    }
+
+    // extrae las noticias de la pagina web
+    public void extraerNoticias(String tipo){
         try {
-                if(isOnlineNet()) {
-                    Document doc = Jsoup.connect(url).get();
-                    for (Element article : doc.select("article")) {
-                        Elements wrap = article.select("div[class=blog-wrap]");
-                        Elements date = wrap.select("div[class=post-date]");
-                        String dia = date.select("span[class=day]").text();
-                        String mes = date.select("span[class=month]").text();
+            if(isOnlineNet()) {
+                Document doc = Jsoup.connect(url).get();
+                for (Element article : doc.select("article")) {
+                    Elements wrap = article.select("div[class=blog-wrap]");
+                    Elements date = wrap.select("div[class=post-date]");
+                    String dia = date.select("span[class=day]").text();
+                    String mes = date.select("span[class=month]").text();
 
-                        Elements image = wrap.select("div[class=entry blog-media]");
-                        Elements img = image.select("a").select("img[src]");
-                        String imgurl = img.attr("src");
-                        Elements contenido = wrap.select("div[class=post-content]");
-                        String content = contenido.select("p").text();
-                        System.out.println(content);
-                        Elements titulo = wrap.select("a");
-                        String link = titulo.attr("href");
-                        String tit = titulo.get(1).text();
-                        Noticia noticia = new Noticia(tit, link, dia + "/" + mes, content, imgurl);
-
-                        SQLiteOpenHelper DBHelper ;
-                        String tabla ;
-                        SQLiteDatabase bd;
-                        if(tipo.equalsIgnoreCase("boletines")){
-                            DBHelper = new BoletinesDataBase(context);
-                            bd = DBHelper.getWritableDatabase();
-                            tabla = "boletin";
-                        }
-                        else{
-                            DBHelper = new NoticiasDataBase(context);
-                            bd = DBHelper.getWritableDatabase();
-                            tabla = "noticia";
-                        }
-                        Cursor fila = bd.rawQuery("select titulo,contenidoprevio from "+ tabla +" where titulo='" + tit + "'", null);
+                    Elements image = wrap.select("div[class=entry blog-media]");
+                    Elements img = image.select("a").select("img[src]");
+                    String imgurl = img.attr("src");
+                    Elements contenido = wrap.select("div[class=post-content]");
+                    String content = contenido.select("p").text();
+                    System.out.println(content);
+                    Elements titulo = wrap.select("a");
+                    String link = titulo.attr("href");
+                    String tit = titulo.get(1).text();
 
 
-                        if (!fila.moveToFirst()) {
-                            ContentValues registro = new ContentValues();
-                            registro.put("titulo", tit);
-                            registro.put("link", link);
-                            registro.put("contenidoprevio", content);
-                            registro.put("dia", dia);
-                            registro.put("mes", mes);
-                            registro.put("urlimagen", imgurl);
+                    //se guarda la noticia en la base local
+                    guardarNoticiaBase(tipo,tit,link,content,dia,mes,imgurl);
 
 
-                            bd.insert(tabla, null, registro);
-                        }
-                        //Para debug
-                        //Cursor fila1 = bd.rawQuery("select contenidoprevio from noticia", null);
-                        //Log.e("FILA1", "" + fila1.getCount());
-
-                         bd.close();
-                    }
-                }
-
-            //Se lee de la base de datos
-            //Se lee de la base de datos
-            SQLiteOpenHelper DBHelper ;
-            String tabla ;
-            SQLiteDatabase bd;
-            if(tipo.equalsIgnoreCase("boletines")){
-                DBHelper = new BoletinesDataBase(context);
-                bd = DBHelper.getWritableDatabase();
-                tabla = "boletin";
-            }
-            else{
-                DBHelper = new NoticiasDataBase(context);
-                bd = DBHelper.getWritableDatabase();
-                tabla = "noticia";
-            }
-            Cursor fila_db = bd.rawQuery("select * from "+tabla, null);
-
-            noticias.clear();
-            if (fila_db.moveToFirst()) {
-
-                while (fila_db.isAfterLast() == false) {
-                    String n_titulo = fila_db.getString(fila_db.getColumnIndex("titulo"));
-                    String n_link = fila_db.getString(fila_db.getColumnIndex("link"));
-                    String n_dia = fila_db.getString(fila_db.getColumnIndex("dia"));
-                    String n_mes = fila_db.getString(fila_db.getColumnIndex("mes"));
-                    String n_contenido = fila_db.getString(fila_db.getColumnIndex("contenidoprevio"));
-                    String n_urlimg = fila_db.getString(fila_db.getColumnIndex("urlimagen"));
-                    Noticia noticia = new Noticia(n_titulo, n_link, n_dia+"/"+n_mes, n_contenido, n_urlimg);
-                    if(!noticias.contains(noticia))
-                        noticias.add(noticia);
-                    fila_db.moveToNext();
                 }
             }
+
+            //Se lee de la base de datos
+            leerNoticiaBase(tipo);
+
 
         } catch (IOException e) {
-
             e.printStackTrace();
         }
 
-        return null;
     }
+
+
+
+    public void guardarNoticiaBase(String tipo, String tit, String link, String content,String dia, String mes, String imgurl){
+        SQLiteOpenHelper DBHelper ;
+        String tabla ;
+        SQLiteDatabase bd;
+        if(tipo.equalsIgnoreCase("boletines")){
+            DBHelper = new BoletinesDataBase(context);
+            bd = DBHelper.getWritableDatabase();
+            tabla = "boletin";
+        }
+        else{
+            DBHelper = new NoticiasDataBase(context);
+            bd = DBHelper.getWritableDatabase();
+            tabla = "noticia";
+        }
+        Cursor fila = bd.rawQuery("select titulo,contenidoprevio from "+ tabla +" where titulo='" + tit + "'", null);
+
+
+        if (!fila.moveToFirst()) {
+            ContentValues registro = new ContentValues();
+            registro.put("titulo", tit);
+            registro.put("link", link);
+            registro.put("contenidoprevio", content);
+            registro.put("dia", dia);
+            registro.put("mes", mes);
+            registro.put("urlimagen", imgurl);
+
+
+            bd.insert(tabla, null, registro);
+        }
+
+        bd.close();
+    }
+
+
+
+    public void leerNoticiaBase(String tipo){
+        SQLiteOpenHelper DBHelper ;
+        String tabla ;
+        SQLiteDatabase bd;
+        if(tipo.equalsIgnoreCase("boletines")){
+            DBHelper = new BoletinesDataBase(context);
+            bd = DBHelper.getWritableDatabase();
+            tabla = "boletin";
+        }
+        else{
+            DBHelper = new NoticiasDataBase(context);
+            bd = DBHelper.getWritableDatabase();
+            tabla = "noticia";
+        }
+        Cursor fila_db = bd.rawQuery("select * from "+tabla, null);
+
+        noticias.clear();
+        if (fila_db.moveToFirst()) {
+
+            while (fila_db.isAfterLast() == false) {
+                String n_titulo = fila_db.getString(fila_db.getColumnIndex("titulo"));
+                String n_link = fila_db.getString(fila_db.getColumnIndex("link"));
+                String n_dia = fila_db.getString(fila_db.getColumnIndex("dia"));
+                String n_mes = fila_db.getString(fila_db.getColumnIndex("mes"));
+                String n_contenido = fila_db.getString(fila_db.getColumnIndex("contenidoprevio"));
+                String n_urlimg = fila_db.getString(fila_db.getColumnIndex("urlimagen"));
+                Noticia noticia = new Noticia(n_titulo, n_link, n_dia+"/"+n_mes, n_contenido, n_urlimg);
+                if(!noticias.contains(noticia))
+                    noticias.add(noticia);
+                fila_db.moveToNext();
+            }
+        }
+    }
+
 
     @Override
     protected void onPreExecute() {

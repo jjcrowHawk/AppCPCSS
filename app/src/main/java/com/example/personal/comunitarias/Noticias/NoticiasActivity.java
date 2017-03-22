@@ -1,6 +1,6 @@
 
 
-package com.example.personal.comunitarias.noticias;
+package com.example.personal.comunitarias.Noticias;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class NoticiasActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
 

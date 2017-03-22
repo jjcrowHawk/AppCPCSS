@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias.noticias;
+package com.example.personal.comunitarias.Noticias;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -158,12 +158,12 @@ public class PrimaryReader extends AsyncTask<String, Void, Void> {
 
         if(stop) {
             if(!noticias.isEmpty()){
-                Intent i=new Intent(context,MainActivity.class);
+                Intent i=new Intent(context,NoticiasActivity.class);
                 (context).startActivity(i);
                 ((Intro_noticias)context).finish();
             }
             else{
-                Intent i=new Intent(context,MainActivity.class);
+                Intent i=new Intent(context,NoticiasActivity.class);
                 (context).startActivity(i);
                 ((Intro_noticias)context).finish();
                 //smejsa esin noticias

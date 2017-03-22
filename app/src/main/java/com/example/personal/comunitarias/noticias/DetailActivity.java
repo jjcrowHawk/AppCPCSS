@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.personal.comunitarias.noticias;
+package com.example.personal.comunitarias.Noticias;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
@@ -23,7 +23,6 @@ import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;

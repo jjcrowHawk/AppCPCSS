@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias;
+package com.example.personal.comunitarias.Facebook;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.example.personal.comunitarias.R;
 
 
 public class FacebookActivity extends AppCompatActivity {

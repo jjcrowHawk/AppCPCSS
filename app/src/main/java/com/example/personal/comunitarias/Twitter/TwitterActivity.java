@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias.tweets;
+package com.example.personal.comunitarias.Twitter;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;

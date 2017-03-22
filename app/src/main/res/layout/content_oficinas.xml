@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.personal.comunitarias.oficinas.OficinasActivity"
+    tools:context="com.example.personal.comunitarias.Oficinas.OficinasActivity"
     tools:showIn="@layout/app_bar_oficinas">
 
 
@@ -18,7 +18,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        tools:context="com.example.personal.comunitarias.oficinas.OficinasActivity"
+        tools:context="com.example.personal.comunitarias.Oficinas.OficinasActivity"
         />
 
 
