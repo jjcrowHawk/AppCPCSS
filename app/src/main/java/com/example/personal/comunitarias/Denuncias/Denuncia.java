@@ -77,8 +77,8 @@ public class Denuncia extends Fragment {
                     //Peticionario d = new Peticionario(viewPager);
 
                     Descripcion_Denuncia= descripcion.getText().toString();
-                    if (comparecer.getSelectedItem().equals("Si")) Comparecer_d ="1";
-                    if (comparecer.getSelectedItem().equals("No")) Comparecer_d ="0";
+                    if (comparecer.getSelectedItem().equals("SI")) Comparecer_d ="1";
+                    if (comparecer.getSelectedItem().equals("NO")) Comparecer_d ="0";
 
                     //
                     viewPager.setCurrentItem(2);

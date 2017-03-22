@@ -33,14 +33,13 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
 
     Spinner tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter7;
-    ArrayAdapter<String> adapter4,adapter5,adapter6;
+    ArrayAdapter<String> adapter4,adapter5,adapter6,adapterOcupaPeticionarioPedido;
     private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtOcupacion, txtTelefono, txtDireccion;
     Button btn_seguir;
     Reclamo rec;
 
 
     Spinner  ocupacion_peticionario_pedido;
-    ArrayAdapter<CharSequence>  adapterOcupaPeticionarioPedido;
     private EditText  txtEdadP, txtOrganizacionSocialP, txtCargoPeticionarioP;
     /******/
     private ViewPager viewPager;
@@ -254,8 +253,10 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
 
         //Spinner Ocupacion : empleado publico o privado
         ocupacion_peticionario_pedido = (Spinner) view.findViewById(R.id.spinnerOcupacionPedido);
-        adapterOcupaPeticionarioPedido = ArrayAdapter.createFromResource(getContext(),
-                R.array.ocupacion, android.R.layout.simple_spinner_item);
+        adapterOcupaPeticionarioPedido = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllOcupacionNombres());
+        /*adapterOcupaPeticionarioPedido = ArrayAdapter.createFromResource(getContext(),
+                R.array.ocupacion, android.R.layout.simple_spinner_item);*/
         adapterOcupaPeticionarioPedido.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ocupacion_peticionario_pedido.setAdapter(adapterOcupaPeticionarioPedido);
 

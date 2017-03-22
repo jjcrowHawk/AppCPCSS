@@ -109,11 +109,11 @@ public class Pedido extends Fragment implements AdapterView.OnItemSelectedListen
                     Toast.makeText(getContext(),"Por favor, ingrese su pedido",Toast.LENGTH_LONG).show();
                 }else {
                     Descripcion_Pedido= descripcion.getText().toString();
-                    if (compadecer.getSelectedItem().equals("Si")) Comparecer_d ="1";
-                    if (compadecer.getSelectedItem().equals("No")) Comparecer_d ="0";
+                    if (compadecer.getSelectedItem().equals("SI")) Comparecer_d ="1";
+                    if (compadecer.getSelectedItem().equals("NO")) Comparecer_d ="0";
 
-                    if (doc_exist.getSelectedItem().equals("Si")) Doc="1";
-                    if (doc_exist.getSelectedItem().equals("No")) Doc="0";
+                    if (doc_exist.getSelectedItem().equals("SI")) Doc="1";
+                    if (doc_exist.getSelectedItem().equals("NO")) Doc="0";
 
                     Log.d("PEDIDO", Descripcion_Pedido +" " + Comparecer_d +" "+ Hechos_d +"" +" "+ Doc);
 

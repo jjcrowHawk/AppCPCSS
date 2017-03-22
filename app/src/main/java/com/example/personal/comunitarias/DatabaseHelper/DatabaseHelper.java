@@ -299,6 +299,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         inicializar_estadocivil();
         inicializar_niveleducacion();
         inicializar_nacionalidad();
+        inicializar_ocupacion();
         inicializar_provincia();
         inicializar_ciudad();
         inicializar_institucion();
@@ -346,6 +347,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void inicializar_ocupacion(){
+        ArrayList<Ocupacion> lista = new Ocupacion().getListaOcupacion();
+        Log.d("SIZE ocupacion: ", ""+lista.size());
+        for (Ocupacion i: lista){
+            createOcupacion(i);
+        }
+    }
+
 
     //-----------------------------------------CRUDS functions---------------------------------------//
 
@@ -364,21 +373,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return region_id;
     }
 
-//    public long createProvincia(Provincia provincia, long[] regiones_ids) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//
-//        ContentValues values = new ContentValues();
-//        values.put(KEY_PROVINCIA_NOMBRE, provincia.getNombre());
-//
-//        // insert row
-//        long provincia_id = db.insert(TABLE_REGION, null, values);
-//
-//        for (long region_id : regiones_ids) {
-//            //createRegionProvincia(region_id, provincia_id);
-//        }
-//
-//        return provincia_id;
-//    }
+
     //ProvinciaRegion
     public long createProvinciaRegion(Provincia provincia, long region_id) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -402,9 +397,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.put(KEY_ID, provincia.getIdprovincia());
             values.put(KEY_PROVINCIA_NOMBRE, provincia.getNombre());
             values.put(KEY_REGION_ID, 0);
+
+            id = db.insert(TABLE_PROVINCIA, null, values);
         }
 
-        id = db.insert(TABLE_PROVINCIA, null, values);
 
         return id;
     }
@@ -431,9 +427,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.put(KEY_ID, ciudad.getIdciudad());
             values.put(KEY_PROVINCIA_ID, ciudad.getProvinciaid());
             values.put(KEY_CIUDAD_NOMBRE, ciudad.getNombre());
+
+            id = db.insert(TABLE_CIUDAD, null, values);
         }
 
-        id = db.insert(TABLE_CIUDAD, null, values);
+
 
         return id;
     }
@@ -501,10 +499,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (getInstitucion(institucion.getIdinstitucion()).getNombre().equals("")) {
             values.put(KEY_ID, institucion.getIdinstitucion());
             values.put(KEY_INSTITUCION_NOMBRE, institucion.getNombre());
+
+            // insert row
+            id = db.insert(TABLE_INSTITUCION, null, values);
         }
 
-        // insert row
-        id = db.insert(TABLE_INSTITUCION, null, values);
+
 
         return id;
     }
@@ -512,16 +512,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Ocupacion
     public long createOcupacion(Ocupacion ocupacion) {
         SQLiteDatabase db = this.getWritableDatabase();
-
-
         ContentValues values = new ContentValues();
-        values.put(KEY_OCUPACION_NOMBRE, ocupacion.getNombre());
-        values.put(KEY_OCUPACION_DESCRIPCION, ocupacion.getDescripcion());
+        long id=-1;
 
-        // insert row
-        long ocupacion_id = db.insert(TABLE_OCUPACION, null, values);
+        if (getOcupacion(ocupacion.getIdocupacion()).getNombre().equals("")) {
+            values.put(KEY_ID, ocupacion.getIdocupacion());
+            values.put(KEY_OCUPACION_NOMBRE, ocupacion.getNombre());
+            values.put(KEY_OCUPACION_DESCRIPCION, ocupacion.getDescripcion());
 
-        return ocupacion_id;
+            // insert row
+            id = db.insert(TABLE_OCUPACION, null, values);
+        }
+
+        return id;
     }
 
     //EstadoCivil
@@ -551,10 +554,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.put(KEY_ID, niveleducacion.getIdniveleducacion());
             values.put(KEY_NIVELEDUCACION_NOMBRE, niveleducacion.getNombre());
             values.put(KEY_NIVELEDUCACION_DESCRIPCION, niveleducacion.getDescripcion());
+
+            // insert row
+            niveleducacion_id = db.insert(TABLE_NIVELEDUCACION, null, values);
         }
 
-        // insert row
-        niveleducacion_id = db.insert(TABLE_NIVELEDUCACION, null, values);
+
 
         return niveleducacion_id;
     }
@@ -568,10 +573,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (getNacionalidad(nacionalidad.getIdnacionalidad()).getNombre().equals("")) {
             values.put(KEY_ID, nacionalidad.getIdnacionalidad());
             values.put(KEY_NACIONALIDAD_NOMBRE, nacionalidad.getNombre());
-        }
 
-        // insert row
-        id = db.insert(TABLE_NACIONALIDAD, null, values);
+            // insert row
+            id = db.insert(TABLE_NACIONALIDAD, null, values);
+        }
 
         return id;
     }
@@ -800,6 +805,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return s;
     }
 
+    //Ocupacion
     public Ocupacion getOcupacion(long ocupacion_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -820,6 +826,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return o;
     }
+
+    public int getOcupacion_id(String nombre) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_OCUPACION + " WHERE "
+                + KEY_OCUPACION_NOMBRE+ " ='" + nombre+"'";
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+        Ocupacion n = new Ocupacion();
+
+        if (c.moveToFirst()) {
+            n.setIdocupacion(c.getInt(c.getColumnIndex(KEY_ID)));
+            n.setNombre(c.getString(c.getColumnIndex(KEY_NACIONALIDAD_NOMBRE)));
+        }
+
+        return n.getIdocupacion();
+    }
+
+
 
     //GET INSTITUCION
     public Institucion getInstitucion(long institucion_id) {
@@ -996,6 +1023,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return r;
     }
+
+
+
+
 
 
     //---------------------- SELECT ALL ------------------------
@@ -1230,6 +1261,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 o.setDescripcion(c.getString(c.getColumnIndex(KEY_OCUPACION_DESCRIPCION)));
 
                 todos.add(o);
+            } while (c.moveToNext());
+        }
+
+        return todos;
+    }
+
+    public List<String> getAllOcupacionNombres() {
+        List<String> todos = new ArrayList<String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_OCUPACION;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+
+                todos.add(c.getString(c.getColumnIndex(KEY_OCUPACION_NOMBRE)));
             } while (c.moveToNext());
         }
 
