@@ -8,11 +8,9 @@ package com.example.personal.comunitarias.BaseDeDatos.reclamo;
 import android.util.Log;
 
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
-import com.example.personal.comunitarias.DatabaseRemote.DB;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 

@@ -5,10 +5,13 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.region;
 
-import com.example.personal.comunitarias.DatabaseRemote.DB;
+import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -29,15 +32,27 @@ public class Region extends _Default {
 
     public int getID_DB(String nombre){
         int id_encontrada=-1;
-        DB db = new DB();
+
+        //Establecemos la conexión
+        Conexion c = null;
         try {
-            ResultSet resultSet = db.select("SELECT * FROM cpccs.region WHERE nombre='"+nombre+"'");
+            c = new Conexion();
+            Connection conn= c.getConn();
+
+            //Creamos el query
+            Statement st = conn.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.region WHERE nombre='"+nombre+"'");
+
             if (resultSet != null) {
                 resultSet.next();
                 id_encontrada=resultSet.getInt("id");
             }
-        }catch (Exception ex){
-            this._mensagem = ex.getMessage();
+            conn.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            this._status = false;
+        } catch (SQLException e) {
+            e.printStackTrace();
             this._status = false;
         }
         return id_encontrada;

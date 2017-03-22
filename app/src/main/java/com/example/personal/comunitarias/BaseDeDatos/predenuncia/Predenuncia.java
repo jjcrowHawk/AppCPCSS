@@ -50,10 +50,19 @@ public class Predenuncia extends _Default {
 
     //Obtener la lista de todas las pre-denuncias
     public ArrayList<Predenuncia> getListaPredenuncia(){
-        DB db = new DB();
+
         ArrayList<Predenuncia> lista = new ArrayList<>();
+
+        //Establecemos la conexión
+        Conexion c = null;
         try {
-            ResultSet resultSet = db.select("SELECT * FROM cpccs.predenuncia");
+            c = new Conexion();
+            Connection conn= c.getConn();
+
+            //Creamos el query
+            Statement st = conn.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.predenuncia");
+
             if (resultSet != null){
                 while (resultSet.next()){
                     Predenuncia obj = new Predenuncia();
@@ -72,8 +81,12 @@ public class Predenuncia extends _Default {
                     obj = null;
                 }
             }
-        }catch (Exception ex){
-            this._mensagem = ex.getMessage();
+            conn.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            this._status = false;
+        } catch (SQLException e) {
+            e.printStackTrace();
             this._status = false;
         }
         return lista;
@@ -111,10 +124,26 @@ public class Predenuncia extends _Default {
 
     public void eliminarPredenuncia(){
         String comando = String.format("DELETE FROM cpccs.predenuncia WHERE id = %d;",this.getIdpredenuncia());
-        DB db = new DB();
-        db.execute(comando);
-        this._mensagem = db.get_mensagem();
-        this._status = db.is_status();
+
+        //Establecemos la conexión
+        try {
+            Conexion c = new Conexion();
+            Connection conn= c.getConn();
+
+            //Creamos el query
+            Statement st = conn.createStatement();
+            int resultSet = st.executeUpdate(comando);
+            Log.e("DELETE Pred result:",""+resultSet);
+
+            conn.close();
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            this._status = false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            this._status = false;
+        }
     }
 
     public int getIdpredenuncia() {

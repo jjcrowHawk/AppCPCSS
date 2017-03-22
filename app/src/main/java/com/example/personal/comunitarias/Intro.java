@@ -8,9 +8,6 @@ import android.util.Log;
 import android.view.WindowManager;
 
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
-import com.example.personal.comunitarias.DatabaseRemote.DB;
-
-import java.sql.SQLException;
 
 public class Intro extends AppCompatActivity {
 
