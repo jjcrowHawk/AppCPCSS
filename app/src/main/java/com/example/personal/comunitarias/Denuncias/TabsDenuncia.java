@@ -2,6 +2,7 @@ package com.example.personal.comunitarias.Denuncias;
 
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
@@ -128,15 +130,17 @@ public class TabsDenuncia extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        Snackbar.make(coordinatorLayout, "!Si retrocede se perderán los datos ingresados! ¿Desea regresar? ", Snackbar.LENGTH_LONG)
-                //.setActionTextColor(Color.CYAN)
-                .setActionTextColor(getResources().getColor(R.color.colorPrimary))
-                .setAction("Si", new View.OnClickListener() {
+        new AlertDialog.Builder(this)
+                .setTitle("¡Aviso!")
+                .setMessage("Si sale del formulario se perderán todos los datos ingresados. ¿Desea salir?")
+                .setPositiveButton("SI", null)
+                .setPositiveButton("Si", new AlertDialog.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick(DialogInterface dialogInterface, int i) {
                         finish();
                     }
                 })
+                .setNegativeButton("NO", null)
                 .show();
 
         return super.onOptionsItemSelected(item);
@@ -148,17 +152,17 @@ public class TabsDenuncia extends AppCompatActivity {
         //replaces the default 'Back' button action
         if(keyCode==KeyEvent.KEYCODE_BACK)
         {
-            Snackbar.make(coordinatorLayout, "!Si retrocede se perderán los datos ingresados! ¿Desea regresar? ", Snackbar.LENGTH_LONG)
-                    //.setActionTextColor(Color.CYAN)
-
-                    .setActionTextColor(getResources().getColor(R.color.colorAccent))
-                    .setDuration(6000)
-                    .setAction("Si", new View.OnClickListener() {
+            new AlertDialog.Builder(this)
+                    .setTitle("¡Aviso!")
+                    .setMessage("Si sale del formulario se perderán todos los datos ingresados. ¿Desea salir?")
+                    .setPositiveButton("SI", null)
+                    .setPositiveButton("Si", new AlertDialog.OnClickListener() {
                         @Override
-                        public void onClick(View view) {
+                        public void onClick(DialogInterface dialogInterface, int i) {
                             finish();
                         }
                     })
+                    .setNegativeButton("NO", null)
                     .show();
 
         }

@@ -90,7 +90,7 @@
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="450dp"
+            android:layout_marginTop="390dp"
             android:textColor="#ffffff"
             android:background="@color/colorPrimaryDark"
             android:id="@+id/btnSiguientePedido" />
@@ -100,7 +100,7 @@
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginTop="450dp"
+            android:layout_marginTop="390dp"
             android:textColor="#ffffff"
             android:background="@color/colorPrimaryDark"
             android:id="@+id/btnPedAnterior" />
