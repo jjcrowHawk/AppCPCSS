@@ -93,17 +93,13 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
 
 
     public void guardarNoticiaBase(String tipo, String tit, String link, String content,String dia, String mes, String imgurl){
-        SQLiteOpenHelper DBHelper ;
+        SQLiteOpenHelper DBHelper = new DatabaseHelper(context);
         String tabla ;
-        SQLiteDatabase bd;
+        SQLiteDatabase  bd = DBHelper.getWritableDatabase();
         if(tipo.equalsIgnoreCase("boletines")){
-            DBHelper = new DatabaseHelper(context);
-            bd = DBHelper.getWritableDatabase();
             tabla = "boletin";
         }
         else{
-            DBHelper = new DatabaseHelper(context);
-            bd = DBHelper.getWritableDatabase();
             tabla = "noticia";
         }
         Cursor fila = bd.rawQuery("select titulo,contenidoprevio from "+ tabla +" where titulo='" + tit + "'", null);
@@ -128,17 +124,13 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
 
 
     public void leerNoticiaBase(String tipo){
-        SQLiteOpenHelper DBHelper ;
+        SQLiteOpenHelper DBHelper = new DatabaseHelper(context);
         String tabla ;
-        SQLiteDatabase bd;
+        SQLiteDatabase  bd = DBHelper.getWritableDatabase();
         if(tipo.equalsIgnoreCase("boletines")){
-            DBHelper = new DatabaseHelper(context);
-            bd = DBHelper.getWritableDatabase();
             tabla = "boletin";
         }
         else{
-            DBHelper = new DatabaseHelper(context);
-            bd = DBHelper.getWritableDatabase();
             tabla = "noticia";
         }
         Cursor fila_db = bd.rawQuery("select * from "+tabla, null);

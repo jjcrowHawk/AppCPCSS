@@ -10,6 +10,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 
+import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -63,17 +65,13 @@ public class PrimaryReader extends AsyncTask<String, Void, Void> {
                     //Noticia noticia = new Noticia(tit, link, dia + "/" + mes, content, imgurl);
                     //noticias.add(noticia);
 
-                    SQLiteOpenHelper DBHelper ;
+                    SQLiteOpenHelper DBHelper = new DatabaseHelper(context);
                     String tabla ;
-                    SQLiteDatabase bd;
+                    SQLiteDatabase  bd = DBHelper.getWritableDatabase();
                     if(tipo.equalsIgnoreCase("boletines")){
-                        DBHelper = new BoletinesDataBase(context);
-                        bd = DBHelper.getWritableDatabase();
                         tabla = "boletin";
                     }
                     else{
-                        DBHelper = new NoticiasDataBase(context);
-                        bd = DBHelper.getWritableDatabase();
                         tabla = "noticia";
                     }
                     Cursor fila = bd.rawQuery("select titulo,contenidoprevio from "+ tabla +" where titulo='" + tit + "'", null);
@@ -91,26 +89,20 @@ public class PrimaryReader extends AsyncTask<String, Void, Void> {
 
                         bd.insert(tabla, null, registro);
                     }
-                    //Para debug
-                    //Cursor fila1 = bd.rawQuery("select contenidoprevio from noticia", null);
-                    //Log.e("FILA1", "" + fila1.getCount());
+
 
                     bd.close();
                 }
             }
 
             //Se lee de la base de datos
-            SQLiteOpenHelper DBHelper ;
+            SQLiteOpenHelper DBHelper = new DatabaseHelper(context);
             String tabla ;
-            SQLiteDatabase bd;
+            SQLiteDatabase  bd = DBHelper.getWritableDatabase();
             if(tipo.equalsIgnoreCase("boletines")){
-                DBHelper = new BoletinesDataBase(context);
-                bd = DBHelper.getWritableDatabase();
                 tabla = "boletin";
             }
             else{
-                DBHelper = new NoticiasDataBase(context);
-                bd = DBHelper.getWritableDatabase();
                 tabla = "noticia";
             }
             Cursor fila_db = bd.rawQuery("select * from "+tabla, null);
@@ -130,8 +122,7 @@ public class PrimaryReader extends AsyncTask<String, Void, Void> {
                     fila_db.moveToNext();
                 }
             }
-            ////Log.e("FILA_DB", ""+fila_db.getCount());
-            //bd.close();
+
 
         } catch (IOException e) {
 
