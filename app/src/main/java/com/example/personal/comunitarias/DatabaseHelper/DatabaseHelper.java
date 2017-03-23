@@ -40,6 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Table Names
     private static final String TABLE_NOTICIA = "noticia";
+    private static final String TABLE_BOLETIN = "boletin";
     private static final String TABLE_REGION = "region";
     private static final String TABLE_PROVINCIA = "provincia";
     private static final String TABLE_CIUDAD = "ciudad";
@@ -62,6 +63,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_NOTICIA_LINK = "link";
     private static final String KEY_NOTICIA_MES = "mes";
     private static final String KEY_NOTICIA_DIA = "dia";
+
+    // BOLETIN Table - column names
+    private static final String KEY_BOLETIN_TITULO = "titulo";
+    private static final String KEY_BOLETIN_URLIMAGEN = "urlimagen";
+    private static final String KEY_BOLETIN_CONTENIDOPREVIO = "contenidoprevio";
+    private static final String KEY_BOLETIN_LINK = "link";
+    private static final String KEY_BOLETIN_MES = "mes";
+    private static final String KEY_BOLETIN_DIA = "dia";
 
     // REGION Table - column names
     private static final String KEY_REGION_NOMBRE = "nombre";
@@ -145,6 +154,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + " TEXT," + KEY_NOTICIA_LINK
             + " TEXT," + KEY_NOTICIA_MES
             + " TEXT," + KEY_NOTICIA_DIA
+            + " TEXT" + ")";
+
+    // Boletin table create statement
+    private static final String CREATE_TABLE_BOLETIN = "CREATE TABLE "
+            + TABLE_BOLETIN + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_BOLETIN_TITULO
+            + " TEXT," + KEY_BOLETIN_URLIMAGEN
+            + " TEXT," + KEY_BOLETIN_CONTENIDOPREVIO
+            + " TEXT," + KEY_BOLETIN_LINK
+            + " TEXT," + KEY_BOLETIN_MES
+            + " TEXT," + KEY_BOLETIN_DIA
             + " TEXT" + ")";
 
     // Region table create statement
@@ -252,6 +271,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         System.out.print(CREATE_TABLE_REGION);
         // creating required tables
         db.execSQL(CREATE_TABLE_NOTICIA);
+        db.execSQL(CREATE_TABLE_BOLETIN);
         db.execSQL(CREATE_TABLE_REGION);
         db.execSQL(CREATE_TABLE_PROVINCIA);
         db.execSQL(CREATE_TABLE_CIUDAD);
@@ -270,6 +290,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // on upgrade drop older tables
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTICIA);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_BOLETIN);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_REGION);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROVINCIA);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CIUDAD);
@@ -451,6 +472,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return id;
     }
+
 
     //Sector
     public long createSector(Sector sector) {

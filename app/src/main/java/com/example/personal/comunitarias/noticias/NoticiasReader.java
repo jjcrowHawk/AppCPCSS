@@ -11,6 +11,7 @@ import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ProgressBar;
 
+import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.R;
 
 import org.jsoup.Jsoup;
@@ -96,12 +97,12 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
         String tabla ;
         SQLiteDatabase bd;
         if(tipo.equalsIgnoreCase("boletines")){
-            DBHelper = new BoletinesDataBase(context);
+            DBHelper = new DatabaseHelper(context);
             bd = DBHelper.getWritableDatabase();
             tabla = "boletin";
         }
         else{
-            DBHelper = new NoticiasDataBase(context);
+            DBHelper = new DatabaseHelper(context);
             bd = DBHelper.getWritableDatabase();
             tabla = "noticia";
         }
@@ -131,12 +132,12 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
         String tabla ;
         SQLiteDatabase bd;
         if(tipo.equalsIgnoreCase("boletines")){
-            DBHelper = new BoletinesDataBase(context);
+            DBHelper = new DatabaseHelper(context);
             bd = DBHelper.getWritableDatabase();
             tabla = "boletin";
         }
         else{
-            DBHelper = new NoticiasDataBase(context);
+            DBHelper = new DatabaseHelper(context);
             bd = DBHelper.getWritableDatabase();
             tabla = "noticia";
         }
