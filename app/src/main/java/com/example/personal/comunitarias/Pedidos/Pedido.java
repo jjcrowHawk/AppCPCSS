@@ -90,11 +90,11 @@ public class Pedido extends Fragment implements AdapterView.OnItemSelectedListen
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         hechos.setAdapter(adapter2);
         */
-
+        /*
         doc_exist = (Spinner) view.findViewById(R.id.spinner_investigados);
         adapter3 = ArrayAdapter.createFromResource(getContext(), R.array.si_no, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        doc_exist.setAdapter(adapter3);
+        doc_exist.setAdapter(adapter3);*/
 
 
         siguiente = (Button) view.findViewById(R.id.btnSiguientePedido);
@@ -111,9 +111,9 @@ public class Pedido extends Fragment implements AdapterView.OnItemSelectedListen
                     Descripcion_Pedido= descripcion.getText().toString();
                     if (compadecer.getSelectedItem().equals("SI")) Comparecer_d ="1";
                     if (compadecer.getSelectedItem().equals("NO")) Comparecer_d ="0";
-
+                    /*
                     if (doc_exist.getSelectedItem().equals("SI")) Doc="1";
-                    if (doc_exist.getSelectedItem().equals("NO")) Doc="0";
+                    if (doc_exist.getSelectedItem().equals("NO")) Doc="0";*/
 
                     Log.d("PEDIDO", Descripcion_Pedido +" " + Comparecer_d +" "+ Hechos_d +"" +" "+ Doc);
 

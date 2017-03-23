@@ -66,7 +66,7 @@
             android:id="@+id/spinner_comparecer"
             android:layout_alignTop="@+id/textView2"
             android:layout_alignParentEnd="true" />
-
+    <!--
         <TextView
             android:text="Documentos que respalden su trámite"
             android:layout_width="170dp"
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/spinner_investigados"
             android:layout_alignTop="@+id/textView3"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true" />-->
 
 
         <Button

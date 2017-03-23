@@ -340,7 +340,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         //Denuncia
         comparecer_d = d.getComparecer_d();
         Descripciion_D = d.getDescripcion_Pedido();
-        Documentos_D = d.getDoc();
+        //Documentos_D = d.getDoc();
 
 
         Log.d(" Clase Mostrar ",Descripciion_D);
