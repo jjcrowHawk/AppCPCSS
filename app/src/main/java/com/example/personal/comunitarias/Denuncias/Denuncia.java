@@ -19,7 +19,6 @@ import com.example.personal.comunitarias.R;
 public class Denuncia extends Fragment {
     Spinner comparecer, hechos;
     ArrayAdapter<CharSequence> adapter, adapter2;
-    /******/
     private ViewPager viewPager;
     private View view;
     private TabsDenuncia tabs;
@@ -57,14 +56,6 @@ public class Denuncia extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         comparecer.setAdapter(adapter);
 
-        //Spinner hechos son investigados
-        /*hechos = (Spinner) view.findViewById(R.id.spinner_hechos);
-        adapter2 = ArrayAdapter.createFromResource(getContext(),
-                R.array.si_no, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        hechos.setAdapter(adapter2);
-        */
-
         descripcion = (EditText) view.findViewById(R.id.txt_descripcion);
         sgteDenuciado = (Button) view.findViewById(R.id.btnDenuncia);
 
@@ -74,7 +65,6 @@ public class Denuncia extends Fragment {
                 if(descripcion.getText().toString().equals("")){
                     Toast.makeText(getContext(),"Por favor, describa su denuncia",Toast.LENGTH_LONG).show();
                 }else {
-                    //Peticionario d = new Peticionario(viewPager);
 
                     Descripcion_Denuncia= descripcion.getText().toString();
                     if (comparecer.getSelectedItem().equals("SI")) Comparecer_d ="1";
@@ -103,9 +93,6 @@ public class Denuncia extends Fragment {
     public static void setComparecer_d(String comparecer_d) {
         Comparecer_d = comparecer_d;
     }
-
-
-
 
 
 }

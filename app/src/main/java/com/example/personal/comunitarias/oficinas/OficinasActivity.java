@@ -169,7 +169,7 @@ public class OficinasActivity extends AppCompatActivity
         mFabPrompt = new MaterialTapTargetPrompt.Builder(OficinasActivity.this)
                 .setTarget(findViewById(R.id.eligeProvincia))
                 .setPrimaryText("Elija la provincia")
-                .setSecondaryText("Seleccione la provincia de la cual desea saber la ubicacion del Consejo de Participación Ciudadana y Control Social ")
+                .setSecondaryText("Seleccione la provincia que desea saber la ubicación del Consejo de Participación Ciudadana y Control Social ")
                 .setAnimationInterpolator(new FastOutSlowInInterpolator())
                 .setAutoDismiss(false)
                 .setAutoFinish(false)

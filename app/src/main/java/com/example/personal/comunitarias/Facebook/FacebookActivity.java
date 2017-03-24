@@ -15,8 +15,8 @@ import com.example.personal.comunitarias.R;
 public class FacebookActivity extends AppCompatActivity {
 
     private ProgressDialog pd;
-    private String embedTweet;
-    private WebView displayTweeteTimeline;
+    private String embedFacebook;
+    private WebView FacebookTimeline;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,32 +27,36 @@ public class FacebookActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        embedTweet = "<iframe src=\"https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FParticipaEcuador&tabs=timeline&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId\" width=\"340\" height=\"500\" style=\"border:none;overflow:hidden\" scrolling=\"no\" frameborder=\"0\" allowTransparency=\"true\"></iframe>";
 
+        //embebido
+        embedFacebook = "<iframe src=\"https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FParticipaEcuador&tabs=timeline&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId\" width=\"340\" height=\"500\" style=\"border:none;overflow:hidden\" scrolling=\"no\" frameborder=\"0\" allowTransparency=\"true\"></iframe>";
 
-        displayTweeteTimeline = (WebView) findViewById(R.id.mWebView);
+        //progrees
         pd = new ProgressDialog(this);
         pd.setMessage("Cargando...");
         pd.setCancelable(false);
         pd.show();
-        displayTweeteTimeline.setWebViewClient(new FacebookActivity.MyWebViewClient());
-        WebSettings webSettings = displayTweeteTimeline.getSettings();
+
+        //webview
+        FacebookTimeline = (WebView) findViewById(R.id.mWebView);
+        FacebookTimeline.setWebViewClient(new FacebookActivity.MyWebViewClient());
+        WebSettings webSettings = FacebookTimeline.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
-        displayTweeteTimeline.loadDataWithBaseURL("https://facebook.com", embedTweet, "text/html", "UTF-8", null);
+        FacebookTimeline.loadDataWithBaseURL("https://facebook.com", embedFacebook, "text/html", "UTF-8", null);
 
     }
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(displayTweeteTimeline.canGoBack()) {
-            displayTweeteTimeline.loadUrl(embedTweet);
-            displayTweeteTimeline.goBack();
-            displayTweeteTimeline.goBack();
-            displayTweeteTimeline.goBack();
+        if(FacebookTimeline.canGoBack()) {
+            FacebookTimeline.loadUrl(embedFacebook);
+            FacebookTimeline.goBack();
+            FacebookTimeline.goBack();
+            FacebookTimeline.goBack();
         }
-        else if(!displayTweeteTimeline.canGoBack()){
+        else if(!FacebookTimeline.canGoBack()){
             finish();
         }
 

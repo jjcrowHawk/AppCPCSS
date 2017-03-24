@@ -140,14 +140,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.denuncia_tab1_peticionario,container,false);
         InicializarComp();
-       /* view.findViewById(R.id.btnInfoPeticionario).setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View arg0) {
-                viewPager.setCurrentItem(1);
-                //tabs.DesbloquearPrimTb();
-            }
-        });*/
         return  view;
 
     }
@@ -182,8 +175,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         //Se lee los datos de la base de datos
         adapter4 = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllEstadocivilNombres());
-        /*adapter4 = ArrayAdapter.createFromResource(getContext(),
-                R.array.estado_civil, android.R.layout.simple_spinner_item);*/
+
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         estado_civil.setAdapter(adapter4);
 
@@ -191,8 +183,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         nivelEducacion = (Spinner) view.findViewById(R.id.spinner5);
         adapter5 = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllNiveleducacionNombres());
-        /*adapter5 = ArrayAdapter.createFromResource(getContext(),
-                R.array.nivel__educacion, android.R.layout.simple_spinner_item);*/
+
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         nivelEducacion.setAdapter(adapter5);
 
@@ -200,8 +191,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         nacionalidad = (Spinner) view.findViewById(R.id.spinner6);
         adapter6 = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllNacionalidadNombres());
-        /*adapter6 = ArrayAdapter.createFromResource(getContext(),
-                R.array.nacionalidad, android.R.layout.simple_spinner_item);*/
+
         adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         nacionalidad.setAdapter(adapter6);
 
@@ -305,41 +295,6 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                     viewPager.setCurrentItem(1);
                 }
 
-
-               /* rec = new Reclamo();
-
-                rec.setNombresapellidosdenunciante(Nombre + " "+ Apellido);
-                rec.setTipoidentificacion(TipoIden);
-                rec.setNumidenti(Identidad);*/
-                //rec.setDireccion(); //Será capaz con lo de geolocalización
-                //rec.setEmail(Email);
-                //rec.setNombresapellidosdenunciado();
-                //rec.setTelefono(); //no hay ese campo en el layout
-                //rec.setCargo(Ocupacion);
-                //rec.setComparecer(); //está en el TAB Denuncia
-                //rec.setDocumentores(); //está en el TAB Denuncia, asumo que el campo de si está siendo investigado
-
-               /* if (IdentidadReservada.equals("Si")) rec.setIdentidadreservada("1");
-                if (IdentidadReservada.equals("No")) rec.setIdentidadreservada("0");
-
-                if (Nacio.equals("Extranjero")) rec.setResideextrangero("1");
-                if (!Nacio.equals("Extranjero")) rec.setResideextrangero("0");*/
-
-                //rec.setCiudaddeldenuncianteid(); hay que colocar ID, que se necesita una función que me devuelva ese ID
-                //rec.setCiudaddeldenunciadoid();
-                //rec.setInstitucionimplicadaid();
-                //rec.getProvinciadenuncianteid();
-                //rec.getProvinciadenunciadoid();
-
-              /*  rec.Guardar_Reclamo();
-                Log.d("myTag",rec.get_mensagem());
-
-                if (rec.is_status())
-                    Log.e("status","si inserta");*/
-
-
-
-
             }
         });
 
@@ -350,22 +305,13 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
 
 
-    public void Ir_Segundo_Fragment(){
-
-        //Spinner identidad, tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad;
-
-    }
-
-
     private void loadSpinnerProvincias() {
         // Create an ArrayAdapter using the string array and a default spinner
         // layout
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllProvinciasNombres());
-        /*ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                getContext(), R.array.provincias, android.R.layout.simple_spinner_item);*/
 
-        // Specify the layout to use when the list of choices appears
+       // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         this.provincia.setAdapter(adapter);
@@ -380,20 +326,6 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         switch (parent.getId()) {
             case R.id.spinner8:
 
-                // Retrieves an array
-                /*TypedArray arrayLocalidades = getResources().obtainTypedArray(
-                        R.array.array_provincia_a_localidades);
-
-                CharSequence[] localidades = arrayLocalidades.getTextArray(position);
-                arrayLocalidades.recycle();*/
-
-                // Create an ArrayAdapter using the string array and a default
-                // spinner layout
-                /*ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(
-                        getContext(), android.R.layout.simple_spinner_item, android.R.id.text1, localidades);*/
-
-                //Obtener las ciudades correspondiente a la provincia seleccionada de la base remota
-                //ArrayList<String> ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_DB(provincia.getSelectedItem().toString()));
 
                 //Obtener las ciudades correspondiente a la provincia seleccionada de la base LOCAL
                 List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new DatabaseHelper(getContext()).getProvincia(provincia.getSelectedItem().toString()));
@@ -563,51 +495,6 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         });
     }
 
-
-    //función para validar (segunda opción)
-    /*
-    public void validarInputs(){
-
-        InputFilter filter= new InputFilter() {
-            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                System.out.println("source = "+source);
-                if (source.length()>5){
-                    //validarLimite();
-                    txtNombre.setError("Límite excedido");
-                }
-                for (int i = start; i < end; i++) {
-                    String checkMe = String.valueOf(source.charAt(i));
-                    //Pattern pattern = Pattern.compile("[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789_]*");
-                    Pattern pattern = Pattern.compile("[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzáéíóú ]*");
-                    Matcher matcher = pattern.matcher(checkMe);
-                    boolean valid = matcher.matches();
-                    if(!valid){
-                        Log.d("", "invalid");
-                        txtNombre.setError("Sólo letras");
-                        return "";
-                    }
-                }
-                return null;
-            }
-        };
-
-        txtNombre.setFilters(new InputFilter[]{filter});
-
-    }
-
-
-
-    public void validarLimite(){
-        txtNombre .addTextChangedListener(new TextValidator(txtNombre ) {
-            @Override
-            public void validate(EditText editText, String text) {
-                if (text.length() > 24) {
-                    txtNombre.setError("Límite excedido");
-                }
-            }
-        });
-    }
-     */
 
     //funcion para ver si es un numero
     private static boolean isNumeric(String cadena){

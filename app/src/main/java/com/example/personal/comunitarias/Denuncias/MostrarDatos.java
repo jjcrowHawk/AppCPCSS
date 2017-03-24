@@ -104,7 +104,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
     String gen = "";
     String Direccion_p,edad_p,cargo_p,telefono_p,NombreApellido_P,NombreApellido_D;
 
-    //
+
     ProgressDialog mProgressDialog;
     Predenuncia pd;
     Reclamo reclamo;
@@ -153,7 +153,6 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
            @Override
            public void onClick(View view) {
 
-               //guardar.setEnabled(true);
                obtenerinformacion();
                Guardar_Base();
            }
@@ -208,13 +207,11 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
     public void Guardar_Base(){
 
         reclamo = new Reclamo();
-        //reclamo.setCargo(Ocupacion_P);
         reclamo.setCargo(cargo_p);
         reclamo.setCiudaddeldenunciadoid(idCiuDE);
         reclamo.setCiudaddeldenuncianteid(idCiuP);
         reclamo.setComparecer(comparecer_d);
         reclamo.setDireccion(Direccion_p);
-        //reclamo.setDocumentores(hechos_d);
         reclamo.setDocumentores("0");
         reclamo.setEmail(Mail_P);
         reclamo.setResideextrangero(reside);
@@ -245,7 +242,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
     }
 
     public void SendMail(){
-                       /* MAIL+++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+                       /* MAIL+*/
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -283,19 +280,6 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
                 // add it
                 multipart.addBodyPart(messageBodyPart);
 
-                // second part (the image)
-                       /* messageBodyPart = new MimeBodyPart();
-                        Uri fileUri = Uri.parse("android.resource://com.example.personal.comunitarias/" + R.drawable.fondo2);
-                        String path1 = fileUri.getPath();
-                        DataSource fds = new FileDataSource(
-                               path1);
-                        messageBodyPart.setDataHandler(new DataHandler(fds));
-
-                        messageBodyPart.setHeader("Content-ID", "<image>");
-
-                        // add image to the multipart*/
-
-                //multipart.addBodyPart(messageBodyPart);
 
                 // put everything together
                 message.setContent(multipart);

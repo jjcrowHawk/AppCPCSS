@@ -18,6 +18,7 @@ public class IntroTv extends AppCompatActivity {
         setContentView(R.layout.activity_intro_tv);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        //hilo para la espera en el intro
         Thread thread = new Thread() {
             public void run() {
                 while (pStatus < 100) {
@@ -28,6 +29,8 @@ public class IntroTv extends AppCompatActivity {
 
                     }
                 }
+
+                //inicia la actividad de cpccsTV
                 Intent i=new Intent(getBaseContext(), CpccsTv.class);
                 startActivity(i);
                 finish();

@@ -62,10 +62,10 @@ public class DetailActivity extends AppCompatActivity {
         placeLocation.setText(noticia.getFecha());
         ImageView placePicutre = (ImageView) findViewById(R.id.image);
 
-        if (noticia.getS_img().isEmpty()) {
+        if (noticia.getUrlImg().isEmpty()) {
             placePicutre.setImageResource(R.drawable.ic_cpccs);
         } else
-            Picasso.with(this).load(noticia.getS_img()).into(placePicutre);
+            Picasso.with(this).load(noticia.getUrlImg()).into(placePicutre);
 
         // accion del boton ver noticia completa
         Button verNoticia = (Button) findViewById(R.id.verNoticia);

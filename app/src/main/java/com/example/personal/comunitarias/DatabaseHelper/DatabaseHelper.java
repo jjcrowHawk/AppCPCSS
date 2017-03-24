@@ -466,7 +466,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_NOTICIA_DIA, dia);
         values.put(KEY_NOTICIA_MES, mes);
         values.put(KEY_NOTICIA_LINK, noticia.getUrl());
-        values.put(KEY_NOTICIA_URLIMAGEN, noticia.getS_img());
+        values.put(KEY_NOTICIA_URLIMAGEN, noticia.getUrlImg());
 
         long id = db.insert(TABLE_NOTICIA, null, values);
 
@@ -755,7 +755,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
    //     n.setTitulo(c.getString(c.getColumnIndex(KEY_NOTICIA_TITULO)));
    //     n.setDescripcion(c.getString(c.getColumnIndex(KEY_NOTICIA_CONTENIDOPREVIO)));
    //     n.setUrl(c.getString(c.getColumnIndex(KEY_NOTICIA_LINK)));
-   //     n.setS_img(c.getString(c.getColumnIndex(KEY_NOTICIA_URLIMAGEN)));
+   //     n.setUrlImg(c.getString(c.getColumnIndex(KEY_NOTICIA_URLIMAGEN)));
    //     n.setDia(c.getInt(c.getColumnIndex(KEY_NOTICIA_DIA)));
    //     n.setMes(c.getInt(c.getColumnIndex(KEY_NOTICIA_MES)));
 //
@@ -1181,7 +1181,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
    //             n.setTitulo(c.getString(c.getColumnIndex(KEY_NOTICIA_TITULO)));
    //             n.setDescripcion(c.getString(c.getColumnIndex(KEY_NOTICIA_CONTENIDOPREVIO)));
    //             n.setUrl(c.getString(c.getColumnIndex(KEY_NOTICIA_LINK)));
-   //             n.setS_img(c.getString(c.getColumnIndex(KEY_NOTICIA_URLIMAGEN)));
+   //             n.setUrlImg(c.getString(c.getColumnIndex(KEY_NOTICIA_URLIMAGEN)));
    //             n.setDia(c.getInt(c.getColumnIndex(KEY_NOTICIA_DIA)));
    //             n.setMes(c.getInt(c.getColumnIndex(KEY_NOTICIA_MES)));
 //

@@ -21,21 +21,23 @@ public class CpccsTv extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cpccs_tv);
 
+        //toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-
+        // url de tranmision de livestream de la cuenta del cpcs
         myurl = "https://livestream.com/accounts/1785250/events/2708656/player?width=560&height=315&autoPlay=true&mute=false";
 
-
-
-        myWebView = (WebView) findViewById(R.id.mWebView);
+        // progress
         pd = new ProgressDialog(this);
         pd.setMessage("Cargando...");
         pd.setCancelable(false);
         pd.show();
+
+        //webview
+        myWebView = (WebView) findViewById(R.id.mWebView);
         myWebView.setWebViewClient(new MyWebViewClient());
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.loadUrl(myurl);
@@ -59,7 +61,7 @@ public class CpccsTv extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    //clase complementaria para el webview
     private class MyWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {

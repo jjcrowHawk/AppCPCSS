@@ -28,9 +28,7 @@ import com.example.personal.comunitarias.Facebook.IntroFacebook;
 import com.example.personal.comunitarias.Mision.Mision;
 import com.example.personal.comunitarias.Mision.Vision;
 import com.example.personal.comunitarias.Pedidos.TabsPedido;
-import com.example.personal.comunitarias.Noticias.BoletinesDataBase;
 import com.example.personal.comunitarias.Noticias.Intro_noticias;
-import com.example.personal.comunitarias.Noticias.NoticiasDataBase;
 import com.example.personal.comunitarias.Oficinas.IntroOficinas;
 import com.example.personal.comunitarias.preguntas.PreguntasFrecuentes;
 import com.example.personal.comunitarias.CpccsTV.IntroTv;
@@ -93,19 +91,17 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         Noticiase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SQLiteOpenHelper DBHelperBoletines =new BoletinesDataBase(Menu.this) ;
-                SQLiteDatabase bd1 = DBHelperBoletines.getWritableDatabase();
-                SQLiteOpenHelper DBHelperNoticias =new NoticiasDataBase(Menu.this) ;
-                SQLiteDatabase bd2 = DBHelperNoticias.getWritableDatabase();
-                Cursor fila_db1 = bd1.rawQuery("select * from boletin", null);
-                Cursor fila_db2 = bd2.rawQuery("select * from noticia", null);
+
+                SQLiteOpenHelper DBHelper = new DatabaseHelper(Menu.this);
+                SQLiteDatabase  bd = DBHelper.getWritableDatabase();
+                Cursor fila_db1 = bd.rawQuery("select * from boletin", null);
+                Cursor fila_db2 = bd.rawQuery("select * from noticia", null);
                 if(!isOnlineNet() && (fila_db1.getCount()== 0 || fila_db2.getCount() == 0)){
                     Toast.makeText(Menu.this,"No hay informacion para presentar",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Intent i=new Intent(getBaseContext(), Intro_noticias.class);
                     startActivity(i);
-                    //finish();
                 }
 
             }

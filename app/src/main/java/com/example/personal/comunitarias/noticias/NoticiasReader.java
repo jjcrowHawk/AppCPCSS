@@ -20,11 +20,13 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by Palacios on 22/02/2017.
+ * ESTA CLASE SIRVE PARA LA EXTRACCION DE DATOS AL MOMENTO DE  SOLICITAR MAS DATOS
  */
+
 public class NoticiasReader extends AsyncTask<String, Void, Void> {
     private String url;
     private Context context;
@@ -47,52 +49,59 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
         String numeroPagina = parametros[1];
         String tipo = parametros[0];
         url = url+tipo+"/page/"+numeroPagina+"/";
-        extraerNoticias(tipo);
-        return null;
-    }
-
-    // extrae las noticias de la pagina web
-    public void extraerNoticias(String tipo){
         try {
             if(isOnlineNet()) {
+
                 Document doc = Jsoup.connect(url).get();
-                for (Element article : doc.select("article")) {
-                    Elements wrap = article.select("div[class=blog-wrap]");
-                    Elements date = wrap.select("div[class=post-date]");
-                    String dia = date.select("span[class=day]").text();
-                    String mes = date.select("span[class=month]").text();
 
-                    Elements image = wrap.select("div[class=entry blog-media]");
-                    Elements img = image.select("a").select("img[src]");
-                    String imgurl = img.attr("src");
-                    Elements contenido = wrap.select("div[class=post-content]");
-                    String content = contenido.select("p").text();
-                    System.out.println(content);
-                    Elements titulo = wrap.select("a");
-                    String link = titulo.attr("href");
-                    String tit = titulo.get(1).text();
+                //extraemos las noticias del documento obtenido de la url y las almacenamos
+                List<Noticia> noticias_extraidas = extraerNoticias(doc);
 
-
-                    //se guarda la noticia en la base local
-                    guardarNoticiaBase(tipo,tit,link,content,dia,mes,imgurl);
-
-
+                //guardamos las noticias extraidas en la base local ( solo llena la base)
+                for(Noticia noticia : noticias_extraidas){
+                    guardarNoticiaBase(noticia , tipo);
                 }
             }
 
-            //Se lee de la base de datos
+
             leerNoticiaBase(tipo);
 
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        return null;
     }
 
 
 
-    public void guardarNoticiaBase(String tipo, String tit, String link, String content,String dia, String mes, String imgurl){
+
+    // recibe un  objeto Document que contiene la estructura html de la pagina y obtiene la inforamcion necesaria para formar una noticia
+    public List<Noticia> extraerNoticias(Document doc){
+        List<Noticia> noticias_extraidas = new LinkedList<>();
+        for (Element article : doc.select("article")) {
+            Elements wrap = article.select("div[class=blog-wrap]");
+            Elements date = wrap.select("div[class=post-date]");
+            String dia = date.select("span[class=day]").text();
+            String mes = date.select("span[class=month]").text();
+
+            Elements image = wrap.select("div[class=entry blog-media]");
+            Elements img = image.select("a").select("img[src]");
+            String imgurl = img.attr("src");
+            Elements contenido = wrap.select("div[class=post-content]");
+            String content = contenido.select("p").text();
+            System.out.println(content);
+            Elements titulo = wrap.select("a");
+            String link = titulo.attr("href");
+            String tit = titulo.get(1).text();
+            noticias_extraidas.add(new Noticia(tit, link, dia + "/" + mes, content, imgurl));
+        }
+        return noticias_extraidas;
+    }
+
+
+    // guarda las noticias extraidas en la base de datos local
+    public void guardarNoticiaBase(Noticia noticia, String tipo){
         SQLiteOpenHelper DBHelper = new DatabaseHelper(context);
         String tabla ;
         SQLiteDatabase  bd = DBHelper.getWritableDatabase();
@@ -102,17 +111,17 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
         else{
             tabla = "noticia";
         }
-        Cursor fila = bd.rawQuery("select titulo,contenidoprevio from "+ tabla +" where titulo='" + tit + "'", null);
+        Cursor fila = bd.rawQuery("select titulo,contenidoprevio from "+ tabla +" where titulo='" + noticia.getTitulo() + "'", null);
 
 
         if (!fila.moveToFirst()) {
             ContentValues registro = new ContentValues();
-            registro.put("titulo", tit);
-            registro.put("link", link);
-            registro.put("contenidoprevio", content);
-            registro.put("dia", dia);
-            registro.put("mes", mes);
-            registro.put("urlimagen", imgurl);
+            registro.put("titulo", noticia.getTitulo());
+            registro.put("link", noticia.getUrl());
+            registro.put("contenidoprevio", noticia.getDescripcion());
+            registro.put("dia", noticia.getFecha().split("/")[0]);
+            registro.put("mes", noticia.getFecha().split("/")[1]);
+            registro.put("urlimagen", noticia.getUrlImg());
 
 
             bd.insert(tabla, null, registro);
@@ -122,7 +131,7 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
     }
 
 
-
+    //lee las noticias guardadas de la base local
     public void leerNoticiaBase(String tipo){
         SQLiteOpenHelper DBHelper = new DatabaseHelper(context);
         String tabla ;
@@ -172,7 +181,7 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
 
     }
 
-
+    //verifica que exista conexion a internet
     public Boolean isOnlineNet() {
 
         ConnectivityManager cm;

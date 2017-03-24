@@ -55,16 +55,7 @@ import android.view.animation.Interpolator;
 
 import com.example.personal.comunitarias.R;
 
-/**
- * A Material Design tap target onboarding implementation.
- *
- * <div class="special reference">
- * <h3>Onboarding</h3>
- * <p>For more information about onboarding and tap targets, read the
- * <a href="https://www.google.com/design/spec/growth-communications/onboarding.html">Onboarding</a>
- * Material Design guidelines.</p>
- * </div>
- */
+
 public class MaterialTapTargetPrompt
 {
     /**
@@ -1201,19 +1192,7 @@ public class MaterialTapTargetPrompt
             this(activity, 0);
         }
 
-        /**
-         * Creates a builder for a material tap target prompt that uses an explicit theme
-         * resource.
-         *
-         * The {@code themeResId} may be specified as {@code 0}
-         * to use the parent {@code context}'s resolved value for
-         * {@link R.attr#MaterialTapTargetPromptTheme}.
-         *
-         * @param activity the activity to show the prompt within.
-         * @param themeResId the resource ID of the theme against which to inflate
-         *                   this dialog, or {@code 0} to use the parent
-         *                   {@code context}'s default material tap target prompt theme
-         */
+
         public Builder(final Activity activity, int themeResId)
         {
             mActivity = activity;

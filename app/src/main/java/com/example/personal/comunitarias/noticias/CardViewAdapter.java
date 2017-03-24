@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.example.personal.comunitarias.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -37,10 +38,10 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardContentFragment.Vi
     @Override
     public void onBindViewHolder(CardContentFragment.ViewHolder holder, int position) {
         Noticia noticia = noticias.get(position);
-        if(noticia.getS_img().isEmpty()){
-            Picasso.with(context).load("http://ecuadoruniversitario.com/wp-content/uploads/2015/02/consejo-participacion-ciudadana-cpccs.jpg").into(holder.picture);
+        if(noticia.getUrlImg().isEmpty()){
+            holder.imagen.setImageResource(R.drawable.ic_cpccs);
         }else {
-            Picasso.with(context).load(noticia.getS_img()).into(holder.picture);
+            Picasso.with(context).load(noticia.getUrlImg()).into(holder.imagen);
 
 
         }

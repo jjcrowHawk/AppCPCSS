@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 /**
- * Created by Palacios on 20/03/2017.
+ * Esta clase siver para controlar el ViewPager donde estaran las etiquetas de los tabs
  */
 
 public class CustomViewPager extends ViewPager {

@@ -42,8 +42,6 @@ public class TabsDenuncia extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
 
         viewPager = (CustomViewPager) findViewById(R.id.viewPager);
         viewPager.setPagingEnabled(false);
@@ -102,8 +100,7 @@ public class TabsDenuncia extends AppCompatActivity {
                     return new Denunciado(viewPager);
                 case 3:
                     return new MostrarDatos(viewPager);
-                //case 4:
-                    //return new MostrarDatos(viewPager);
+
                 default:
                     return null;
             }

@@ -18,6 +18,8 @@ public class IntroFacebook extends AppCompatActivity {
         setContentView(R.layout.activity_intro_facebook);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+
+        //hilo de espera en el intro
         Thread thread = new Thread() {
             public void run() {
                 while (pStatus < 100) {
@@ -28,6 +30,8 @@ public class IntroFacebook extends AppCompatActivity {
 
                     }
                 }
+
+                //inicia la actividad de Facebook
                 Intent i=new Intent(getBaseContext(), FacebookActivity.class);
                 startActivity(i);
                 finish();

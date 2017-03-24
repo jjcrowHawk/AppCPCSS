@@ -58,10 +58,8 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
 
     private Spinner  ocupacion_denunciado;
     private ArrayAdapter<String>  adapterOcupaDenunciado;
-
     private EditText txtNombre, txtApellido, txtCargo, txtUnAfectada, txtPerjud;
     Button btn_enviar_r;
-    /******/
     private ViewPager viewPager;
     private View view;
     private TabsDenuncia tabs;
@@ -80,15 +78,9 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     static Integer idCiuDE,  idProvDE,idIndti;
 
 
-
-  //  public  Denunciado(){
-
-   // }
-
     public Denunciado(ViewPager viewPager) {
 
         this.viewPager = viewPager;
-        //pruebaaaaaaaaaaaaaaaaaaaaaaaaaaa
     }
 
     @Nullable
@@ -101,9 +93,6 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
             @Override
             public void onClick(View arg0) {
                 viewPager.setCurrentItem(1);
-                //tabs = new TabsDenuncia();
-                //tabs.DesbloquearTabs();
-
             }
         });
         return  view;
@@ -120,11 +109,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
 
         //SearchBox
         final List<String> lista_instituciones =  new DatabaseHelper(getContext()).getAllInstitucionNombres();
-        //final List<String> lista_instituciones =  new Institucion().getListaInstitucionNombres();
-        //añado las instituciones a la lista
-        /*for(String institucion : getResources().getStringArray(R.array.institucion)) {
-            lista_instituciones.add(institucion);
-        }*/
+
         ArrayAdapter<String> adapterautocomplate = new ArrayAdapter<String> (getContext(),android.R.layout.select_dialog_item,lista_instituciones);
         final AutoCompleteTextView search= (AutoCompleteTextView)view.findViewById(R.id.autoCompleteTextView1);
         search.setThreshold(1);
@@ -142,20 +127,12 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         adapterOcupaDenunciado.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ocupacion_denunciado.setAdapter(adapterOcupaDenunciado);
 
-
-        //institucion = (Spinner) view.findViewById(R.id.spinner2);
-        //adapter2 = ArrayAdapter.createFromResource(getContext(),
-        //        R.array.institucion, android.R.layout.simple_spinner_item);
-        //adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //institucion.setAdapter(adapter2);
-
         //Spinner Provincia
         provincia = (Spinner) view.findViewById(R.id.spinner8);
 
         //Spinner Ciudad
         ciudad = (Spinner) view.findViewById(R.id.spinner9);
 
-        //data
         //data
         txtNombre = (EditText)view.findViewById(R.id.txt_NombresDen);
         txtApellido = (EditText)view.findViewById(R.id.txt_Apellidos);
@@ -245,19 +222,6 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (parent.getId()) {
             case R.id.spinner8:
-                /*
-                // Retrieves an array
-                TypedArray arrayLocalidades = getResources().obtainTypedArray(
-                        R.array.array_provincia_a_localidades);
-
-                CharSequence[] localidades = arrayLocalidades.getTextArray(position);
-                arrayLocalidades.recycle();
-
-                // Create an ArrayAdapter using the string array and a default
-                // spinner layout
-                ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(
-                        getContext(), android.R.layout.simple_spinner_item, android.R.id.text1, localidades);*/
-
                 //Obtener las ciudades correspondiente a la provincia seleccionada de la base LOCAL
                 List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new DatabaseHelper(getContext()).getProvincia(provincia.getSelectedItem().toString()));
 
@@ -360,17 +324,6 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
             }
         });
 
-
-        //validacione de identificación
-        /*txtPerjud.addTextChangedListener(new TextValidator(txtPerjud) {
-            @Override
-            public void validate(EditText editText, String text) {
-                //puede ser 10 u 11 por el RUC
-                if (text.length()> 0 && text.length() < 10) {
-                    txtPerjud.setError("Cantidad de dígitos incorrecta");
-                }
-            }
-        });*/
 
     }
 
@@ -486,35 +439,6 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     }
 
 
-
-
-
-
-    /*
-    public void validateSe(){
-        txtNombre = (EditText)view.findViewById(R.id.txt_Nombres);
-        InputFilter filter= new InputFilter() {
-            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-                for (int i = start; i < end; i++) {
-                    String checkMe = String.valueOf(source.charAt(i));
-
-                    //Pattern pattern = Pattern.compile("[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789_]*");
-                    Pattern pattern = Pattern.compile("[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzáéíóú ]*");
-                    Matcher matcher = pattern.matcher(checkMe);
-                    boolean valid = matcher.matches();
-                    if(!valid){
-                        Log.d("", "invalid");
-                        txtNombre.setError("Sólo letras");
-                        return "";
-                    }
-                }
-                return null;
-            }
-        };
-
-        txtNombre.setFilters(new InputFilter[]{filter});
-    }
-    */
 }
 
 

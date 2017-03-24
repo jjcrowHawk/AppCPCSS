@@ -60,7 +60,7 @@ public class CardContentFragment extends Fragment {
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView picture;
+        public ImageView imagen;
         public TextView name,fecha;
         public TextView description;
         List<Noticia> noticias;
@@ -70,7 +70,7 @@ public class CardContentFragment extends Fragment {
             this.noticias = noticias;
 
 
-            picture = (ImageView) itemView.findViewById(R.id.card_image);
+            imagen = (ImageView) itemView.findViewById(R.id.card_image);
             name = (TextView) itemView.findViewById(R.id.card_title);
             fecha= (TextView) itemView.findViewById(R.id.fecha);
             description = (TextView) itemView.findViewById(R.id.card_text);

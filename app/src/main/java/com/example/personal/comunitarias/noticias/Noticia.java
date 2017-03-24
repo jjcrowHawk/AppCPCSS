@@ -5,16 +5,16 @@ package com.example.personal.comunitarias.Noticias;
 public class Noticia {
     private String titulo;
     private String url;
-    private String fecha , des, s_img;
+    private String fecha , descripcion, urlImg;
 
 
 
-    public Noticia(String titulo, String url, String fecha, String descripcion, String s_img) {
+    public Noticia(String titulo, String url, String fecha, String descripcion, String urlImg) {
         this.titulo = titulo;
         this.url = url;
         this.fecha = fecha;
-        this.des = descripcion;
-        this.s_img = s_img;
+        this.descripcion = descripcion;
+        this.urlImg = urlImg;
     }
 
     public String getTitulo() {
@@ -42,18 +42,18 @@ public class Noticia {
     }
 
     public String getDescripcion() {
-        return des;
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        this.des = descripcion;
+        this.descripcion = descripcion;
     }
 
-    public String getS_img() {
-        return s_img;
+    public String getUrlImg() {
+        return urlImg;
     }
 
-    public void setS_img(String s_img) {
-        this.s_img = s_img;
+    public void setUrlImg(String urlImg) {
+        this.urlImg = urlImg;
     }
 }

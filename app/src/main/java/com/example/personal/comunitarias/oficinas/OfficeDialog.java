@@ -13,6 +13,7 @@ public class OfficeDialog extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // referenciamos a la oficina seleccionada desde la clase OficinasActivity
         setContentView(R.layout.activity_dialog);
         Oficina oficina = OficinasActivity.select;
         TextView provincia = (TextView) findViewById(R.id.tittle);
@@ -20,6 +21,8 @@ public class OfficeDialog extends Activity {
         TextView direccion = (TextView) findViewById(R.id.direcciontil);
         TextView telefono = (TextView) findViewById(R.id.telefonotil);
         TextView twitter = (TextView) findViewById(R.id.twitter);
+
+        //obtenemos los datos de la oficina seleccionada
         provincia.setText(oficina.getProvincia());
         ciudad.setText(oficina.getCiudad());
         direccion.setText(oficina.getDireccion());
