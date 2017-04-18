@@ -30,7 +30,7 @@
         android:layout_height="fill_parent">
         <RelativeLayout
             android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_height="725dp">
+            android:layout_height="735dp">
 
             <!-- Here you put the rest of your current view-->
             <TextView
@@ -92,7 +92,7 @@
                 android:layout_marginTop="450dp" />
 
             <TextView
-                android:text="Paso 4: Dar un toque en el botón “Selecciona tu provincia” y aparecerá la lista de provincias del Ecuador."
+                android:text="Paso 4: Dar un toque en el ícono que se encuentra en la esquina inferior derecha para que aparezca una lista de provincias del Ecuador."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView6"
@@ -111,7 +111,7 @@
                 android:layout_marginRight="30dp"
                 android:layout_gravity="center_vertical|right"
                 android:textSize="17sp"
-                android:layout_marginTop="630dp" />
+                android:layout_marginTop="640dp" />
 
             <TextView
                 android:text="Paso 6: Al dar un toque en el logo aparecerá toda la información sobre la oficina escogida."
@@ -122,7 +122,7 @@
                 android:layout_marginRight="30dp"
                 android:layout_gravity="center_vertical|right"
                 android:textSize="17sp"
-                android:layout_marginTop="720dp" />
+                android:layout_marginTop="730dp" />
 
 
             <ImageView
