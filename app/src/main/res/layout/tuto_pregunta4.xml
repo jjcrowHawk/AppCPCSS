@@ -30,7 +30,7 @@
         android:layout_height="fill_parent">
         <RelativeLayout
             android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_height="735dp">
+            android:layout_height="765dp">
 
             <!-- Here you put the rest of your current view-->
             <TextView
@@ -70,7 +70,7 @@
                 android:textAlignment="textStart" />
 
             <TextView
-                android:text="Paso 2: Luego, aparecerá una lista y de un toque en “oficinas”."
+                android:text="Paso 2: Luego, aparecerá una lista y de un toque en “oficinas”, en la opción del ícono ubicación que se muestra acontinuación."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView4"
@@ -89,10 +89,10 @@
                 android:layout_marginRight="30dp"
                 android:textSize="17sp"
                 android:textAlignment="textStart"
-                android:layout_marginTop="450dp" />
+                android:layout_marginTop="460dp" />
 
             <TextView
-                android:text="Paso 4: Dar un toque en el ícono que se encuentra en la esquina inferior derecha para que aparezca una lista de provincias del Ecuador."
+                android:text="Paso 4: Dar un toque en el ícono ubicación que se encuentra en la esquina inferior derecha para que aparezca una lista de provincias del Ecuador."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView6"
@@ -100,7 +100,7 @@
                 android:layout_marginRight="30dp"
                 android:layout_gravity="center_vertical|right"
                 android:textSize="17sp"
-                android:layout_marginTop="535dp" />
+                android:layout_marginTop="540dp" />
 
             <TextView
                 android:text="Paso 5: Escoger una provincia y de inmediato aparecerá la ubicación de la oficina con el logo del CPCCS."
@@ -111,7 +111,7 @@
                 android:layout_marginRight="30dp"
                 android:layout_gravity="center_vertical|right"
                 android:textSize="17sp"
-                android:layout_marginTop="640dp" />
+                android:layout_marginTop="660dp" />
 
             <TextView
                 android:text="Paso 6: Al dar un toque en el logo aparecerá toda la información sobre la oficina escogida."
@@ -122,7 +122,7 @@
                 android:layout_marginRight="30dp"
                 android:layout_gravity="center_vertical|right"
                 android:textSize="17sp"
-                android:layout_marginTop="730dp" />
+                android:layout_marginTop="750dp" />
 
 
             <ImageView
@@ -138,7 +138,7 @@
                 android:layout_height="35dp"
                 app:srcCompat="@drawable/oficinas"
                 android:id="@+id/imageView30"
-                android:layout_marginTop="390dp"
+                android:layout_marginTop="405dp"
                 android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
