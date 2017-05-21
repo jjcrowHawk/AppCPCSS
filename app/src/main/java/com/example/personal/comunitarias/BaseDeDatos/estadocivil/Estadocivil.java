@@ -5,6 +5,8 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.estadocivil;
 
+import android.util.Log;
+
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
@@ -38,7 +40,7 @@ public class Estadocivil extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.estadocivil WHERE nombre='"+nombre+"'");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM estadocivil WHERE nombre='"+nombre+"';");
 
             if (resultSet != null) {
                 resultSet.next();
@@ -67,7 +69,7 @@ public class Estadocivil extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.estadocivil");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM estadocivil;");
 
             if (resultSet != null){
                 while (resultSet.next()){
@@ -83,6 +85,42 @@ public class Estadocivil extends _Default {
             e.printStackTrace();
             this._status = false;
         } catch (SQLException e) {
+            e.printStackTrace();
+            this._status = false;
+        }
+
+        return lista;
+    }
+
+    //Obtener la lista de estadoCivil
+    public ArrayList<String> getListaEstadoCivilNombres()  {
+        ArrayList<String> lista = new ArrayList<>();
+        Log.e("Funcion:","ANTES1 de entrar");
+        //Establecemos la conexión
+        Conexion c = null;
+
+        try {
+            c = new Conexion();
+            Connection conn= c.getConn();
+
+            //Creamos el query
+            Statement st = conn.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM estadocivil;");
+            Log.e("Funcion:","ANTES de entrar");
+
+            if (resultSet != null){
+                while (resultSet.next()){
+                    Log.e("Funcion:",resultSet.getString("nombre") );
+                    lista.add(resultSet.getString("nombre"));
+                }
+            }
+            conn.close();
+        } catch (ClassNotFoundException e) {
+            Log.e("ERROR: ","EstadoCivil; "+ e);
+            e.printStackTrace();
+            this._status = false;
+        } catch (SQLException e) {
+            Log.e("ERROR: ","EstadoCivil; "+ e);
             e.printStackTrace();
             this._status = false;
         }

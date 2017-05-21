@@ -78,7 +78,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
     String Genero_P;
     String Reservada_p;
     static String Descripciion_D;
-    String comparecer_d,hechos_d,Documentos_D;
+    int comparecer_d,hechos_d,Documentos_D,reside;
     static String Nombre_DE;
     static String Apellido_DE;
     String Cargo_DE;
@@ -90,7 +90,6 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
     String Institucion_DE;
     Integer idCiuDE, idCiuP , idProvDE, idProvp,idIndti,idocupacionP,idNivelEduca,idestado,idNacionalidad;
     String reservada = "";
-    String reside = "";
     String gen = "";
     String Direccion_p,edad_p,cargo_p,telefono_p,NombreApellido_P,NombreApellido_D;
 
@@ -186,10 +185,10 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         reclamo.setCiudaddeldenuncianteid(idCiuP);
         reclamo.setComparecer(comparecer_d);
         reclamo.setDireccion(Direccion_p);
-        reclamo.setDocumentores("0");
+        reclamo.setDocumentores(0);
         reclamo.setEmail(Mail_P);
         reclamo.setResideextrangero(reside);
-        reclamo.setIdentidadreservada("0");
+        reclamo.setIdentidadreservada(0);
         reclamo.setNombresapellidosdenunciado(NombreApellido_D);
         reclamo.setNombresapellidosdenunciante(NombreApellido_P);
         reclamo.setInstitucionimplicadaid(idIndti);
@@ -312,10 +311,10 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         telefono_p = p.getTelefono();
 
         if(Reside_p.equals("SI")){
-            reside = "1";
+            reside = 1;
 
         }else{
-            reside = "0";
+            reside = 0;
         }
         Nivel_P=p.getNivelEdu();
         TipoIde_P=p.getTipoIden();
@@ -338,7 +337,13 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         Log.d(" Clase Mostrar ",Nombre_P+"  "+Apellido_P+""+Ocupacion_P);
 
         //Denuncia
-        comparecer_d = d.getComparecer_d();
+        if(d.getComparecer_d().equals("SI")){
+            comparecer_d = 1;
+
+        }else{
+            comparecer_d = 0;
+        }
+
         Descripciion_D = d.getDescripcion_Pedido();
         //Documentos_D = d.getDoc();
 

@@ -37,7 +37,7 @@ public class Nacionalidad extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.nacionalida WHERE nombre='"+nombre+"'");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM nacionalidad WHERE nombre='"+nombre+"';");
 
             if (resultSet != null) {
                 resultSet.next();
@@ -65,7 +65,7 @@ public class Nacionalidad extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.nacionalidad");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM nacionalidad;");
 
             if (resultSet != null){
                 while (resultSet.next()){
@@ -74,6 +74,36 @@ public class Nacionalidad extends _Default {
                     obj.setNombre(resultSet.getString("nombre"));
                     lista.add(obj);
                     obj = null;
+                }
+            }
+
+            conn.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return lista;
+    }
+
+    //Obtener la lista de Nacionalidad
+    public ArrayList<String> getListaNacionalidadNombres() {
+        ArrayList<String> lista = new ArrayList<String>();
+
+        //Establecemos la conexión
+        Conexion c = null;
+        try {
+            c = new Conexion();
+            Connection conn= c.getConn();
+
+            //Creamos el query
+            Statement st = conn.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM nacionalidad;");
+
+            if (resultSet != null){
+                while (resultSet.next()){
+                    lista.add(resultSet.getString("nombre"));
                 }
             }
 

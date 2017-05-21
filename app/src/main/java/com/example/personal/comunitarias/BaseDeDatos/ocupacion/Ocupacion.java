@@ -45,7 +45,7 @@ public class Ocupacion extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.ocupacion WHERE nombre='"+nombre+"'");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM ocupacion WHERE nombre='"+nombre+"';");
 
             if (resultSet != null) {
                 resultSet.next();
@@ -73,7 +73,7 @@ public class Ocupacion extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.ocupacion");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM ocupacion;");
 
             if (resultSet != null){
                 while (resultSet.next()){
@@ -82,6 +82,36 @@ public class Ocupacion extends _Default {
                     obj.setNombre(resultSet.getString("nombre"));
                     lista.add(obj);
                     obj = null;
+                }
+            }
+
+            conn.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return lista;
+    }
+
+    //Obtener la lista de Ocupacion
+    public ArrayList<String> getListaOcupacionNombres() {
+        ArrayList<String> lista = new ArrayList<String>();
+
+        //Establecemos la conexión
+        Conexion c = null;
+        try {
+            c = new Conexion();
+            Connection conn= c.getConn();
+
+            //Creamos el query
+            Statement st = conn.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM ocupacion;");
+
+            if (resultSet != null){
+                while (resultSet.next()){
+                    lista.add(resultSet.getString("nombre"));
                 }
             }
 

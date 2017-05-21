@@ -1,6 +1,10 @@
 package com.example.personal.comunitarias.Denuncias;
 
+import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,11 +23,17 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
+import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
+import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
+import com.example.personal.comunitarias.BaseDeDatos.niveleducacion.Niveleducacion;
+import com.example.personal.comunitarias.BaseDeDatos.ocupacion.Ocupacion;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
+import com.example.personal.comunitarias.Menu;
 import com.example.personal.comunitarias.R;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,7 +79,25 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     static String OcupacionPeticionario;
     static String OrganizacionSocial;
 
+    //Listas spinners
+    static ArrayList<String> lista_estadocivil, lista_niveledu, lista_nacionalidad,
+                            lista_ocup, lista_prov, lista_ciudad, lista_inst;
 
+
+
+    public static void setLista_estadocivil(ArrayList<String> lista_estadocivil) {  Peticionario.lista_estadocivil = lista_estadocivil; }
+
+    public static void setLista_niveledu(ArrayList<String> lista_niveledu) { Peticionario.lista_niveledu = lista_niveledu;}
+
+    public static void setLista_nacionalidad(ArrayList<String> lista_nacionalidad) { Peticionario.lista_nacionalidad = lista_nacionalidad; }
+
+    public static void setLista_ocup(ArrayList<String> lista_ocup) { Peticionario.lista_ocup = lista_ocup;  }
+
+    public static void setLista_prov(ArrayList<String> lista_prov) { Peticionario.lista_prov = lista_prov;  }
+
+    public static void setLista_ciudad(ArrayList<String> lista_ciudad) { Peticionario.lista_ciudad = lista_ciudad; }
+
+    public static void setLista_inst(ArrayList<String> lista_inst) {   Peticionario.lista_inst = lista_inst;  }
 
     public static Integer getIdCiuP() {
         return idCiuP;
@@ -139,17 +168,16 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.denuncia_tab1_peticionario,container,false);
+
+        //new Progress_guardando().execute();
         InicializarComp();
 
         return  view;
 
     }
 
-    private  void InicializarComp(){
+    public  void InicializarComp(){
         //data peticionario
-
-
-
         //Spinner identidad reservada
         identidad = (Spinner) view.findViewById(R.id.spinner);
         adapter = ArrayAdapter.createFromResource(getContext(), R.array.si_no, android.R.layout.simple_spinner_item);
@@ -173,16 +201,17 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         //Spinner estado_civil
         estado_civil = (Spinner) view.findViewById(R.id.spinner4);
         //Se lee los datos de la base de datos
+        //lst_estadocivil=new ArrayList<>();
         adapter4 = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllEstadocivilNombres());
-
+                android.R.layout.simple_spinner_item, lista_estadocivil);
+        //new Estadocivil().getListaEstadoCivilNombres() //new DatabaseHelper(getContext()).getAllEstadocivilNombres()
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         estado_civil.setAdapter(adapter4);
 
         //Spinner Nivel educacion
         nivelEducacion = (Spinner) view.findViewById(R.id.spinner5);
         adapter5 = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllNiveleducacionNombres());
+                android.R.layout.simple_spinner_item, lista_niveledu);
 
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         nivelEducacion.setAdapter(adapter5);
@@ -190,7 +219,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         //Spinner Nivel Nacionalidad
         nacionalidad = (Spinner) view.findViewById(R.id.spinner6);
         adapter6 = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllNacionalidadNombres());
+                android.R.layout.simple_spinner_item, lista_nacionalidad);
 
         adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         nacionalidad.setAdapter(adapter6);
@@ -205,7 +234,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         //Spinner Ocupacion : empleado publico o privado
         ocupacion_peticionario = (Spinner) view.findViewById(R.id.spinnerOcupacion);
         adapterOcupaPeticionario = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllOcupacionNombres());
+                android.R.layout.simple_spinner_item, lista_ocup);
         /*adapterOcupaPeticionario = ArrayAdapter.createFromResource(getContext(),
                 R.array.ocupacion, android.R.layout.simple_spinner_item);*/
         adapterOcupaPeticionario.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -272,28 +301,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
                 Log.d("pet",Ciuda +"    "+ provi);
 
-
-                idocupacionP = new DatabaseHelper(getContext()).getOcupacion_id(OcupacionPeticionario);
-                idestado = new DatabaseHelper(getContext()).getEstadocivil_id(Estado_civil);
-                idNivelEduca = new DatabaseHelper(getContext()).getNiveleducacion_id(NivelEdu);
-                idNacionalidad = new DatabaseHelper(getContext()).getNacionalidad_id(Nacio);
-                idProvp = new DatabaseHelper(getContext()).getProvincia(provi);
-                idCiuP = new DatabaseHelper(getContext()).getCiudad_id(Ciuda);
-
-
-                //idocupacionP = o.getID_DB(Ocupacion);
-
-
-                Log.d("ID PETICIONARIO","IdProvinvia"+idProvp+"  idCiudad "+idCiuP+"  IdNivelEducacion "+idNivelEduca+"   idEstado"+idestado+"  idOcupacion"+idocupacionP+"  idNacinalidad"+ idNacionalidad);
-
-                if(Nombre.equals("")|| Apellido.equals("")||
-                        Identidad.equals("") || Cargo.equals("") ||
-                        Email.equals("")||Edad.equals("") ||
-                         Telefono.equals("") ||Direccion.equals("")|| OrganizacionSocial.equals("")){
-                    Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
-                }else {
-                    viewPager.setCurrentItem(1);
-                }
+                new Progress_cargando().execute();
 
             }
         });
@@ -302,14 +310,59 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
     }
 
+    public class Progress_cargando extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mProgressDialog = new ProgressDialog(Peticionario.this.getContext());
+            mProgressDialog.setMessage("Cargando...");
+            mProgressDialog.setIndeterminate(false);
+            mProgressDialog.setCanceledOnTouchOutside(false);
+            mProgressDialog.show();
+        }
 
 
+        @Override
+        protected Void doInBackground(Void... params) {
+            idocupacionP =      new Ocupacion().getID_DB(OcupacionPeticionario);
+            idestado =          new Estadocivil().getID_DB(Estado_civil);
+            idNivelEduca =      new Niveleducacion().getID_DB(NivelEdu);
+            idNacionalidad =    new Nacionalidad().getID_DB(Nacio);
+            idProvp =           new Provincia().getID_DB(provi);
+            idCiuP =            new Ciudad().getID_DB(Ciuda);
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+            mProgressDialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            mProgressDialog.dismiss();
+            mProgressDialog.cancel();
+
+            Log.d("ID PETICIONARIO","IdProvinvia"+idProvp+"  idCiudad "+idCiuP+"  IdNivelEducacion "+idNivelEduca+"   idEstado"+idestado+"  idOcupacion"+idocupacionP+"  idNacinalidad"+ idNacionalidad);
+
+            if(Nombre.equals("")|| Apellido.equals("")||
+                    Identidad.equals("") || Cargo.equals("") ||
+                    Email.equals("")||Edad.equals("") ||
+                    Telefono.equals("") ||Direccion.equals("")|| OrganizacionSocial.equals("")){
+                Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
+            }else {
+                viewPager.setCurrentItem(1);
+            }
+        }
+    }
 
     private void loadSpinnerProvincias() {
         // Create an ArrayAdapter using the string array and a default spinner
         // layout
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllProvinciasNombres());
+                android.R.layout.simple_spinner_item, lista_prov);
 
        // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -325,31 +378,16 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (parent.getId()) {
             case R.id.spinner8:
-
-
                 //Obtener las ciudades correspondiente a la provincia seleccionada de la base LOCAL
-                List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new DatabaseHelper(getContext()).getProvincia(provincia.getSelectedItem().toString()));
+                //List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new DatabaseHelper(getContext()).getProvincia(provincia.getSelectedItem().toString()));
 
-                //ciudades= new ArrayList<String>();
-                //new ProgressCiudades().execute();
-
-                //creando adapter para spinner
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                        android.R.layout.simple_spinner_item, ciudades);
-
-                // Specify the layout to use when the list of choices appears
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-                // Apply the adapter to the spinner
-                this.ciudad.setAdapter(adapter);
-
+                ciudades= new ArrayList<String>();
+                new ProgressCiudades().execute();
                 break;
 
             case R.id.spinner9:
-
                 break;
         }
-
     }
 
 
@@ -362,6 +400,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
             mProgressDialog = new ProgressDialog(Peticionario.this.getContext());
             mProgressDialog.setMessage("Cargando ciudades...");
             mProgressDialog.setIndeterminate(false);
+            mProgressDialog.setCanceledOnTouchOutside(false);
             mProgressDialog.show();
         }
 
@@ -382,6 +421,16 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         protected void onPostExecute(Void result) {
             mProgressDialog.dismiss();
             mProgressDialog.cancel();
+
+            //creando adapter para spinner
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+                    android.R.layout.simple_spinner_item, ciudades);
+
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            // Apply the adapter to the spinner
+            ciudad.setAdapter(adapter);
         }
     }
 
@@ -392,8 +441,6 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     public void onNothingSelected(AdapterView<?> parent) { }
 
     //función que valida los campos del formulario
-
-
     private void ValidarCampos(){
 
         //validacione de nombre

@@ -32,7 +32,7 @@
     </string-array>
 
     <string-array name="tipo_identificacion">
-        <item>CÉDULA</item>
+        <item>CEDULA</item>
         <item>RUC</item>
         <item>PASAPORTE</item>
     </string-array>

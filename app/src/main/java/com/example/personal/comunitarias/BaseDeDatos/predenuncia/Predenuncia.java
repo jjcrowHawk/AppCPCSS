@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Kattya Desiderio
+ * @author Sianna Puente
  */
 public class Predenuncia extends _Default {
     int idpredenuncia; //pk
@@ -31,6 +31,7 @@ public class Predenuncia extends _Default {
     int institucionimplicadaid; //fk
     String generodenunciado;
     String funcionariopublico; //char(5)
+    String unidaddireccionafectada; //char(5)
 
     public Predenuncia (){
         super();
@@ -61,7 +62,7 @@ public class Predenuncia extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.predenuncia");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM predenuncia;");
 
             if (resultSet != null){
                 while (resultSet.next()){
@@ -95,10 +96,10 @@ public class Predenuncia extends _Default {
 
     public void guardarPredenuncia(){
         String comando = "";
-            comando = String.format("INSERT INTO cpccs.predenuncia(\n" +
-                            "\t tipodenuncia,generodenunciante,descripcioninvestigacion,generodenunciado, funcionariopublico,   niveleducaciondenuncianteid, ocupaciondenuncianteid, estadocivildenuncianteid, institucionimplicadaid, nacionalidaddenuncianteid)\n" +
-                            "\tVALUES ('%s','%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d');",
-                    this.getTipodenuncia(),this.getOcupaciondenuncianteid(),this.getDescripcioninvestigacion(),this.getGenerodenunciado(), this.getFuncionariopublico(),this.getNiveleducaciondenunciateid(),this.getOcupaciondenuncianteid(),this.getEstadocivildenuncianteid(), this.getInstitucionimplicadaid(), this.getNacionalidaddenuncianteid());
+            comando = String.format("INSERT INTO predenuncia(\n" +
+                            "\t id,tipodenuncia,generodenunciante,asunto,generodenunciado, unidaddireccionafecta, niveleducaciondenuncianteid, ocupaciondenuncianteid, estadocivildenuncianteid, institucionimplicadaid, nacionalidaddenuncianteid)\n" +
+                            "\tVALUES (%d,'%s','%s', '%s', '%s', '%s', %d, %d, %d, %d, %d);",
+                    this.getIdpredenuncia(),this.getTipodenuncia(),this.getGenerodenunciante(),this.getDescripcioninvestigacion(),this.getGenerodenunciado(),this.getUnidaddireccionafectada(),this.getNiveleducaciondenunciateid(),this.getOcupaciondenuncianteid(),this.getEstadocivildenuncianteid(), this.getInstitucionimplicadaid(), this.getNacionalidaddenuncianteid());
 
         //Establecemos la conexión
         try {
@@ -234,5 +235,11 @@ public class Predenuncia extends _Default {
         this.funcionariopublico = funcionariopublico;
     }
 
+    public String getUnidaddireccionafectada() {
+        return unidaddireccionafectada;
+    }
 
+    public void setUnidaddireccionafectada(String unidaddireccionafectada) {
+        this.unidaddireccionafectada = unidaddireccionafectada;
+    }
 }

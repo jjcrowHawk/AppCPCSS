@@ -88,7 +88,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
     String Genero_P;
     String Reservada_p;
     static String Descripciion_D;
-    String comparecer_d,hechos_d;
+    int comparecer_d,hechos_d;
     static String Nombre_DE;
     static String Apellido_DE;
     String Cargo_DE;
@@ -99,8 +99,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
     String CIudad_DE;
     String Institucion_DE;
     Integer idCiuDE, idCiuP , idProvDE, idProvp,idIndti,idocupacionP,idNivelEduca,idestado,idNacionalidad;
-    String reservada = "";
-    String reside = "";
+    int reservada, reside;
     String gen = "";
     String Direccion_p,edad_p,cargo_p,telefono_p,NombreApellido_P,NombreApellido_D;
 
@@ -212,7 +211,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         reclamo.setCiudaddeldenuncianteid(idCiuP);
         reclamo.setComparecer(comparecer_d);
         reclamo.setDireccion(Direccion_p);
-        reclamo.setDocumentores("0");
+        reclamo.setDocumentores(0);
         reclamo.setEmail(Mail_P);
         reclamo.setResideextrangero(reside);
         reclamo.setIdentidadreservada(reservada);
@@ -224,11 +223,12 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         reclamo.setProvinciadenuncianteid(idProvp);
         reclamo.setTelefono(telefono_p);
         reclamo.setTipoidentificacion(TipoIde_P);
+        reclamo.setPedidoDenuncia("Denuncia");
 
         pd = new Predenuncia();
-        pd.setTipodenuncia("0");
+        pd.setTipodenuncia("Predenuncia");
         pd.setDescripcioninvestigacion(Descripciion_D);
-        pd.setFuncionariopublico("");
+        pd.setFuncionariopublico(""); //no se sabe
         pd.setGenerodenunciado(Genero_DE);
         pd.setGenerodenunciante(Genero_P);
         pd.setNiveleducaciondenunciateid(idNivelEduca);
@@ -236,6 +236,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         pd.setEstadocivildenuncianteid(idestado);
         pd.setInstitucionimplicadaid(idIndti);
         pd.setNacionalidaddenuncianteid(idNacionalidad);
+        pd.setUnidaddireccionafectada(Unafectada_DE);
 
         new Progress_guardando().execute();
 
@@ -311,10 +312,10 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         cargo_p = p.getCargo();
 
         if(Reservada_p.equals("SI")){
-            reservada = "1";
+            reservada = 1;
 
         }else{
-            reservada = "0";
+            reservada = 0;
         }
         //Ocupacion_P=p.getOcupacion();
         Estadocivil_P= p.getEstado_civil();
@@ -325,20 +326,14 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         telefono_p = p.getTelefono();
 
         if(Reside_p.equals("SI")){
-            reside = "1";
+            reside = 1;
 
         }else{
-            reside = "0";
+            reside = 0;
         }
         Nivel_P=p.getNivelEdu();
         TipoIde_P=p.getTipoIden();
         Genero_P=p.getGenero();
-        if(Genero_P.equals("MASCULINO")){
-            gen = "1";
-
-        }else{
-            gen = "0";
-        }
 
         //id
         idProvp = p.getIdProvp();
@@ -354,7 +349,11 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         Log.d("ID PETICIONARIO","IdProvinvia"+idProvp+"  idCiudad "+idCiuP+"  IdNivelEducacion "+idNivelEduca+"   idEstado"+idestado+"  idOcupacion"+idocupacionP+"  idNacinalidad"+ idNacionalidad);
 
         //Denuncia
-        comparecer_d = d.getComparecer_d();
+        if(d.getComparecer_d().equals("SI")){
+            comparecer_d = 1;
+        }else{
+            comparecer_d = 0;
+        }
 
         Descripciion_D = d.getDescripcion_Denuncia();
 
@@ -372,6 +371,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         idProvDE = e.getIdProvDE();
         idCiuDE = e.getIdCiuDE();
         idIndti = e.getIdIndti();
+        Unafectada_DE = e.getUnafectada();
 
         Log.d("ID Denunciado ","Genero_D"+Genero_DE+"  Genere_P "+gen);
 
@@ -395,6 +395,8 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         protected Void doInBackground(Void... params) {
             reclamo.Guardar_Reclamo();
             status_reclamo=reclamo.is_status();
+
+            pd.setIdpredenuncia(reclamo.getIdreclamo());
             pd.guardarPredenuncia();
             status_pred=pd.is_status();
 

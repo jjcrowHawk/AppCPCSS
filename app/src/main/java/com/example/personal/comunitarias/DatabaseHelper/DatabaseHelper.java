@@ -316,13 +316,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //----------------------------------Inicilizar base con datos de la base remota--------------------------------------//
     public void inicializar()  {
-        inicializar_estadocivil();
-        inicializar_niveleducacion();
-        inicializar_nacionalidad();
-        inicializar_ocupacion();
+        //inicializar_estadocivil();
+        //inicializar_niveleducacion();
+        //inicializar_nacionalidad();
+        //inicializar_ocupacion();
         inicializar_provincia();
         inicializar_ciudad();
-        inicializar_institucion();
+        //inicializar_institucion();
     }
 
     public void inicializar_estadocivil() {
@@ -1032,10 +1032,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         r.setNombresapellidosdenunciado((c.getString(c.getColumnIndex(KEY_RECLAMO_NOMBRESAPELLIDOSDENUNCIADO))));
         r.setTelefono((c.getString(c.getColumnIndex(KEY_RECLAMO_TELEFONO))));
         r.setCargo((c.getString(c.getColumnIndex(KEY_RECLAMO_CARGO))));
-        r.setComparecer((c.getString(c.getColumnIndex(KEY_RECLAMO_COMPARECER))));
-        r.setDocumentores((c.getString(c.getColumnIndex(KEY_RECLAMO_DOCUMENTORES))));
-        r.setIdentidadreservada((c.getString(c.getColumnIndex(KEY_RECLAMO_IDENTIDADRESERVADA))));
-        r.setResideextrangero((c.getString(c.getColumnIndex(KEY_RECLAMO_RESIDEEXTRANJERO))));
+        r.setComparecer((c.getInt(c.getColumnIndex(KEY_RECLAMO_COMPARECER))));
+        r.setDocumentores((c.getInt(c.getColumnIndex(KEY_RECLAMO_DOCUMENTORES))));
+        r.setIdentidadreservada((c.getInt(c.getColumnIndex(KEY_RECLAMO_IDENTIDADRESERVADA))));
+        r.setResideextrangero((c.getInt(c.getColumnIndex(KEY_RECLAMO_RESIDEEXTRANJERO))));
         r.setCiudaddeldenuncianteid((c.getInt(c.getColumnIndex(KEY_CIUDADDENUNCIANTE_ID))));
         r.setCiudaddeldenunciadoid((c.getInt(c.getColumnIndex(KEY_CIUDADDENUNCIADO_ID))));
         r.setInstitucionimplicadaid((c.getInt(c.getColumnIndex(KEY_RECLAMOINSTITUCIONIMPLICADA_ID))));
@@ -1467,10 +1467,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 r.setNombresapellidosdenunciado(c.getString(c.getColumnIndex(KEY_RECLAMO_NOMBRESAPELLIDOSDENUNCIADO)));
                 r.setTelefono(c.getString(c.getColumnIndex(KEY_RECLAMO_TELEFONO)));
                 r.setCargo(c.getString(c.getColumnIndex(KEY_RECLAMO_CARGO)));
-                r.setComparecer(c.getString(c.getColumnIndex(KEY_RECLAMO_COMPARECER)));
-                r.setDocumentores(c.getString(c.getColumnIndex(KEY_RECLAMO_DOCUMENTORES)));
-                r.setIdentidadreservada(c.getString(c.getColumnIndex(KEY_RECLAMO_IDENTIDADRESERVADA)));
-                r.setResideextrangero(c.getString(c.getColumnIndex(KEY_RECLAMO_RESIDEEXTRANJERO)));
+                r.setComparecer(c.getInt(c.getColumnIndex(KEY_RECLAMO_COMPARECER)));
+                r.setDocumentores(c.getInt(c.getColumnIndex(KEY_RECLAMO_DOCUMENTORES)));
+                r.setIdentidadreservada(c.getInt(c.getColumnIndex(KEY_RECLAMO_IDENTIDADRESERVADA)));
+                r.setResideextrangero(c.getInt(c.getColumnIndex(KEY_RECLAMO_RESIDEEXTRANJERO)));
                 r.setCiudaddeldenuncianteid(c.getInt(c.getColumnIndex(KEY_CIUDADDENUNCIANTE_ID)));
                 r.setCiudaddeldenunciadoid(c.getInt(c.getColumnIndex(KEY_CIUDADDENUNCIADO_ID)));
                 r.setInstitucionimplicadaid(c.getInt(c.getColumnIndex(KEY_RECLAMOINSTITUCIONIMPLICADA_ID)));

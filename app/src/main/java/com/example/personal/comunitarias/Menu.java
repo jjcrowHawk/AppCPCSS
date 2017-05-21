@@ -1,5 +1,6 @@
 package com.example.personal.comunitarias;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -7,7 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
@@ -18,11 +21,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
 import com.example.personal.comunitarias.Contactenos.Contacto;
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
+import com.example.personal.comunitarias.Denuncias.IntroDenuncias;
+import com.example.personal.comunitarias.Denuncias.Peticionario;
 import com.example.personal.comunitarias.Denuncias.TabsDenuncia;
 import com.example.personal.comunitarias.Facebook.IntroFacebook;
 import com.example.personal.comunitarias.Mision.Mision;
@@ -35,10 +42,15 @@ import com.example.personal.comunitarias.CpccsTV.IntroTv;
 import com.example.personal.comunitarias.Twitter.IntroTweets;
 import com.example.personal.comunitarias.Youtube.IntroVideos;
 
+import java.util.ArrayList;
+
 public class Menu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     Button Denuncias,Pedidos,Noticiase,Preguntas;
     DatabaseHelper db;
+
+    private ProgressDialog mProgressDialog;
+    static ArrayList<String> lst_estadocivil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +84,11 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             @Override
             public void onClick(View view) {
 
-                Intent i=new Intent(getBaseContext(), TabsDenuncia.class);
-                startActivity(i);
+                //Inicializando listas
+                //new Progress_guardando().execute();
 
+                Intent i=new Intent(getBaseContext(), IntroDenuncias.class);
+                startActivity(i);
             }
         });
 
@@ -117,39 +131,41 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             }
         });
 
-        /*
-        //BASE
-        db = new DatabaseHelper(getApplicationContext());
-        //Creando Regiones
-        Region r1 = new Region("Costa","Region Costa");
-        Region r2 = new Region("Sierra","Region Sierra");
-        //Insertando en base
-        long region1_id = db.createRegion(r1);
-        long region2_id = db.createRegion(r2);
+    }
 
-        Log.d("Tag Count", "Tag Count: " + db.getAllRegion().size());
+    public class Progress_guardando extends AsyncTask<Void, Void, Void> {
 
-        //Creando Provincias
-        Provincia p2 = new Provincia("Pichincha");
-        Provincia p1 = new Provincia("Guayas");
-
-        db.createProvinciaRegion(p1, region1_id);
-        db.createProvinciaRegion(p2, region2_id);
-
-
-        Log.d("Get Tags", "Getting All Tags");
-
-        List<Region> allRegion = db.getAllRegion();
-        for (Region r : allRegion) {
-            Log.d("Region Name", r.getNombre());
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mProgressDialog = new ProgressDialog(Menu.this.getBaseContext());
+            mProgressDialog.setMessage("Cargando datos...");
+            mProgressDialog.setIndeterminate(false);
+            //mProgressDialog.show();
         }
 
-        List<Provincia> allProvincia = db.getAllProvincias();
-        for (Provincia p : allProvincia) {
-            Log.d("Provincia Name", p.getNombre());
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            lst_estadocivil= new Estadocivil().getListaEstadoCivilNombres();
+            return null;
         }
 
-        db.closeDB();*/
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+            //mProgressDialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            //mProgressDialog.dismiss();
+            //mProgressDialog.cancel();
+            TabsDenuncia t = new TabsDenuncia();
+            t.setLista_estadocivil(lst_estadocivil);
+            Intent i=new Intent(getBaseContext(), t.getClass());
+            startActivity(i);
+        }
     }
 
     @Override

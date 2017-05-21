@@ -56,7 +56,7 @@ public class Institucion extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.institucion WHERE nombre='"+nombre+"'");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM institucion WHERE nombre='"+nombre+"';");
             if (resultSet != null) {
                 resultSet.next();
                 id_encontrada=resultSet.getInt("id");
@@ -84,7 +84,7 @@ public class Institucion extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.institucion");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM institucion;");
             if (resultSet != null){
                 while (resultSet.next()){
                     Institucion obj = new Institucion();
@@ -108,25 +108,33 @@ public class Institucion extends _Default {
         return lista;
     }
 
-    public ArrayList<String> getListaInstitucionNombres() throws SQLException, ClassNotFoundException {
-        //Establecemos la conexión
-        Conexion c = new Conexion();
-        Connection conn= c.getConn();
-
+    public ArrayList<String> getListaInstitucionNombres(){
         ArrayList<String> lista = new ArrayList<String>();
+
+        //Establecemos la conexión
+        Conexion c = null;
         try {
+            c = new Conexion();
+            Connection conn= c.getConn();
+
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.institucion");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM institucion;");
             if (resultSet != null){
                 while (resultSet.next()){
                     lista.add(resultSet.getString("nombre"));
                 }
             }
-        }catch (Exception ex){
-            this._mensagem = ex.getMessage();
+
+            conn.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            this._status = false;
+        } catch (SQLException e) {
+            e.printStackTrace();
             this._status = false;
         }
+
         return lista;
     }
 

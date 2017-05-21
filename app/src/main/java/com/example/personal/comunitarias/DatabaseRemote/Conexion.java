@@ -9,11 +9,11 @@ import java.sql.SQLException;
  */
 
 public class Conexion {
-    private String host = "babar.elephantsql.com";
-    private String db = "omkbmadd";
+    private String host = "190.152.149.91";
+    private String db = "DenunciasPedidos";
     private int port = 5432;
-    private String user = "omkbmadd";
-    private String pass = "jK72m7jV5797WwXGbFX9CV0p86-gBU4x";
+    private String user = "movil";
+    private String pass = "M0v1$25";
     private String url = "jdbc:postgresql://%s:%d/%s";
     private java.sql.Connection conn;
 

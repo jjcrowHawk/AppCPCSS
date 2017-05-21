@@ -49,7 +49,7 @@ public class Niveleducacion extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.niveleducacion WHERE nombre='"+nombre+"'");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM niveleducacion WHERE nombre='"+nombre+"';");
 
             if (resultSet != null) {
                 resultSet.next();
@@ -78,7 +78,7 @@ public class Niveleducacion extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.niveleducacion");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM niveleducacion;");
 
             if (resultSet != null){
                 while (resultSet.next()){
@@ -88,6 +88,37 @@ public class Niveleducacion extends _Default {
                     obj.setDescripcion(resultSet.getString("descripcion"));
                     lista.add(obj);
                     obj = null;
+                }
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            this._status = false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            this._status = false;
+        }
+
+        return lista;
+    }
+
+    //Obtener la lista de estadoCivil
+    public ArrayList<String> getListaNivelEducacionNombres()  {
+        ArrayList<String> lista = new ArrayList<>();
+
+        //Establecemos la conexión
+        Conexion c = null;
+        try {
+            c = new Conexion();
+            Connection conn= c.getConn();
+
+            //Creamos el query
+            Statement st = conn.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM niveleducacion;");
+
+            if (resultSet != null){
+                while (resultSet.next()){
+                    lista.add(resultSet.getString("nombre"));
                 }
             }
 

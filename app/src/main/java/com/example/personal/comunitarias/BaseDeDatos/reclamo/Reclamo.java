@@ -7,12 +7,15 @@ package com.example.personal.comunitarias.BaseDeDatos.reclamo;
 
 import android.util.Log;
 
+import com.example.personal.comunitarias.BaseDeDatos.niveleducacion.Niveleducacion;
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -20,6 +23,7 @@ import java.sql.Statement;
  */
 public class Reclamo extends _Default {
     int idreclamo; //pk
+    String numero;
     String nombresapellidosdenunciante;
     String tipoidentificacion;
     String numidenti;
@@ -28,19 +32,21 @@ public class Reclamo extends _Default {
     String nombresapellidosdenunciado;
     String telefono;
     String cargo;
-    String comparecer; //char(5)
-    String documentores; //char(5)
-    String identidadreservada;
-    String resideextrangero;
+    int comparecer; //char(5)
+    int documentores; //char(5)
+    int identidadreservada;
+    int resideextrangero;
     int ciudaddeldenuncianteid; //fk
     int ciudaddeldenunciadoid; //fk
     int institucionimplicadaid; //fk
     int provinciadenuncianteid; //fk
     int provinciadenunciadoid; //fk
+    String pedidoDenuncia;
 
     public Reclamo() {
         super();
         this.idreclamo = -1;
+        this.numero="";
         this.nombresapellidosdenunciado = "";
         this.tipoidentificacion = "";
         this.numidenti = "";
@@ -49,15 +55,17 @@ public class Reclamo extends _Default {
         this.nombresapellidosdenunciado = "";
         this.telefono = "";
         this.cargo = "";
-        this.comparecer = "";
-        this.documentores = "";
-        this.identidadreservada = "";
-        this.resideextrangero = "";
+        this.comparecer = -1;
+        this.documentores = -1;
+        this.identidadreservada = -1;
+        this.resideextrangero = -1;
         this.ciudaddeldenunciadoid = -1; //fk
         this.ciudaddeldenunciadoid = -1; //fk
         this.institucionimplicadaid = -1; //fk
         this.provinciadenuncianteid = -1; //fk
         this.provinciadenunciadoid = -1; //fk
+        this.pedidoDenuncia= "";
+
     }
 
     public int getIdreclamo() {
@@ -68,7 +76,7 @@ public class Reclamo extends _Default {
         this.idreclamo = idreclamo;
     }
 
-    public Reclamo(String nombresapellidosdenunciante, String tipoidentificacion, String numidenti, String direccion, String email, String nombresapellidosdenunciado, String telefono, String cargo, String comparecer, String documentores, String identidadreservada, String resideextrangero) {
+    public Reclamo(String nombresapellidosdenunciante, String tipoidentificacion, String numidenti, String direccion, String email, String nombresapellidosdenunciado, String telefono, String cargo, int comparecer, int documentores, int identidadreservada, int resideextrangero) {
         this.nombresapellidosdenunciante = nombresapellidosdenunciante;
         this.tipoidentificacion = tipoidentificacion;
         this.numidenti = numidenti;
@@ -81,6 +89,14 @@ public class Reclamo extends _Default {
         this.documentores = documentores;
         this.identidadreservada = identidadreservada;
         this.resideextrangero = resideextrangero;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     public String getNombresapellidosdenunciante() {
@@ -147,35 +163,35 @@ public class Reclamo extends _Default {
         this.cargo = cargo;
     }
 
-    public String getComparecer() {
+    public int getComparecer() {
         return comparecer;
     }
 
-    public void setComparecer(String comparecer) {
+    public void setComparecer(int comparecer) {
         this.comparecer = comparecer;
     }
 
-    public String getDocumentores() {
+    public int getDocumentores() {
         return documentores;
     }
 
-    public void setDocumentores(String documentores) {
+    public void setDocumentores(int documentores) {
         this.documentores = documentores;
     }
 
-    public String getIdentidadreservada() {
+    public int getIdentidadreservada() {
         return identidadreservada;
     }
 
-    public void setIdentidadreservada(String identidadreservada) {
+    public void setIdentidadreservada(int identidadreservada) {
         this.identidadreservada = identidadreservada;
     }
 
-    public String getResideextrangero() {
+    public int getResideextrangero() {
         return resideextrangero;
     }
 
-    public void setResideextrangero(String resideextrangero) {
+    public void setResideextrangero(int resideextrangero) {
         this.resideextrangero = resideextrangero;
     }
 
@@ -219,6 +235,15 @@ public class Reclamo extends _Default {
         this.provinciadenuncianteid = provinciadenuncianteid;
     }
 
+    public String getPedidoDenuncia() {
+        return pedidoDenuncia;
+    }
+
+    public void setPedidoDenuncia(String pedidoDenuncia) {
+        this.pedidoDenuncia = pedidoDenuncia;
+    }
+
+
     public void Guardar_Reclamo() {
         Log.d("myTag", "Entre al query");
         String comando = "";
@@ -226,9 +251,16 @@ public class Reclamo extends _Default {
         //comando = String.format(" INSERT INTO cpccs.reclamo (nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddeldenuncianteid,ciudaddeldenunciadoid,insttitucionimplicadaid,provinciadenuncianteid,provinciadenunciadoid)VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d,%d,%d,%d);",
           //"SIANNA", "0125455", "12345", "mapasingue", "jlcosta", "Domenica Vera", "1245", "12345", "1", "1", "1", "1", 1, 1, 1, 1, 1);
 
-            comando = String.format(" INSERT INTO cpccs.reclamo (nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddeldenuncianteid,ciudaddeldenunciadoid,insttitucionimplicadaid,provinciadenuncianteid,provinciadenunciadoid)Values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d,%d,%d,%d);",
+            if(getListaReclamo().size()==0){
+                this.idreclamo=1;
+            }else{
+                this.idreclamo= getListaReclamo().get(getListaReclamo().size()-1).getIdreclamo()+1;
+            }
+
+            comando = String.format(" INSERT INTO reclamo (id,numero,fechaingreso,nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddenuncianteid,ciudaddenunciadoid,institucionimplicadaid,provinciadenuncianteid,provinciadenunciandoid) Values (%d,%d,now(),'%s','%s','%s','%s','%s','%s','%s','%s','%d','%d','%d','%d',%d,%d,%d,%d,%d);",
+                    this.idreclamo,1,
                     this.getNombresapellidosdenunciante(),this.getTipoidentificacion(),this.getNumidenti(),this.getDireccion(),this.getEmail(),this.getNombresapellidosdenunciado(),this.getTelefono(),this.getCargo(),this.getComparecer(),this.getDocumentores(),this.getIdentidadreservada(),this.getResideextrangero(),this.getCiudaddeldenuncianteid(),this.getCiudaddeldenunciadoid(),this.getInstitucionimplicadaid(),this.getProvinciadenuncianteid(),this.getProvinciadenunciadoid());
-            Log.d("Enviado  : ", this.getNombresapellidosdenunciante() + this.getTipoidentificacion() + this.getNumidenti() + this.getDireccion()+ this.getEmail() + this.getNombresapellidosdenunciado() + this.getTelefono() + this.getCargo() + this.getComparecer() + this.getDocumentores() + this.getIdentidadreservada() + this.getResideextrangero() + this.getCiudaddeldenuncianteid() + this.getCiudaddeldenunciadoid() + this.getInstitucionimplicadaid() + this.getProvinciadenuncianteid() + this.getProvinciadenunciadoid());
+            Log.d("Enviado  : ", this.idreclamo+","+this.getPedidoDenuncia()+this.getNombresapellidosdenunciante() + this.getTipoidentificacion() + this.getNumidenti() + this.getDireccion()+ this.getEmail() + this.getNombresapellidosdenunciado() + this.getTelefono() + this.getCargo() + ","+this.getComparecer() + ","+this.getDocumentores() + ","+this.getIdentidadreservada() + ","+this.getResideextrangero() + ","+this.getCiudaddeldenuncianteid() + ","+this.getCiudaddeldenunciadoid() + ","+this.getInstitucionimplicadaid() + ","+this.getProvinciadenuncianteid() + ","+this.getProvinciadenunciadoid());
         }
 
         //Establecemos la conexión
@@ -252,5 +284,39 @@ public class Reclamo extends _Default {
         }
     }
 
+    //Obtener la lista de Reclamo
+    public ArrayList<Reclamo> getListaReclamo()  {
+        ArrayList<Reclamo> lista = new ArrayList<>();
+
+        //Establecemos la conexión
+        Conexion c = null;
+        try {
+            c = new Conexion();
+            Connection conn= c.getConn();
+
+            //Creamos el query
+            Statement st = conn.createStatement();
+            ResultSet resultSet = st.executeQuery("SELECT * FROM reclamo;");
+
+            if (resultSet != null){
+                while (resultSet.next()){
+                    Reclamo obj = new Reclamo();
+                    obj.setIdreclamo(resultSet.getInt("id"));
+                    obj.setNumero(resultSet.getString("numero"));
+                    lista.add(obj);
+                    obj = null;
+                }
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            this._status = false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            this._status = false;
+        }
+
+        return lista;
+    }
 
 }

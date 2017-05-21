@@ -26,7 +26,7 @@ public class Intro extends AppCompatActivity {
 
        Thread thread = new Thread() {
             public void run() {
-                while (pStatus < 100) {
+                while (pStatus < 200) {
                     pStatus += 1;
                     handler.post(new Runnable() {
                         @Override
@@ -42,14 +42,14 @@ public class Intro extends AppCompatActivity {
                 }
 
                 //Inicializando la base
-                DatabaseHelper DBHelper = new DatabaseHelper(getApplicationContext());
-                DBHelper.inicializar();
+                //DatabaseHelper DBHelper = new DatabaseHelper(getApplicationContext());
+                //DBHelper.inicializar();
 
-                Log.d("SIZE estado civil: ", ""+DBHelper.getAllEstadocivil().size());
-                Log.d("SIZE nivel: ", ""+DBHelper.getAllNiveleducacion().size());
-                Log.d("SIZE ocupa: ", ""+DBHelper.getAllOcupacionNombres().size());
-                Log.d("SIZE ciudades: ", ""+DBHelper.getAllCiudades().size());
-                Log.d("SIZE inst: ", ""+DBHelper.getAllInstitucionNombres().size());
+                //Log.d("SIZE estado civil: ", ""+DBHelper.getAllEstadocivil().size());
+                //Log.d("SIZE nivel: ", ""+DBHelper.getAllNiveleducacion().size());
+                //Log.d("SIZE ocupa: ", ""+DBHelper.getAllOcupacionNombres().size());
+                //Log.d("SIZE ciudades: ", ""+DBHelper.getAllCiudades().size());
+                //Log.d("SIZE inst: ", ""+DBHelper.getAllInstitucionNombres().size());
 
                 //Inicializar actividad Menu
                 Intent i=new Intent(getBaseContext(),Menu.class);

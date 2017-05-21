@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.personal.comunitarias.R;
 
+import java.util.ArrayList;
+
 
 public class Denuncia extends Fragment {
     Spinner comparecer, hechos;
@@ -26,6 +28,8 @@ public class Denuncia extends Fragment {
     EditText descripcion;
     static String Descripcion_Denuncia;
     static String Comparecer_d;
+
+    ArrayList<String> lista_inst;
 
     public Denuncia(ViewPager viewPager) {
         this.viewPager = viewPager;
@@ -94,5 +98,7 @@ public class Denuncia extends Fragment {
         Comparecer_d = comparecer_d;
     }
 
-
+    public void setLista_inst(ArrayList<String> lista_inst) {
+        this.lista_inst = lista_inst;
+    }
 }

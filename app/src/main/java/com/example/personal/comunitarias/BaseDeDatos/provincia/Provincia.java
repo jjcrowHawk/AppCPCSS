@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Kattya Desiderio
+ * @author Sianna Puente
  */
 public class Provincia extends _Default {
     int idprovincia; //pk
@@ -46,7 +46,7 @@ public class Provincia extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.provincia WHERE nombre='"+nombre+"'");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM provincia WHERE nombre='"+nombre+"';");
 
             if (resultSet != null) {
                 resultSet.next();
@@ -74,7 +74,7 @@ public class Provincia extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.provincia");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM provincia;");
 
             if (resultSet != null){
                 while (resultSet.next()){
@@ -109,7 +109,7 @@ public class Provincia extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.provincia");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM provincia;");
 
             if (resultSet != null){
                 while (resultSet.next()){

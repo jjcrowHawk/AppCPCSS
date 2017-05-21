@@ -33,6 +33,9 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:label="@string/title_denuncia"/>
         <activity
+            android:name=".Denuncias.IntroDenuncias"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Pedidos.TabsPedido"
             android:theme="@style/AppTheme.NoActionBar"
             android:label="@string/title_pedido"/>

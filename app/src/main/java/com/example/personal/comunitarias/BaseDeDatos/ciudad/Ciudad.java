@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Kattya Desiderio
+ *  @author Sianna Puente
  */
 public class Ciudad extends _Default {
     int idciudad; //pk
@@ -46,7 +46,7 @@ public class Ciudad extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.ciudad WHERE nombre='"+nombre+"'");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM ciudad WHERE nombre='"+nombre+"';");
             if (resultSet != null) {
                 resultSet.next();
                 id_encontrada=resultSet.getInt("id");
@@ -75,7 +75,7 @@ public class Ciudad extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.ciudad WHERE provinciaid='"+idProvincia+"'");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM ciudad WHERE provinciaid='"+idProvincia+"';");
             if (resultSet != null){
                 while (resultSet.next()){
                     Ciudad obj= new Ciudad();
@@ -109,7 +109,7 @@ public class Ciudad extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.ciudad WHERE provinciaid='"+idProvincia+"'");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM ciudad WHERE provinciaid='"+idProvincia+"';");
             if (resultSet != null){
                 while (resultSet.next()){
                     lista.add(resultSet.getString("nombre"));
@@ -138,7 +138,7 @@ public class Ciudad extends _Default {
 
             //Creamos el query
             Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM cpccs.ciudad");
+            ResultSet resultSet = st.executeQuery("SELECT * FROM ciudad;");
             if (resultSet != null){
                 while (resultSet.next()){
                     Ciudad obj= new Ciudad();

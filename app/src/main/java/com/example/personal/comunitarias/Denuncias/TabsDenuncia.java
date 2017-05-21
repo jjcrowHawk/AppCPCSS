@@ -1,8 +1,10 @@
 package com.example.personal.comunitarias.Denuncias;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -19,7 +21,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
 import com.example.personal.comunitarias.R;
+
+import java.util.ArrayList;
 
 public class TabsDenuncia extends AppCompatActivity {
 
@@ -28,6 +33,8 @@ public class TabsDenuncia extends AppCompatActivity {
     LinearLayout tabStrip;
     CoordinatorLayout coordinatorLayout;
 
+    static ArrayList<String> lista_estadocivil, lista_niveledu, lista_nacionalidad,
+            lista_ocup, lista_prov, lista_ciudad, lista_inst;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,11 +100,23 @@ public class TabsDenuncia extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new Peticionario(viewPager);
+                    Peticionario p= new Peticionario(viewPager);
+                    p.setLista_estadocivil(lista_estadocivil);
+                    p.setLista_niveledu(lista_niveledu);
+                    p.setLista_nacionalidad(lista_nacionalidad);
+                    p.setLista_ocup(lista_ocup);
+                    p.setLista_prov(lista_prov);
+                    return p;
                 case 1:
-                    return new Denuncia(viewPager);
+                    Denuncia d = new Denuncia(viewPager);
+                    d.setLista_inst(lista_inst);
+                    return d;
                 case 2:
-                    return new Denunciado(viewPager);
+                    Denunciado de = new Denunciado(viewPager);
+                    de.setLista_inst(lista_inst);
+                    de.setLista_prov(lista_prov);
+                    de.setLista_ocup(lista_ocup);
+                    return de;
                 case 3:
                     return new MostrarDatos(viewPager);
 
@@ -118,11 +137,7 @@ public class TabsDenuncia extends AppCompatActivity {
     }
 
 
-
-
     //Acciones del boton regresar
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -164,5 +179,34 @@ public class TabsDenuncia extends AppCompatActivity {
 
         }
         return true;
+    }
+
+    //
+    public static void setLista_estadocivil(ArrayList<String> lista_estadocivil) {
+        TabsDenuncia.lista_estadocivil = lista_estadocivil;
+    }
+
+    public static void setLista_niveledu(ArrayList<String> lista_niveledu) {
+        TabsDenuncia.lista_niveledu = lista_niveledu;
+    }
+
+    public static void setLista_nacionalidad(ArrayList<String> lista_nacionalidad) {
+        TabsDenuncia.lista_nacionalidad = lista_nacionalidad;
+    }
+
+    public static void setLista_ocup(ArrayList<String> lista_ocup) {
+        TabsDenuncia.lista_ocup = lista_ocup;
+    }
+
+    public static void setLista_prov(ArrayList<String> lista_prov) {
+        TabsDenuncia.lista_prov = lista_prov;
+    }
+
+    public static void setLista_ciudad(ArrayList<String> lista_ciudad) {
+        TabsDenuncia.lista_ciudad = lista_ciudad;
+    }
+
+    public static void setLista_inst(ArrayList<String> lista_inst) {
+        TabsDenuncia.lista_inst = lista_inst;
     }
 }
