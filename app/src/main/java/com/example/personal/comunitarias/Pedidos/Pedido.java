@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.example.personal.comunitarias.R;
 
+import java.util.ArrayList;
+
 
 public class Pedido extends Fragment implements AdapterView.OnItemSelectedListener {
 
@@ -28,6 +30,7 @@ public class Pedido extends Fragment implements AdapterView.OnItemSelectedListen
     private EditText descripcion;
     static String Descripcion_Pedido;
     static String Comparecer_d;
+
 
     public static String getDescripcion_Pedido() {
         return Descripcion_Pedido;

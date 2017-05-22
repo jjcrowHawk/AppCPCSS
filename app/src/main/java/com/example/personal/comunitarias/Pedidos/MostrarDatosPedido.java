@@ -143,17 +143,8 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         contraseña="espol1234";
 
         obtenerinformacion();
-        /*m_txtNombrePet.setText(Nombre_P);
-        m_txtApellidoPet.setText(Apellido_P);
-        txtIdent.setText(Identidad_P);
-        txtCorreo.setText(Mail_P);
-        txtNombreDenunciado.setText(Nombre_DE);
-        txtApellidoDenunciado.setText(Apellido_DE);
-        */
-
 
         guardar = (Button) view.findViewById(R.id.enviar);
-
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -197,9 +188,11 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         reclamo.setProvinciadenuncianteid(idProvp);
         reclamo.setTelefono(telefono_p);
         reclamo.setTipoidentificacion(TipoIde_P);
+        reclamo.setPedidoDenuncia("Pedido");
+
 
         pd = new Predenuncia();
-        pd.setTipodenuncia("1");
+        pd.setTipodenuncia("Pedido");
         pd.setDescripcioninvestigacion(Descripciion_D);
         pd.setFuncionariopublico("");
         pd.setGenerodenunciado(Genero_DE);
@@ -294,15 +287,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         Direccion_p = p.getDireccion();
         edad_p = p.getEdad();
         cargo_p = p.getCargo_Pet();
-        //Reservada_p=p.getIdentidadReservada();
 
-        /*if(Reservada_p.equals("SI")){
-            reservada = "1";
-
-        }else{
-            reservada = "0";
-        }*/
-        //Ocupacion_P=p.getOcupacion();
         Estadocivil_P= p.getEstado_civil();
         provi_P= p.getProvi();
         Ciudad_P=p.getCiuda();
@@ -319,13 +304,6 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         Nivel_P=p.getNivelEdu();
         TipoIde_P=p.getTipoIden();
         Genero_P=p.getGenero();
-        if(Genero_P=="MASCULINO"){
-            gen = "1";
-
-        }else{
-            gen = "0";
-        }
-        //id
 
         idProvp = p.getIdProvp();
         idCiuP = p.getIdCiuP();
@@ -403,6 +381,8 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         protected Void doInBackground(Void... params) {
             reclamo.Guardar_Reclamo();
             status_reclamo=reclamo.is_status();
+
+            pd.setIdpredenuncia(reclamo.getIdreclamo());
             pd.guardarPredenuncia();
             status_pred=pd.is_status();
 

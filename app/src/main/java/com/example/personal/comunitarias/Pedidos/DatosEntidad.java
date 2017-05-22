@@ -1,11 +1,14 @@
 package com.example.personal.comunitarias.Pedidos;
 
+import android.app.ProgressDialog;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +20,16 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
 import com.example.personal.comunitarias.BaseDeDatos.institucion.Institucion;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
+import com.example.personal.comunitarias.Denuncias.Denunciado;
+import com.example.personal.comunitarias.Denuncias.MostrarDatos;
 import com.example.personal.comunitarias.R;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -45,6 +52,22 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
     static String CIudad_d;
     static String Institucion_d;
     static Integer idCiuDE;
+
+    //
+    ArrayList<String> lista_ocup,lista_inst, lista_prov, ciudades;
+    ProgressDialog mProgressDialog;
+
+    public void setLista_ocup(ArrayList<String> lista_ocup) {
+        this.lista_ocup = lista_ocup;
+    }
+
+    public void setLista_inst(ArrayList<String> lista_inst) {
+        this.lista_inst = lista_inst;
+    }
+
+    public void setLista_prov(ArrayList<String> lista_prov) {
+        this.lista_prov = lista_prov;
+    }
 
     public static Integer getIdIndti() {
         return idIndti;
@@ -161,7 +184,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
         loadSpinnerProvincias();
 
         //SearchBox
-        final List<String> lista_instituciones =  new DatabaseHelper(getContext()).getAllInstitucionNombres();
+        final List<String> lista_instituciones =  lista_inst;
         //final List<String> lista_instituciones =  new Institucion().getListaInstitucionNombres();
         //añado las instituciones a la lista
         for(String institucion : getResources().getStringArray(R.array.institucion)) {
@@ -203,22 +226,13 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
                     Nombre_D = txtNombre.getText().toString();
                     Apellido_D = txtApellido.getText().toString();
                     Cargo_D = txtCargo.getText().toString();
-                    if (genero.getSelectedItem().equals("Masculino")){
-                        Genero_d ="0";
-                    }else{
-                        Genero_d="1";
-                    }
+                    Genero_d= genero.getSelectedItem().toString();
                     Provincia_d = provincia.getSelectedItem().toString();
                     CIudad_d = ciudad.getSelectedItem().toString();
                     Institucion_d = search.getText().toString();
-                    //idIndti = i.getID_DB(Institucion_d);
-                    idIndti = new DatabaseHelper(getContext()).getInstitucion_id(Institucion_d);
-                    idProvDE = new DatabaseHelper(getContext()).getProvincia(Provincia_d);
-                    idCiuDE = new DatabaseHelper(getContext()).getCiudad_id(CIudad_d);
-
-                    MostrarDatosPedido.setearDatos();
-                    viewPager.setCurrentItem(3);
                 }
+
+                new Progress_cargando().execute();
             }
         });
 
@@ -228,7 +242,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
         // Create an ArrayAdapter using the string array and a default spinner
         // layout
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, new DatabaseHelper(getContext()).getAllProvinciasNombres());
+                android.R.layout.simple_spinner_item, lista_prov);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
@@ -246,23 +260,95 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
             case R.id.spinner_prov_p:
 
                 //Obtener las ciudades correspondiente a la provincia seleccionada de la base LOCAL
-                List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new DatabaseHelper(getContext()).getProvincia(provincia.getSelectedItem().toString()));
+                //List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new DatabaseHelper(getContext()).getProvincia(provincia.getSelectedItem().toString()));
 
-                //creando adapter para spinner
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                        android.R.layout.simple_spinner_item, ciudades);
-
-                // Specify the layout to use when the list of choices appears
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-                // Apply the adapter to the spinner
-                this.ciudad.setAdapter(adapter);
+                new ProgressCiudades().execute();
 
                 break;
 
             case R.id.spinner_ciu_p:
 
                 break;
+        }
+    }
+
+    public class Progress_cargando extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mProgressDialog = new ProgressDialog(DatosEntidad.this.getContext());
+            mProgressDialog.setMessage("Procesando...");
+            mProgressDialog.setIndeterminate(false);
+            mProgressDialog.setCanceledOnTouchOutside(false);
+            mProgressDialog.show();
+        }
+
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            idIndti = new Institucion().getID_DB(Institucion_d);
+            idProvDE = new Provincia().getID_DB(Provincia_d);
+            idCiuDE = new Ciudad().getID_DB(CIudad_d);
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+            mProgressDialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            mProgressDialog.dismiss();
+            mProgressDialog.cancel();
+
+            MostrarDatosPedido.setearDatos();
+            viewPager.setCurrentItem(3);
+        }
+    }
+
+    public class ProgressCiudades extends AsyncTask<Void, Void, Void> {
+        String name_provincia;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            name_provincia= provincia.getSelectedItem().toString();
+            mProgressDialog = new ProgressDialog(DatosEntidad.this.getContext());
+            mProgressDialog.setMessage("Cargando ciudades...");
+            mProgressDialog.setIndeterminate(false);
+            mProgressDialog.setCanceledOnTouchOutside(false);
+            mProgressDialog.show();
+        }
+
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_DB(name_provincia));
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+            mProgressDialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            mProgressDialog.dismiss();
+            mProgressDialog.cancel();
+
+            //creando adapter para spinner
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+                    android.R.layout.simple_spinner_item, ciudades);
+
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            // Apply the adapter to the spinner
+            ciudad.setAdapter(adapter);
         }
     }
 

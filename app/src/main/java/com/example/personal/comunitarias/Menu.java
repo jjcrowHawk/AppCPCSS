@@ -34,6 +34,7 @@ import com.example.personal.comunitarias.Denuncias.TabsDenuncia;
 import com.example.personal.comunitarias.Facebook.IntroFacebook;
 import com.example.personal.comunitarias.Mision.Mision;
 import com.example.personal.comunitarias.Mision.Vision;
+import com.example.personal.comunitarias.Pedidos.IntroPedidos;
 import com.example.personal.comunitarias.Pedidos.TabsPedido;
 import com.example.personal.comunitarias.Noticias.Intro_noticias;
 import com.example.personal.comunitarias.Oficinas.IntroOficinas;
@@ -83,10 +84,6 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         Denuncias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                //Inicializando listas
-                //new Progress_guardando().execute();
-
                 Intent i=new Intent(getBaseContext(), IntroDenuncias.class);
                 startActivity(i);
             }
@@ -96,7 +93,7 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         Pedidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(getBaseContext(), TabsPedido.class);
+                Intent i=new Intent(getBaseContext(), IntroPedidos.class);
                 startActivity(i);
 
             }

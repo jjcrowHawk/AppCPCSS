@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias.Denuncias;
+package com.example.personal.comunitarias.Pedidos;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -19,10 +19,10 @@ import com.example.personal.comunitarias.R;
 import java.util.ArrayList;
 
 /**
- * Created by Sianna-chan on 20/05/2017.
+ * Created by Sianna-chan on 21/05/2017.
  */
 
-public class IntroDenuncias extends AppCompatActivity {
+public class IntroPedidos extends AppCompatActivity {
 
     private int tiempo = 10;
     int pStatus = 0;
@@ -41,7 +41,7 @@ public class IntroDenuncias extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        new Progress_cargando().execute();
+        new IntroPedidos.Progress_cargando().execute();
 
     }
 
@@ -66,7 +66,7 @@ public class IntroDenuncias extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
 
-            TabsDenuncia t = new TabsDenuncia();
+            TabsPedido t = new TabsPedido();
             t.setLista_estadocivil(lista_estadocivil);
             t.setLista_niveledu(lista_niveledu);
             t.setLista_nacionalidad(lista_nacionalidad);

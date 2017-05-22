@@ -40,6 +40,9 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:label="@string/title_pedido"/>
         <activity
+            android:name=".Pedidos.IntroPedidos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Contactenos.Contacto"
             android:theme="@style/AppTheme.NoActionBar"
             android:label="@string/title_contacto"/>
