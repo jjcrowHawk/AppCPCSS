@@ -14,7 +14,7 @@ import java.util.Map;
 public class WebService extends AsyncTask<String,Long,String> {
 
 
-    private Map<String, String> datosDenuncia;
+    private Map<String, String> datos;
     //Web service URL
     private String url= "";
 
@@ -26,6 +26,7 @@ public class WebService extends AsyncTask<String,Long,String> {
 
     //Clase a la cual se le retorna los datos dle ws
     private AsynchronousTask callback=null;
+    private String mode;
 
     public AsynchronousTask getCallback() {
         return callback;
@@ -43,11 +44,12 @@ public class WebService extends AsyncTask<String,Long,String> {
      * @param activity Actividad de donde se llama el servicio web, para mostrar el cuadro de "Cargando"
      * @param callback CLase a la que se le retornara los datos del servicio web
      */
-    public  WebService(String urlWebService,Map<String, String> data, Context activity, AsynchronousTask callback) {
+    public  WebService(String urlWebService,Map<String, String> data, Context activity, AsynchronousTask callback,String mode) {
         this.url=urlWebService;
-        this.datosDenuncia=data;
+        this.datos =data;
         this.actividad=activity;
         this.callback=callback;
+        this.mode=mode;
     }
     public WebService() {
         // TODO Auto-generated constructor stub
@@ -66,8 +68,15 @@ public class WebService extends AsyncTask<String,Long,String> {
     @Override
     protected String doInBackground(String... params) {
         try {
-            String r= HttpRequest.post(this.url).form(this.datosDenuncia).body();
-            return r;
+            if(this.mode.equals("GET")) {
+                String r = HttpRequest.get(this.url).body();
+                return r;
+            }
+            else if(this.mode.equals("POST")){
+                String r=HttpRequest.post(this.url).form(this.datos).body();
+                return r;
+            }
+            return null;
 
         } catch (HttpRequest.HttpRequestException exception) {
             Log.e("doInBackground", exception.getMessage());
@@ -90,11 +99,11 @@ public class WebService extends AsyncTask<String,Long,String> {
 
     }
     public Map<String, String> getDatos() {
-        return datosDenuncia;
+        return datos;
     }
 
     public void setDatos(Map<String, String> datos) {
-        this.datosDenuncia = datos;
+        this.datos = datos;
     }
 
     public String getUrl() {
