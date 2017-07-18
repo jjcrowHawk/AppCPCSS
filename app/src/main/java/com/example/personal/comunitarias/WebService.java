@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.webkit.WebView;
 
 import java.util.Map;
 
@@ -51,6 +52,13 @@ public class WebService extends AsyncTask<String,Long,String> {
         this.callback=callback;
         this.mode=mode;
     }
+
+    public WebService(String urlWebService,AsynchronousTask callback,String mode){
+        this.url=urlWebService;
+        this.callback=callback;
+        this.mode=mode;
+    }
+
     public WebService() {
         // TODO Auto-generated constructor stub
     }
@@ -58,12 +66,14 @@ public class WebService extends AsyncTask<String,Long,String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        progDailog = new ProgressDialog(actividad);
-        progDailog.setMessage("Loading...");
-        progDailog.setIndeterminate(false);
-        progDailog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progDailog.setCancelable(true);
-        progDailog.show();
+        if(actividad!=null) {
+            progDailog = new ProgressDialog(actividad);
+            progDailog.setMessage("Loading...");
+            progDailog.setIndeterminate(false);
+            progDailog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progDailog.setCancelable(true);
+            progDailog.show();
+        }
     }
     @Override
     protected String doInBackground(String... params) {
@@ -91,7 +101,8 @@ public class WebService extends AsyncTask<String,Long,String> {
     protected void onPostExecute(String response) {
         super.onPostExecute(response);
         this.xml=response;
-        progDailog.dismiss();
+        if(actividad!=null)
+            progDailog.dismiss();
         //Retorno los datos
         callback.processFinish(this.xml);
 
