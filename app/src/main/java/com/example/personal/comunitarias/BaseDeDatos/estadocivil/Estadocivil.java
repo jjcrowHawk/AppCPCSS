@@ -11,6 +11,7 @@ import com.example.personal.comunitarias.AsynchronousTask;
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 import com.example.personal.comunitarias.WebService;
+import com.example.personal.comunitarias.WebServiceResolver;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,7 +35,7 @@ public class Estadocivil extends _Default {
         idestadocivil=-1;
         nombre="";
     }
-
+    /*
     public int getID_DB(String nombre){
         int id_encontrada=-1;
 
@@ -62,7 +63,28 @@ public class Estadocivil extends _Default {
         }
         return id_encontrada;
     }
+    */
 
+    public int getID_WS(String nombre){
+        int id_encontrada=-1;
+        WebServiceResolver ws=new WebServiceResolver("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/",null);
+        String result=ws.makeGetPetition();
+        try {
+            JSONObject json=new JSONObject(result);
+            JSONArray arregloDatos=json.getJSONArray("results");
+            for(int i=0;i<arregloDatos.length();i++){
+                JSONObject item=arregloDatos.getJSONObject(i);
+                if(nombre.equals(item.getString("nombre"))){
+                    id_encontrada=item.getInt("id");
+                    return id_encontrada;
+                }
+
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return id_encontrada;
+    }
     //Obtener la lista de estadoCivil
     public ArrayList<Estadocivil> getListaEstadoCivil()  {
         ArrayList<Estadocivil> lista = new ArrayList<>();
@@ -135,25 +157,21 @@ public class Estadocivil extends _Default {
     }
     */
     public ArrayList<String> getListaEstadoCivilNombres(){
-        final ArrayList<String> lista=new ArrayList<>();
-        WebService ws=new WebService("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/", new AsynchronousTask() {
-            @Override
-            public void processFinish(String result) {
-                try {
-                    JSONObject jsonEstado=new JSONObject(result);
-                    JSONArray datosEstado=jsonEstado.getJSONArray("results");
-                    for(int i=0;i<datosEstado.length();i++){
-                        JSONObject itemEstado= datosEstado.getJSONObject(i);
-                        lista.add(itemEstado.getString("nombre"));
-                        System.out.println(itemEstado.getString("nombre"));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        ArrayList<String> lista=new ArrayList<>();
+        WebServiceResolver ws=new WebServiceResolver("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/",null);
+        String result=ws.makeGetPetition();
+        try{
+            JSONObject jsonEstado=new JSONObject(result);
+            JSONArray datosEstado=jsonEstado.getJSONArray("results");
+            for(int i=0;i<datosEstado.length();i++){
+                JSONObject itemEstado= datosEstado.getJSONObject(i);
+                lista.add(itemEstado.getString("nombre"));
+                System.out.println(itemEstado.getString("nombre"));
             }
-        }, "GET");
-        ws.execute("");
-        System.out.println(lista.toArray().toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.i("Logging: ",lista.toArray().toString());
         return lista;
     }
     public int getIdestadocivil() {

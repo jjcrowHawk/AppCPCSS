@@ -9,6 +9,7 @@ import com.example.personal.comunitarias.AsynchronousTask;
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
 import com.example.personal.comunitarias.WebService;
+import com.example.personal.comunitarias.WebServiceResolver;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -144,24 +145,20 @@ public class Institucion extends _Default {
     }
     */
     public ArrayList<String> getListaInstitucionNombres(){
-        final ArrayList<String> lista=new ArrayList<String>();
-        WebService ws=new WebService("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/instituciones/", new AsynchronousTask() {
-            @Override
-            public void processFinish(String result) {
-                try {
-                    JSONObject jsonInstitucion=new JSONObject(result);
-                    JSONArray datosInstitucion=jsonInstitucion.getJSONArray("results");
-                    for(int i=0;i<datosInstitucion.length();i++){
-                        JSONObject itemInsititucion= datosInstitucion.getJSONObject(i);
-                        lista.add(itemInsititucion.getString("nombre"));
-                        System.out.println(itemInsititucion.getString("nombre"));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        ArrayList<String> lista=new ArrayList<String>();
+        WebServiceResolver ws=new WebServiceResolver("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/instituciones/",null);
+        String result=ws.makeGetPetition();
+        try {
+            JSONObject jsonInstitucion=new JSONObject(result);
+            JSONArray datosInstitucion=jsonInstitucion.getJSONArray("results");
+            for(int i=0;i<datosInstitucion.length();i++){
+                JSONObject itemInsititucion= datosInstitucion.getJSONObject(i);
+                lista.add(itemInsititucion.getString("nombre"));
+                System.out.println(itemInsititucion.getString("nombre"));
             }
-        }, "GET");
-        ws.execute("");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         return lista;
     }
 

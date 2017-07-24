@@ -288,8 +288,8 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
         @Override
         protected Void doInBackground(Void... params) {
             idIndti = new Institucion().getID_DB(Institucion_d);
-            idProvDE = new Provincia().getID_DB(Provincia_d);
-            idCiuDE = new Ciudad().getID_DB(CIudad_d);
+            idProvDE = new Provincia().getID_WS(Provincia_d);
+            idCiuDE = new Ciudad().getID_WS(CIudad_d);
             return null;
         }
 
@@ -325,7 +325,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
 
         @Override
         protected Void doInBackground(Void... params) {
-            ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_DB(name_provincia));
+            ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_WS(name_provincia));
             return null;
         }
 

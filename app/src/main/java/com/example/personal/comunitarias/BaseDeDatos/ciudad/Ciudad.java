@@ -7,6 +7,11 @@ package com.example.personal.comunitarias.BaseDeDatos.ciudad;
 
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
+import com.example.personal.comunitarias.WebServiceResolver;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -35,6 +40,7 @@ public class Ciudad extends _Default {
         this.provinciaid = provinciaid;
     }
 
+    /*
     public int getID_DB(String nombre){
         int id_encontrada=-1;
 
@@ -59,6 +65,27 @@ public class Ciudad extends _Default {
             this._status = false;
         }
 
+        return id_encontrada;
+    }*/
+
+    public int getID_WS(String nombre){
+        int id_encontrada=-1;
+        WebServiceResolver ws=new WebServiceResolver("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ciudades/",null);
+        String result=ws.makeGetPetition();
+        try {
+            JSONObject json=new JSONObject(result);
+            JSONArray arregloDatos=json.getJSONArray("results");
+            for(int i=0;i<arregloDatos.length();i++){
+                JSONObject item=arregloDatos.getJSONObject(i);
+                if(nombre.equals(item.getString("nombre"))){
+                    id_encontrada=item.getInt("id");
+                    return id_encontrada;
+                }
+
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         return id_encontrada;
     }
 
@@ -100,9 +127,23 @@ public class Ciudad extends _Default {
     //Obtener la lista de todos los nombreslas ciudades de una provincia
     public ArrayList<String> getListaNombresCiudad_prov(int idProvincia){
         ArrayList<String> lista = new ArrayList<>();
+        WebServiceResolver ws= new WebServiceResolver("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ciudades/",null);
+        String result=ws.makeGetPetition();
+        try {
+            JSONObject jsonCiudades=new JSONObject(result);
+            JSONArray datosCiudades=jsonCiudades.getJSONArray("results");
+            for(int i=0;i<datosCiudades.length();i++){
+                JSONObject itemCiudad= datosCiudades.getJSONObject(i);
+                if(idProvincia==itemCiudad.getInt("provincia")){
+                    lista.add(itemCiudad.getString("nombre"));
+                }
 
-        //Establecemos la conexión
-        Conexion c = null;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return lista;
+        /*Conexion c = null;
         try {
             c = new Conexion();
             Connection conn= c.getConn();
@@ -122,8 +163,7 @@ public class Ciudad extends _Default {
         } catch (SQLException e) {
             e.printStackTrace();
             this._status = false;
-        }
-        return lista;
+        }*/
     }
 
     //Obtener la lista de todas las ciudades

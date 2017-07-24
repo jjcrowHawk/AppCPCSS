@@ -387,12 +387,12 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
         @Override
         protected Void doInBackground(Void... params) {
 
-            idocupacionP =      new Ocupacion().getID_DB(ocupacion);
-            idestado =          new Estadocivil().getID_DB(Estado_civil);
-            idNivelEduca =      new Niveleducacion().getID_DB(NivelEdu);
-            idNacionalidad =    new Nacionalidad().getID_DB(Nacio);
-            idProvp =           new Provincia().getID_DB(provi);
-            idCiuP =            new Ciudad().getID_DB(Ciuda);
+            idocupacionP =      new Ocupacion().getID_WS(ocupacion);
+            idestado =          new Estadocivil().getID_WS(Estado_civil);
+            idNivelEduca =      new Niveleducacion().getID_WS(NivelEdu);
+            idNacionalidad =    new Nacionalidad().getID_WS(Nacio);
+            idProvp =           new Provincia().getID_WS(provi);
+            idCiuP =            new Ciudad().getID_WS(Ciuda);
             return null;
         }
 
@@ -437,7 +437,7 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
 
         @Override
         protected Void doInBackground(Void... params) {
-            ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_DB(name_provincia));
+            ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_WS(name_provincia));
             return null;
         }
 

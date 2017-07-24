@@ -289,6 +289,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 IdentidadReservada = identidad.getSelectedItem().toString();
                 TipoIden = tipoIdentificacion.getSelectedItem().toString();
                 Genero = genero.getSelectedItem().toString();
+                System.out.println("prueba: "+estado_civil.getSelectedItem());
                 Estado_civil = estado_civil.getSelectedItem().toString();
                 NivelEdu = nivelEducacion.getSelectedItem().toString();
                 Nacio = nacionalidad.getSelectedItem().toString();
@@ -298,11 +299,8 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
                 //NUEVO
                 OcupacionPeticionario= ocupacion_peticionario.getSelectedItem().toString();
-
                 Log.d("pet",Ciuda +"    "+ provi);
-
                 new Progress_cargando().execute();
-
             }
         });
 
@@ -325,12 +323,12 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
         @Override
         protected Void doInBackground(Void... params) {
-            idocupacionP =      new Ocupacion().getID_DB(OcupacionPeticionario);
-            idestado =          new Estadocivil().getID_DB(Estado_civil);
-            idNivelEduca =      new Niveleducacion().getID_DB(NivelEdu);
-            idNacionalidad =    new Nacionalidad().getID_DB(Nacio);
-            idProvp =           new Provincia().getID_DB(provi);
-            idCiuP =            new Ciudad().getID_DB(Ciuda);
+            idocupacionP =      new Ocupacion().getID_WS(OcupacionPeticionario);
+            idestado =          new Estadocivil().getID_WS(Estado_civil);
+            idNivelEduca =      new Niveleducacion().getID_WS(NivelEdu);
+            idNacionalidad =    new Nacionalidad().getID_WS(Nacio);
+            idProvp =           new Provincia().getID_WS(provi);
+            idCiuP =            new Ciudad().getID_WS(Ciuda);
             return null;
         }
 
@@ -387,6 +385,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
             case R.id.spinner9:
                 break;
+
         }
     }
 
@@ -407,7 +406,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
         @Override
         protected Void doInBackground(Void... params) {
-            ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_DB(name_provincia));
+            ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_WS(name_provincia));
             return null;
         }
 
