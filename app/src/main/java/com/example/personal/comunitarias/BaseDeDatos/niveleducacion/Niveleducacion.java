@@ -5,8 +5,14 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.niveleducacion;
 
+import com.example.personal.comunitarias.AsynchronousTask;
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
+import com.example.personal.comunitarias.WebService;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -103,6 +109,7 @@ public class Niveleducacion extends _Default {
     }
 
     //Obtener la lista de estadoCivil
+    /*
     public ArrayList<String> getListaNivelEducacionNombres()  {
         ArrayList<String> lista = new ArrayList<>();
 
@@ -132,7 +139,28 @@ public class Niveleducacion extends _Default {
 
         return lista;
     }
-
+    */
+    public ArrayList<String> getListaNivelEducacionNombres() {
+        final ArrayList<String> lista=new ArrayList<String>();
+        WebService ws=new WebService("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/niveles-educacion/", new AsynchronousTask() {
+            @Override
+            public void processFinish(String result) {
+                try {
+                    JSONObject jsonEducacion=new JSONObject(result);
+                    JSONArray datosEducacion=jsonEducacion.getJSONArray("results");
+                    for(int i=0;i<datosEducacion.length();i++){
+                        JSONObject itemEducacion= datosEducacion.getJSONObject(i);
+                        lista.add(itemEducacion.getString("nombre"));
+                        System.out.println(itemEducacion.getString("nombre"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "GET");
+        ws.execute("");
+        return lista;
+    }
     public void setIdniveleducacion(int idniveleducacion) {
         this.idniveleducacion = idniveleducacion;
     }

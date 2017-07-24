@@ -7,8 +7,14 @@ package com.example.personal.comunitarias.BaseDeDatos.estadocivil;
 
 import android.util.Log;
 
+import com.example.personal.comunitarias.AsynchronousTask;
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
+import com.example.personal.comunitarias.WebService;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -93,7 +99,7 @@ public class Estadocivil extends _Default {
     }
 
     //Obtener la lista de estadoCivil
-    public ArrayList<String> getListaEstadoCivilNombres()  {
+    /*public ArrayList<String> getListaEstadoCivilNombres()  {
         ArrayList<String> lista = new ArrayList<>();
         Log.e("Funcion:","ANTES1 de entrar");
         //Establecemos la conexión
@@ -127,7 +133,29 @@ public class Estadocivil extends _Default {
 
         return lista;
     }
-
+    */
+    public ArrayList<String> getListaEstadoCivilNombres(){
+        final ArrayList<String> lista=new ArrayList<>();
+        WebService ws=new WebService("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/", new AsynchronousTask() {
+            @Override
+            public void processFinish(String result) {
+                try {
+                    JSONObject jsonEstado=new JSONObject(result);
+                    JSONArray datosEstado=jsonEstado.getJSONArray("results");
+                    for(int i=0;i<datosEstado.length();i++){
+                        JSONObject itemEstado= datosEstado.getJSONObject(i);
+                        lista.add(itemEstado.getString("nombre"));
+                        System.out.println(itemEstado.getString("nombre"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "GET");
+        ws.execute("");
+        System.out.println(lista.toArray().toString());
+        return lista;
+    }
     public int getIdestadocivil() {
         return idestadocivil;
     }

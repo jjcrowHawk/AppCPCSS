@@ -5,8 +5,14 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.provincia;
 
+import com.example.personal.comunitarias.AsynchronousTask;
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
+import com.example.personal.comunitarias.WebService;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -98,6 +104,7 @@ public class Provincia extends _Default {
     }
 
     //Devuelve la lista de todos nombres las provincias
+    /*
     public ArrayList<String> getListaNombreProvincia(){
         ArrayList<String> lista = new ArrayList<>();
 
@@ -125,6 +132,28 @@ public class Provincia extends _Default {
             this._status = false;
         }
 
+        return lista;
+    }
+    */
+    public ArrayList<String> getListaNombreProvincia(){
+        final ArrayList<String> lista=new ArrayList<String>();
+        WebService ws=new WebService("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/", new AsynchronousTask() {
+            @Override
+            public void processFinish(String result) {
+                try {
+                    JSONObject jsonProv=new JSONObject(result);
+                    JSONArray datosProv=jsonProv.getJSONArray("results");
+                    for(int i=0;i<datosProv.length();i++){
+                        JSONObject itemProv= datosProv.getJSONObject(i);
+                        lista.add(itemProv.getString("nombre"));
+                        System.out.println(itemProv.getString("nombre"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "GET");
+        ws.execute("");
         return lista;
     }
 

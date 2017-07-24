@@ -136,6 +136,7 @@ public class Nacionalidad extends _Default {
                     for(int i=0;i<datosNacionalidad.length();i++){
                         JSONObject itemNacionalidad= datosNacionalidad.getJSONObject(i);
                         lista.add(itemNacionalidad.getString("nombre"));
+                        System.out.println(itemNacionalidad.getString("nombre"));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -146,6 +147,7 @@ public class Nacionalidad extends _Default {
         return lista;
 
     }
+
     public Nacionalidad(String nombre) {
         this.nombre = nombre;
     }

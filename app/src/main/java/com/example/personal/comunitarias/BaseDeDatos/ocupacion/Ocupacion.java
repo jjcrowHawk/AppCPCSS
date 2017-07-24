@@ -5,8 +5,14 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.ocupacion;
 
+import com.example.personal.comunitarias.AsynchronousTask;
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
+import com.example.personal.comunitarias.WebService;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -96,6 +102,7 @@ public class Ocupacion extends _Default {
     }
 
     //Obtener la lista de Ocupacion
+    /*
     public ArrayList<String> getListaOcupacionNombres() {
         ArrayList<String> lista = new ArrayList<String>();
 
@@ -122,6 +129,29 @@ public class Ocupacion extends _Default {
             e.printStackTrace();
         }
 
+        return lista;
+    }
+    */
+
+    public ArrayList<String> getListaOcupacionNombres() {
+        final ArrayList<String> lista=new ArrayList<String>();
+        WebService ws=new WebService("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ocupaciones/", new AsynchronousTask() {
+            @Override
+            public void processFinish(String result) {
+                try {
+                    JSONObject jsonOcupacion=new JSONObject(result);
+                    JSONArray datosOcupacion=jsonOcupacion.getJSONArray("results");
+                    for(int i=0;i<datosOcupacion.length();i++){
+                        JSONObject itemOcupacion= datosOcupacion.getJSONObject(i);
+                        lista.add(itemOcupacion.getString("nombre"));
+                        System.out.println(itemOcupacion.getString("nombre"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "GET");
+        ws.execute("");
         return lista;
     }
 

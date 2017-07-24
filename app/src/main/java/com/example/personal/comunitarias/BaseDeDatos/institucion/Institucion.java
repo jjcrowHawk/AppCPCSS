@@ -5,8 +5,14 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.institucion;
 
+import com.example.personal.comunitarias.AsynchronousTask;
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
+import com.example.personal.comunitarias.WebService;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -108,9 +114,9 @@ public class Institucion extends _Default {
         return lista;
     }
 
+    /*
     public ArrayList<String> getListaInstitucionNombres(){
         ArrayList<String> lista = new ArrayList<String>();
-
         //Establecemos la conexión
         Conexion c = null;
         try {
@@ -134,7 +140,28 @@ public class Institucion extends _Default {
             e.printStackTrace();
             this._status = false;
         }
-
+        return lista;
+    }
+    */
+    public ArrayList<String> getListaInstitucionNombres(){
+        final ArrayList<String> lista=new ArrayList<String>();
+        WebService ws=new WebService("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/instituciones/", new AsynchronousTask() {
+            @Override
+            public void processFinish(String result) {
+                try {
+                    JSONObject jsonInstitucion=new JSONObject(result);
+                    JSONArray datosInstitucion=jsonInstitucion.getJSONArray("results");
+                    for(int i=0;i<datosInstitucion.length();i++){
+                        JSONObject itemInsititucion= datosInstitucion.getJSONObject(i);
+                        lista.add(itemInsititucion.getString("nombre"));
+                        System.out.println(itemInsititucion.getString("nombre"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "GET");
+        ws.execute("");
         return lista;
     }
 
