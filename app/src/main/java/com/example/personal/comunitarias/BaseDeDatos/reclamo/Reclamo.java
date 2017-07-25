@@ -8,14 +8,22 @@ package com.example.personal.comunitarias.BaseDeDatos.reclamo;
 import android.util.Log;
 
 import com.example.personal.comunitarias.BaseDeDatos.niveleducacion.Niveleducacion;
+import com.example.personal.comunitarias.Constantes;
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
+import com.example.personal.comunitarias.WebService.WebServiceResolver;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -243,7 +251,7 @@ public class Reclamo extends _Default {
         this.pedidoDenuncia = pedidoDenuncia;
     }
 
-
+    /*
     public void Guardar_Reclamo() {
         Log.d("myTag", "Entre al query");
         String comando = "";
@@ -251,10 +259,10 @@ public class Reclamo extends _Default {
         //comando = String.format(" INSERT INTO cpccs.reclamo (nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddeldenuncianteid,ciudaddeldenunciadoid,insttitucionimplicadaid,provinciadenuncianteid,provinciadenunciadoid)VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d,%d,%d,%d);",
           //"SIANNA", "0125455", "12345", "mapasingue", "jlcosta", "Domenica Vera", "1245", "12345", "1", "1", "1", "1", 1, 1, 1, 1, 1);
 
-            if(getListaReclamo().size()==0){
+            if(getListaReclamoWS().size()==0){
                 this.idreclamo=1;
             }else{
-                this.idreclamo= getListaReclamo().get(getListaReclamo().size()-1).getIdreclamo()+1;
+                this.idreclamo= getListaReclamoWS().get(getListaReclamoWS().size()-1).getIdreclamo()+1;
             }
 
             comando = String.format(" INSERT INTO reclamo (id,numero,fechaingreso,nombresapellidosdenunciante, tipoidentificacion, numidenti ,direccion,email,nombresapellidosdenunciado, telefono, cargo,comparecer,documentores,identidadreservada,resideextrangero,ciudaddenuncianteid,ciudaddenunciadoid,institucionimplicadaid,provinciadenuncianteid,provinciadenunciandoid) Values (%d,%d,now(),'%s','%s','%s','%s','%s','%s','%s','%s','%d','%d','%d','%d',%d,%d,%d,%d,%d);",
@@ -283,8 +291,44 @@ public class Reclamo extends _Default {
             this._status = false;
         }
     }
+    */
+
+    public void Guardar_ReclamoWS(){
+        if(this.getIdreclamo()==-1) {
+            if(getListaReclamoWS().size()==0){
+                this.idreclamo=1;
+            }else{
+                this.idreclamo= getListaReclamoWS().get(getListaReclamoWS().size()-1).getIdreclamo()+1;
+            }
+            Map<String, String> datos = new HashMap<String, String>();
+            datos.put("nombres_apellidos_denunciante", this.nombresapellidosdenunciante);
+            datos.put("tipo_identificacion", this.tipoidentificacion);
+            datos.put("numero_identificacion", this.numidenti);
+            datos.put("direccion", this.direccion);
+            datos.put("email", this.email);
+            datos.put("nombres_apellidos_denunciado", this.nombresapellidosdenunciado);
+            datos.put("telefono", this.telefono);
+            datos.put("cargo", this.cargo);
+            datos.put("comparecer", (this.comparecer == 1 ? "true" : "false"));
+            datos.put("documentores", (this.documentores == 1 ? "true" : "false"));
+            datos.put("identidad_reservada", (this.identidadreservada == 1 ? "true" : "false"));
+            datos.put("reside_extranjero", (this.resideextrangero == 1 ? "true" : "false"));
+            datos.put("id",""+this.idreclamo);
+            datos.put("ciudad_del_denunciante",""+this.ciudaddeldenuncianteid);
+            datos.put("ciudad_del_denunciado",""+this.ciudaddeldenunciadoid);
+            datos.put("institucion_implicada",""+this.institucionimplicadaid);
+            datos.put("provincia_denunciante",""+this.provinciadenuncianteid);
+            datos.put("provincia_denunciado",""+this.provinciadenunciadoid);
+            WebServiceResolver ws=new WebServiceResolver(Constantes.WS_RECLAMOS,datos);
+            System.out.println(ws.makePostPetition());
+
+        }
+
+    }
+
 
     //Obtener la lista de Reclamo
+    /*
     public ArrayList<Reclamo> getListaReclamo()  {
         ArrayList<Reclamo> lista = new ArrayList<>();
 
@@ -318,5 +362,25 @@ public class Reclamo extends _Default {
 
         return lista;
     }
+    */
 
+    public ArrayList<Reclamo> getListaReclamoWS(){
+        ArrayList<Reclamo> lista = new ArrayList<>();
+        WebServiceResolver ws= new WebServiceResolver(Constantes.WS_RECLAMOS,null);
+        String result=ws.makeGetPetition();
+        System.out.println(result);
+        try {
+            JSONObject json=new JSONObject(result);
+            JSONArray arregloDatos= json.getJSONArray("results");
+            for(int i=0;i<arregloDatos.length();i++){
+                JSONObject item=arregloDatos.getJSONObject(i);
+                Reclamo rec= new Reclamo();
+                rec.setIdreclamo(item.getInt("id"));
+                lista.add(rec);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
 }

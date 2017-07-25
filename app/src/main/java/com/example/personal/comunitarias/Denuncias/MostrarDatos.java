@@ -393,7 +393,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
 
         @Override
         protected Void doInBackground(Void... params) {
-            reclamo.Guardar_Reclamo();
+            reclamo.Guardar_ReclamoWS();
             status_reclamo=reclamo.is_status();
 
             pd.setIdpredenuncia(reclamo.getIdreclamo());
