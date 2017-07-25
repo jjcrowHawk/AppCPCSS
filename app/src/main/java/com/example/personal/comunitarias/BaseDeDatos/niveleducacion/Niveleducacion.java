@@ -5,12 +5,10 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.niveleducacion;
 
-import com.example.personal.comunitarias.AsynchronousTask;
+import com.example.personal.comunitarias.Constantes;
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
-import com.example.personal.comunitarias.WebService;
-import com.example.personal.comunitarias.WebServiceResolver;
-
+import com.example.personal.comunitarias.WebService.WebServiceResolver;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -77,7 +75,7 @@ public class Niveleducacion extends _Default {
 
     public int getID_WS(String nombre){
         int id_encontrada=-1;
-        WebServiceResolver ws=new WebServiceResolver("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/niveles-educacion/",null);
+        WebServiceResolver ws=new WebServiceResolver(Constantes.WS_NIVELES,null);
         String result=ws.makeGetPetition();
         try {
             JSONObject json=new JSONObject(result);
@@ -166,7 +164,7 @@ public class Niveleducacion extends _Default {
     */
     public ArrayList<String> getListaNivelEducacionNombres() {
         ArrayList<String> lista=new ArrayList<String>();
-        WebServiceResolver ws=new WebServiceResolver("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/niveles-educacion/",null);
+        WebServiceResolver ws=new WebServiceResolver(Constantes.WS_NIVELES,null);
         String result=ws.makeGetPetition();
         try {
             JSONObject jsonEducacion=new JSONObject(result);

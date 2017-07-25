@@ -5,11 +5,10 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.nacionalidad;
 
-import com.example.personal.comunitarias.AsynchronousTask;
+import com.example.personal.comunitarias.Constantes;
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
-import com.example.personal.comunitarias.WebService;
-import com.example.personal.comunitarias.WebServiceResolver;
+import com.example.personal.comunitarias.WebService.WebServiceResolver;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -64,7 +63,7 @@ public class Nacionalidad extends _Default {
 
     public int getID_WS(String nombre){
         int id_encontrada=-1;
-        WebServiceResolver ws=new WebServiceResolver("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/nacionalidades/",null);
+        WebServiceResolver ws=new WebServiceResolver(Constantes.WS_NACIONALIDADES,null);
         String result=ws.makeGetPetition();
         try {
             JSONObject json=new JSONObject(result);
@@ -151,7 +150,7 @@ public class Nacionalidad extends _Default {
 
     public ArrayList<String> getListaNacionalidadNombres(){
         ArrayList<String> lista = new ArrayList<String>();
-        WebServiceResolver ws=new WebServiceResolver("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/nacionalidades/",null);
+        WebServiceResolver ws=new WebServiceResolver(Constantes.WS_NACIONALIDADES,null);
         String result=ws.makeGetPetition();
         try {
             JSONObject jsonNacionalidad=new JSONObject(result);

@@ -1,4 +1,6 @@
-package com.example.personal.comunitarias;
+package com.example.personal.comunitarias.WebService;
+
+import com.example.personal.comunitarias.WebServiceAsynchronic;
 
 import java.util.Map;
 
@@ -23,7 +25,7 @@ public class WebServiceResolver {
     }
 
     public String makePostPetition(){
-        response=HttpRequest.post(this.url).form(this.datos).body();
+        response= HttpRequest.post(this.url).form(this.datos).body();
         return this.response;
     }
 }

@@ -287,7 +287,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
 
         @Override
         protected Void doInBackground(Void... params) {
-            idIndti = new Institucion().getID_DB(Institucion_d);
+            idIndti = new Institucion().getID_WS(Institucion_d);
             idProvDE = new Provincia().getID_WS(Provincia_d);
             idCiuDE = new Ciudad().getID_WS(CIudad_d);
             return null;

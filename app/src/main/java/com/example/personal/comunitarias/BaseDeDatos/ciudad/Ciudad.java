@@ -5,9 +5,10 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.ciudad;
 
+import com.example.personal.comunitarias.Constantes;
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
-import com.example.personal.comunitarias.WebServiceResolver;
+import com.example.personal.comunitarias.WebService.WebServiceResolver;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -70,7 +71,7 @@ public class Ciudad extends _Default {
 
     public int getID_WS(String nombre){
         int id_encontrada=-1;
-        WebServiceResolver ws=new WebServiceResolver("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ciudades/",null);
+        WebServiceResolver ws=new WebServiceResolver(Constantes.WS_CIUDADES,null);
         String result=ws.makeGetPetition();
         try {
             JSONObject json=new JSONObject(result);
@@ -127,7 +128,7 @@ public class Ciudad extends _Default {
     //Obtener la lista de todos los nombreslas ciudades de una provincia
     public ArrayList<String> getListaNombresCiudad_prov(int idProvincia){
         ArrayList<String> lista = new ArrayList<>();
-        WebServiceResolver ws= new WebServiceResolver("http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ciudades/",null);
+        WebServiceResolver ws= new WebServiceResolver(Constantes.WS_CIUDADES,null);
         String result=ws.makeGetPetition();
         try {
             JSONObject jsonCiudades=new JSONObject(result);

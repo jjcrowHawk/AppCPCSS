@@ -4,15 +4,14 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.webkit.WebView;
-
+import com.example.personal.comunitarias.WebService.HttpRequest;
 import java.util.Map;
 
 /**
  * Created by pc on 15/7/2017.
  */
 
-public class WebService extends AsyncTask<String,Long,String> {
+public class WebServiceAsynchronic extends AsyncTask<String,Long,String> {
 
 
     private Map<String, String> datos;
@@ -45,7 +44,7 @@ public class WebService extends AsyncTask<String,Long,String> {
      * @param activity Actividad de donde se llama el servicio web, para mostrar el cuadro de "Cargando"
      * @param callback CLase a la que se le retornara los datos del servicio web
      */
-    public  WebService(String urlWebService,Map<String, String> data, Context activity, AsynchronousTask callback,String mode) {
+    public WebServiceAsynchronic(String urlWebService, Map<String, String> data, Context activity, AsynchronousTask callback, String mode) {
         this.url=urlWebService;
         this.datos =data;
         this.actividad=activity;
@@ -53,13 +52,13 @@ public class WebService extends AsyncTask<String,Long,String> {
         this.mode=mode;
     }
 
-    public WebService(String urlWebService,AsynchronousTask callback,String mode){
+    public WebServiceAsynchronic(String urlWebService, AsynchronousTask callback, String mode){
         this.url=urlWebService;
         this.callback=callback;
         this.mode=mode;
     }
 
-    public WebService() {
+    public WebServiceAsynchronic() {
         // TODO Auto-generated constructor stub
     }
 
@@ -83,7 +82,7 @@ public class WebService extends AsyncTask<String,Long,String> {
                 return r;
             }
             else if(this.mode.equals("POST")){
-                String r=HttpRequest.post(this.url).form(this.datos).body();
+                String r= HttpRequest.post(this.url).form(this.datos).body();
                 return r;
             }
             return null;
