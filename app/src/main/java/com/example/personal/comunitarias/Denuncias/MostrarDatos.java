@@ -397,7 +397,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
             status_reclamo=reclamo.is_status();
 
             pd.setIdpredenuncia(reclamo.getIdreclamo());
-            pd.guardarPredenuncia();
+            pd.guardarPredenunciaWS();
             status_pred=pd.is_status();
 
             return null;

@@ -7,13 +7,17 @@ package com.example.personal.comunitarias.BaseDeDatos.predenuncia;
 
 import android.util.Log;
 
+import com.example.personal.comunitarias.Constantes;
 import com.example.personal.comunitarias.DatabaseRemote.*;
+import com.example.personal.comunitarias.WebService.WebServiceResolver;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -93,7 +97,29 @@ public class Predenuncia extends _Default {
         return lista;
     }
 
-
+    public void guardarPredenunciaWS(){
+        Map<String,String> datos=new HashMap<String,String>();
+        try {
+            datos.put("tipo", this.tipodenuncia);
+            datos.put("genero_denunciante", this.generodenunciante);
+            datos.put("descripcion_investigacion", this.descripcioninvestigacion);
+            datos.put("genero_denunciado", this.generodenunciado);
+            datos.put("funcionario_publico", this.funcionariopublico);
+            datos.put("id", "" + this.idpredenuncia);
+            datos.put("nivel_educacion_denunciante", "" + this.niveleducaciondenunciateid);
+            datos.put("ocupacion_denunciante", "" + this.ocupaciondenuncianteid);
+            datos.put("nacionalidad_denunciante", "" + this.nacionalidaddenuncianteid);
+            datos.put("estado_civil_denunciante", "" + this.estadocivildenuncianteid);
+            datos.put("institucion_implicada", "" + this.institucionimplicadaid);
+            WebServiceResolver ws = new WebServiceResolver(Constantes.WS_PREDENUNCIA, datos);
+            System.out.println(ws.makePostPetition());
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            this._status=false;
+        }
+    }
+    /*
     public void guardarPredenuncia(){
         String comando = "";
             comando = String.format("INSERT INTO predenuncia(\n" +
@@ -122,7 +148,7 @@ public class Predenuncia extends _Default {
         }
 
     }
-
+    */
     public void eliminarPredenuncia(){
         String comando = String.format("DELETE FROM cpccs.predenuncia WHERE id = %d;",this.getIdpredenuncia());
 

@@ -300,28 +300,33 @@ public class Reclamo extends _Default {
             }else{
                 this.idreclamo= getListaReclamoWS().get(getListaReclamoWS().size()-1).getIdreclamo()+1;
             }
-            Map<String, String> datos = new HashMap<String, String>();
-            datos.put("nombres_apellidos_denunciante", this.nombresapellidosdenunciante);
-            datos.put("tipo_identificacion", this.tipoidentificacion);
-            datos.put("numero_identificacion", this.numidenti);
-            datos.put("direccion", this.direccion);
-            datos.put("email", this.email);
-            datos.put("nombres_apellidos_denunciado", this.nombresapellidosdenunciado);
-            datos.put("telefono", this.telefono);
-            datos.put("cargo", this.cargo);
-            datos.put("comparecer", (this.comparecer == 1 ? "true" : "false"));
-            datos.put("documentores", (this.documentores == 1 ? "true" : "false"));
-            datos.put("identidad_reservada", (this.identidadreservada == 1 ? "true" : "false"));
-            datos.put("reside_extranjero", (this.resideextrangero == 1 ? "true" : "false"));
-            datos.put("id",""+this.idreclamo);
-            datos.put("ciudad_del_denunciante",""+this.ciudaddeldenuncianteid);
-            datos.put("ciudad_del_denunciado",""+this.ciudaddeldenunciadoid);
-            datos.put("institucion_implicada",""+this.institucionimplicadaid);
-            datos.put("provincia_denunciante",""+this.provinciadenuncianteid);
-            datos.put("provincia_denunciado",""+this.provinciadenunciadoid);
-            WebServiceResolver ws=new WebServiceResolver(Constantes.WS_RECLAMOS,datos);
-            System.out.println(ws.makePostPetition());
-
+            try {
+                Map<String, String> datos = new HashMap<String, String>();
+                datos.put("nombres_apellidos_denunciante", this.nombresapellidosdenunciante);
+                datos.put("tipo_identificacion", this.tipoidentificacion);
+                datos.put("numero_identificacion", this.numidenti);
+                datos.put("direccion", this.direccion);
+                datos.put("email", this.email);
+                datos.put("nombres_apellidos_denunciado", this.nombresapellidosdenunciado);
+                datos.put("telefono", this.telefono);
+                datos.put("cargo", this.cargo);
+                datos.put("comparecer", (this.comparecer == 1 ? "true" : "false"));
+                datos.put("documentores", (this.documentores == 1 ? "true" : "false"));
+                datos.put("identidad_reservada", (this.identidadreservada == 1 ? "true" : "false"));
+                datos.put("reside_extranjero", (this.resideextrangero == 1 ? "true" : "false"));
+                datos.put("id", "" + this.idreclamo);
+                datos.put("ciudad_del_denunciante", "" + this.ciudaddeldenuncianteid);
+                datos.put("ciudad_del_denunciado", "" + this.ciudaddeldenunciadoid);
+                datos.put("institucion_implicada", "" + this.institucionimplicadaid);
+                datos.put("provincia_denunciante", "" + this.provinciadenuncianteid);
+                datos.put("provincia_denunciado", "" + this.provinciadenunciadoid);
+                WebServiceResolver ws = new WebServiceResolver(Constantes.WS_RECLAMOS, datos);
+                System.out.println(ws.makePostPetition());
+            }
+            catch(Exception e){
+                e.printStackTrace();
+                this._status=false;
+            }
         }
 
     }
