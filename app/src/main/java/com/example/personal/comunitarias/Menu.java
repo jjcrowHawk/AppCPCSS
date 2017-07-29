@@ -98,6 +98,13 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
                 startActivity(i);
             }
         });
+        ParticipacionCiudadana.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getBaseContext(), ParticipacionCiudadanaActivity.class);
+                startActivity(i);
+            }
+        });
 /*
         Pedidos.setOnClickListener(new View.OnClickListener() {
             @Override

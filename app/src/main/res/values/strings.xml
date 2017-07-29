@@ -4944,4 +4944,6 @@ VIGIA LA VOZ TRANSITO NACIONAL / DIRECCION NACIONAL DE TRANSITO</item>
         <item>
 WWW.ECUADOR.TRAVEL</item>
     </string-array>
+    <string name="title_activity_participacion_ciudadana">ParticipacionCiudadanaActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

@@ -9,132 +9,141 @@
     tools:context="com.example.personal.comunitarias.RedesSocialesActivity"
     >
 
-<TableLayout
+    <TableLayout
 
-    android:layout_width="fill_parent"
-    android:layout_height="0dp"
-    android:layout_weight="1" >
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
 
-    <TableRow
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="10dp"
+            android:paddingEnd="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <LinearLayout
+
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingRight="5dp">
+
+
+                <Button
+                    android:id="@+id/idFacebook"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/facebook" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="FACEBOOK"
+
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="20dp">
+
+            <LinearLayout
+
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingRight="5dp">
+
+
+                <Button
+                    android:id="@+id/idTwitter"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/participacion_ciudadana" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="TWITTER"
+
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="20dp">
+
+            <LinearLayout
+
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingRight="5dp">
+
+                <Button
+                    android:id="@+id/idYoutube"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/logo_youtube" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="YOUTUBE"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="10dp"
-        android:paddingEnd="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="0.08">
 
-        <LinearLayout
+        <ImageView
 
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingRight="5dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/footer" />
 
+    </RelativeLayout>
 
-            <Button
-                android:id="@+id/idFacebook"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/facebook" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="FACEBOOK"
-
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="20dp">
-
-        <LinearLayout
-
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingRight="5dp">
-
-
-            <Button
-                android:id="@+id/idTwitter"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/participacion_ciudadana" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="TWITTER"
-
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-    </TableRow>
-
-    <TableRow
-        android:layout_weight="1"
-        android:gravity="center"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop = "20dp"
-        android:paddingBottom = "10dp"
-        >
-
-        <LinearLayout
-
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingRight="5dp"
-            >
-
-            <Button
-                android:id="@+id/idYoutube"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/logo_youtube" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="YOUTUBE"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-
-        </LinearLayout>
-
-    </TableRow>
-
-    <ImageView
-        android:id="@+id/iddd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/footer" />
-</TableLayout>
 </LinearLayout>

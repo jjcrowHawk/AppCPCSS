@@ -72,15 +72,15 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CpccsTV.IntroTv"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Mision.Mision"
             android:label="@string/title_activity_mision"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Mision.Vision"
             android:label="@string/title_activity_vision"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".preguntas.PreguntasFrecuentes"
             android:configChanges="screenSize|orientation"
@@ -154,7 +154,7 @@
         <activity
             android:name=".Noticias.NoticiasActivity"
             android:label="Noticias Y Boletines"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Noticias.DetailActivity"
             android:parentActivityName=".Noticias.NoticiasActivity"
@@ -165,7 +165,7 @@
         </activity>
         <activity
             android:name=".Noticias.Intro_noticias"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Oficinas.OfficeDialog"
             android:label=" "
@@ -177,15 +177,24 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Oficinas.IntroOficinas"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Facebook.IntroFacebook"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Facebook.FacebookActivity"
             android:label="Facebook"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".RedesSocialesActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".RedesSocialesActivity" />
+        <activity
+            android:name=".ParticipacionCiudadanaActivity"
+            android:label="@string/title_activity_participacion_ciudadana"
+            android:parentActivityName=".Intro"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.personal.comunitarias.Intro" />
+        </activity>
     </application>
 
 </manifest>
