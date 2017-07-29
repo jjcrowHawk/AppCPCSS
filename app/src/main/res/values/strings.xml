@@ -4946,4 +4946,7 @@ WWW.ECUADOR.TRAVEL</item>
     </string-array>
     <string name="title_activity_participacion_ciudadana">ParticipacionCiudadanaActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

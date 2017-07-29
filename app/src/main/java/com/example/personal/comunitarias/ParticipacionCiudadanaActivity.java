@@ -1,7 +1,5 @@
 package com.example.personal.comunitarias;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -17,6 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
+
+import com.example.personal.comunitarias.ParticipacionCiudadana.ACFragment;
+import com.example.personal.comunitarias.ParticipacionCiudadana.APFragment;
+import com.example.personal.comunitarias.ParticipacionCiudadana.CCFragment;
+import com.example.personal.comunitarias.ParticipacionCiudadana.CCSFragment;
+import com.example.personal.comunitarias.ParticipacionCiudadana.CPFragment;
+import com.example.personal.comunitarias.ParticipacionCiudadana.PPFragment;
+import com.example.personal.comunitarias.ParticipacionCiudadana.SVFragment;
 
 public class ParticipacionCiudadanaActivity extends AppCompatActivity {
 
@@ -50,16 +56,6 @@ public class ParticipacionCiudadanaActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
     }
 
@@ -135,24 +131,49 @@ public class ParticipacionCiudadanaActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            //return PlaceholderFragment.newInstance(position + 1);
+            switch (position) {
+                case 0:
+                    return new CCSFragment();
+                case 1:
+                    return new CCFragment();
+                case 2:
+                    return new APFragment();
+                case 3:
+                    return new PPFragment();
+                case 4:
+                    return new ACFragment();
+                case 5:
+                    return new SVFragment();
+                case 6:
+                    return new CPFragment();
+            }
+            return null;
         }
 
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 7;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return "CONSEJOS CIUDADANOS SECTORIALES";
                 case 1:
-                    return "SECTION 2";
+                    return "CONSEJOS CONSULTIVOS";
                 case 2:
-                    return "SECTION 3";
+                    return "AUDIENCIAS PUBLICAS";
+                case 3:
+                    return "PRESUPUESTOS PARTICIPATIVOS";
+                case 4:
+                    return "ASAMBLEAS CIUDADANAS";
+                case 5:
+                    return "SILLA VACIA";
+                case 6:
+                    return "CABILDOS POPULARES";
             }
             return null;
         }
