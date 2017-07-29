@@ -47,7 +47,7 @@ import java.util.ArrayList;
 
 public class Menu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    Button Denuncias,Pedidos,Noticiase,Preguntas;
+    Button Noticias,RedesSociales,ParticipacionCiudadana,ControlSocial,AntiCorrupcion,DenunciasPedidos;
     DatabaseHelper db;
 
     private ProgressDialog mProgressDialog;
@@ -76,20 +76,29 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         Cursor fila = bd.rawQuery("select * from estadocivil", null);
         ///////////////
 
-        Denuncias = (Button)findViewById(R.id.idTarea);
-        Pedidos = (Button)findViewById(R.id.idExamen);
-        Noticiase = (Button)findViewById(R.id.idProyecto);
-        Preguntas = (Button)findViewById(R.id.idResult);
+        Noticias = (Button)findViewById(R.id.idNoticias);
+        RedesSociales = (Button)findViewById(R.id.idRedesSociales);
+        ParticipacionCiudadana=(Button)findViewById(R.id.idPP);
+        ControlSocial=(Button)findViewById(R.id.idControlSocial);
+        AntiCorrupcion=(Button)findViewById(R.id.idAntiCorrupcion);
+        DenunciasPedidos = (Button)findViewById(R.id.idDenunciaPedidos);
 
-        Denuncias.setOnClickListener(new View.OnClickListener() {
+
+        DenunciasPedidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(getBaseContext(), IntroDenuncias.class);
                 startActivity(i);
             }
         });
-
-
+        RedesSociales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getBaseContext(), RedesSocialesActivity.class);
+                startActivity(i);
+            }
+        });
+/*
         Pedidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,8 +107,8 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
             }
         });
-
-        Noticiase.setOnClickListener(new View.OnClickListener() {
+*/
+        Noticias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -117,17 +126,15 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
 
             }
         });
-
+/*
         Preguntas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(getBaseContext(), PreguntasFrecuentes.class);
                 startActivity(i);
-
-
             }
         });
-
+        */
     }
 
     public class Progress_guardando extends AsyncTask<Void, Void, Void> {

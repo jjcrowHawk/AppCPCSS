@@ -43,6 +43,7 @@ public class FacebookActivity extends AppCompatActivity {
         WebSettings webSettings = FacebookTimeline.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
+
         FacebookTimeline.loadDataWithBaseURL("https://facebook.com", embedFacebook, "text/html", "UTF-8", null);
 
     }

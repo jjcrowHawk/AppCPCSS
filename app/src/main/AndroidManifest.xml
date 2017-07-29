@@ -30,23 +30,22 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Denuncias.TabsDenuncia"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/title_denuncia"/>
+            android:label="@string/title_denuncia"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Denuncias.IntroDenuncias"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Pedidos.TabsPedido"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/title_pedido"/>
+            android:label="@string/title_pedido"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Pedidos.IntroPedidos"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Contactenos.Contacto"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/title_contacto"/>
-
+            android:label="@string/title_contacto"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Twitter.TwitterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -71,25 +70,17 @@
             android:name=".CpccsTV.CpccsTv"
             android:label="@string/title_activity_cpccs_tv"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".CpccsTV.IntroTv"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Mision.Mision"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/title_activity_mision">
-        </activity>
-
+            android:label="@string/title_activity_mision"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Mision.Vision"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/title_activity_vision">
-        </activity>
-
+            android:label="@string/title_activity_vision"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".preguntas.PreguntasFrecuentes"
             android:configChanges="screenSize|orientation"
@@ -115,31 +106,26 @@
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_preguntas"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".preguntas.Pregunta5"
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_preguntas"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".preguntas.Pregunta6"
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_preguntas"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".preguntas.Pregunta7"
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_preguntas"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".preguntas.Pregunta8"
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_preguntas"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".preguntas.Pregunta9"
             android:configChanges="screenSize|orientation"
@@ -149,32 +135,26 @@
             android:name=".preguntas.Pregunta10"
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar"  />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".preguntas.Pregunta11"
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar"  />
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".preguntas.Pregunta12"
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar"  />
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".preguntas.Pregunta13"
             android:configChanges="screenSize|orientation"
             android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar"  />
-
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Noticias.NoticiasActivity"
             android:label="Noticias Y Boletines"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Noticias.DetailActivity"
             android:parentActivityName=".Noticias.NoticiasActivity"
@@ -185,10 +165,7 @@
         </activity>
         <activity
             android:name=".Noticias.Intro_noticias"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Oficinas.OfficeDialog"
             android:label=" "
@@ -198,23 +175,17 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Oficinas"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".Oficinas.IntroOficinas"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Facebook.IntroFacebook"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Facebook.FacebookActivity"
             android:label="Facebook"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".RedesSocialesActivity"></activity>
     </application>
 
 </manifest>
