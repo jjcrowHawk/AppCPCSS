@@ -35,6 +35,7 @@ public class Denuncia extends Fragment {
     EditText descripcion,archivoText;
     static String Descripcion_Denuncia;
     static String Comparecer_d;
+    static File evidencia=null;
 
     ArrayList<String> lista_inst;
 
@@ -94,11 +95,12 @@ public class Denuncia extends Fragment {
             public void onClick(View v) {
                 Intent getContentIntent = FileUtils.createGetContentIntent();
 
-                Intent intent = Intent.createChooser(getContentIntent, "Select a file");
+                Intent intent = Intent.createChooser(getContentIntent, "Seleccione un archivo");
                 startActivityForResult(intent, REQUEST_CHOOSER);
             }
         });
     }
+
      @Override
      public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
@@ -106,18 +108,14 @@ public class Denuncia extends Fragment {
                 if (resultCode == RESULT_OK) {
 
                     final Uri uri = data.getData();
-
-                    // Get the File path from the Uri
                     String path = FileUtils.getPath(this.getContext(), uri);
-
-                    // Alternatively, use FileUtils.getFile(Context, Uri)
                     if (path != null && FileUtils.isLocal(path)) {
-                        File file = new File(path);
-                        Toast.makeText(this.getContext(),"File " + file.toString() +" was selected",Toast.LENGTH_LONG).show();
-                        archivoText.setText(file.toString());
+                        evidencia= new File(path);
+                        Toast.makeText(this.getContext(),"File " + evidencia.toString() +" was selected",Toast.LENGTH_LONG).show();
+                        archivoText.setText(evidencia.toString());
                     }
                     else{
-                        System.out.println("Nothing was selected");
+                        Toast.makeText(this.getContext(),"No se seleccionó ningun archivo",Toast.LENGTH_SHORT).show();
                     }
                 }
                 break;

@@ -14,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -83,8 +84,8 @@ public class Institucion extends _Default {
     public int getID_WS(String nombre){
         int id_encontrada=-1;
         WebServiceResolver ws=new WebServiceResolver(Constantes.WS_INSTITUCIONES,null);
-        String result=ws.makeGetPetition();
         try {
+            String result=ws.makeGetPetition();
             JSONObject json=new JSONObject(result);
             JSONArray arregloDatos=json.getJSONArray("results");
             for(int i=0;i<arregloDatos.length();i++){
@@ -96,6 +97,8 @@ public class Institucion extends _Default {
 
             }
         } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         return id_encontrada;
@@ -168,8 +171,8 @@ public class Institucion extends _Default {
     public ArrayList<String> getListaInstitucionNombres(){
         ArrayList<String> lista=new ArrayList<String>();
         WebServiceResolver ws=new WebServiceResolver(Constantes.WS_INSTITUCIONES,null);
-        String result=ws.makeGetPetition();
         try {
+            String result=ws.makeGetPetition();
             JSONObject jsonInstitucion=new JSONObject(result);
             JSONArray datosInstitucion=jsonInstitucion.getJSONArray("results");
             for(int i=0;i<datosInstitucion.length();i++){
@@ -178,6 +181,8 @@ public class Institucion extends _Default {
                 System.out.println(itemInsititucion.getString("nombre"));
             }
         } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         return lista;

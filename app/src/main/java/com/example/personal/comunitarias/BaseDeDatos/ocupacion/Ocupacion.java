@@ -14,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -72,8 +73,8 @@ public class Ocupacion extends _Default {
     public int getID_WS(String nombre){
         int id_encontrada=-1;
         WebServiceResolver ws=new WebServiceResolver(Constantes.WS_OCUPACIONES,null);
-        String result=ws.makeGetPetition();
         try {
+            String result=ws.makeGetPetition();
             JSONObject json=new JSONObject(result);
             JSONArray arregloDatos=json.getJSONArray("results");
             for(int i=0;i<arregloDatos.length();i++){
@@ -85,6 +86,8 @@ public class Ocupacion extends _Default {
 
             }
         } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         return id_encontrada;
@@ -159,8 +162,8 @@ public class Ocupacion extends _Default {
     public ArrayList<String> getListaOcupacionNombres() {
         ArrayList<String> lista=new ArrayList<String>();
         WebServiceResolver ws=new WebServiceResolver(Constantes.WS_OCUPACIONES,null);
-        String result=ws.makeGetPetition();
         try {
+            String result=ws.makeGetPetition();
             JSONObject jsonOcupacion=new JSONObject(result);
             JSONArray datosOcupacion=jsonOcupacion.getJSONArray("results");
             for(int i=0;i<datosOcupacion.length();i++){
@@ -169,6 +172,8 @@ public class Ocupacion extends _Default {
                 System.out.println(itemOcupacion.getString("nombre"));
             }
         } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         return lista;

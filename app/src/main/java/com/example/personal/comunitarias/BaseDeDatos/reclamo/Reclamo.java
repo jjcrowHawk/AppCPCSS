@@ -17,6 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -372,9 +373,9 @@ public class Reclamo extends _Default {
     public ArrayList<Reclamo> getListaReclamoWS(){
         ArrayList<Reclamo> lista = new ArrayList<>();
         WebServiceResolver ws= new WebServiceResolver(Constantes.WS_RECLAMOS,null);
-        String result=ws.makeGetPetition();
-        System.out.println(result);
         try {
+            String result=ws.makeGetPetition();
+            System.out.println(result);
             JSONObject json=new JSONObject(result);
             JSONArray arregloDatos= json.getJSONArray("results");
             for(int i=0;i<arregloDatos.length();i++){
@@ -384,6 +385,8 @@ public class Reclamo extends _Default {
                 lista.add(rec);
             }
         } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         return lista;

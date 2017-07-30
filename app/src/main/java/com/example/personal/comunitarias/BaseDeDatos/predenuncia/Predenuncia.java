@@ -11,6 +11,11 @@ import com.example.personal.comunitarias.Constantes;
 import com.example.personal.comunitarias.DatabaseRemote.*;
 import com.example.personal.comunitarias.WebService.WebServiceResolver;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,6 +41,7 @@ public class Predenuncia extends _Default {
     String generodenunciado;
     String funcionariopublico; //char(5)
     String unidaddireccionafectada; //char(5)
+    File evidencia;
 
     public Predenuncia (){
         super();
@@ -50,6 +56,7 @@ public class Predenuncia extends _Default {
         this.institucionimplicadaid=-1;
         this.generodenunciado="";
         this.funcionariopublico="";
+        this.evidencia=null;
 
     }
 
@@ -112,7 +119,18 @@ public class Predenuncia extends _Default {
             datos.put("estado_civil_denunciante", "" + this.estadocivildenuncianteid);
             datos.put("institucion_implicada", "" + this.institucionimplicadaid);
             WebServiceResolver ws = new WebServiceResolver(Constantes.WS_PREDENUNCIA, datos);
-            System.out.println(ws.makePostPetition());
+            System.out.println("RESPONSE BEFORE PETITION: "+ws.getResponse());
+            System.out.println("RESPONSE OF PETITION: "+ws.makePostPetition());
+            JSONObject jsonRespuesta=new JSONObject(ws.getResponse());
+
+        }
+        catch(MalformedURLException e){
+            e.printStackTrace();
+            this._status=false;
+        }
+        catch(JSONException e){
+            e.printStackTrace();
+            this._status=false;
         }
         catch(Exception e){
             e.printStackTrace();
@@ -267,5 +285,13 @@ public class Predenuncia extends _Default {
 
     public void setUnidaddireccionafectada(String unidaddireccionafectada) {
         this.unidaddireccionafectada = unidaddireccionafectada;
+    }
+
+    public File getEvidencia() {
+        return evidencia;
+    }
+
+    public void setEvidencia(File evidencia) {
+        this.evidencia = evidencia;
     }
 }
