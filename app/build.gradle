@@ -42,5 +42,6 @@ dependencies {
     compile 'org.postgresql:postgresql:9.4-1201-jdbc41'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:support-v4:25.3.1'
+    compile project(":aFileChooser")
     testCompile 'junit:junit:4.12'
 }
