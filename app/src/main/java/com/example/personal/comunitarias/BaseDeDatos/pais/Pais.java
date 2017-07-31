@@ -41,7 +41,7 @@ public class Pais {
                 JSONObject json = new JSONObject(p);
                 JSONArray datos = json.getJSONArray("results");
                 for (int j = 0; j < datos.length(); j++) {
-                    JSONObject itemPais= datos.getJSONObject(i);
+                    JSONObject itemPais= datos.getJSONObject(j);
                     lista.add(itemPais.getString("nombre"));
                     System.out.println(itemPais.getString("nombre"));
                 }

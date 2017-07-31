@@ -122,7 +122,7 @@ public class Predenuncia extends _Default {
             System.out.println("RESPONSE BEFORE PETITION: "+ws.getResponse());
             System.out.println("RESPONSE OF PETITION: "+ws.makePostPetition());
             JSONObject jsonRespuesta=new JSONObject(ws.getResponse());
-
+            System.out.print(jsonRespuesta);
         }
         catch(MalformedURLException e){
             e.printStackTrace();

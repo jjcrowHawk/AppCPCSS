@@ -62,8 +62,8 @@ public class IntroDenuncias extends AppCompatActivity {
             lista_ocup              = new Ocupacion().getListaOcupacionNombres();
             lista_prov              = new Provincia().getListaNombreProvincia();
             lista_inst              = new Institucion().getListaInstitucionNombres();
-            lista_etnia             = Etnia.getListaNombresEtnia();
-            lista_pais              = Pais.getListaNombresPais();
+            lista_etnia             = new Etnia().getListaNombresEtnia();
+            lista_pais              = new Pais().getListaNombresPais();
             return null;
         }
 

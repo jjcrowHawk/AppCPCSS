@@ -33,8 +33,8 @@ public class Constantes {
     public final static String WS_USUARIOS="http://ejrocafuerte.pythonanywhere.com/usuarios/";
     public final static String WS_RECLAMOS="http://ejrocafuerte.pythonanywhere.com/reclamos/";
     public final static String WS_PREDENUNCIA="http://ejrocafuerte.pythonanywhere.com/predenuncias/";
-    public final static String WS_ETNIA="http://ejrocafuerte.pythonanywhere.com/etnia";
-    public final static String WS_PAIS="http://ejrocafuerte.pythonanywhere.com/pais";
+    public final static String WS_ETNIA="http://ejrocafuerte.pythonanywhere.com/etnias";
+    public final static String WS_PAIS="http://ejrocafuerte.pythonanywhere.com/paises";
     public final static String WS_AUTH_USER="cpccs-admin";
     public final static String WS_AUTH_PASSWORD="cpccs2017admin";
 
