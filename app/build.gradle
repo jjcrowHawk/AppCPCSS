@@ -32,6 +32,7 @@ dependencies {
     compile files('libs/google-api-client-auth-oauth2-1.2.3-alpha.jar')
     compile files('libs/google-http-client-1.22.0.jar')
     compile files('libs/mail.jar')
+    compile project(":aFileChooser")
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
@@ -42,6 +43,5 @@ dependencies {
     compile 'org.postgresql:postgresql:9.4-1201-jdbc41'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:support-v4:25.3.1'
-    compile project(":aFileChooser")
     testCompile 'junit:junit:4.12'
 }

@@ -47,7 +47,7 @@ import java.util.ArrayList;
 
 public class Menu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    Button Noticias,RedesSociales,ParticipacionCiudadana,ControlSocial,AntiCorrupcion,DenunciasPedidos;
+    Button Noticias,RedesSociales,ParticipacionCiudadana,ControlSocial,Transparencia,AntiCorrupcion;
     DatabaseHelper db;
 
     private ProgressDialog mProgressDialog;
@@ -80,14 +80,14 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         RedesSociales = (Button)findViewById(R.id.idRedesSociales);
         ParticipacionCiudadana=(Button)findViewById(R.id.idPP);
         ControlSocial=(Button)findViewById(R.id.idControlSocial);
-        AntiCorrupcion=(Button)findViewById(R.id.idAntiCorrupcion);
-        DenunciasPedidos = (Button)findViewById(R.id.idDenunciaPedidos);
+        Transparencia=(Button)findViewById(R.id.idTransparencia);
+        AntiCorrupcion = (Button)findViewById(R.id.idCorrupcion);
 
 
-        DenunciasPedidos.setOnClickListener(new View.OnClickListener() {
+        AntiCorrupcion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(getBaseContext(), IntroDenuncias.class);
+                Intent i=new Intent(getBaseContext(), AntiCorrupcionActivity.class);
                 startActivity(i);
             }
         });
@@ -102,6 +102,20 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(getBaseContext(), ParticipacionCiudadanaActivity.class);
+                startActivity(i);
+            }
+        });
+        Transparencia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getBaseContext(), TransparenciaActivity.class);
+                startActivity(i);
+            }
+        });
+        ControlSocial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getBaseContext(), ControlSocialActivity.class);
                 startActivity(i);
             }
         });

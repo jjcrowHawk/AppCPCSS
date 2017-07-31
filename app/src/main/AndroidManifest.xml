@@ -21,7 +21,6 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -45,18 +44,22 @@
         <activity
             android:name=".Contactenos.Contacto"
             android:label="@string/title_contacto"
+            android:parentActivityName=".RedesSocialesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Twitter.TwitterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Tweets"
+            android:parentActivityName=".RedesSocialesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Youtube.YoutubeVideos"
             android:label="Videos"
+            android:parentActivityName=".RedesSocialesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Youtube.IntroVideos"
+            android:parentActivityName=".RedesSocialesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
@@ -65,6 +68,7 @@
 
         <activity
             android:name=".Twitter.IntroTweets"
+            android:parentActivityName=".RedesSocialesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CpccsTV.CpccsTv"
@@ -180,33 +184,36 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Facebook.IntroFacebook"
+            android:parentActivityName=".RedesSocialesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Facebook.FacebookActivity"
             android:label="Facebook"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".RedesSocialesActivity" />
+            android:parentActivityName=".RedesSocialesActivity"/>
         <activity
             android:name=".ParticipacionCiudadanaActivity"
-            android:label="@string/title_activity_participacion_ciudadana"
-            android:parentActivityName=".Intro"
+            android:label="Participacion Ciudadana"
+            android:parentActivityName=".Menu"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.personal.comunitarias.Intro" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name="com.ipaulpro.afilechooser.FileChooserActivity"
-            android:icon="@drawable/ic_chooser"
             android:enabled="true"
             android:exported="true"
-            android:label="@string/choose_file" >
+            android:icon="@drawable/ic_chooser"
+            android:label="@string/choose_file">
             <intent-filter>
                 <action android:name="android.intent.action.GET_CONTENT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.OPENABLE" />
 
@@ -215,37 +222,69 @@
         </activity>
         <activity
             android:name=".TransparenciaActivity"
-            android:label="TransparenciaActivity"
+            android:label="Transparencia"
             android:parentActivityName=".Intro"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.personal.comunitarias.Intro" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ControlSocialActivity"
-            android:label="ControlSocialActivity"
+            android:label="Control Social"
             android:parentActivityName=".Intro"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.personal.comunitarias.Intro" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RedesSocialesActivity"
+            android:label="Redes Sociales"
+            android:parentActivityName=".Menu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.personal.comunitarias.Intro" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AntiCorrupcionActivity"
+            android:label="Lucha Anti-corrupción"
+            android:parentActivityName=".Menu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.personal.comunitarias.Intro" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
             android:name="com.ianhanniballake.localstorage.LocalStorageProvider"
             android:authorities="com.ianhanniballake.localstorage.documents"
             android:enabled="@bool/use_provider"
             android:exported="true"
             android:grantUriPermissions="true"
-            android:permission="android.permission.MANAGE_DOCUMENTS" >
+            android:permission="android.permission.MANAGE_DOCUMENTS">
             <intent-filter>
                 <action android:name="android.content.action.DOCUMENTS_PROVIDER" />
             </intent-filter>
