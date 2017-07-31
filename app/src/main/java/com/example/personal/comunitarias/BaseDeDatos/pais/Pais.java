@@ -28,15 +28,23 @@ public class Pais {
 
     public static ArrayList<String> getListaNombresPais(){
         ArrayList<String> lista= new ArrayList<String>();
-        WebServiceResolver ws=new WebServiceResolver(Constantes.WS_ETNIA,null);
         try{
+            WebServiceResolver ws= new WebServiceResolver(Constantes.WS_PAIS,null);
             String result=ws.makeGetPetition();
-            JSONObject jsonPais=new JSONObject(result);
-            JSONArray datosPais=jsonPais.getJSONArray("results");
-            for(int i=0;i<datosPais.length();i++){
-                JSONObject itemPais= datosPais.getJSONObject(i);
-                lista.add(itemPais.getString("nombre"));
-                System.out.println(itemPais.getString("nombre"));
+            JSONObject jsonC=new JSONObject(result);
+            int registros=Integer.parseInt(jsonC.getString("count"));
+            int paginas=registros/10;
+            paginas = registros%10>0?paginas+1:paginas;
+            for(int i=0;i<paginas;i++) {
+                WebServiceResolver wsr = new WebServiceResolver(Constantes.WS_PAIS + "?offset=" + i * 10, null);
+                String p = wsr.makeGetPetition();
+                JSONObject json = new JSONObject(p);
+                JSONArray datos = json.getJSONArray("results");
+                for (int j = 0; j < datos.length(); j++) {
+                    JSONObject itemPais= datos.getJSONObject(i);
+                    lista.add(itemPais.getString("nombre"));
+                    System.out.println(itemPais.getString("nombre"));
+                }
             }
         } catch (HttpRequest.HttpRequestException |JSONException|MalformedURLException e) {
             e.printStackTrace();

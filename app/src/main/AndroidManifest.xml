@@ -30,7 +30,12 @@
         <activity
             android:name=".Denuncias.TabsDenuncia"
             android:label="@string/title_denuncia"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Denuncias.IntroDenuncias"
             android:theme="@style/AppTheme.NoActionBar" />

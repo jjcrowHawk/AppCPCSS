@@ -5,6 +5,8 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.ciudad;
 
+import android.support.annotation.NonNull;
+
 import com.example.personal.comunitarias.Constantes;
 import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.DatabaseRemote._Default;
@@ -20,6 +22,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -42,48 +48,28 @@ public class Ciudad extends _Default {
         this.provinciaid = provinciaid;
     }
 
-    /*
-    public int getID_DB(String nombre){
-        int id_encontrada=-1;
-
-        //Establecemos la conexión
-        Conexion c = null;
-        try {
-            c = new Conexion();
-            Connection conn= c.getConn();
-
-            //Creamos el query
-            Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM ciudad WHERE nombre='"+nombre+"';");
-            if (resultSet != null) {
-                resultSet.next();
-                id_encontrada=resultSet.getInt("id");
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            this._status = false;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            this._status = false;
-        }
-
-        return id_encontrada;
-    }*/
-
     public int getID_WS(String nombre){
         int id_encontrada=-1;
-        WebServiceResolver ws=new WebServiceResolver(Constantes.WS_CIUDADES,null);
         try {
+            WebServiceResolver ws= new WebServiceResolver(Constantes.WS_CIUDADES,null);
             String result=ws.makeGetPetition();
-            JSONObject json=new JSONObject(result);
-            JSONArray arregloDatos=json.getJSONArray("results");
-            for(int i=0;i<arregloDatos.length();i++){
-                JSONObject item=arregloDatos.getJSONObject(i);
-                if(nombre.equals(item.getString("nombre"))){
-                    id_encontrada=item.getInt("id");
-                    return id_encontrada;
-                }
+            JSONObject jsonCiudades=new JSONObject(result);
+            int registros=Integer.parseInt(jsonCiudades.getString("count"));
+            int paginas=registros/10;
+            paginas = registros%10>0?paginas+1:paginas;
+            for(int i=0;i<paginas;i++){
+                WebServiceResolver wsr= new WebServiceResolver(Constantes.WS_CIUDADES+"?offset="+i*10,null);
+                String p=wsr.makeGetPetition();
+                JSONObject json=new JSONObject(p);
+                JSONArray datosCiudades=json.getJSONArray("results");
+                for(int j=0;j<datosCiudades.length();j++){
+                    JSONObject item= datosCiudades.getJSONObject(j);
+                    if(nombre.equals(item.getString("nombre"))){
+                        id_encontrada=item.getInt("id");
+                        return id_encontrada;
+                    }
 
+                }
             }
         }
         catch(MalformedURLException | JSONException e){
@@ -133,40 +119,28 @@ public class Ciudad extends _Default {
         try {
             WebServiceResolver ws= new WebServiceResolver(Constantes.WS_CIUDADES,null);
             String result=ws.makeGetPetition();
-            JSONObject jsonCiudades=new JSONObject(result);
-            JSONArray datosCiudades=jsonCiudades.getJSONArray("results");
-            for(int i=0;i<datosCiudades.length();i++){
-                JSONObject itemCiudad= datosCiudades.getJSONObject(i);
-                if(idProvincia==itemCiudad.getInt("provincia")){
-                    lista.add(itemCiudad.getString("nombre"));
-                }
+            JSONObject jsonG=new JSONObject(result);
+            int registros=Integer.parseInt(jsonG.getString("count"));
+            int paginas=registros/10;
+            paginas = registros%10>0?paginas+1:paginas;
+            for(int i=0;i<paginas;i++){
+                WebServiceResolver wsr= new WebServiceResolver(Constantes.WS_CIUDADES+"?offset="+i*10,null);
+                String p=wsr.makeGetPetition();
+                JSONObject json=new JSONObject(p);
+                JSONArray datos=json.getJSONArray("results");
+                for(int j=0;j<datos.length();j++){
+                    JSONObject item= datos.getJSONObject(j);
+                    if(idProvincia==item.getInt("provincia")){
+                        lista.add(item.getString("nombre"));
+                    }
 
+                }
             }
         } catch (JSONException|MalformedURLException e) {
             e.printStackTrace();
         }
         return lista;
-        /*Conexion c = null;
-        try {
-            c = new Conexion();
-            Connection conn= c.getConn();
 
-            //Creamos el query
-            Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM ciudad WHERE provinciaid='"+idProvincia+"';");
-            if (resultSet != null){
-                while (resultSet.next()){
-                    lista.add(resultSet.getString("nombre"));
-                }
-            }
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            this._status = false;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            this._status = false;
-        }*/
     }
 
     //Obtener la lista de todas las ciudades

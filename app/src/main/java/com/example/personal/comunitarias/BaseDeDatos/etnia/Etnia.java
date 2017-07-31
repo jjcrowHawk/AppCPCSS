@@ -28,15 +28,22 @@ public class Etnia {
 
     public static ArrayList<String> getListaNombresEtnia(){
         ArrayList<String> lista= new ArrayList<String>();
-        WebServiceResolver ws=new WebServiceResolver(Constantes.WS_ETNIA,null);
         try{
+            WebServiceResolver ws= new WebServiceResolver(Constantes.WS_ETNIA,null);
             String result=ws.makeGetPetition();
             JSONObject jsonEtnia=new JSONObject(result);
-            JSONArray datosEtnia=jsonEtnia.getJSONArray("results");
-            for(int i=0;i<datosEtnia.length();i++){
-                JSONObject itemEtnia= datosEtnia.getJSONObject(i);
-                lista.add(itemEtnia.getString("nombre"));
-                System.out.println(itemEtnia.getString("nombre"));
+            int registros=Integer.parseInt(jsonEtnia.getString("count"));
+            int paginas=registros/10;
+            paginas = registros%10>0?paginas+1:paginas;
+            for(int i=0;i<paginas;i++){
+                WebServiceResolver wsr= new WebServiceResolver(Constantes.WS_ETNIA+"?offset="+i*10,null);
+                String p=wsr.makeGetPetition();
+                JSONObject json=new JSONObject(p);
+                JSONArray datosEtnias=json.getJSONArray("results");
+                for(int j=0;j<datosEtnias.length();j++){
+                    JSONObject item= datosEtnias.getJSONObject(j);
+                    lista.add(item.getString("nombre"));
+                }
             }
         } catch (HttpRequest.HttpRequestException |MalformedURLException| JSONException  e) {
             e.printStackTrace();

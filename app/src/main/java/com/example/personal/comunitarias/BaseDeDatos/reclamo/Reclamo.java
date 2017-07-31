@@ -372,17 +372,24 @@ public class Reclamo extends _Default {
 
     public ArrayList<Reclamo> getListaReclamoWS(){
         ArrayList<Reclamo> lista = new ArrayList<>();
-        WebServiceResolver ws= new WebServiceResolver(Constantes.WS_RECLAMOS,null);
         try {
+            WebServiceResolver ws= new WebServiceResolver(Constantes.WS_RECLAMOS,null);
             String result=ws.makeGetPetition();
-            System.out.println(result);
-            JSONObject json=new JSONObject(result);
-            JSONArray arregloDatos= json.getJSONArray("results");
-            for(int i=0;i<arregloDatos.length();i++){
-                JSONObject item=arregloDatos.getJSONObject(i);
-                Reclamo rec= new Reclamo();
-                rec.setIdreclamo(item.getInt("id"));
-                lista.add(rec);
+            JSONObject jsonC=new JSONObject(result);
+            int registros=Integer.parseInt(jsonC.getString("count"));
+            int paginas=registros/10;
+            paginas = registros%10>0?paginas+1:paginas;
+            for(int i=0;i<paginas;i++) {
+                WebServiceResolver wsr = new WebServiceResolver(Constantes.WS_RECLAMOS+ "?offset=" + i * 10, null);
+                String p = wsr.makeGetPetition();
+                JSONObject json = new JSONObject(p);
+                JSONArray datos = json.getJSONArray("results");
+                for (int j = 0; j < datos.length(); j++) {
+                    JSONObject item= datos.getJSONObject(i);
+                    Reclamo rec= new Reclamo();
+                    rec.setIdreclamo(item.getInt("id"));
+                    lista.add(rec);
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();

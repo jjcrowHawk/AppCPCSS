@@ -51,50 +51,29 @@ public class Institucion extends _Default {
         this.representante = representante;
         this.url = url;
     }
-    /*
-    public int getID_DB(String nombre){
-        int id_encontrada=-1;
-
-        //Establecemos la conexión
-        Conexion c = null;
-        try {
-            c = new Conexion();
-            Connection conn= c.getConn();
-
-            //Creamos el query
-            Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM institucion WHERE nombre='"+nombre+"';");
-            if (resultSet != null) {
-                resultSet.next();
-                id_encontrada=resultSet.getInt("id");
-            }
-
-            conn.close();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            this._status = false;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            this._status = false;
-        }
-        return id_encontrada;
-    }
-    */
 
     public int getID_WS(String nombre){
         int id_encontrada=-1;
-        WebServiceResolver ws=new WebServiceResolver(Constantes.WS_INSTITUCIONES,null);
         try {
+            WebServiceResolver ws= new WebServiceResolver(Constantes.WS_INSTITUCIONES,null);
             String result=ws.makeGetPetition();
-            JSONObject json=new JSONObject(result);
-            JSONArray arregloDatos=json.getJSONArray("results");
-            for(int i=0;i<arregloDatos.length();i++){
-                JSONObject item=arregloDatos.getJSONObject(i);
-                if(nombre.equals(item.getString("nombre"))){
-                    id_encontrada=item.getInt("id");
-                    return id_encontrada;
-                }
+            JSONObject jsonC=new JSONObject(result);
+            int registros=Integer.parseInt(jsonC.getString("count"));
+            int paginas=registros/10;
+            paginas = registros%10>0?paginas+1:paginas;
+            for(int i=0;i<paginas;i++){
+                WebServiceResolver wsr= new WebServiceResolver(Constantes.WS_INSTITUCIONES+"?offset="+i*10,null);
+                String p=wsr.makeGetPetition();
+                JSONObject json=new JSONObject(p);
+                JSONArray datos=json.getJSONArray("results");
+                for(int j=0;j<datos.length();j++){
+                    JSONObject item= datos.getJSONObject(j);
+                    if(nombre.toLowerCase().equals(item.getString("nombre").toLowerCase())){
+                        id_encontrada=item.getInt("id");
+                        return id_encontrada;
+                    }
 
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -139,46 +118,24 @@ public class Institucion extends _Default {
         return lista;
     }
 
-    /*
-    public ArrayList<String> getListaInstitucionNombres(){
-        ArrayList<String> lista = new ArrayList<String>();
-        //Establecemos la conexión
-        Conexion c = null;
-        try {
-            c = new Conexion();
-            Connection conn= c.getConn();
-
-            //Creamos el query
-            Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM institucion;");
-            if (resultSet != null){
-                while (resultSet.next()){
-                    lista.add(resultSet.getString("nombre"));
-                }
-            }
-
-            conn.close();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            this._status = false;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            this._status = false;
-        }
-        return lista;
-    }
-    */
     public ArrayList<String> getListaInstitucionNombres(){
         ArrayList<String> lista=new ArrayList<String>();
-        WebServiceResolver ws=new WebServiceResolver(Constantes.WS_INSTITUCIONES,null);
         try {
+            WebServiceResolver ws= new WebServiceResolver(Constantes.WS_CIUDADES,null);
             String result=ws.makeGetPetition();
-            JSONObject jsonInstitucion=new JSONObject(result);
-            JSONArray datosInstitucion=jsonInstitucion.getJSONArray("results");
-            for(int i=0;i<datosInstitucion.length();i++){
-                JSONObject itemInsititucion= datosInstitucion.getJSONObject(i);
-                lista.add(itemInsititucion.getString("nombre"));
-                System.out.println(itemInsititucion.getString("nombre"));
+            JSONObject jsonG=new JSONObject(result);
+            int registros=Integer.parseInt(jsonG.getString("count"));
+            int paginas=registros/10;
+            paginas = registros%10>0?paginas+1:paginas;
+            for(int i=0;i<paginas;i++){
+                WebServiceResolver wsr= new WebServiceResolver(Constantes.WS_CIUDADES+"?offset="+i*10,null);
+                String p=wsr.makeGetPetition();
+                JSONObject json=new JSONObject(p);
+                JSONArray datos=json.getJSONArray("results");
+                for(int j=0;j<datos.length();j++){
+                    JSONObject item= datos.getJSONObject(j);
+                    lista.add(item.getString("nombre"));
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();
