@@ -8,8 +8,9 @@
     android:orientation ="vertical"
     tools:context="com.example.personal.comunitarias.Menu"
     android:background="@drawable/fondo"
-    tools:showIn="@layout/app_bar_menu"
-    >
+    tools:showIn="@layout/app_bar_menu">
+
+
 
     <TableLayout
 
