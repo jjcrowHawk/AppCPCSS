@@ -1,3 +1,5 @@
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,24 +11,51 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.personal.comunitarias.ParticipacionCiudadanaActivity$PlaceholderFragment">
+    tools:context="com.example.personal.comunitarias.ParticipacionCiudadanaActivity$PlaceholderFragment"
+    android:weightSum="1">
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="PRESUPUESTO PARTICIPATIVO"
-        android:textAlignment="center"
-        android:textSize="36sp" />
 
-    <TextView
-        android:id="@+id/section_label"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autoText="false"
-        android:text="Mecanismo para la toma de decisiones entre autoridades, la ciudadanía y organizaciones  sociales  en torno a la distribución equitativa de  presupuestos públicos."
-        android:textAlignment="viewStart"
-        android:textSize="24sp" />
+        android:layout_height="505dp"
+        android:layout_weight="1"
+        android:fillViewport="true" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:weightSum="1"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="PRESUPUESTO PARTICIPATIVO"
+                android:textAlignment="center"
+                android:textSize="36sp" />
+
+            <TextView
+                android:id="@+id/section_label"
+                android:layout_width="match_parent"
+                android:layout_height="218dp"
+                android:autoText="false"
+                android:text="Mecanismo para la toma de decisiones entre autoridades, la ciudadanía y organizaciones  sociales  en torno a la distribución equitativa de  presupuestos públicos."
+                android:textAlignment="viewStart"
+                android:textSize="24sp"
+                android:layout_marginBottom="30dp"
+                />
+
+            <FrameLayout
+                android:id="@+id/youtube_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="102dp"
+                android:visibility="visible"
+                android:layout_weight="0.61" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
