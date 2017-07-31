@@ -39,9 +39,9 @@ import java.util.List;
 
 
 public class Peticionario extends Fragment implements AdapterView.OnItemSelectedListener{
-    Spinner identidad, tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad, ocupacion_peticionario;
+    Spinner identidad, tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad, ocupacion_peticionario,etnia, pais;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter7,adapter8, adapter9;
-    ArrayAdapter<String> adapter4,adapter5,adapter6,adapterOcupaPeticionario;
+    ArrayAdapter<String> adapter4,adapter5,adapter6,adapterOcupaPeticionario,adapterEtnia,adapterPais;
     private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtOcupacion;
     private EditText txtTelefono, txtDireccion, txtEdad, txtOrganizacionSocial, txtCargoPeticionario;
     Button btn_seguir;
@@ -81,7 +81,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
     //Listas spinners
     static ArrayList<String> lista_estadocivil, lista_niveledu, lista_nacionalidad,
-                            lista_ocup, lista_prov, lista_ciudad, lista_inst;
+                            lista_ocup, lista_prov, lista_ciudad, lista_inst, lista_etnia, lista_pais;
 
 
 
@@ -98,6 +98,10 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     public static void setLista_ciudad(ArrayList<String> lista_ciudad) { Peticionario.lista_ciudad = lista_ciudad; }
 
     public static void setLista_inst(ArrayList<String> lista_inst) {   Peticionario.lista_inst = lista_inst;  }
+
+    public static void setLista_etnia(ArrayList<String> lista_etnia) { Peticionario.lista_etnia= lista_etnia; }
+
+    public static void setLista_pais(ArrayList<String> lista_pais) { Peticionario.lista_pais= lista_pais; }
 
     public static Integer getIdCiuP() {
         return idCiuP;
@@ -246,6 +250,18 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         //Spinner Ciudad
         ciudad = (Spinner) view.findViewById(R.id.spinner9);
 
+        //Spiner Etnia
+        etnia = (Spinner) view.findViewById(R.id.spinnerEtnia);
+        adapterEtnia = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item,lista_etnia);
+        adapterEtnia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        etnia.setAdapter(adapterEtnia);
+
+        //Spiner pais
+        pais= (Spinner) view.findViewById(R.id.spinnerPais);
+        adapterPais= new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item,lista_pais);
+        adapterPais.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        pais.setAdapter(adapterPais);
+
         //data
         txtNombre = (EditText)view.findViewById(R.id.txt_Nombres);
         txtApellido = (EditText)view.findViewById(R.id.txt_Apellidos);
@@ -257,8 +273,6 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         txtEdad = (EditText)view.findViewById(R.id.txt_edad);
         txtOrganizacionSocial = (EditText)view.findViewById(R.id.txt_org_social);
         txtCargoPeticionario = (EditText)view.findViewById(R.id.txt_cargo_peticionario_d);
-
-
 
         loadSpinnerProvincias();
         //focusableEditText();
@@ -289,7 +303,6 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 IdentidadReservada = identidad.getSelectedItem().toString();
                 TipoIden = tipoIdentificacion.getSelectedItem().toString();
                 Genero = genero.getSelectedItem().toString();
-                System.out.println("prueba: "+estado_civil.getSelectedItem());
                 Estado_civil = estado_civil.getSelectedItem().toString();
                 NivelEdu = nivelEducacion.getSelectedItem().toString();
                 Nacio = nacionalidad.getSelectedItem().toString();

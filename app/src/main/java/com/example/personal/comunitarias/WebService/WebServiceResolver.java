@@ -3,6 +3,7 @@ package com.example.personal.comunitarias.WebService;
 import com.example.personal.comunitarias.Constantes;
 import com.example.personal.comunitarias.WebServiceAsynchronic;
 
+import java.net.MalformedURLException;
 import java.util.Map;
 
 /**
@@ -20,13 +21,29 @@ public class WebServiceResolver {
         this.datos=datos;
     }
 
-    public String makeGetPetition(){
+    public String makeGetPetition() throws MalformedURLException,HttpRequest.HttpRequestException {
         response = HttpRequest.get(this.url).basic(Constantes.WS_AUTH_USER,Constantes.WS_AUTH_PASSWORD).body();
         return this.response;
     }
 
-    public String makePostPetition(){
+    public String makePostPetition() throws MalformedURLException,HttpRequest.HttpRequestException {
         response= HttpRequest.post(this.url).basic(Constantes.WS_AUTH_USER,Constantes.WS_AUTH_PASSWORD).form(this.datos).body();
         return this.response;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getResponse() {
+        return response;
+    }
+
+    public void setResponse(String response) {
+        this.response = response;
     }
 }

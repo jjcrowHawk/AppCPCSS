@@ -14,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -87,8 +88,8 @@ public class Provincia extends _Default {
     public int getID_WS(String nombre){
         int id_encontrada=-1;
         WebServiceResolver ws=new WebServiceResolver(Constantes.WS_PROVINCIAS,null);
-        String result=ws.makeGetPetition();
         try {
+            String result=ws.makeGetPetition();
             JSONObject json=new JSONObject(result);
             JSONArray arregloDatos=json.getJSONArray("results");
             for(int i=0;i<arregloDatos.length();i++){
@@ -100,6 +101,8 @@ public class Provincia extends _Default {
 
             }
         } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         return id_encontrada;
@@ -175,8 +178,8 @@ public class Provincia extends _Default {
     public ArrayList<String> getListaNombreProvincia(){
         ArrayList<String> lista=new ArrayList<String>();
         WebServiceResolver ws=new WebServiceResolver(Constantes.WS_PROVINCIAS,null);
-        String result=ws.makeGetPetition();
         try {
+            String result=ws.makeGetPetition();
             JSONObject jsonProv=new JSONObject(result);
             JSONArray datosProv=jsonProv.getJSONArray("results");
             for(int i=0;i<datosProv.length();i++){
@@ -185,6 +188,8 @@ public class Provincia extends _Default {
                 System.out.println(itemProv.getString("nombre"));
             }
         } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         return lista;

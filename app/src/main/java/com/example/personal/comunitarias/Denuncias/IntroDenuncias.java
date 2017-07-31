@@ -9,10 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
 import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
+import com.example.personal.comunitarias.BaseDeDatos.etnia.Etnia;
 import com.example.personal.comunitarias.BaseDeDatos.institucion.Institucion;
 import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
 import com.example.personal.comunitarias.BaseDeDatos.niveleducacion.Niveleducacion;
 import com.example.personal.comunitarias.BaseDeDatos.ocupacion.Ocupacion;
+import com.example.personal.comunitarias.BaseDeDatos.pais.Pais;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.R;
 
@@ -32,7 +34,7 @@ public class IntroDenuncias extends AppCompatActivity {
 
     //Listas
     ArrayList<String> lista_estadocivil, lista_niveledu, lista_nacionalidad,
-            lista_ocup, lista_prov, lista_ciudad, lista_inst;
+            lista_ocup, lista_prov, lista_ciudad, lista_inst, lista_etnia, lista_pais;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,8 @@ public class IntroDenuncias extends AppCompatActivity {
             lista_ocup              = new Ocupacion().getListaOcupacionNombres();
             lista_prov              = new Provincia().getListaNombreProvincia();
             lista_inst              = new Institucion().getListaInstitucionNombres();
+            lista_etnia             = Etnia.getListaNombresEtnia();
+            lista_pais              = Pais.getListaNombresPais();
             return null;
         }
 
@@ -73,6 +77,8 @@ public class IntroDenuncias extends AppCompatActivity {
             t.setLista_ocup(lista_ocup);
             t.setLista_prov(lista_prov);
             t.setLista_inst(lista_inst);
+            t.setLista_pais(lista_pais);
+            t.setLista_etnia(lista_etnia);
             Intent i=new Intent(getBaseContext(), t.getClass());
             startActivity(i);
         }

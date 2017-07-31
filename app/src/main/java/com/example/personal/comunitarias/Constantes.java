@@ -17,6 +17,8 @@ public class Constantes {
     public final static String WS_USUARIOS="http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/usuarios/";
     public final static String WS_RECLAMOS="http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/reclamos/";
     public final static String WS_PREDENUNCIA="http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/predenuncias/";
+    public final static String WS_ETNIA="";
+    public final static String WS_PAIS="";
 
     public final static String WS_AUTH_USER="cpccs-admin";
     public final static String WS_AUTH_PASSWORD="cpccs2017admin";

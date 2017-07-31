@@ -33,6 +33,7 @@ import com.example.personal.comunitarias.DatabaseRemote.Conexion;
 import com.example.personal.comunitarias.Menu;
 import com.example.personal.comunitarias.R;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -211,7 +212,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         reclamo.setCiudaddeldenuncianteid(idCiuP);
         reclamo.setComparecer(comparecer_d);
         reclamo.setDireccion(Direccion_p);
-        reclamo.setDocumentores(0);
+        reclamo.setDocumentores((Denuncia.evidencia ==null ? 0:1));
         reclamo.setEmail(Mail_P);
         reclamo.setResideextrangero(reside);
         reclamo.setIdentidadreservada(reservada);
@@ -237,6 +238,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         pd.setInstitucionimplicadaid(idIndti);
         pd.setNacionalidaddenuncianteid(idNacionalidad);
         pd.setUnidaddireccionafectada(Unafectada_DE);
+        pd.setEvidencia(Denuncia.evidencia);
 
         new Progress_guardando().execute();
 
@@ -276,7 +278,9 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
                 String htmlText = "<H1>Envio Exitoso</H1>" +
                         "<p>Sr(a) "+ Nombre_P + " "+Apellido_P +" su Denuncia ha sido Enviada Correctamente</p>" +
                         "<H3>Denuncia :</H3>" +
-                        ""+Descripciion_D+"";
+                        ""+Descripciion_D+"" +
+                        "<H3> Denunciado </H3>" +
+                        ""+NombreApellido_D+"";
                 messageBodyPart.setContent(htmlText, "text/html");
                 // add it
                 multipart.addBodyPart(messageBodyPart);
