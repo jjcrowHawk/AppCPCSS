@@ -21,6 +21,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -33,6 +34,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -194,9 +196,9 @@
         <activity
             android:name=".Facebook.FacebookActivity"
             android:label="Facebook"
-            android:parentActivityName=".RedesSocialesActivity"/>
+            android:parentActivityName=".RedesSocialesActivity" />
         <activity
-            android:name=".ParticipacionCiudadanaActivity"
+            android:name=".PartCiudadanaActivity"
             android:label="Participacion Ciudadana"
             android:parentActivityName=".Menu"
             android:theme="@style/AppTheme.NoActionBar">
@@ -279,6 +281,7 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -295,6 +298,7 @@
             </intent-filter>
         </provider>
 
+        <activity android:name=".ParticipacionCiudadana.ParticipacionCiudadanaActivity"></activity>
     </application>
 
 </manifest>

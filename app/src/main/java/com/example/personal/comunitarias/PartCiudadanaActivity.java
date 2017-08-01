@@ -24,7 +24,7 @@ import com.example.personal.comunitarias.ParticipacionCiudadana.CPFragment;
 import com.example.personal.comunitarias.ParticipacionCiudadana.PPFragment;
 import com.example.personal.comunitarias.ParticipacionCiudadana.SVFragment;
 
-public class ParticipacionCiudadanaActivity extends AppCompatActivity {
+public class PartCiudadanaActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide

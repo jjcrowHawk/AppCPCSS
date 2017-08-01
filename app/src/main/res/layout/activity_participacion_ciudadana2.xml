@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Asamblea Ciudadana"
+                android:id="@+id/button1"
+
+                />
+
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/panel1"
+                android:background="#ff444444"
+                >
+
+                <TextView
+                    android:id="@+id/textViewAC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:text="ASAMBLEA CIUDADANA"
+                    android:textAlignment="center"
+                    android:textSize="36sp" />
+
+                <TextView
+                    android:id="@+id/section_AC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:text="Conformada por la ciudadanía como un espacio de deliberación pública entre las ciudadanas y ciudadanos."
+                    android:textAlignment="viewStart"
+                    android:textSize="24sp" />
+
+                <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Haga Click aqui para ver el video informativo"
+                android:id="@+id/button_video1"
+
+                />
+
+                <FrameLayout
+                    android:id="@+id/youtube_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+
+
+
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Consejo Ciudadano Sectorial"
+                android:id="@+id/button2"
+
+                />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/panel2"
+                android:background="#ff888888"
+                >
+
+                <TextView
+                    android:id="@+id/textViewCCS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:text="CONSEJO CIUDADANO SECTORIAL"
+                    android:textAlignment="center"
+                    android:textSize="36sp" />
+
+                <TextView
+                    android:id="@+id/section_CCS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:text="Son instancias sectoriales de diálogo, deliberación y seguimiento de las políticas públicas de carácter nacional y sectorial."
+                    android:textAlignment="viewStart"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Haga Click aqui para ver el video informativo"
+                    android:id="@+id/button_video2"
+
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Audiencia Pública"
+                android:id="@+id/button3"
+
+                />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/panel3"
+                android:background="#ff888888"
+                >
+
+                <TextView
+                    android:id="@+id/textViewAP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:text="AUDIENCIA PUBLICA"
+                    android:textAlignment="center"
+                    android:textSize="36sp" />
+
+                <TextView
+                    android:id="@+id/section_AP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:text="Sirven para atender pronunciamientos o peticiones ciudadanas y para fundamentar decisiones o acciones de gobierno."
+                    android:textAlignment="viewStart"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Haga Click aqui para ver el video informativo"
+                    android:id="@+id/button_video3"
+
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Presupuesto Participativo"
+                android:id="@+id/button4"
+
+                />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/panel4"
+                android:background="#ff888888"
+                >
+
+                <TextView
+                    android:id="@+id/textViewPP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:layout_weight="1"
+                    android:text="PRESUPUESTO PARTICIPATIVO"
+                    android:textAlignment="center"
+                    android:textSize="36sp" />
+
+                <TextView
+                    android:id="@+id/section_PP"
+                    android:layout_width="match_parent"
+                    android:layout_height="218dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_weight="1"
+                    android:autoText="false"
+                    android:text="Mecanismo para la toma de decisiones entre autoridades, la ciudadanía y organizaciones  sociales  en torno a la distribución equitativa de  presupuestos públicos."
+                    android:textAlignment="viewStart"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Haga Click aqui para ver el video informativo"
+                    android:id="@+id/button_video4"
+
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Consejos Consultivos"
+                android:id="@+id/button5"
+
+                />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/panel5"
+                android:background="#ff888888"
+                >
+
+                <TextView
+                    android:id="@+id/textViewCC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:text="CONSEJO CONSULTIVO"
+                    android:textAlignment="center"
+                    android:textSize="36sp" />
+
+                <TextView
+                    android:id="@+id/section_CC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:text="Son mecanismos de asesoramiento que se constituyen en espacios y organismos de consulta."
+                    android:textAlignment="viewStart"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Haga Click aqui para ver el video informativo"
+                    android:id="@+id/button_video5"
+
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Silla Vacía"
+                android:id="@+id/button6"
+
+                />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/panel6"
+                android:background="#ff888888"
+                >
+
+                <TextView
+                    android:id="@+id/textViewSV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:text="CONSEJO CIUDADANO SECTORIAL"
+                    android:textAlignment="center"
+                    android:textSize="36sp" />
+
+                <TextView
+                    android:id="@+id/section_SV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:text="Son instancias sectoriales de diálogo, deliberación y seguimiento de las políticas públicas de carácter nacional y sectorial."
+                    android:textAlignment="viewStart"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Haga Click aqui para ver el video informativo"
+                    android:id="@+id/button_video6"
+
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Cabildos Populares"
+                android:id="@+id/button7"
+
+                />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/panel7"
+                android:background="#ff888888"
+                >
+
+                <TextView
+                    android:id="@+id/textViewCP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:text="CABILDOS POPULARES"
+                    android:textAlignment="center"
+                    android:textSize="36sp" />
+
+                <TextView
+                    android:id="@+id/section_CP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="false"
+                    android:text="Instancia de participación cantonal para discutir asuntos específicos vinculados a la gestión municipal y tiene únicamente carácter consultivo."
+                    android:textAlignment="viewStart"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Haga Click aqui para ver el video informativo"
+                    android:id="@+id/button_video7"
+
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>
