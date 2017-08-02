@@ -227,7 +227,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         reclamo.setPedidoDenuncia("Denuncia");
 
         pd = new Predenuncia();
-        pd.setTipodenuncia("Predenuncia");
+        pd.setTipodenuncia("2");
         pd.setDescripcioninvestigacion(Descripciion_D);
         pd.setFuncionariopublico(""); //no se sabe
         pd.setGenerodenunciado(Genero_DE);
@@ -239,6 +239,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         pd.setNacionalidaddenuncianteid(idNacionalidad);
         pd.setUnidaddireccionafectada(Unafectada_DE);
         pd.setEvidencia(Denuncia.evidencia);
+
 
         new Progress_guardando().execute();
 

@@ -121,14 +121,14 @@ public class Institucion extends _Default {
     public ArrayList<String> getListaInstitucionNombres(){
         ArrayList<String> lista=new ArrayList<String>();
         try {
-            WebServiceResolver ws= new WebServiceResolver(Constantes.WS_CIUDADES,null);
+            WebServiceResolver ws= new WebServiceResolver(Constantes.WS_INSTITUCIONES,null);
             String result=ws.makeGetPetition();
             JSONObject jsonG=new JSONObject(result);
             int registros=Integer.parseInt(jsonG.getString("count"));
             int paginas=registros/10;
             paginas = registros%10>0?paginas+1:paginas;
             for(int i=0;i<paginas;i++){
-                WebServiceResolver wsr= new WebServiceResolver(Constantes.WS_CIUDADES+"?offset="+i*10,null);
+                WebServiceResolver wsr= new WebServiceResolver(Constantes.WS_INSTITUCIONES+"?offset="+i*10,null);
                 String p=wsr.makeGetPetition();
                 JSONObject json=new JSONObject(p);
                 JSONArray datos=json.getJSONArray("results");

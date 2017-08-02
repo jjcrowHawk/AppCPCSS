@@ -322,7 +322,7 @@ public class Reclamo extends _Default {
                 datos.put("provincia_denunciante", "" + this.provinciadenuncianteid);
                 datos.put("provincia_denunciado", "" + this.provinciadenunciadoid);
                 WebServiceResolver ws = new WebServiceResolver(Constantes.WS_RECLAMOS, datos);
-                System.out.println(ws.makePostPetition());
+                System.out.println("RESPONSE AFTER MAKE POST: "+ ws.makePostPetition());
             }
             catch(Exception e){
                 e.printStackTrace();

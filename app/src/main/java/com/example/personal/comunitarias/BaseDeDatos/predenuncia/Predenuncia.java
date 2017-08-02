@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.example.personal.comunitarias.Constantes;
 import com.example.personal.comunitarias.DatabaseRemote.*;
+import com.example.personal.comunitarias.WebService.HttpRequest;
 import com.example.personal.comunitarias.WebService.WebServiceResolver;
 
 import org.json.JSONException;
@@ -23,6 +24,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  *
@@ -123,6 +125,16 @@ public class Predenuncia extends _Default {
             System.out.println("RESPONSE OF PETITION: "+ws.makePostPetition());
             JSONObject jsonRespuesta=new JSONObject(ws.getResponse());
             System.out.print(jsonRespuesta);
+            String idPred=jsonRespuesta.getString("id");
+            if(this.evidencia!=null) {
+                System.out.println("POSTING FILE.........");
+                String nombreArchivo=evidencia.toString().substring(evidencia.toString().lastIndexOf("/")+1);
+                HttpRequest request=HttpRequest.post("http://ejrocafuerte.pythonanywhere.com/evidencias/").basic(Constantes.WS_AUTH_USER,Constantes.WS_AUTH_PASSWORD)
+                .part("denuncia", idPred)
+                .part("archivo",nombreArchivo ,this.evidencia);
+                JSONObject jsonArchivo= new JSONObject(request.body());
+                System.out.println(jsonArchivo.toString());
+            }
         }
         catch(MalformedURLException e){
             e.printStackTrace();
