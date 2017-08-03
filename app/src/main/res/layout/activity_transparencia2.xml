@@ -20,6 +20,8 @@
 
                 android:text="REDES CIUDADANAS DE TRANSPARENCIA "
                 android:id="@+id/button1"
+                android:background="@color/grey"
+                android:drawableLeft="@drawable/d_flecha"
 
                 />
 
@@ -57,6 +59,7 @@
                 android:text="Haga Click aqui para ver el video informativo"
                 android:id="@+id/button_video1"
 
+
                 />
 
                 <FrameLayout
@@ -76,6 +79,8 @@
 
                 android:text="BRIGADAS DE TRANSPARENCIA "
                 android:id="@+id/button2"
+                android:background="@color/grey"
+                android:drawableLeft="@drawable/d_flecha"
 
                 />
 
@@ -122,6 +127,8 @@
 
                 android:text="MODELO DE TERRITORIOS TRANSPARENTES Y PARTICIPATIVOS"
                 android:id="@+id/button3"
+                android:background="@color/grey"
+                android:drawableLeft="@drawable/d_flecha"
 
                 />
 
@@ -168,6 +175,8 @@
 
                 android:text="ÍNDICE DE TRANSPARENCIA "
                 android:id="@+id/button4"
+                android:background="@color/grey"
+                android:drawableLeft="@drawable/d_flecha"
 
                 />
 

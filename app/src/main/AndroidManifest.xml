@@ -32,11 +32,6 @@
             android:name=".Denuncias.TabsDenuncia"
             android:label="@string/title_denuncia"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Denuncias.IntroDenuncias"
@@ -206,12 +201,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.personal.comunitarias.Intro" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.ipaulpro.afilechooser.FileChooserActivity"
@@ -236,12 +225,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.personal.comunitarias.Intro" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ControlSocialActivity"
@@ -251,12 +234,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.personal.comunitarias.Intro" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".RedesSocialesActivity"
@@ -265,12 +242,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.personal.comunitarias.Intro" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".AntiCorrupcionActivity"
@@ -279,12 +250,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.personal.comunitarias.Intro" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <provider
@@ -299,9 +264,15 @@
             </intent-filter>
         </provider>
 
-        <activity android:name=".ParticipacionCiudadana.ParticipacionCiudadanaActivity"></activity>
-        <activity android:name=".Transparencia2.Transparencia2Activity"></activity>
-        <activity android:name=".CC.ControlSocial2Activity"></activity>
+        <activity android:name=".ParticipacionCiudadana.ParticipacionCiudadanaActivity">
+            android:configChanges="orientation|screenSize"
+        </activity>
+        <activity android:name=".Transparencia2.Transparencia2Activity">
+            android:configChanges="screenSize|screenSize"
+        </activity>
+        <activity android:name=".CC.ControlSocial2Activity">
+            android:configChanges="screenSize|screenSize"
+        </activity>
     </application>
 
 </manifest>
