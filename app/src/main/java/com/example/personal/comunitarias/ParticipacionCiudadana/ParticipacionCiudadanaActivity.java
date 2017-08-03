@@ -92,84 +92,149 @@ public class ParticipacionCiudadanaActivity extends AppCompatActivity {
                         button1.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     }
                     panel2.setVisibility(View.GONE);
+                    button2.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel3.setVisibility(View.GONE);
+                    button3.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel4.setVisibility(View.GONE);
+                    button4.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel5.setVisibility(View.GONE);
+                    button5.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel6.setVisibility(View.GONE);
+                    button6.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel7.setVisibility(View.GONE);
+                    button7.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     break;
                 case R.id.button2:
-                    if(panel2.getVisibility()==View.GONE)
+                    if(panel2.getVisibility()==View.GONE) {
                         panel2.setVisibility(View.VISIBLE);
-                    else
+                        button2.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha_down), null, null, null);
+                    }
+                    else {
                         panel2.setVisibility(View.GONE);
+                        button2.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
+                    }
                     panel1.setVisibility(View.GONE);
+                    button1.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel3.setVisibility(View.GONE);
+                    button3.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel4.setVisibility(View.GONE);
+                    button4.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel5.setVisibility(View.GONE);
+                    button5.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel6.setVisibility(View.GONE);
+                    button6.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel7.setVisibility(View.GONE);
+                    button7.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     break;
                 case R.id.button3:
-                    if(panel3.getVisibility()==View.GONE)
+                    if(panel3.getVisibility()==View.GONE) {
                         panel3.setVisibility(View.VISIBLE);
-                    else
+                        button3.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha_down), null, null, null);
+                    }
+                    else {
                         panel3.setVisibility(View.GONE);
+                        button3.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
+                    }
                     panel1.setVisibility(View.GONE);
+                    button1.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel2.setVisibility(View.GONE);
+                    button2.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel4.setVisibility(View.GONE);
+                    button4.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel5.setVisibility(View.GONE);
+                    button5.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel6.setVisibility(View.GONE);
+                    button6.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel7.setVisibility(View.GONE);
+                    button7.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     break;
                 case R.id.button4:
-                    if(panel4.getVisibility()==View.GONE)
+                    if(panel4.getVisibility()==View.GONE) {
                         panel4.setVisibility(View.VISIBLE);
-                    else
+                        button4.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha_down), null, null, null);
+                    }
+                    else {
                         panel4.setVisibility(View.GONE);
-                    panel1.setVisibility(View.GONE);
+                        button4.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
+                    }
                     panel2.setVisibility(View.GONE);
+                    button2.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel3.setVisibility(View.GONE);
+                    button3.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
+                    panel1.setVisibility(View.GONE);
+                    button1.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel5.setVisibility(View.GONE);
+                    button5.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel6.setVisibility(View.GONE);
+                    button6.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel7.setVisibility(View.GONE);
+                    button7.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     break;
                 case R.id.button5:
-                    if(panel5.getVisibility()==View.GONE)
+                    if(panel5.getVisibility()==View.GONE) {
                         panel5.setVisibility(View.VISIBLE);
-                    else
+                        button5.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha_down), null, null, null);
+                    }
+                    else {
                         panel5.setVisibility(View.GONE);
-                    panel1.setVisibility(View.GONE);
+                        button5.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
+                    }
                     panel2.setVisibility(View.GONE);
+                    button2.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel3.setVisibility(View.GONE);
+                    button3.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel4.setVisibility(View.GONE);
+                    button4.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
+                    panel1.setVisibility(View.GONE);
+                    button1.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel6.setVisibility(View.GONE);
+                    button6.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel7.setVisibility(View.GONE);
+                    button7.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     break;
                 case R.id.button6:
-                    if(panel6.getVisibility()==View.GONE)
+                    if(panel6.getVisibility()==View.GONE) {
                         panel6.setVisibility(View.VISIBLE);
-                    else
+                        button6.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha_down), null, null, null);
+                    }
+                    else {
                         panel6.setVisibility(View.GONE);
-                    panel1.setVisibility(View.GONE);
+                        button6.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
+                    }
                     panel2.setVisibility(View.GONE);
+                    button2.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel3.setVisibility(View.GONE);
+                    button3.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel4.setVisibility(View.GONE);
+                    button4.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel5.setVisibility(View.GONE);
+                    button5.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
+                    panel1.setVisibility(View.GONE);
+                    button1.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel7.setVisibility(View.GONE);
+                    button7.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     break;
                 case R.id.button7:
-                    if(panel7.getVisibility()==View.GONE)
+                    if(panel7.getVisibility()==View.GONE) {
                         panel7.setVisibility(View.VISIBLE);
-                    else
+                        button7.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha_down), null, null, null);
+                    }
+                    else {
                         panel7.setVisibility(View.GONE);
-                    panel1.setVisibility(View.GONE);
+                        button7.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
+                    }
                     panel2.setVisibility(View.GONE);
+                    button2.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel3.setVisibility(View.GONE);
+                    button3.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel4.setVisibility(View.GONE);
+                    button4.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel5.setVisibility(View.GONE);
+                    button5.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
                     panel6.setVisibility(View.GONE);
-                    break;
+                    button6.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
+                    panel1.setVisibility(View.GONE);
+                    button1.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);                    break;
             }
         }
     };
