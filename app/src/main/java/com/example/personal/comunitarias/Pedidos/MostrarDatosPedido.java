@@ -192,7 +192,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
 
 
         pd = new Predenuncia();
-        pd.setTipodenuncia("Pedido");
+        pd.setTipodenuncia("1");
         pd.setDescripcioninvestigacion(Descripciion_D);
         pd.setFuncionariopublico("");
         pd.setGenerodenunciado(Genero_DE);
@@ -202,6 +202,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         pd.setEstadocivildenuncianteid(idestado);
         pd.setInstitucionimplicadaid(idIndti);
         pd.setNacionalidaddenuncianteid(idNacionalidad);
+        pd.setEvidencia(Pedido.evidencia);
 
         new Progress_guardando().execute();
 
@@ -373,6 +374,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
             mProgressDialog = new ProgressDialog(MostrarDatosPedido.this.getContext());
             mProgressDialog.setMessage("Guardando su pedido...");
             mProgressDialog.setIndeterminate(false);
+            mProgressDialog.setCanceledOnTouchOutside(false);
             mProgressDialog.show();
         }
 

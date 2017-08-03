@@ -38,7 +38,7 @@ public class TabsPedido extends AppCompatActivity {
     CoordinatorLayout coordinatorLayout ;
 
     static ArrayList<String> lista_estadocivil, lista_niveledu, lista_nacionalidad,
-            lista_ocup, lista_prov, lista_ciudad, lista_inst;
+            lista_ocup, lista_prov, lista_ciudad, lista_inst,lista_etnia,lista_pais;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +115,8 @@ public class TabsPedido extends AppCompatActivity {
                     p.setLista_nacionalidad(lista_nacionalidad);
                     p.setLista_ocup(lista_ocup);
                     p.setLista_prov(lista_prov);
+                    p.setLista_etnia(lista_etnia);
+                    p.setLista_pais(lista_pais);
                     return p;
                 case 1:
                     return new Pedido(viewPager);
@@ -213,5 +215,21 @@ public class TabsPedido extends AppCompatActivity {
 
     public static void setLista_inst(ArrayList<String> lista_inst) {
         TabsPedido.lista_inst = lista_inst;
+    }
+
+    public static ArrayList<String> getLista_etnia() {
+        return lista_etnia;
+    }
+
+    public static void setLista_etnia(ArrayList<String> lista_etnia) {
+        TabsPedido.lista_etnia = lista_etnia;
+    }
+
+    public static ArrayList<String> getLista_pais() {
+        return lista_pais;
+    }
+
+    public static void setLista_pais(ArrayList<String> lista_pais) {
+        TabsPedido.lista_pais = lista_pais;
     }
 }

@@ -392,6 +392,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
             mProgressDialog = new ProgressDialog(MostrarDatos.this.getContext());
             mProgressDialog.setMessage("Guardando su denuncia...");
             mProgressDialog.setIndeterminate(false);
+            mProgressDialog.setCanceledOnTouchOutside(false);
             mProgressDialog.show();
         }
 

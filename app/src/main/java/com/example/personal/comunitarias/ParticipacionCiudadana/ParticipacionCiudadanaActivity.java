@@ -31,7 +31,6 @@ public class ParticipacionCiudadanaActivity extends AppCompatActivity {
         button5 = (Button)findViewById(R.id.button5);
         button6 = (Button)findViewById(R.id.button6);
         button7 = (Button)findViewById(R.id.button7);
-
         button1.setOnClickListener(buttonClickListener);
         button2.setOnClickListener(buttonClickListener);
         button3.setOnClickListener(buttonClickListener);
@@ -84,10 +83,14 @@ public class ParticipacionCiudadanaActivity extends AppCompatActivity {
 
             switch(ClickedButton.getId()) {
                 case R.id.button1:
-                    if(panel1.getVisibility()==View.GONE)
+                    if(panel1.getVisibility()==View.GONE) {
                         panel1.setVisibility(View.VISIBLE);
-                    else
+                        button1.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha_down), null, null, null);
+                    }
+                    else {
                         panel1.setVisibility(View.GONE);
+                        button1.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.d_flecha),null,null,null);
+                    }
                     panel2.setVisibility(View.GONE);
                     panel3.setVisibility(View.GONE);
                     panel4.setVisibility(View.GONE);

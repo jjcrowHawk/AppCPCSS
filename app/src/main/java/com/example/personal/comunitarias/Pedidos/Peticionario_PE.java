@@ -40,9 +40,9 @@ import java.util.List;
 public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelectedListener {
 
 
-    Spinner tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad;
+    Spinner tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad,etnia,pais;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter7;
-    ArrayAdapter<String> adapter4,adapter5,adapter6,adapterOcupaPeticionarioPedido;
+    ArrayAdapter<String> adapter4,adapter5,adapter6,adapterOcupaPeticionarioPedido,adapterEtnia,adapterPais;
     private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtOcupacion, txtTelefono, txtDireccion;
     Button btn_seguir;
     Reclamo rec;
@@ -80,10 +80,12 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
     static String Cargo_Pet;
     static String Orga_Pet;
     String ocupacion;
+    static String Pais;
+    static String Etnia;
 
     //Listas spinners
     static ArrayList<String> lista_estadocivil, lista_niveledu, lista_nacionalidad,
-            lista_ocup, lista_prov, lista_ciudad, lista_inst;
+            lista_ocup, lista_prov, lista_ciudad, lista_inst,lista_etnia,lista_pais;
 
     //Progress
     private ProgressDialog mProgressDialog;
@@ -278,6 +280,18 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
         //Spinner Ciudad
         ciudad = (Spinner) view.findViewById(R.id.spinner_pet_ciud);
 
+        //Spinner Etnia
+        etnia= (Spinner) view.findViewById(R.id.spinner_pet_etnia);
+        adapterEtnia= new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item,lista_etnia);
+        adapterEtnia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        etnia.setAdapter(adapterEtnia);
+
+        //Spinner Pais
+        pais= (Spinner) view.findViewById(R.id.spinner_pet_pais);
+        adapterPais= new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item,lista_pais);
+        adapterPais.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        pais.setAdapter(adapterPais);
+
         //data
         txtNombre = (EditText)view.findViewById(R.id.txt_Nombres_petic);
         txtApellido = (EditText)view.findViewById(R.id.txt_Apellidos_petic);
@@ -318,6 +332,8 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
                 reside = residencia.getSelectedItem().toString();
                 provi = provincia.getSelectedItem().toString();
                 Ciuda = ciudad.getSelectedItem().toString();
+                Pais= pais.getSelectedItem().toString();
+                Etnia= etnia.getSelectedItem().toString();
 
                 new Progress_cargando().execute();
 
@@ -393,6 +409,8 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
             idNacionalidad =    new Nacionalidad().getID_WS(Nacio);
             idProvp =           new Provincia().getID_WS(provi);
             idCiuP =            new Ciudad().getID_WS(Ciuda);
+            //******PENDIENTE SACAR IDS DE CAMPOS ETNIAS Y PAIS******
+
             return null;
         }
 
@@ -716,6 +734,38 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
 
     public static void setLista_inst(ArrayList<String> lista_inst) {
         Peticionario_PE.lista_inst = lista_inst;
+    }
+
+    public static String getPais() {
+        return Pais;
+    }
+
+    public static void setPais(String pais) {
+        Pais = pais;
+    }
+
+    public static String getEtnia() {
+        return Etnia;
+    }
+
+    public static void setEtnia(String etnia) {
+        Etnia = etnia;
+    }
+
+    public static ArrayList<String> getLista_pais() {
+        return lista_pais;
+    }
+
+    public static void setLista_pais(ArrayList<String> lista_pais) {
+        Peticionario_PE.lista_pais = lista_pais;
+    }
+
+    public static ArrayList<String> getLista_etnia() {
+        return lista_etnia;
+    }
+
+    public static void setLista_etnia(ArrayList<String> lista_etnia) {
+        Peticionario_PE.lista_etnia = lista_etnia;
     }
 }
 

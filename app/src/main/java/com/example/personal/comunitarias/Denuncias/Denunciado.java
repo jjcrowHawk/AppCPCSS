@@ -233,10 +233,11 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                 Toast.makeText(getContext(), "Por favor, llene todos los campos", Toast.LENGTH_LONG).show();
 
                 // validacion de institucion valida
-            }else if(! lista_inst.contains(Institucion_d)){
+            }
+            /*else if(! lista_inst.contains(Institucion_d)){
                 Toast.makeText(getContext(), "Por favor, elija una institución válida", Toast.LENGTH_LONG).show();
-
-            }else {
+            }*/
+            else {
                 MostrarDatos.setearDatos();
                 viewPager.setCurrentItem(3);
             }

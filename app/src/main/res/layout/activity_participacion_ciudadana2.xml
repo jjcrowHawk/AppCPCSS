@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -20,7 +21,8 @@
 
                 android:text="Asamblea Ciudadana"
                 android:id="@+id/button1"
-
+                android:background="@color/grey"
+                android:drawableLeft="@drawable/d_flecha"
                 />
 
 
@@ -29,7 +31,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/panel1"
-                android:background="#ff444444"
+                android:background="#ff888888"
+                android:paddingTop="0dp"
                 >
 
                 <TextView
@@ -37,6 +40,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="30dp"
+                    android:layout_marginTop="0dp"
                     android:text="ASAMBLEA CIUDADANA"
                     android:textAlignment="center"
                     android:textSize="36sp" />
@@ -76,6 +80,8 @@
 
                 android:text="Consejo Ciudadano Sectorial"
                 android:id="@+id/button2"
+                android:drawableLeft="@drawable/d_flecha"
+                android:background="@color/grey"
 
                 />
 
@@ -122,6 +128,8 @@
 
                 android:text="Audiencia Pública"
                 android:id="@+id/button3"
+                android:drawableLeft="@drawable/d_flecha"
+                android:background="@color/grey"
 
                 />
 
@@ -168,6 +176,8 @@
 
                 android:text="Presupuesto Participativo"
                 android:id="@+id/button4"
+                android:drawableLeft="@drawable/d_flecha"
+                android:background="@color/grey"
 
                 />
 
@@ -217,6 +227,8 @@
 
                 android:text="Consejos Consultivos"
                 android:id="@+id/button5"
+                android:drawableLeft="@drawable/d_flecha"
+                android:background="@color/grey"
 
                 />
 
@@ -263,6 +275,8 @@
 
                 android:text="Silla Vacía"
                 android:id="@+id/button6"
+                android:drawableLeft="@drawable/d_flecha"
+                android:background="@color/grey"
 
                 />
 
@@ -309,6 +323,8 @@
 
                 android:text="Cabildos Populares"
                 android:id="@+id/button7"
+                android:drawableLeft="@drawable/d_flecha"
+                android:background="@color/grey"
 
                 />
 
