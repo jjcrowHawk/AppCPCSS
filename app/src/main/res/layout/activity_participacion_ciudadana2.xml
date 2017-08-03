@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/panel1"
-                android:background="#ff888888"
+                android:background="#FFFFFF"
                 android:paddingTop="0dp"
                 >
 
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/panel2"
-                android:background="#ff888888"
+                android:background="#FFFFFF"
                 >
 
                 <TextView
@@ -138,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/panel3"
-                android:background="#ff888888"
+                android:background="#FFFFFF"
                 >
 
                 <TextView
@@ -186,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/panel4"
-                android:background="#ff888888"
+                android:background="#FFFFFF"
                 >
 
                 <TextView
@@ -237,7 +237,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/panel5"
-                android:background="#ff888888"
+                android:background="#FFFFFF"
                 >
 
                 <TextView
@@ -285,7 +285,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/panel6"
-                android:background="#ff888888"
+                android:background="#FFFFFF"
                 >
 
                 <TextView
@@ -333,7 +333,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:id="@+id/panel7"
-                android:background="#ff888888"
+                android:background="#FFFFFF"
                 >
 
                 <TextView

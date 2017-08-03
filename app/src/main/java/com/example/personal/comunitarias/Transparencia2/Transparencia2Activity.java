@@ -16,9 +16,9 @@ import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
 public class Transparencia2Activity extends AppCompatActivity {
 
-    Button button1,button2,button3,button4,button5,button6,button7;
-    Button button_video1,button_video2,button_video3,button_video4,button_video5,button_video6,button_video7;
-    LinearLayout panel1,panel2,panel3,panel4,panel5,panel6,panel7;
+    Button button1,button2,button3,button4;
+    Button button_video1,button_video2,button_video3,button_video4;
+    LinearLayout panel1,panel2,panel3,panel4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,41 +29,29 @@ public class Transparencia2Activity extends AppCompatActivity {
         button2 = (Button)findViewById(R.id.button2);
         button3 = (Button)findViewById(R.id.button3);
         button4 = (Button)findViewById(R.id.button4);
-        button5 = (Button)findViewById(R.id.button5);
-        button6 = (Button)findViewById(R.id.button6);
-        button7 = (Button)findViewById(R.id.button7);
 
         button1.setOnClickListener(buttonClickListener);
         button2.setOnClickListener(buttonClickListener);
         button3.setOnClickListener(buttonClickListener);
         button4.setOnClickListener(buttonClickListener);
-        button5.setOnClickListener(buttonClickListener);
-        button6.setOnClickListener(buttonClickListener);
-        button7.setOnClickListener(buttonClickListener);
 
         button_video1 = (Button)findViewById(R.id.button_video1);
         button_video2 = (Button)findViewById(R.id.button_video2);
         button_video3 = (Button)findViewById(R.id.button_video3);
         button_video4 = (Button)findViewById(R.id.button_video4);
-        button_video5 = (Button)findViewById(R.id.button_video5);
-        button_video6 = (Button)findViewById(R.id.button_video6);
-        button_video7 = (Button)findViewById(R.id.button_video7);
+
 
         button_video1.setOnClickListener(videoClickListener);
         button_video2.setOnClickListener(videoClickListener);
         button_video3.setOnClickListener(videoClickListener);
         button_video4.setOnClickListener(videoClickListener);
-        button_video5.setOnClickListener(videoClickListener);
-        button_video6.setOnClickListener(videoClickListener);
-        button_video7.setOnClickListener(videoClickListener);
+
 
         panel1 = (LinearLayout)findViewById(R.id.panel1);
         panel2 = (LinearLayout)findViewById(R.id.panel2);
         panel3 = (LinearLayout)findViewById(R.id.panel3);
         panel4 = (LinearLayout)findViewById(R.id.panel4);
-        panel5 = (LinearLayout)findViewById(R.id.panel5);
-        panel6 = (LinearLayout)findViewById(R.id.panel6);
-        panel7 = (LinearLayout)findViewById(R.id.panel7);
+
 
         /*We make both the panels, by default, invisible to user
         and make them appear on button click event in follwing manner*/
@@ -72,9 +60,7 @@ public class Transparencia2Activity extends AppCompatActivity {
         panel2.setVisibility(View.GONE);
         panel3.setVisibility(View.GONE);
         panel4.setVisibility(View.GONE);
-        panel5.setVisibility(View.GONE);
-        panel6.setVisibility(View.GONE);
-        panel7.setVisibility(View.GONE);
+
     }
 
     public View.OnClickListener buttonClickListener = new View.OnClickListener(){
@@ -92,9 +78,7 @@ public class Transparencia2Activity extends AppCompatActivity {
                     panel2.setVisibility(View.GONE);
                     panel3.setVisibility(View.GONE);
                     panel4.setVisibility(View.GONE);
-                    panel5.setVisibility(View.GONE);
-                    panel6.setVisibility(View.GONE);
-                    panel7.setVisibility(View.GONE);
+
                     break;
                 case R.id.button2:
                     if(panel2.getVisibility()==View.GONE)
@@ -104,9 +88,7 @@ public class Transparencia2Activity extends AppCompatActivity {
                     panel1.setVisibility(View.GONE);
                     panel3.setVisibility(View.GONE);
                     panel4.setVisibility(View.GONE);
-                    panel5.setVisibility(View.GONE);
-                    panel6.setVisibility(View.GONE);
-                    panel7.setVisibility(View.GONE);
+
                     break;
                 case R.id.button3:
                     if(panel3.getVisibility()==View.GONE)
@@ -116,9 +98,7 @@ public class Transparencia2Activity extends AppCompatActivity {
                     panel1.setVisibility(View.GONE);
                     panel2.setVisibility(View.GONE);
                     panel4.setVisibility(View.GONE);
-                    panel5.setVisibility(View.GONE);
-                    panel6.setVisibility(View.GONE);
-                    panel7.setVisibility(View.GONE);
+
                     break;
                 case R.id.button4:
                     if(panel4.getVisibility()==View.GONE)
@@ -128,45 +108,7 @@ public class Transparencia2Activity extends AppCompatActivity {
                     panel1.setVisibility(View.GONE);
                     panel2.setVisibility(View.GONE);
                     panel3.setVisibility(View.GONE);
-                    panel5.setVisibility(View.GONE);
-                    panel6.setVisibility(View.GONE);
-                    panel7.setVisibility(View.GONE);
-                    break;
-                case R.id.button5:
-                    if(panel5.getVisibility()==View.GONE)
-                        panel5.setVisibility(View.VISIBLE);
-                    else
-                        panel5.setVisibility(View.GONE);
-                    panel1.setVisibility(View.GONE);
-                    panel2.setVisibility(View.GONE);
-                    panel3.setVisibility(View.GONE);
-                    panel4.setVisibility(View.GONE);
-                    panel6.setVisibility(View.GONE);
-                    panel7.setVisibility(View.GONE);
-                    break;
-                case R.id.button6:
-                    if(panel6.getVisibility()==View.GONE)
-                        panel6.setVisibility(View.VISIBLE);
-                    else
-                        panel6.setVisibility(View.GONE);
-                    panel1.setVisibility(View.GONE);
-                    panel2.setVisibility(View.GONE);
-                    panel3.setVisibility(View.GONE);
-                    panel4.setVisibility(View.GONE);
-                    panel5.setVisibility(View.GONE);
-                    panel7.setVisibility(View.GONE);
-                    break;
-                case R.id.button7:
-                    if(panel7.getVisibility()==View.GONE)
-                        panel7.setVisibility(View.VISIBLE);
-                    else
-                        panel7.setVisibility(View.GONE);
-                    panel1.setVisibility(View.GONE);
-                    panel2.setVisibility(View.GONE);
-                    panel3.setVisibility(View.GONE);
-                    panel4.setVisibility(View.GONE);
-                    panel5.setVisibility(View.GONE);
-                    panel6.setVisibility(View.GONE);
+
                     break;
             }
         }

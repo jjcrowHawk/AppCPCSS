@@ -300,6 +300,8 @@
         </provider>
 
         <activity android:name=".ParticipacionCiudadana.ParticipacionCiudadanaActivity"></activity>
+        <activity android:name=".Transparencia2.Transparencia2Activity"></activity>
+        <activity android:name=".CC.ControlSocial2Activity"></activity>
     </application>
 
 </manifest>

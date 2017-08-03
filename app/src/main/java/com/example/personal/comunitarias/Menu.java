@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
+import com.example.personal.comunitarias.CC.ControlSocial2Activity;
 import com.example.personal.comunitarias.Contactenos.Contacto;
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.Denuncias.TabsDenuncia;
@@ -34,6 +35,7 @@ import com.example.personal.comunitarias.Noticias.Intro_noticias;
 import com.example.personal.comunitarias.Oficinas.IntroOficinas;
 import com.example.personal.comunitarias.CpccsTV.IntroTv;
 import com.example.personal.comunitarias.ParticipacionCiudadana.ParticipacionCiudadanaActivity;
+import com.example.personal.comunitarias.Transparencia2.Transparencia2Activity;
 import com.example.personal.comunitarias.Twitter.IntroTweets;
 import com.example.personal.comunitarias.Youtube.IntroVideos;
 
@@ -102,14 +104,14 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
         Transparencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(getBaseContext(), TransparenciaActivity.class);
+                Intent i=new Intent(getBaseContext(), Transparencia2Activity.class);
                 startActivity(i);
             }
         });
         ControlSocial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(getBaseContext(), ControlSocialActivity.class);
+                Intent i=new Intent(getBaseContext(), ControlSocial2Activity.class);
                 startActivity(i);
             }
         });
