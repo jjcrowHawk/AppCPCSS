@@ -62,12 +62,12 @@ public class Denuncia extends Fragment {
     private  void InicializarComp() {
         //data de denuncia
         //Spinner comparecer con CPCCS
-        comparecer = (Spinner) view.findViewById(R.id.spinner_comparecer);
+        /*comparecer = (Spinner) view.findViewById(R.id.spinner_comparecer);
         adapter = ArrayAdapter.createFromResource(getContext(),
                 R.array.si_no, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         comparecer.setAdapter(adapter);
-
+*/
         descripcion = (EditText) view.findViewById(R.id.txt_descripcion);
         archivoText = (EditText) view.findViewById(R.id.archivoText);
         sgteDenuciado = (Button) view.findViewById(R.id.btnDenuncia);

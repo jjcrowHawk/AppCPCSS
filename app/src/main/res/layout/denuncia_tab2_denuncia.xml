@@ -37,14 +37,17 @@
                 app:counterMaxLength="255"
                 android:layout_marginBottom="5dp"
                 >
+
                 <EditText
                     android:id="@+id/txt_descripcion"
                     android:layout_width="273dp"
                     android:layout_height="113dp"
-                    android:textColor="#000000"
-                    android:hint="Describa su denuncia"
+                    android:hint="@string/descripcion_denuncia_hint"
                     android:inputType="textMultiLine"
-                    android:maxLength="255" />
+                    android:lines="4"
+                    android:maxLength="255"
+                    android:singleLine="false"
+                    android:textColor="#000000" />
 
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
@@ -72,24 +75,6 @@
 
         </LinearLayout>-->
 
-        <TextView
-            android:text="Desea comparecer ante CPCCS"
-            android:layout_width="130dp"
-            android:layout_marginTop="170dp"
-            android:textColor="#000000"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView2"
-            android:textSize="16sp" />
-
-
-        <Spinner
-            android:gravity="left"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner_comparecer"
-            android:layout_alignTop="@+id/textView2"
-            android:layout_alignParentEnd="true" />
-
 
         <Button
             android:text="Siguiente"
@@ -113,27 +98,27 @@
 
 
         <EditText
+            android:id="@+id/archivoText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Seleccione el archivo..."
-            android:ems="10"
-            android:id="@+id/archivoText"
-            android:layout_below="@+id/textView18"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView18"
             android:layout_marginTop="11dp"
+            android:ems="10"
             android:enabled="false"
-            android:layout_alignParentEnd="true" />
+            android:inputType="textPersonName"
+            android:text="Seleccione el archivo..." />
 
         <TextView
-            android:text="Adjuntar evidencia"
+            android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:id="@+id/textView18"
-            android:layout_below="@+id/textView2"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="18dp"
+            android:layout_below="@+id/textView2"
+            android:layout_marginTop="170dp"
+            android:text="Adjuntar evidencia"
+            android:textColor="#000000"
             android:textSize="16sp" />
 
         <Button
@@ -144,6 +129,17 @@
             android:layout_weight="1"
             android:layout_below="@+id/archivoText"
             android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/archivoText"
+            android:gravity="right"
+            android:lines="2"
+            android:text="Pdf, doc, xls, jpg, mp4, mp3, \nMaximo 2MB"
+            android:textColor="@color/red" />
 
     </RelativeLayout>
 </ScrollView>

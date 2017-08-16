@@ -85,9 +85,9 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     ProgressDialog mProgressDialog;
 
     public Denunciado(ViewPager viewPager) {
-
         this.viewPager = viewPager;
     }
+
 
     @Nullable
     @Override
@@ -125,11 +125,12 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
 
 
         //Spinner Ocupacion : empleado publico o privado
-        ocupacion_denunciado = (Spinner) view.findViewById(R.id.spinnerOcupacionDenunciado);
+        /*ocupacion_denunciado = (Spinner) view.findViewById(R.id.spinnerOcupacionDenunciado);
         adapterOcupaDenunciado = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_spinner_item, lista_ocup);
         adapterOcupaDenunciado.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ocupacion_denunciado.setAdapter(adapterOcupaDenunciado);
+        */
 
         //Spinner Provincia
         provincia = (Spinner) view.findViewById(R.id.spinner8);
@@ -141,8 +142,8 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         txtNombre = (EditText)view.findViewById(R.id.txt_NombresDen);
         txtApellido = (EditText)view.findViewById(R.id.txt_Apellidos);
         txtCargo = (EditText)view.findViewById(R.id.txt_cargo);
-        txtUnAfectada = (EditText)view.findViewById(R.id.txt_unidadafectada);
-        txtPerjud = (EditText)view.findViewById(R.id.txt_num_perjudicados);
+        //txtUnAfectada = (EditText)view.findViewById(R.id.txt_unidadafectada);
+        //txtPerjud = (EditText)view.findViewById(R.id.txt_num_perjudicados);
         correo ="prueba.envio.formulario@gmail.com";
         contraseña="espol1234";
 
@@ -210,7 +211,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
 
         @Override
         protected Void doInBackground(Void... params) {
-            idIndti = new Institucion().getID_WS(Institucion_d);
+            //idIndti = new Institucion().getID_WS(Institucion_d);
             idProvDE = new Provincia().getID_WS(Provincia_d);
             idCiuDE = new Ciudad().getID_WS(CIudad_d);
             return null;
@@ -229,7 +230,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
 
             Log.d("ID Denunciado ","IdProvinvia"+idProvDE+"  idCiudad "+idCiuDE+"  IdINDTI "+idIndti);
 
-            if(Nombre_D.equals("")|| Apellido_D.equals("")|| Cargo_D.equals("") ) {
+            if(Nombre_D.equals("")|| Apellido_D.equals("")) {
                 Toast.makeText(getContext(), "Por favor, llene todos los campos", Toast.LENGTH_LONG).show();
 
                 // validacion de institucion valida
