@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
+import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
 import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
 import com.example.personal.comunitarias.BaseDeDatos.etnia.Etnia;
 import com.example.personal.comunitarias.BaseDeDatos.institucion.Institucion;
@@ -34,7 +35,7 @@ public class IntroDenuncias extends AppCompatActivity {
 
     //Listas
     ArrayList<String> lista_estadocivil, lista_niveledu, lista_nacionalidad,
-            lista_ocup, lista_prov, lista_ciudad, lista_inst, lista_etnia, lista_pais;
+            lista_ocup, lista_prov, lista_ciudades_provincias, lista_inst, lista_etnia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +64,14 @@ public class IntroDenuncias extends AppCompatActivity {
             lista_prov              = new Provincia().getListaNombreProvincia();
             lista_inst              = new Institucion().getListaInstitucionNombres();
             lista_etnia             = new Etnia().getListaNombresEtnia();
-            lista_pais              = new Pais().getListaNombresPais();
+            lista_ciudades_provincias=new ArrayList<String>();
+            for (String prov : lista_prov) {
+                ArrayList<String> lista_ciudades = new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_WS(prov));
+                for (String ciudad : lista_ciudades) {
+                    String ciudad_provincia = ciudad + ", " + prov;
+                    lista_ciudades_provincias.add(ciudad_provincia);
+                }
+            }
             return null;
         }
 
@@ -77,8 +85,8 @@ public class IntroDenuncias extends AppCompatActivity {
             t.setLista_ocup(lista_ocup);
             t.setLista_prov(lista_prov);
             t.setLista_inst(lista_inst);
-            t.setLista_pais(lista_pais);
             t.setLista_etnia(lista_etnia);
+            t.setLista_ciudades_provincias(lista_ciudades_provincias);
             Intent i=new Intent(getBaseContext(), t.getClass());
             startActivity(i);
         }

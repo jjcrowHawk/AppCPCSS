@@ -303,8 +303,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textPais"
                 android:textSize="17sp"
-                android:layout_alignEnd="@+id/textView8"
-                android:layout_alignStart="@+id/textView7" />
+                android:layout_alignStart="@+id/textView7"
+                android:layout_alignEnd="@+id/textEtnia" />
 
             <EditText
                 android:id="@+id/txtPais"
@@ -314,33 +314,6 @@
                 android:layout_alignTop="@+id/textPais"
                 android:gravity="left"
                 android:text="Ecuador" />
-
-
-            <TextView
-                android:text="Provincia"
-                android:layout_width="wrap_content"
-                android:layout_marginTop="1000dp"
-                android:textColor="#000000"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView8"
-                android:textSize="17sp"
-                android:layout_alignEnd="@+id/textView23" />
-
-            <Spinner
-                android:gravity="left"
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinner8"
-                android:layout_alignTop="@+id/textView8"
-                android:layout_alignParentEnd="true" />
-
-            <Spinner
-                android:gravity="left"
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinner9"
-                android:layout_alignTop="@+id/textView9"
-                android:layout_alignParentEnd="true" />
 
             <EditText
                 android:id="@+id/txt_cargo_peticionario_d"
@@ -370,8 +343,18 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView9"
                 android:textSize="17sp"
-                android:layout_below="@+id/spinner8"
+                android:layout_below="@+id/txtPais"
                 android:layout_alignEnd="@+id/textView3" />
+
+            <AutoCompleteTextView
+
+                android:id="@+id/txt_ciudad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingrese la ciudad"
+                android:layout_below="@+id/textView9"
+                android:textSize="16sp" />
+
 
             <TextView
                 android:text="Etnia"
@@ -381,18 +364,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textEtnia"
                 android:textSize="17sp"
-                android:layout_below="@+id/spinner9" />
-
-            <Button
-                android:text="Siguiente"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:textColor="#ffffff"
-                android:background="@color/colorPrimaryDark"
-                android:id="@+id/btnInfoPeticionario"
-                android:layout_below="@+id/spinnerEtnia"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="21dp" />
+                android:layout_below="@+id/txt_ciudad"
+                />
 
             <Spinner
                 android:gravity="left"
@@ -401,6 +374,18 @@
                 android:id="@+id/spinnerEtnia"
                 android:layout_alignTop="@+id/textEtnia"
                 android:layout_alignParentEnd="true" />
+
+            <Button
+                android:text="Siguiente"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:textColor="#ffffff"
+                android:background="@color/colorPrimaryDark"
+                android:id="@+id/btnInfoPeticionario"
+                android:layout_marginTop="22dp"
+                android:layout_below="@+id/textEtnia"
+                android:layout_alignStart="@+id/spinnerEtnia"
+                android:layout_marginStart="60dp" />
 
         </RelativeLayout>
 </ScrollView>

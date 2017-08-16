@@ -34,7 +34,7 @@ public class TabsDenuncia extends AppCompatActivity {
     CoordinatorLayout coordinatorLayout;
 
     static ArrayList<String> lista_estadocivil, lista_niveledu, lista_nacionalidad,
-            lista_ocup, lista_prov, lista_ciudad, lista_inst, lista_etnia, lista_pais;
+            lista_ocup, lista_prov, lista_ciudades_provincias, lista_inst, lista_etnia, lista_pais;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +107,8 @@ public class TabsDenuncia extends AppCompatActivity {
                     p.setLista_ocup(lista_ocup);
                     p.setLista_prov(lista_prov);
                     p.setLista_etnia(lista_etnia);
-                    p.setLista_pais(lista_pais);
+                    p.setLista_ciudades_provincias(lista_ciudades_provincias);
+                    p.loadCiudadesProvincias();
                     return p;
                 case 1:
                     Denuncia d = new Denuncia(viewPager);
@@ -117,6 +118,7 @@ public class TabsDenuncia extends AppCompatActivity {
                     Denunciado de = new Denunciado(viewPager);
                     de.setLista_inst(lista_inst);
                     de.setLista_prov(lista_prov);
+                    de.setLista_ciudades_provincias(lista_ciudades_provincias);
                     de.setLista_ocup(lista_ocup);
                     return de;
                 case 3:
@@ -204,8 +206,8 @@ public class TabsDenuncia extends AppCompatActivity {
         TabsDenuncia.lista_prov = lista_prov;
     }
 
-    public static void setLista_ciudad(ArrayList<String> lista_ciudad) {
-        TabsDenuncia.lista_ciudad = lista_ciudad;
+    public static void setLista_ciudades_provincias(ArrayList<String> lista_ciudad) {
+        TabsDenuncia.lista_ciudades_provincias = lista_ciudad;
     }
 
     public static void setLista_inst(ArrayList<String> lista_inst) {

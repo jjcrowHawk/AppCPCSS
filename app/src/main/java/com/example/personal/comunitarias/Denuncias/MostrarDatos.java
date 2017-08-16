@@ -354,11 +354,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         Log.d("ID PETICIONARIO","IdProvinvia"+idProvp+"  idCiudad "+idCiuP+"  IdNivelEducacion "+idNivelEduca+"   idEstado"+idestado+"  idOcupacion"+idocupacionP+"  idNacinalidad"+ idNacionalidad);
 
         //Denuncia
-        if(d.getComparecer_d().equals("SI")){
-            comparecer_d = 1;
-        }else{
-            comparecer_d = 0;
-        }
+        comparecer_d=1;
 
         Descripciion_D = d.getDescripcion_Denuncia();
 
@@ -376,7 +372,6 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         idProvDE = e.getIdProvDE();
         idCiuDE = e.getIdCiuDE();
         idIndti = e.getIdIndti();
-        Unafectada_DE = e.getUnafectada();
 
         Log.d("ID Denunciado ","Genero_D"+Genero_DE+"  Genere_P "+gen);
 

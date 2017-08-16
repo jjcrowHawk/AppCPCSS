@@ -55,13 +55,13 @@ import javax.mail.internet.MimeMultipart;
 
 
 public class Denunciado extends Fragment implements AdapterView.OnItemSelectedListener{
-    Spinner  genero,institucion, provincia, ciudad;
+    Spinner  genero,institucion;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4;
 
 
     private Spinner  ocupacion_denunciado;
     private ArrayAdapter<String>  adapterOcupaDenunciado;
-    private EditText txtNombre, txtApellido, txtCargo, txtUnAfectada, txtPerjud;
+    private EditText txtNombre, txtApellido, txtCargo;
     Button btn_enviar_r;
     private ViewPager viewPager;
     private View view;
@@ -72,8 +72,6 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     static String  Nombre_D;
     static String Apellido_D;
     static String Cargo_D;
-    static String Unafectada;
-    static String Perdjudicada_d;
     static String Genero_d;
     static String Provincia_d;
     static String CIudad_d;
@@ -81,7 +79,10 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     static Integer idCiuDE,  idProvDE,idIndti;
 
     //
-    ArrayList<String> lista_ocup,lista_inst, lista_prov, ciudades;
+    ArrayList<String> lista_ocup;
+    ArrayList<String> lista_inst;
+    ArrayList<String> lista_prov;
+    ArrayList<String> lista_ciudades_provincias;
     ProgressDialog mProgressDialog;
 
     public Denunciado(ViewPager viewPager) {
@@ -116,6 +117,14 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         //SearchBox
         //final List<String> lista_instituciones =  new DatabaseHelper(getContext()).getAllInstitucionNombres();
 
+        //Ciudades_provincias
+        ArrayAdapter<String> adapterautocomplateCiudad = new ArrayAdapter<String> (getContext(),android.R.layout.select_dialog_item,lista_ciudades_provincias);
+        final AutoCompleteTextView searchCiudad= (AutoCompleteTextView)view.findViewById(R.id.txt_ciudad);
+        searchCiudad.setThreshold(1);
+        searchCiudad.setAdapter(adapterautocomplateCiudad);
+        searchCiudad.setTextColor(Color.BLACK);
+
+        //Institucion
         ArrayAdapter<String> adapterautocomplate = new ArrayAdapter<String> (getContext(),android.R.layout.select_dialog_item,lista_inst);
         final AutoCompleteTextView search= (AutoCompleteTextView)view.findViewById(R.id.autoCompleteTextView1);
         search.setThreshold(1);
@@ -132,11 +141,6 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         ocupacion_denunciado.setAdapter(adapterOcupaDenunciado);
         */
 
-        //Spinner Provincia
-        provincia = (Spinner) view.findViewById(R.id.spinner8);
-
-        //Spinner Ciudad
-        ciudad = (Spinner) view.findViewById(R.id.spinner9);
 
         //data
         txtNombre = (EditText)view.findViewById(R.id.txt_NombresDen);
@@ -147,7 +151,6 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         correo ="prueba.envio.formulario@gmail.com";
         contraseña="espol1234";
 
-        loadSpinnerProvincias();
         ValidarCampos();
 
         btn_enviar_r =(Button)view.findViewById(R.id.btn_enviar);
@@ -160,15 +163,11 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                 Nombre_D = txtNombre.getText().toString();
                 Apellido_D = txtApellido.getText().toString();
                 Cargo_D = txtCargo.getText().toString();
-                Unafectada = txtUnAfectada.getText().toString();
-                Perdjudicada_d = txtPerjud.getText().toString();
                 Genero_d= genero.getSelectedItem().toString();
-
-                Provincia_d = provincia.getSelectedItem().toString();
-                CIudad_d = ciudad.getSelectedItem().toString();
+                String [] ciudad_provincia= searchCiudad.getText().toString().split(", ");
+                Provincia_d = ciudad_provincia[1];
+                CIudad_d = ciudad_provincia[0];
                 Institucion_d = search.getText().toString();
-                //idIndti = i.getID_DB(Institucion_d);
-                //idIndti = new Institucion().getID_DB(Institucion_d);
                 //idProvDE = new DatabaseHelper(getContext()).getProvincia(Provincia_d);
                 //idCiuDE = new DatabaseHelper(getContext()).getCiudad_id(CIudad_d);
 
@@ -176,23 +175,6 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
             }
         });
 
-    }
-
-    private void loadSpinnerProvincias() {
-        // Create an ArrayAdapter using the string array and a default spinner
-        // layout
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, lista_prov);
-        /*ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                getContext(), R.array.provincias, android.R.layout.simple_spinner_item);*/
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        this.provincia.setAdapter(adapter);
-
-        // This activity implements the AdapterView.OnItemSelectedListener
-        this.provincia.setOnItemSelectedListener(this);
-        this.ciudad.setOnItemSelectedListener(this);
     }
 
 
@@ -211,7 +193,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
 
         @Override
         protected Void doInBackground(Void... params) {
-            //idIndti = new Institucion().getID_WS(Institucion_d);
+            idIndti = new Institucion().getID_WS(Institucion_d);
             idProvDE = new Provincia().getID_WS(Provincia_d);
             idCiuDE = new Ciudad().getID_WS(CIudad_d);
             return null;
@@ -238,6 +220,9 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
             /*else if(! lista_inst.contains(Institucion_d)){
                 Toast.makeText(getContext(), "Por favor, elija una institución válida", Toast.LENGTH_LONG).show();
             }*/
+            else if(!lista_ciudades_provincias.contains(CIudad_d +", "+Provincia_d)){
+                Toast.makeText(getContext(), "Por favor, escriba una ciudad y provincia válida", Toast.LENGTH_LONG).show();
+            }
             else {
                 MostrarDatos.setearDatos();
                 viewPager.setCurrentItem(3);
@@ -245,7 +230,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         }
     }
 
-    public class ProgressCiudades extends AsyncTask<Void, Void, Void> {
+    /*public class ProgressCiudades extends AsyncTask<Void, Void, Void> {
         String name_provincia;
         @Override
         protected void onPreExecute() {
@@ -286,26 +271,11 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
             // Apply the adapter to the spinner
             ciudad.setAdapter(adapter);
         }
-    }
-
-
+    }*/
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        switch (parent.getId()) {
-            case R.id.spinner8:
-                //Obtener las ciudades correspondiente a la provincia seleccionada de la base LOCAL
-                //List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new DatabaseHelper(getContext()).getProvincia(provincia.getSelectedItem().toString()));
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                //
-                ciudades= new ArrayList<String>();
-                new Denunciado.ProgressCiudades().execute();
-                break;
-
-            case R.id.spinner9:
-
-                break;
-        }
     }
 
     @Override
@@ -371,7 +341,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
             }
         });
         //validacion de UnidadAfectada
-        txtUnAfectada .addTextChangedListener(new TextValidator(txtUnAfectada) {
+        /*txtUnAfectada .addTextChangedListener(new TextValidator(txtUnAfectada) {
             @Override
             public void validate(EditText editText, String text) {
                 for (int index = 0; index < text.length(); index++) {
@@ -387,7 +357,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                     txtUnAfectada.setError("Límite excedido");
                 }
             }
-        });
+        });*/
 
 
     }
@@ -430,22 +400,6 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         Cargo_D = cargo_D;
     }
 
-    public static String getUnafectada() {
-        return Unafectada;
-    }
-
-    public static void setUnafectada(String unafectada) {
-        Unafectada = unafectada;
-    }
-
-    public static String getPerdjudicada_d() {
-        return Perdjudicada_d;
-    }
-
-    public static void setPerdjudicada_d(String perdjudicada_d) {
-        Perdjudicada_d = perdjudicada_d;
-    }
-
     public static String getGenero_d() {
         return Genero_d;
     }
@@ -478,6 +432,13 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         Institucion_d = institucion_d;
     }
 
+    public ArrayList<String> getLista_ciudades_provincias() {
+        return lista_ciudades_provincias;
+    }
+
+    public void setLista_ciudades_provincias(ArrayList<String> lista_ciudades_provincias) {
+        this.lista_ciudades_provincias = lista_ciudades_provincias;
+    }
 
     public static Integer getIdCiuDE() {
         return idCiuDE;

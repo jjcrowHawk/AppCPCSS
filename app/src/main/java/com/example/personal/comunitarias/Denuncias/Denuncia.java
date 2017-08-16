@@ -26,7 +26,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class Denuncia extends Fragment {
     private static final int REQUEST_CHOOSER =1234;
-    Spinner comparecer, hechos;
+    Spinner hechos;
     ArrayAdapter<CharSequence> adapter, adapter2;
     private ViewPager viewPager;
     private View view;
@@ -81,9 +81,6 @@ public class Denuncia extends Fragment {
                 }else {
 
                     Descripcion_Denuncia= descripcion.getText().toString();
-                    if (comparecer.getSelectedItem().equals("SI")) Comparecer_d ="1";
-                    if (comparecer.getSelectedItem().equals("NO")) Comparecer_d ="0";
-
                     //
                     viewPager.setCurrentItem(2);
                 }
