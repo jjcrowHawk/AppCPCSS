@@ -24,7 +24,8 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingRight="5dp">
+                android:paddingRight="5dp"
+                android:weightSum="1">
 
                 <TextView
                     android:id="@+id/textView14"
@@ -39,9 +40,10 @@
 
                 <Button
                     android:id="@+id/idDenuncias"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/participacion_ciudadana" />
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_gradient"
+                    android:text="Denuncias" />
 
             </LinearLayout>
 
@@ -81,9 +83,10 @@
 
                 <Button
                     android:id="@+id/idPedidos"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/participacion_ciudadana" />
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_gradient"
+                    android:text="Pedidos" />
 
             </LinearLayout>
 

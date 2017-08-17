@@ -55,13 +55,13 @@
                     android:textSize="24sp" />
 
                 <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                    android:id="@+id/button_video1"
+                    android:layout_width="match_parent"
 
-                android:text="Haga Click aqui para ver el video informativo"
-                android:id="@+id/button_video1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_gradient"
 
-                />
+                    android:text="Haga Click aqui para ver el video informativo" />
 
                 <FrameLayout
                     android:id="@+id/youtube_fragment"
@@ -112,13 +112,13 @@
                     android:textSize="24sp" />
 
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:text="Haga Click aqui para ver el video informativo"
                     android:id="@+id/button_video2"
+                    android:layout_width="match_parent"
 
-                    />
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_gradient"
+
+                    android:text="Haga Click aqui para ver el video informativo" />
 
             </LinearLayout>
 
@@ -160,13 +160,13 @@
                     android:textSize="24sp" />
 
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:text="Haga Click aqui para ver el video informativo"
                     android:id="@+id/button_video3"
+                    android:layout_width="match_parent"
 
-                    />
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_gradient"
+
+                    android:text="Haga Click aqui para ver el video informativo" />
 
             </LinearLayout>
 
@@ -211,13 +211,13 @@
                     android:textSize="24sp" />
 
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:text="Haga Click aqui para ver el video informativo"
                     android:id="@+id/button_video4"
+                    android:layout_width="match_parent"
 
-                    />
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_gradient"
+
+                    android:text="Haga Click aqui para ver el video informativo" />
 
             </LinearLayout>
 
@@ -259,13 +259,13 @@
                     android:textSize="24sp" />
 
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:text="Haga Click aqui para ver el video informativo"
                     android:id="@+id/button_video5"
+                    android:layout_width="match_parent"
 
-                    />
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_gradient"
+
+                    android:text="Haga Click aqui para ver el video informativo" />
 
             </LinearLayout>
 
@@ -307,13 +307,13 @@
                     android:textSize="24sp" />
 
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:text="Haga Click aqui para ver el video informativo"
                     android:id="@+id/button_video6"
+                    android:layout_width="match_parent"
 
-                    />
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_gradient"
+
+                    android:text="Haga Click aqui para ver el video informativo" />
 
             </LinearLayout>
 
@@ -355,13 +355,13 @@
                     android:textSize="24sp" />
 
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:text="Haga Click aqui para ver el video informativo"
                     android:id="@+id/button_video7"
+                    android:layout_width="match_parent"
 
-                    />
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_gradient"
+
+                    android:text="Haga Click aqui para ver el video informativo" />
 
             </LinearLayout>
 
