@@ -154,10 +154,16 @@ public class Pedido extends Fragment implements AdapterView.OnItemSelectedListen
 
                     final Uri uri = data.getData();
                     String path = FileUtils.getPath(this.getContext(), uri);
-                    if (path != null && FileUtils.isLocal(path)) {
+                    if (path != null && FileUtils.isLocal(path) && (path.endsWith(".jpg")|| path.endsWith(".pdf")|| path.endsWith(".doc") || path.endsWith(".xls") || path.endsWith(".mp4") || path.endsWith(".mp3")) && new File(path).length()<=2000000) {
                         evidencia= new File(path);
-                        Toast.makeText(this.getContext(),"File " + evidencia.toString() +" was selected",Toast.LENGTH_LONG).show();
+                        Toast.makeText(this.getContext(),"Archivo " + evidencia.toString() +" seleccionado",Toast.LENGTH_LONG).show();
                         txtArchivo.setText(evidencia.toString());
+                    }
+                    else if(!(path.endsWith(".jpg")|| path.endsWith(".pdf")|| path.endsWith(".doc") || path.endsWith(".xls") || path.endsWith(".mp4") || path.endsWith(".mp3"))){
+                        Toast.makeText(this.getContext(),"Debe escoger un archivo con una de las extensiones especificadas",Toast.LENGTH_LONG).show();
+                    }
+                    else if(new File(path).length()>2000000){
+                        Toast.makeText(this.getContext(),"El archivo seleccionado supera los 2MB, por favor escoga un archivo con menor tamaño",Toast.LENGTH_LONG).show();
                     }
                     else{
                         Toast.makeText(this.getContext(),"No se seleccionó ningun archivo",Toast.LENGTH_SHORT).show();

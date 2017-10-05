@@ -116,7 +116,6 @@ public class TabsPedido extends AppCompatActivity {
                     p.setLista_ocup(lista_ocup);
                     p.setLista_prov(lista_prov);
                     p.setLista_etnia(lista_etnia);
-                    p.setLista_pais(lista_pais);
                     return p;
                 case 1:
                     return new Pedido(viewPager);

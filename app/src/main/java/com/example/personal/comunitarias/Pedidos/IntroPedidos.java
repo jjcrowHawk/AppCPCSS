@@ -34,7 +34,7 @@ public class IntroPedidos extends AppCompatActivity {
 
     //Listas
     ArrayList<String> lista_estadocivil, lista_niveledu, lista_nacionalidad,
-            lista_ocup, lista_prov, lista_ciudad, lista_inst,lista_etnia,lista_pais;
+            lista_ocup, lista_prov, lista_ciudad, lista_inst,lista_etnia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +63,6 @@ public class IntroPedidos extends AppCompatActivity {
             lista_prov              = new Provincia().getListaNombreProvincia();
             lista_inst              = new Institucion().getListaInstitucionNombres();
             lista_etnia             = new Etnia().getListaNombresEtnia();
-            lista_pais              = new Pais().getListaNombresPais();
             return null;
         }
 
@@ -78,7 +77,6 @@ public class IntroPedidos extends AppCompatActivity {
             t.setLista_prov(lista_prov);
             t.setLista_inst(lista_inst);
             t.setLista_etnia(lista_etnia);
-            t.setLista_pais(lista_pais);
             Intent i=new Intent(getBaseContext(), t.getClass());
             startActivity(i);
         }

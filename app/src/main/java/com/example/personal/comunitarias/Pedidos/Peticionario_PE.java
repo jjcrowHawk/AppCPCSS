@@ -40,9 +40,9 @@ import java.util.List;
 public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelectedListener {
 
 
-    Spinner tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad,etnia,pais;
+    Spinner tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad,etnia;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter7;
-    ArrayAdapter<String> adapter4,adapter5,adapter6,adapterOcupaPeticionarioPedido,adapterEtnia,adapterPais;
+    ArrayAdapter<String> adapter4,adapter5,adapter6,adapterOcupaPeticionarioPedido,adapterEtnia;
     private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtOcupacion, txtTelefono, txtDireccion;
     Button btn_seguir;
     Reclamo rec;
@@ -287,10 +287,7 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
         etnia.setAdapter(adapterEtnia);
 
         //Spinner Pais
-        pais= (Spinner) view.findViewById(R.id.spinner_pet_pais);
-        adapterPais= new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item,lista_pais);
-        adapterPais.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        pais.setAdapter(adapterPais);
+
 
         //data
         txtNombre = (EditText)view.findViewById(R.id.txt_Nombres_petic);
@@ -332,7 +329,6 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
                 reside = residencia.getSelectedItem().toString();
                 provi = provincia.getSelectedItem().toString();
                 Ciuda = ciudad.getSelectedItem().toString();
-                Pais= pais.getSelectedItem().toString();
                 Etnia= etnia.getSelectedItem().toString();
 
                 new Progress_cargando().execute();

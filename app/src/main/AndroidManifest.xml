@@ -31,8 +31,7 @@
         <activity
             android:name=".Denuncias.TabsDenuncia"
             android:label="@string/title_denuncia"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Denuncias.IntroDenuncias"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -194,10 +193,10 @@
             android:parentActivityName=".RedesSocialesActivity" />
         <activity
             android:name=".PartCiudadanaActivity"
+            android:configChanges="orientation|screenSize"
             android:label="Participacion Ciudadana"
             android:parentActivityName=".Menu"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|screenSize">
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.personal.comunitarias.Intro" />
@@ -273,6 +272,7 @@
         <activity android:name=".CC.ControlSocial2Activity">
             android:configChanges="screenSize|screenSize"
         </activity>
+        <activity android:name=".m_principal"></activity>
     </application>
 
 </manifest>
