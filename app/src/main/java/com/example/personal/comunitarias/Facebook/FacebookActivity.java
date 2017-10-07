@@ -34,7 +34,7 @@ public class FacebookActivity extends AppCompatActivity {
         //progrees
         pd = new ProgressDialog(this);
         pd.setMessage("Cargando...");
-        pd.setCancelable(false);
+        pd.setCancelable(true);
         pd.show();
 
         //webview
