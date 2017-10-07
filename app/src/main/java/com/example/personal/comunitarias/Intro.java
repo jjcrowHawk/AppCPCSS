@@ -52,7 +52,7 @@ public class Intro extends AppCompatActivity {
                 //Log.d("SIZE inst: ", ""+DBHelper.getAllInstitucionNombres().size());
 
                 //Inicializar actividad Menu
-                Intent i=new Intent(getBaseContext(),Menu.class);
+                Intent i=new Intent(getBaseContext(),MenuSecundario.class);
                 startActivity(i);
                 finish();
 

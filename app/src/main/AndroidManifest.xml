@@ -272,7 +272,10 @@
         <activity android:name=".CC.ControlSocial2Activity">
             android:configChanges="screenSize|screenSize"
         </activity>
-        <activity android:name=".m_principal"></activity>
+        <activity
+            android:name=".MenuSecundario">
+
+        </activity>
     </application>
 
 </manifest>
