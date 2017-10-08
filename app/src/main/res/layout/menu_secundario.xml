@@ -106,11 +106,11 @@
                 android:autoText="false"
                 android:textColor="@android:color/background_light" />
 
-            <FrameLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="170dp">
-
-            </FrameLayout>
+                android:layout_height="170dp"
+                android:id="@+id/containerView"></LinearLayout>
 
             <LinearLayout
                 android:id="@+id/buttonLinear"

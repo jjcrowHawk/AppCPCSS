@@ -1,25 +1,37 @@
 package com.example.personal.comunitarias;
 
+import android.net.Uri;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.example.personal.comunitarias.Contactenos.Contacto;
 import com.example.personal.comunitarias.Facebook.FacebookActivity;
 import com.example.personal.comunitarias.Facebook.IntroFacebook;
+import com.example.personal.comunitarias.ParticipacionCiudadana.ParticipacionCiudadanaActivity;
 import com.example.personal.comunitarias.Twitter.IntroTweets;
 import com.example.personal.comunitarias.Youtube.IntroVideos;
 
-public class MenuSecundario extends AppCompatActivity {
+public class MenuSecundario extends AppCompatActivity implements  SeccionFragment.OnFragmentInteractionListener{
 
     ImageButton participacionButton,controlButton,transparenciaButton,luchaButton,noticiasButton,contactoButton,facebookButton,twitterButton,youtubeButton;
     TextView tituloTextView;
+    LinearLayout container;
+    FragmentTransaction transaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +48,9 @@ public class MenuSecundario extends AppCompatActivity {
         twitterButton = (ImageButton) findViewById(R.id.twitterButton);
         youtubeButton = (ImageButton) findViewById(R.id.youtubeButton);
         tituloTextView = (TextView) findViewById(R.id.tituloTextView);
-
+        container = (LinearLayout) findViewById(R.id.containerView);
         setearAcciones();
+        transaction = getSupportFragmentManager().beginTransaction();
     }
 
     public void setearAcciones(){
@@ -47,6 +60,17 @@ public class MenuSecundario extends AppCompatActivity {
             public void onClick(View view) {
                 tituloTextView.setText("Participación Ciudadana");
                 cambiarImagen("PC");
+                /*LayoutInflater inflater =(LayoutInflater) MenuSecundario.this.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View v = inflater.inflate(R.layout.activity_participacion_ciudadana2, null);
+                Intent i = new Intent();
+                i.setClass(v.getContext(), ParticipacionCiudadanaActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                container.addView(v);*/
+
+                SeccionFragment myf = new SeccionFragment();
+
+                transaction.add(R.id.containerView, myf);
+                transaction.commit();
             }
         });
 
@@ -71,6 +95,7 @@ public class MenuSecundario extends AppCompatActivity {
             public void onClick(View view) {
                 tituloTextView.setText("Lucha contra la Corrupción");
                 cambiarImagen("LC");
+
             }
         });
 
@@ -137,16 +162,24 @@ public class MenuSecundario extends AppCompatActivity {
                 controlButton.setImageResource(R.drawable.img_asset_52hdpi);
                 transparenciaButton.setImageResource(R.drawable.img_asset_35hdpi);
                 luchaButton.setImageResource(R.drawable.img_asset_54hdpi);
+                break;
             case "LC":
                 participacionButton.setImageResource(R.drawable.img_asset_51hdpi);
                 controlButton.setImageResource(R.drawable.img_asset_52hdpi);
                 transparenciaButton.setImageResource(R.drawable.img_asset_53hdpi);
                 luchaButton.setImageResource(R.drawable.img_asset_36hdpi);
+                break;
             default:
                 participacionButton.setImageResource(R.drawable.img_asset_51hdpi);
                 controlButton.setImageResource(R.drawable.img_asset_52hdpi);
                 transparenciaButton.setImageResource(R.drawable.img_asset_53hdpi);
                 luchaButton.setImageResource(R.drawable.img_asset_54hdpi);
+                break;
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+        //
     }
 }
