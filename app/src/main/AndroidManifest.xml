@@ -276,6 +276,10 @@
         <activity android:name=".SeccionVideoActivity"
             >
         </activity>
+        <activity
+            android:name=".MenuPrincipal">
+            android:configChanges="screenSize|screenSize"
+        </activity>
     </application>
 
 </manifest>
