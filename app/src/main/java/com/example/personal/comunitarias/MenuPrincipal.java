@@ -43,13 +43,9 @@ public class MenuPrincipal extends AppCompatActivity implements  SeccionFragment
             @Override
             public void onClick(View view) {
 
-                cambiarImagen("PC");
-                /*LayoutInflater inflater =(LayoutInflater) MenuSecundario.this.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View v = inflater.inflate(R.layout.activity_participacion_ciudadana2, null);
-                Intent i = new Intent();
-                i.setClass(v.getContext(), ParticipacionCiudadanaActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                container.addView(v);*/
+                Intent i=new Intent(getBaseContext(), MenuSecundario.class);
+                i.putExtra("WINDOW","PC");
+                startActivity(i);
 
             }
         });
@@ -57,22 +53,27 @@ public class MenuPrincipal extends AppCompatActivity implements  SeccionFragment
         controlButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                cambiarImagen("CS");
+
+                Intent i=new Intent(getBaseContext(), MenuSecundario.class);
+                i.putExtra("WINDOW","CS");
+                startActivity(i);
             }
         });
 
         transparenciaButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                cambiarImagen("TP");
+                Intent i=new Intent(getBaseContext(), MenuSecundario.class);
+                i.putExtra("WINDOW","TP");
+                startActivity(i);
             }
         });
 
         luchaButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-
-                cambiarImagen("LC");
+                Intent i=new Intent(getBaseContext(), AntiCorrupcionActivity.class);
+                startActivity(i);
 
             }
         });
@@ -80,21 +81,25 @@ public class MenuPrincipal extends AppCompatActivity implements  SeccionFragment
         noticiasButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                cambiarImagen("");
+                Intent i=new Intent(getBaseContext(), MenuSecundario.class);
+                i.putExtra("WINDOW","NT");
+                startActivity(i);
             }
         });
 
         contactoButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                cambiarImagen("");
+                Intent i=new Intent(getBaseContext(), MenuSecundario.class);
+                i.putExtra("WINDOW","CON");
+                startActivity(i);
             }
         });
 
         facebookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cambiarImagen("");
+
                 Intent i=new Intent(getBaseContext(), IntroFacebook.class);
                 startActivity(i);
             }
@@ -103,7 +108,7 @@ public class MenuPrincipal extends AppCompatActivity implements  SeccionFragment
         twitterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cambiarImagen("");
+
                 Intent i=new Intent(getBaseContext(), IntroTweets.class);
                 startActivity(i);
             }
@@ -112,46 +117,11 @@ public class MenuPrincipal extends AppCompatActivity implements  SeccionFragment
         youtubeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cambiarImagen("");
+
                 Intent i=new Intent(getBaseContext(), IntroVideos.class);
                 startActivity(i);
             }
         });
-    }
-
-    public void cambiarImagen(String boton){
-        switch(boton){
-            case "PC":
-                participacionButton.setImageResource(R.drawable.img_asset_50hdpi);
-                controlButton.setImageResource(R.drawable.img_asset_52hdpi);
-                transparenciaButton.setImageResource(R.drawable.img_asset_53hdpi);
-                luchaButton.setImageResource(R.drawable.img_asset_54hdpi);
-                break;
-            case "CS":
-                participacionButton.setImageResource(R.drawable.img_asset_51hdpi);
-                controlButton.setImageResource(R.drawable.img_asset_34hdpi);
-                transparenciaButton.setImageResource(R.drawable.img_asset_53hdpi);
-                luchaButton.setImageResource(R.drawable.img_asset_54hdpi);
-                break;
-            case "TP":
-                participacionButton.setImageResource(R.drawable.img_asset_51hdpi);
-                controlButton.setImageResource(R.drawable.img_asset_52hdpi);
-                transparenciaButton.setImageResource(R.drawable.img_asset_35hdpi);
-                luchaButton.setImageResource(R.drawable.img_asset_54hdpi);
-                break;
-            case "LC":
-                participacionButton.setImageResource(R.drawable.img_asset_51hdpi);
-                controlButton.setImageResource(R.drawable.img_asset_52hdpi);
-                transparenciaButton.setImageResource(R.drawable.img_asset_53hdpi);
-                luchaButton.setImageResource(R.drawable.img_asset_36hdpi);
-                break;
-            default:
-                participacionButton.setImageResource(R.drawable.img_asset_51hdpi);
-                controlButton.setImageResource(R.drawable.img_asset_52hdpi);
-                transparenciaButton.setImageResource(R.drawable.img_asset_53hdpi);
-                luchaButton.setImageResource(R.drawable.img_asset_54hdpi);
-                break;
-        }
     }
 
     @Override
