@@ -35,7 +35,9 @@ public class Constantes {
     public final static String WS_PREDENUNCIA="http://ejrocafuerte.pythonanywhere.com/predenuncias/";
     public final static String WS_ETNIA="http://ejrocafuerte.pythonanywhere.com/etnias";
     public final static String WS_PAIS="http://ejrocafuerte.pythonanywhere.com/paises";
+    public final static String WS_CONTENIDO="http://ejrocafuerte.pythonanywhere.com/contenidos/";
     public final static String WS_AUTH_USER="cpccs-admin";
     public final static String WS_AUTH_PASSWORD="cpccs2017admin";
+
 
 }

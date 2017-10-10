@@ -5,4 +5,5 @@ package com.example.personal.comunitarias;
  */
 public interface AsynchronousTask {
     void processFinish(String result);
+
 }

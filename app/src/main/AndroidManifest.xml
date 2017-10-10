@@ -31,7 +31,7 @@
         <activity
             android:name=".Denuncias.TabsDenuncia"
             android:label="@string/title_denuncia"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Denuncias.IntroDenuncias"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -272,9 +272,9 @@
         <activity android:name=".CC.ControlSocial2Activity">
             android:configChanges="screenSize|screenSize"
         </activity>
-        <activity
-            android:name=".MenuSecundario">
-
+        <activity android:name=".MenuSecundario" />
+        <activity android:name=".SeccionVideoActivity"
+            >
         </activity>
     </application>
 

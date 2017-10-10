@@ -52,9 +52,10 @@ public class WebServiceAsynchronic extends AsyncTask<String,Long,String> {
         this.mode=mode;
     }
 
-    public WebServiceAsynchronic(String urlWebService, AsynchronousTask callback, String mode){
+    public WebServiceAsynchronic(String urlWebService,Context activity, AsynchronousTask callback, String mode){
         this.url=urlWebService;
         this.callback=callback;
+        this.actividad=activity;
         this.mode=mode;
     }
 
@@ -70,7 +71,7 @@ public class WebServiceAsynchronic extends AsyncTask<String,Long,String> {
             progDailog.setMessage("Loading...");
             progDailog.setIndeterminate(false);
             progDailog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            progDailog.setCancelable(true);
+            progDailog.setCancelable(false);
             progDailog.show();
         }
     }
@@ -78,12 +79,15 @@ public class WebServiceAsynchronic extends AsyncTask<String,Long,String> {
     protected String doInBackground(String... params) {
         try {
             if(this.mode.equals("GET")) {
-                String r = HttpRequest.get(this.url).body();
+                String r = HttpRequest.get(this.url).basic(Constantes.WS_AUTH_USER,Constantes.WS_AUTH_PASSWORD).body();
                 return r;
             }
             else if(this.mode.equals("POST")){
-                String r= HttpRequest.post(this.url).form(this.datos).body();
+                String r= HttpRequest.post(this.url).basic(Constantes.WS_AUTH_USER,Constantes.WS_AUTH_PASSWORD).form(this.datos).body();
                 return r;
+            }
+            else{
+                System.out.println("NO MODE SET!!!!!!!!!!!!!!");
             }
             return null;
 

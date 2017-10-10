@@ -32,6 +32,7 @@ public class MenuSecundario extends AppCompatActivity implements  SeccionFragmen
     TextView tituloTextView;
     LinearLayout container;
     FragmentTransaction transaction;
+    SeccionFragment pcFragment,csFragment,tpFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,10 +67,11 @@ public class MenuSecundario extends AppCompatActivity implements  SeccionFragmen
                 i.setClass(v.getContext(), ParticipacionCiudadanaActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 container.addView(v);*/
-
+                Bundle seccionSolicitada =new Bundle();
+                seccionSolicitada.putString("seccion","PC");
                 SeccionFragment myf = new SeccionFragment();
-
-                transaction.add(R.id.containerView, myf);
+                myf.setArguments(seccionSolicitada);
+                transaction.add(R.id.containerView, myf,"");
                 transaction.commit();
             }
         });
@@ -79,6 +81,13 @@ public class MenuSecundario extends AppCompatActivity implements  SeccionFragmen
             public void onClick(View view) {
                 tituloTextView.setText("Control Social");
                 cambiarImagen("CS");
+
+                Bundle seccionSolicitada =new Bundle();
+                seccionSolicitada.putString("seccion","CS");
+                SeccionFragment myf = new SeccionFragment();
+                myf.setArguments(seccionSolicitada);
+                transaction.add(R.id.containerView, myf);
+                transaction.commit();
             }
         });
 
@@ -87,6 +96,13 @@ public class MenuSecundario extends AppCompatActivity implements  SeccionFragmen
             public void onClick(View view) {
                 tituloTextView.setText("Transparencia");
                 cambiarImagen("TP");
+
+                Bundle seccionSolicitada =new Bundle();
+                seccionSolicitada.putString("seccion","TP");
+                SeccionFragment myf = new SeccionFragment();
+                myf.setArguments(seccionSolicitada);
+                transaction.add(R.id.containerView, myf);
+                transaction.commit();
             }
         });
 
