@@ -52,6 +52,52 @@ public class MenuSecundario extends AppCompatActivity implements  SeccionFragmen
         container = (LinearLayout) findViewById(R.id.containerView);
         setearAcciones();
         transaction = getSupportFragmentManager().beginTransaction();
+
+        String seleccionInicial= getIntent().getStringExtra("WINDOW");
+        Bundle seccionSolicitada;
+        SeccionFragment myf;
+        switch(seleccionInicial){
+            case "PC":
+                tituloTextView.setText("Participacion Ciudadana");
+                cambiarImagen("PC");
+                seccionSolicitada =new Bundle();
+                seccionSolicitada.putString("seccion","PC");
+                myf = new SeccionFragment();
+                myf.setArguments(seccionSolicitada);
+                transaction.add(R.id.containerView, myf,"");
+                transaction.commit();
+                break;
+            case "CS":
+                tituloTextView.setText("Control Social");
+                cambiarImagen("CS");
+                seccionSolicitada =new Bundle();
+                seccionSolicitada.putString("seccion","PC");
+                myf = new SeccionFragment();
+                myf.setArguments(seccionSolicitada);
+                transaction.add(R.id.containerView, myf,"");
+                transaction.commit();
+                break;
+            case "TP":
+                tituloTextView.setText("Transparencia");
+                cambiarImagen("TP");
+                seccionSolicitada =new Bundle();
+                seccionSolicitada.putString("seccion","TP");
+                myf = new SeccionFragment();
+                myf.setArguments(seccionSolicitada);
+                transaction.add(R.id.containerView, myf,"");
+                transaction.commit();
+                break;
+            case "NT":
+                tituloTextView.setText("Noticias");
+                cambiarImagen("NT");
+                break;
+            case "CON":
+                tituloTextView.setText("Contacto");
+                cambiarImagen("CON");
+                break;
+            default:
+                break;
+        }
     }
 
     public void setearAcciones(){
