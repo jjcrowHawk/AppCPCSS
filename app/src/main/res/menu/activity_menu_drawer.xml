@@ -4,49 +4,22 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_mision"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Misión" />
+            android:icon="@drawable/right_arrow_3x"
+            android:title="MISÍON" />
         <item
             android:id="@+id/nav_vision"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Visión" />
+            android:icon="@drawable/right_arrow_3x"
+            android:title="VISÍON" />
         <item
             android:id="@+id/nav_oficinas"
-            android:icon="@drawable/oficinas"
-            android:title="Oficinas" />
-
-
-
+            android:icon="@drawable/right_arrow_3x"
+            android:title="OFICINAS" />
         <item
             android:id="@+id/nav_tv"
-            android:icon="@drawable/video_camera"
-            android:title="Cpccs TV" />
-
-        <item
-            android:id="@+id/contactenos"
-            android:icon="@drawable/contactenos"
-            android:title="Contáctenos" />
+            android:icon="@drawable/right_arrow_3x"
+            android:title="CPCCS TV" />
 
     </group>
-
-    <item android:title="Redes Sociales">
-        <menu>
-
-
-            <item
-                android:id="@+id/nav_facebook"
-                android:icon="@drawable/icon_facebook"
-                android:title="Facebook" />
-            <item
-                android:id="@+id/nav_tweets"
-                android:icon="@drawable/twitter_logo"
-                android:title="Twitter" />
-            <item
-                android:id="@+id/nav_videos"
-                android:icon="@drawable/youtube"
-                android:title="Youtube" />
-        </menu>
-    </item>
 
 
 </menu>

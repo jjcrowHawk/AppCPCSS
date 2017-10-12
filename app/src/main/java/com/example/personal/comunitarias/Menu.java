@@ -229,42 +229,15 @@ public class Menu extends AppCompatActivity implements NavigationView.OnNavigati
             else
                 startActivity (new Intent(getApplicationContext(), IntroOficinas.class));
 
-        } else if (id == R.id.nav_videos) {
-            if(!isOnlineNet()){
-                Snackbar.make((ViewGroup) ((ViewGroup) this
-                        .findViewById(android.R.id.content)).getChildAt(0), "Necesita conexión a Internet", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-            else
-                startActivity (new Intent(getApplicationContext(), IntroVideos.class));
-
-
-        } else if (id == R.id.nav_tweets) {
-            if(!isOnlineNet())
-                Snackbar.make((ViewGroup) ((ViewGroup) this
-                        .findViewById(android.R.id.content)).getChildAt(0), "Necesita conexión a Internet", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            else
-                startActivity (new Intent(getApplicationContext(), IntroTweets.class));
-        } else if (id == R.id.nav_facebook) {
-            if(!isOnlineNet())
-                Snackbar.make((ViewGroup) ((ViewGroup) this
-                        .findViewById(android.R.id.content)).getChildAt(0), "Necesita conexión a Internet", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            else
-                startActivity (new Intent(getApplicationContext(), IntroFacebook.class));
         }
         else if (id == R.id.nav_tv) {
-            if(!isOnlineNet())
+            if (!isOnlineNet())
                 Snackbar.make((ViewGroup) ((ViewGroup) this
                         .findViewById(android.R.id.content)).getChildAt(0), "Necesita conexión a Internet", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             else
-                startActivity (new Intent(getApplicationContext(), IntroTv.class));
-        } else if (id == R.id.contactenos) {
-                startActivity (new Intent(getApplicationContext(), Contacto.class));
+                startActivity(new Intent(getApplicationContext(), IntroTv.class));
         }
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

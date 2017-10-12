@@ -9,7 +9,7 @@
     tools:openDrawer="start">
 
     <include
-        layout="@layout/app_bar_menu"
+        layout="@layout/menu_principal"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -18,14 +18,15 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:itemTextAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
-        app:itemTextColor="@color/color_subtitle"
-        app:itemIconTint="@color/color_subtitle"
-        android:background="@drawable/fondo2"
-        android:backgroundTintMode="multiply"
+        android:background="@drawable/img_asset_62hdpi"
         android:backgroundTint="#e8e4ddd3"
+        android:backgroundTintMode="multiply"
+        android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_menu"
+        app:itemBackground="@color/common_google_signin_btn_text_dark_focused"
+        app:itemIconTint="@color/white"
+        app:itemTextAppearance="@android:style/TextAppearance.Holo.Large"
+        app:itemTextColor="@color/white"
         app:menu="@menu/activity_menu_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

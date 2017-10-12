@@ -261,7 +261,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:clickable="true"
-        app:fabSize="mini"
-        app:srcCompat="@android:drawable/ic_dialog_email"/>
+        app:backgroundTint="#ff1da1f2"
+        app:fabSize="normal"
+        app:srcCompat="@android:drawable/ic_dialog_info"
+        tools:fabSize="normal" />
+
 
 </android.support.design.widget.CoordinatorLayout>
