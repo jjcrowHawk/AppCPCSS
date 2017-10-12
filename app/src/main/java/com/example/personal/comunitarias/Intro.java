@@ -50,7 +50,7 @@ public class Intro extends AppCompatActivity {
                 //Log.d("SIZE ocupa: ", ""+DBHelper.getAllOcupacionNombres().size());
                 //Log.d("SIZE ciudades: ", ""+DBHelper.getAllCiudades().size());
                 //Log.d("SIZE inst: ", ""+DBHelper.getAllInstitucionNombres().size());
-                Intent i=new Intent(getBaseContext(),MenuPrincipal.class);
+                Intent i=new Intent(getBaseContext(),Menu.class);
                 startActivity(i);
                 //Inicializar actividad Menu
 

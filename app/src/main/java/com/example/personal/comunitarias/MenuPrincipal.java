@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.support.design.widget.FloatingActionButton;
 
 import com.example.personal.comunitarias.Facebook.IntroFacebook;
 import com.example.personal.comunitarias.Twitter.IntroTweets;
@@ -18,6 +19,7 @@ public class MenuPrincipal extends AppCompatActivity implements  SeccionFragment
 
     ImageButton participacionButton,controlButton,transparenciaButton,luchaButton,noticiasButton,contactoButton,facebookButton,twitterButton,youtubeButton;
     FragmentTransaction transaction;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +35,21 @@ public class MenuPrincipal extends AppCompatActivity implements  SeccionFragment
         facebookButton = (ImageButton) findViewById(R.id.facebookButton);
         twitterButton = (ImageButton) findViewById(R.id.twitterButton);
         youtubeButton = (ImageButton) findViewById(R.id.youtubeButton);
+        fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         setearAcciones();
         transaction = getSupportFragmentManager().beginTransaction();
+
+
     }
 
     public void setearAcciones(){
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         participacionButton.setOnClickListener(new View.OnClickListener(){
             @Override
