@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
-    android:layout_width="match_parent"
+    android:layout_width="250dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_marginBottom="@dimen/md_keylines"
@@ -16,57 +16,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginEnd="10dp"
-            android:id="@+id/card_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:text="CPCCS APRUEBA"
-            android:textColor="#3c3d3e"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            />
-
 
         <ImageView
             android:id="@+id/card_image"
-            android:layout_below="@+id/card_title"
+            android:paddingTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/card_image_height"
+            android:layout_height="100dp"
             android:scaleType="centerCrop"
             tools:src="@drawable/fondo" />
 
-
         <TextView
-            android:id="@+id/card_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_below="@+id/card_image"
-            android:layout_marginLeft="@dimen/md_keylines"
-            android:layout_marginTop="@dimen/md_keylines"
-            android:layout_marginBottom="@dimen/md_keylines"
-            android:layout_marginRight="@dimen/md_keylines"
-            tools:text="descripciom"
-            android:ellipsize="end"
-            android:singleLine="true"
-            android:textColor="@color/dark_grey"
-            android:textSize="@dimen/article_subheading" />
-
-        <TextView
-            android:id="@+id/fecha"
+            android:id="@+id/card_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/card_text"
-            android:layout_marginLeft="@dimen/md_keylines"
-            android:layout_marginTop="@dimen/md_keylines"
-            android:layout_marginBottom="@dimen/md_keylines"
-            android:layout_marginRight="@dimen/md_keylines"
-            tools:text="07/12"
-            android:ellipsize="end"
-            android:textColor="@color/dark_grey"
-            android:textSize="@dimen/article_subheading" />
+            android:layout_height="100dp"
+            android:gravity="center_vertical|center_horizontal"
+            tools:text="CPCCS APRUEBA"
+            android:background="#3B5998"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textSize="14sp"
+            />
 
 
     </RelativeLayout>

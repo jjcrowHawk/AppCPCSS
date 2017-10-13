@@ -1,12 +1,26 @@
 package com.example.personal.comunitarias;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.personal.comunitarias.Noticias.CardViewAdapter;
+import com.example.personal.comunitarias.Noticias.DetailActivity;
+import com.example.personal.comunitarias.Noticias.Noticia;
+import com.example.personal.comunitarias.Noticias.NoticiasReader;
+
+import java.util.LinkedList;
+import java.util.List;
 
 
 /**
@@ -28,6 +42,13 @@ public class NoticiasFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    public static LinkedList<Noticia> noticias = new LinkedList<>();
+    public static CardViewAdapter adapter;
+    private RecyclerView recyclerView;
+    private int page=1;
+    public static boolean refreshing = false;
+    private LinearLayoutManager linearLayoutManager;
 
     public NoticiasFragment() {
         // Required empty public constructor
@@ -64,10 +85,65 @@ public class NoticiasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView= (View) inflater.inflate(R.layout.fragment_noticias, container, false);
+        final View rootView= (View) inflater.inflate(R.layout.fragment_noticias, container, false);
+
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerNoticias);
+        adapter = new CardViewAdapter(recyclerView.getContext(),"noticias");
+        recyclerView.setAdapter(adapter);
+
+        linearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener()  {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+
+
+                if (layoutManager.findLastCompletelyVisibleItemPosition() == layoutManager.getItemCount()-1  && !refreshing) {
+                    page++;
+                    refreshing = true;
+                    new NoticiasReader(rootView,getContext(),adapter.getNoticias(),recyclerView).execute("noticias", String.valueOf(page));
+                }
+            }
+        });
 
         return rootView;
 
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public ImageView imagen;
+        public TextView description;
+        public TextView name,fecha;
+
+        List<Noticia> noticias;
+        public static Noticia select;
+        public ViewHolder(LayoutInflater inflater, ViewGroup parent, final List<Noticia> noticias) {
+            super(inflater.inflate(R.layout.item_card, parent, false));
+            this.noticias = noticias;
+
+
+            imagen = (ImageView) itemView.findViewById(R.id.card_image);
+            name = (TextView) itemView.findViewById(R.id.card_title);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Context context = v.getContext();
+                    Intent intent = new Intent(context, DetailActivity.class);
+                    int position = getAdapterPosition();
+                    select = noticias.get(position);
+                    intent.putExtra(DetailActivity.EXTRA_POSITION, getAdapterPosition());
+                    context.startActivity(intent);
+                }
+            });
+
+        }
+    }
+
+    public CardViewAdapter getAdapter() {
+        return adapter;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

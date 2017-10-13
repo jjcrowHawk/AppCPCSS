@@ -5,7 +5,8 @@
         <item
             android:id="@+id/nav_mision"
             android:icon="@drawable/right_arrow_3x"
-            android:title="MISÍON" />
+            android:title="MISIÓN"
+            />
         <item
             android:id="@+id/nav_vision"
             android:icon="@drawable/right_arrow_3x"

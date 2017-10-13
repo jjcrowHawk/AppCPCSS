@@ -1,5 +1,6 @@
 package com.example.personal.comunitarias.Noticias;
 
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +12,8 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
+import com.example.personal.comunitarias.MenuSecundario;
+import com.example.personal.comunitarias.NoticiasFragment;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -29,7 +32,7 @@ public class PrimaryReader extends AsyncTask<String, Void, Void> {
     private Context context;
     private List<Noticia> noticias;
     private boolean stop;
-
+    private ProgressDialog progDailog;
 
     public PrimaryReader(Context context,List<Noticia> noticias, boolean stop ) {
         this.noticias  = noticias;
@@ -159,7 +162,12 @@ public class PrimaryReader extends AsyncTask<String, Void, Void> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-
+        progDailog = new ProgressDialog(context);
+        progDailog.setMessage("Loading...");
+        progDailog.setIndeterminate(false);
+        progDailog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progDailog.setCancelable(false);
+        progDailog.show();
     }
 
 
@@ -170,21 +178,8 @@ public class PrimaryReader extends AsyncTask<String, Void, Void> {
 
     @Override
     protected void onPostExecute(Void result) {
-
-        if(stop) {
-            if(!noticias.isEmpty()){
-                Intent i=new Intent(context,NoticiasActivity.class);
-                (context).startActivity(i);
-                ((Intro_noticias)context).finish();
-            }
-            else{
-                Intent i=new Intent(context,NoticiasActivity.class);
-                (context).startActivity(i);
-                ((Intro_noticias)context).finish();
-
-            }
-
-        }
+            progDailog.dismiss();
+        NoticiasFragment.adapter.notifyDataSetChanged();
     }
 
     public Boolean isOnlineNet() {

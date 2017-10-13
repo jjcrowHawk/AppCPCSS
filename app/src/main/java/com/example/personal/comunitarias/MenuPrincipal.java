@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.support.design.widget.FloatingActionButton;
+import android.widget.Toast;
 
 import com.example.personal.comunitarias.Contactenos.Contacto;
 import com.example.personal.comunitarias.CpccsTV.IntroTv;
@@ -130,27 +131,39 @@ public class MenuPrincipal extends AppCompatActivity implements  NavigationView.
         facebookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent i=new Intent(getBaseContext(), IntroFacebook.class);
-                startActivity(i);
+                if(isOnlineNet()) {
+                    Intent i = new Intent(getBaseContext(), IntroFacebook.class);
+                    startActivity(i);
+                }
+                else{
+                    Toast.makeText(MenuPrincipal.this,"No tiene conexion a internet, conéctese para poder acceder a esta opcion",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
         twitterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent i=new Intent(getBaseContext(), IntroTweets.class);
-                startActivity(i);
+                if(isOnlineNet()) {
+                    Intent i = new Intent(getBaseContext(), IntroTweets.class);
+                    startActivity(i);
+                }
+                else{
+                    Toast.makeText(MenuPrincipal.this,"No tiene conexion a internet, conéctese para poder acceder a esta opcion",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
         youtubeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent i=new Intent(getBaseContext(), IntroVideos.class);
-                startActivity(i);
+                if(isOnlineNet()) {
+                    Intent i = new Intent(getBaseContext(), IntroVideos.class);
+                    startActivity(i);
+                }
+                else{
+                    Toast.makeText(MenuPrincipal.this,"No tiene conexion a internet, conéctese para poder acceder a esta opcion",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

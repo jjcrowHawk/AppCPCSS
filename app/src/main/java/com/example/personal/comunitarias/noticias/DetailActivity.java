@@ -32,6 +32,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.personal.comunitarias.NoticiasFragment;
 import com.example.personal.comunitarias.R;
 import com.squareup.picasso.Picasso;
 
@@ -51,7 +52,7 @@ public class DetailActivity extends AppCompatActivity {
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
 
 
-        final Noticia noticia = CardContentFragment.ViewHolder.select;
+        final Noticia noticia = NoticiasFragment.ViewHolder.select;
 
         Resources resources = getResources();
         collapsingToolbar.setTitle(noticia.getTitulo());

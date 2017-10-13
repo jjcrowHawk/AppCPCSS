@@ -9,9 +9,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ProgressBar;
 
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
+import com.example.personal.comunitarias.NoticiasFragment;
 import com.example.personal.comunitarias.R;
 
 import org.jsoup.Jsoup;
@@ -35,13 +37,13 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
     private RecyclerView recyclerView;
 
     //recibe el context, la lista de noticas a la que aumentara elementos, un recyclerView para notificar cambios en el adapter
-    public NoticiasReader(Context context , List<Noticia> noticias, RecyclerView recyclerView) {
+    public NoticiasReader(View root, Context context , List<Noticia> noticias, RecyclerView recyclerView) {
         this.noticias = noticias;
         this.context = context;
         this.url = "http://www.cpccs.gob.ec/es/category/";
         this.recyclerView = recyclerView;
         // se obtiene la instancia del progrressbar
-        this.pb = (ProgressBar) ((NoticiasActivity) context).findViewById(R.id.footer);
+        this.pb = (ProgressBar) root.findViewById(R.id.noticiasPB);
     }
 
     @Override
@@ -177,7 +179,7 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
     protected void onPostExecute(Void result) {
         recyclerView.getAdapter().notifyItemInserted(noticias.size());
         pb.setVisibility(ProgressBar.INVISIBLE);
-        CardContentFragment.refreshing = false;
+        NoticiasFragment.refreshing = false;
 
     }
 
