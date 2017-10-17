@@ -4,6 +4,10 @@
         "source": "C:\\Users\\pc\\Documents\\GitHub\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\bundles\\debug\\res\\xml\\mimetypes.xml"
     },
     {
+        "merged": "C:\\Users\\CltControl\\Downloads\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\mimetypes.xml",
+        "source": "C:\\Users\\CltControl\\Downloads\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\bundles\\debug\\res\\xml\\mimetypes.xml"
+    },
+    {
         "merged": "F:\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\mimetypes.xml",
         "source": "F:\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\bundles\\debug\\res\\xml\\mimetypes.xml"
     }

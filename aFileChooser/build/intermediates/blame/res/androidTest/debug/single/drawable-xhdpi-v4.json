@@ -1,5 +1,13 @@
 [
     {
+        "merged": "C:\\Users\\CltControl\\Downloads\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ic_folder.png",
+        "source": "C:\\Users\\CltControl\\Downloads\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ic_folder.png"
+    },
+    {
+        "merged": "C:\\Users\\CltControl\\Downloads\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ic_chooser.png",
+        "source": "C:\\Users\\CltControl\\Downloads\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ic_chooser.png"
+    },
+    {
         "merged": "C:\\Users\\pc\\Documents\\GitHub\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ic_chooser.png",
         "source": "C:\\Users\\pc\\Documents\\GitHub\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ic_chooser.png"
     },
@@ -16,6 +24,10 @@
         "source": "F:\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ic_chooser.png"
     },
     {
+        "merged": "C:\\Users\\CltControl\\Downloads\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ic_file.png",
+        "source": "C:\\Users\\CltControl\\Downloads\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ic_file.png"
+    },
+    {
         "merged": "C:\\Users\\pc\\Documents\\GitHub\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ic_provider.png",
         "source": "C:\\Users\\pc\\Documents\\GitHub\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ic_provider.png"
     },
@@ -30,5 +42,9 @@
     {
         "merged": "F:\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ic_file.png",
         "source": "F:\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ic_file.png"
+    },
+    {
+        "merged": "C:\\Users\\CltControl\\Downloads\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\ic_provider.png",
+        "source": "C:\\Users\\CltControl\\Downloads\\AppCPCSS_V2\\aFileChooser\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\ic_provider.png"
     }
 ]
