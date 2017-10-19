@@ -58,7 +58,7 @@
                 android:layout_gravity="right|center_vertical"
                     android:paddingLeft="15dp"
                     android:layout_weight="0.19"
-                    android:background="@null"/>
+                    android:background="?android:selectableItemBackground"/>
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -69,7 +69,7 @@
                     android:layout_weight="0.33"
                     android:adjustViewBounds="true"
                     android:paddingLeft="10dp"
-                    android:background="@null"/>
+                    android:background="?android:selectableItemBackground"/>
 
             </LinearLayout>
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -134,7 +134,7 @@
                     android:paddingTop="10dp"
                     android:paddingLeft="15dp"
                     android:paddingBottom="10dp"
-                    android:background="@null"
+                    android:background="?android:selectableItemBackground"
                     android:adjustViewBounds="false" />
 
                 <ImageButton
@@ -146,7 +146,7 @@
                     android:paddingTop="10dp"
                     android:paddingLeft="5dp"
                     android:paddingBottom="10dp"
-                    android:background="@null"/>
+                    android:background="?android:selectableItemBackground"/>
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -157,7 +157,7 @@
                     android:paddingTop="10dp"
                     android:paddingLeft="5dp"
                     android:paddingBottom="10dp"
-                    android:background="@null"/>
+                    android:background="?android:selectableItemBackground"/>
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -167,7 +167,7 @@
                     android:paddingTop="10dp"
                     android:paddingLeft="5dp"
                     android:paddingBottom="10dp"
-                    android:background="@null"/>
+                    android:background="?android:selectableItemBackground"/>
 
             </LinearLayout>
 
@@ -205,7 +205,7 @@
                     android:layout_marginEnd="68dp"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
-                    android:background="@null"/>
+                    android:background="?android:selectableItemBackground"/>
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -214,7 +214,7 @@
                     android:id="@+id/twitterButton"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
-                    android:background="@null"/>
+                    android:background="?android:selectableItemBackground"/>
 
                 <TextView
                     android:text="www.cpccs.gob.ec"
@@ -239,7 +239,7 @@
                     android:layout_marginEnd="13dp"
                     android:layout_alignParentBottom="true"
                     android:layout_toStartOf="@+id/facebookButton"
-                    android:background="@null"/>
+                    android:background="?android:selectableItemBackground"/>
 
             </RelativeLayout>
         </LinearLayout>

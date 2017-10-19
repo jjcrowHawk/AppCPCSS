@@ -59,10 +59,10 @@ public class IntroDenuncias extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             lista_estadocivil       = new Estadocivil().getListaEstadoCivilNombres();
             lista_niveledu          = new Niveleducacion().getListaNivelEducacionNombres();
-            lista_nacionalidad      = new Nacionalidad().getListaNacionalidadNombres();
-            lista_ocup              = new Ocupacion().getListaOcupacionNombres();
+            lista_nacionalidad      = new ArrayList<>();
+            lista_ocup              = new ArrayList<>();
             lista_prov              = new Provincia().getListaNombreProvincia();
-            lista_inst              = new Institucion().getListaInstitucionNombres();
+            lista_inst              = new ArrayList<>();
             lista_etnia             = new Etnia().getListaNombresEtnia();
             lista_ciudades_provincias=new ArrayList<String>();
             for (String prov : lista_prov) {
