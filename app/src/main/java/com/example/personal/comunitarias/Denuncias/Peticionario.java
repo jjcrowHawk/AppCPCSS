@@ -34,9 +34,10 @@ import java.util.ArrayList;
 public class Peticionario extends Fragment implements AdapterView.OnItemSelectedListener{
     Spinner identidad, tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia,ocupacion_peticionario,etnia;
     ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter7;
-    ArrayAdapter<String> adapter4,adapter5,adapter6,adapterOcupaPeticionario,adapterEtnia;
+    static ArrayAdapter<String> adapter4,adapter5,adapter6,adapterOcupaPeticionario,adapterEtnia;
     private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtOcupacion;
     private EditText txtTelefono, txtDireccion, txtEdad, txtOrganizacionSocial, txtCargoPeticionario;
+    static ArrayAdapter<String> adapterautocomplate;
     Button btn_seguir;
     Reclamo rec;
 
@@ -255,7 +256,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         etnia.setAdapter(adapterEtnia);
 
         //adapter ciudad
-        ArrayAdapter<String> adapterautocomplate = new ArrayAdapter<String> (getContext(),android.R.layout.select_dialog_item,lista_ciudades_provincias);
+        adapterautocomplate = new ArrayAdapter<String> (getContext(),android.R.layout.select_dialog_item,lista_ciudades_provincias);
         final AutoCompleteTextView search= (AutoCompleteTextView)view.findViewById(R.id.txt_ciudad);
         search.setThreshold(1);
         search.setAdapter(adapterautocomplate);
@@ -306,14 +307,14 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 Genero = genero.getSelectedItem().toString();
                 Estado_civil = estado_civil.getSelectedItem().toString();
                 NivelEdu = nivelEducacion.getSelectedItem().toString();
-                Nacio = nacionalidad.getSelectedItem().toString();
+                Nacio = "";
                 reside = residencia.getSelectedItem().toString();
                 String [] ciudad_provincia=search.getText().toString().split(", ");
                 provi = ciudad_provincia[1];
                 Ciuda = ciudad_provincia[0];
 
                 //NUEVO
-                OcupacionPeticionario= ocupacion_peticionario.getSelectedItem().toString();
+                OcupacionPeticionario= "";
                 Log.d("pet",Ciuda +"    "+ provi);
                 new Progress_cargando().execute();
             }
@@ -338,10 +339,10 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
 
         @Override
         protected Void doInBackground(Void... params) {
-            idocupacionP =      new Ocupacion().getID_WS(OcupacionPeticionario);
+            idocupacionP =      -1;
             idestado =          new Estadocivil().getID_WS(Estado_civil);
             idNivelEduca =      new Niveleducacion().getID_WS(NivelEdu);
-            idNacionalidad =    new Nacionalidad().getID_WS(Nacio);
+            idNacionalidad =    -1;
             idProvp =           new Provincia().getID_WS(provi);
             idCiuP =            new Ciudad().getID_WS(Ciuda);
             return null;

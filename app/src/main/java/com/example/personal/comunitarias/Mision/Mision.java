@@ -28,7 +28,7 @@ public class Mision extends AppCompatActivity {
 
         //Setear imagen misión
         i_mision = (ImageView) findViewById(R.id.mision_img);
-        Picasso.with(getApplicationContext()).load("http://www.cpccs.gob.ec/wp-content/uploads/2015/11/MISIO%CC%81N.jpg").into(i_mision);
+        Picasso.with(getApplicationContext()).load(R.drawable.img_asset_30hdpi).into(i_mision);
 
         //Descripción de Misión en WebView para el texto justificado
         WebView webView = (WebView) findViewById(R.id.webView_mision);

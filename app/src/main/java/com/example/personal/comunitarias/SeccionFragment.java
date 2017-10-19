@@ -191,7 +191,7 @@ public class SeccionFragment extends Fragment implements AsynchronousTask {
                         if(!c.getUrlVideo().equals("ninguno")){
                             Button videoButton= new Button(getActivity());
                             videoButton.setText("Toque para ver el video");
-                            videoButton.setBackgroundColor(Color.RED);
+                            videoButton.setBackgroundColor(Color.rgb(109, 132, 180));
                             links.add(c.getUrlVideo());
                             videoButtons.add(videoButton);
                             videoButton.setOnClickListener(videoButtonListener);

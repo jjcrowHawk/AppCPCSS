@@ -42,7 +42,7 @@
                     android:id="@+id/idDenuncias"
                     android:layout_width="135dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background_gradient"
+                    android:background="#6d84b4"
                     android:text="Denuncias" />
 
             </LinearLayout>
@@ -85,7 +85,7 @@
                     android:id="@+id/idPedidos"
                     android:layout_width="135dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background_gradient"
+                    android:background="#6d84b4"
                     android:text="Pedidos" />
 
             </LinearLayout>
