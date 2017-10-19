@@ -15,7 +15,7 @@
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:layout_margin="5dp"
@@ -25,7 +25,7 @@
         android:fitsSystemWindows="true"
         app:elevation="6dp"
         app:headerLayout="@layout/nav_header_menu"
-        app:itemBackground="@drawable/asset_23_2x"
+        app:itemBackground="@drawable/toolbar208"
         app:itemIconTint="@color/white"
         app:itemTextAppearance="@android:style/TextAppearance.Holo.Large"
         app:itemTextColor="@color/white"
