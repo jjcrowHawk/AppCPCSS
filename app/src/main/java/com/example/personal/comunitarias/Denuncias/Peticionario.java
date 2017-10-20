@@ -29,6 +29,7 @@ import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Peticionario extends Fragment implements AdapterView.OnItemSelectedListener{
@@ -256,6 +257,10 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         etnia.setAdapter(adapterEtnia);
 
         //adapter ciudad
+        System.out.println("IMPRIMIENDO CIUDADES!");
+        for(String s: lista_ciudades_provincias){
+            System.out.println("ciudad en este contexto: "+lista_ciudades_provincias);
+        }
         adapterautocomplate = new ArrayAdapter<String> (getContext(),android.R.layout.select_dialog_item,lista_ciudades_provincias);
         final AutoCompleteTextView search= (AutoCompleteTextView)view.findViewById(R.id.txt_ciudad);
         search.setThreshold(1);
@@ -376,7 +381,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
         }
     }
 
-    public void loadCiudadesProvincias() {
+    /*public void loadCiudadesProvincias() {
         lista_ciudades_provincias=new ArrayList<String>();
         AsyncTask.execute(new Runnable() {
             @Override
@@ -394,7 +399,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 }
             }
         });
-    }
+    }*/
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

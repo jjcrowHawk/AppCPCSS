@@ -1,15 +1,14 @@
-package com.example.personal.comunitarias;
+package com.example.personal.comunitarias.Secciones;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.example.personal.comunitarias.Facebook.FacebookActivity;
+import com.example.personal.comunitarias.R;
 
 public class SeccionVideoActivity extends AppCompatActivity {
 

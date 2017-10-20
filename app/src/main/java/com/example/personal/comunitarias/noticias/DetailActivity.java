@@ -32,7 +32,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.personal.comunitarias.NoticiasFragment;
 import com.example.personal.comunitarias.R;
 import com.squareup.picasso.Picasso;
 

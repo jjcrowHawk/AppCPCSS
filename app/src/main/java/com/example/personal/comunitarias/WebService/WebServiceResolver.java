@@ -1,7 +1,6 @@
 package com.example.personal.comunitarias.WebService;
 
 import com.example.personal.comunitarias.Constantes;
-import com.example.personal.comunitarias.WebServiceAsynchronic;
 
 import java.net.MalformedURLException;
 import java.util.Map;

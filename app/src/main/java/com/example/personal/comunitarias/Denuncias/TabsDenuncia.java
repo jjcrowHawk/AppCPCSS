@@ -108,7 +108,6 @@ public class TabsDenuncia extends AppCompatActivity {
                     p.setLista_prov(lista_prov);
                     p.setLista_etnia(lista_etnia);
                     p.setLista_ciudades_provincias(lista_ciudades_provincias);
-                    p.loadCiudadesProvincias();
                     return p;
                 case 1:
                     Denuncia d = new Denuncia(viewPager);

@@ -114,6 +114,33 @@ public class Ciudad extends _Default {
     }
 
     //Obtener la lista de todos los nombreslas ciudades de una provincia
+
+    public ArrayList<Ciudad> getListaCiudadesWS(){
+        ArrayList<Ciudad> lista= new ArrayList<>();
+        try {
+            WebServiceResolver ws= new WebServiceResolver(Constantes.WS_CIUDADES,null);
+            String result=ws.makeGetPetition();
+            JSONObject jsonG=new JSONObject(result);
+            int registros=Integer.parseInt(jsonG.getString("count"));
+            int paginas=registros/10;
+            paginas = registros%10>0?paginas+1:paginas;
+            for(int i=0;i<paginas;i++){
+                WebServiceResolver wsr= new WebServiceResolver(Constantes.WS_CIUDADES+"?offset="+i*10,null);
+                String p=wsr.makeGetPetition();
+                JSONObject json=new JSONObject(p);
+                JSONArray datos=json.getJSONArray("results");
+                for(int j=0;j<datos.length();j++){
+                    JSONObject item= datos.getJSONObject(j);
+                    System.out.println("ciudad: "+item.getString("nombre"));
+                    lista.add(new Ciudad(item.getInt("id"),item.getString("nombre"),item.getInt("provincia")));
+                }
+            }
+        } catch (JSONException|MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+
     public ArrayList<String> getListaNombresCiudad_prov(int idProvincia){
         ArrayList<String> lista = new ArrayList<>();
         try {

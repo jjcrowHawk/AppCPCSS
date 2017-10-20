@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias;
+package com.example.personal.comunitarias.Secciones;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,18 +10,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.personal.comunitarias.AsynchronousTask;
 import com.example.personal.comunitarias.BaseDeDatos.contenidos.Contenido;
-import com.example.personal.comunitarias.WebService.WebServiceResolver;
+import com.example.personal.comunitarias.Constantes;
+import com.example.personal.comunitarias.R;
+import com.example.personal.comunitarias.WebService.WebServiceAsynchronic;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 

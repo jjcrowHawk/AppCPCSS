@@ -192,16 +192,6 @@
             android:label="Facebook"
             android:parentActivityName=".RedesSocialesActivity" />
         <activity
-            android:name=".PartCiudadanaActivity"
-            android:configChanges="orientation|screenSize"
-            android:label="Participacion Ciudadana"
-            android:parentActivityName=".Menu"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.personal.comunitarias.Intro" />
-        </activity>
-        <activity
             android:name="com.ipaulpro.afilechooser.FileChooserActivity"
             android:enabled="true"
             android:exported="true"
@@ -215,32 +205,6 @@
 
                 <data android:mimeType="*/*" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".TransparenciaActivity"
-            android:label="Transparencia"
-            android:parentActivityName=".Intro"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.personal.comunitarias.Intro" />
-        </activity>
-        <activity
-            android:name=".ControlSocialActivity"
-            android:label="Control Social"
-            android:parentActivityName=".Intro"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.personal.comunitarias.Intro" />
-        </activity>
-        <activity
-            android:name=".RedesSocialesActivity"
-            android:label="Redes Sociales"
-            android:parentActivityName=".Menu">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.personal.comunitarias.Intro" />
         </activity>
         <activity
             android:name=".AntiCorrupcionActivity"
@@ -273,7 +237,7 @@
             android:configChanges="screenSize|screenSize"
         </activity>
         <activity android:name=".MenuSecundario" />
-        <activity android:name=".SeccionVideoActivity"
+        <activity android:name=".Secciones.SeccionVideoActivity"
             >
         </activity>
         <activity

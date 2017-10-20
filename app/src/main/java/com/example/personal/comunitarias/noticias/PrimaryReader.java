@@ -3,7 +3,6 @@ package com.example.personal.comunitarias.Noticias;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -12,8 +11,6 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
-import com.example.personal.comunitarias.MenuSecundario;
-import com.example.personal.comunitarias.NoticiasFragment;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

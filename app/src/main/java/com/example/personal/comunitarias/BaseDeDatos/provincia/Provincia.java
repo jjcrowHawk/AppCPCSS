@@ -42,6 +42,11 @@ public class Provincia extends _Default {
         this.regionid = regionid;
     }
 
+    public Provincia(int idprovincia, String nombre){
+        this.idprovincia = idprovincia;
+        this.nombre = nombre;
+    }
+
     public int getID_WS(String nombre){
         int id_encontrada=-1;
         try {
@@ -70,6 +75,34 @@ public class Provincia extends _Default {
             e.printStackTrace();
         }
         return id_encontrada;
+    }
+
+    public ArrayList<Provincia> getListaProvinciasWS(){
+        ArrayList<Provincia> lista=new ArrayList<>();
+        try {
+            WebServiceResolver ws= new WebServiceResolver(Constantes.WS_PROVINCIAS,null);
+            String result=ws.makeGetPetition();
+            JSONObject jsonC=new JSONObject(result);
+            int registros=Integer.parseInt(jsonC.getString("count"));
+            int paginas=registros/10;
+            paginas = registros%10>0?paginas+1:paginas;
+            for(int i=0;i<paginas;i++) {
+                WebServiceResolver wsr = new WebServiceResolver(Constantes.WS_PROVINCIAS + "?offset=" + i * 10, null);
+                String p = wsr.makeGetPetition();
+                JSONObject json = new JSONObject(p);
+                JSONArray datos = json.getJSONArray("results");
+                for (int j = 0; j < datos.length(); j++) {
+                    JSONObject item= datos.getJSONObject(j);
+                    System.out.println(item.getString("nombre"));
+                    lista.add(new Provincia(item.getInt("id"),item.getString("nombre")));
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return lista;
     }
 
     //Devuelve la lista de todas las provincias

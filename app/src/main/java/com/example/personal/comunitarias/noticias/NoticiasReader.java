@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
-import com.example.personal.comunitarias.NoticiasFragment;
 import com.example.personal.comunitarias.R;
 
 import org.jsoup.Jsoup;

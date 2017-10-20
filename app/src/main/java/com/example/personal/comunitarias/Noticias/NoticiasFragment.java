@@ -1,9 +1,8 @@
-package com.example.personal.comunitarias;
+package com.example.personal.comunitarias.Noticias;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,10 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.personal.comunitarias.Noticias.CardViewAdapter;
-import com.example.personal.comunitarias.Noticias.DetailActivity;
-import com.example.personal.comunitarias.Noticias.Noticia;
-import com.example.personal.comunitarias.Noticias.NoticiasReader;
+import com.example.personal.comunitarias.R;
 
 import java.util.LinkedList;
 import java.util.List;
