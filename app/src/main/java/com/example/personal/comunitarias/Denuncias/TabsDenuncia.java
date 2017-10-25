@@ -103,8 +103,6 @@ public class TabsDenuncia extends AppCompatActivity {
                     Peticionario p= new Peticionario(viewPager);
                     p.setLista_estadocivil(lista_estadocivil);
                     p.setLista_niveledu(lista_niveledu);
-                    p.setLista_nacionalidad(lista_nacionalidad);
-                    p.setLista_ocup(lista_ocup);
                     p.setLista_prov(lista_prov);
                     p.setLista_etnia(lista_etnia);
                     p.setLista_ciudades_provincias(lista_ciudades_provincias);
@@ -115,10 +113,8 @@ public class TabsDenuncia extends AppCompatActivity {
                     return d;
                 case 2:
                     Denunciado de = new Denunciado(viewPager);
-                    de.setLista_inst(lista_inst);
                     de.setLista_prov(lista_prov);
                     de.setLista_ciudades_provincias(lista_ciudades_provincias);
-                    de.setLista_ocup(lista_ocup);
                     return de;
                 case 3:
                     return new MostrarDatos(viewPager);

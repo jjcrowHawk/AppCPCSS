@@ -37,8 +37,7 @@ public class TabsPedido extends AppCompatActivity {
     LinearLayout tabStrip;
     CoordinatorLayout coordinatorLayout ;
 
-    static ArrayList<String> lista_estadocivil, lista_niveledu, lista_nacionalidad,
-            lista_ocup, lista_prov, lista_ciudad, lista_inst,lista_etnia,lista_pais;
+    static ArrayList<String> lista_estadocivil, lista_niveledu,lista_prov,lista_etnia,lista_ciudades_provincias;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,18 +111,16 @@ public class TabsPedido extends AppCompatActivity {
                     Peticionario_PE p= new Peticionario_PE(viewPager);
                     p.setLista_estadocivil(lista_estadocivil);
                     p.setLista_niveledu(lista_niveledu);
-                    p.setLista_nacionalidad(lista_nacionalidad);
-                    p.setLista_ocup(lista_ocup);
                     p.setLista_prov(lista_prov);
                     p.setLista_etnia(lista_etnia);
+                    p.setLista_ciudades_provincias(lista_ciudades_provincias);
                     return p;
                 case 1:
                     return new Pedido(viewPager);
                 case 2:
                     DatosEntidad de = new DatosEntidad(viewPager);
-                    de.setLista_inst(lista_inst);
                     de.setLista_prov(lista_prov);
-                    de.setLista_ocup(lista_ocup);
+                    de.setLista_ciudades_provincias(lista_ciudades_provincias);
                     return de;
                 case 3:
                     return new MostrarDatosPedido(viewPager);
@@ -196,24 +193,8 @@ public class TabsPedido extends AppCompatActivity {
         TabsPedido.lista_niveledu = lista_niveledu;
     }
 
-    public static void setLista_nacionalidad(ArrayList<String> lista_nacionalidad) {
-        TabsPedido.lista_nacionalidad = lista_nacionalidad;
-    }
-
-    public static void setLista_ocup(ArrayList<String> lista_ocup) {
-        TabsPedido.lista_ocup = lista_ocup;
-    }
-
     public static void setLista_prov(ArrayList<String> lista_prov) {
         TabsPedido.lista_prov = lista_prov;
-    }
-
-    public static void setLista_ciudad(ArrayList<String> lista_ciudad) {
-        TabsPedido.lista_ciudad = lista_ciudad;
-    }
-
-    public static void setLista_inst(ArrayList<String> lista_inst) {
-        TabsPedido.lista_inst = lista_inst;
     }
 
     public static ArrayList<String> getLista_etnia() {
@@ -224,11 +205,11 @@ public class TabsPedido extends AppCompatActivity {
         TabsPedido.lista_etnia = lista_etnia;
     }
 
-    public static ArrayList<String> getLista_pais() {
-        return lista_pais;
+    public static ArrayList<String> getLista_ciudades_provincias() {
+        return lista_ciudades_provincias;
     }
 
-    public static void setLista_pais(ArrayList<String> lista_pais) {
-        TabsPedido.lista_pais = lista_pais;
+    public static void setLista_ciudades_provincias(ArrayList<String> lista_ciudades_provincias) {
+        TabsPedido.lista_ciudades_provincias = lista_ciudades_provincias;
     }
 }

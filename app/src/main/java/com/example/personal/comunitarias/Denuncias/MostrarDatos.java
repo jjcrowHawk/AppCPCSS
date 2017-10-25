@@ -9,7 +9,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -20,25 +19,13 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
-import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
-import com.example.personal.comunitarias.BaseDeDatos.institucion.Institucion;
-import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
-import com.example.personal.comunitarias.BaseDeDatos.niveleducacion.Niveleducacion;
-import com.example.personal.comunitarias.BaseDeDatos.ocupacion.Ocupacion;
+import com.example.personal.comunitarias.AntiCorrupcionActivity;
 import com.example.personal.comunitarias.BaseDeDatos.predenuncia.Predenuncia;
-import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
-import com.example.personal.comunitarias.DatabaseRemote.Conexion;
-import com.example.personal.comunitarias.Menu;
+import com.example.personal.comunitarias.BaseDeDatos.requerimiento.Requerimiento;
 import com.example.personal.comunitarias.R;
 
-import java.io.File;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -78,36 +65,34 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
     static String Apellido_P;
     static String Mail_P;
     static String Identidad_P;
-    String Ocupacion_P;
     String Estadocivil_P;
+    String Pais_P;
+    String Celular_P;
     String provi_P;
     String Ciudad_P;
-    String Nacio_p;
-    String Reside_p;
     String Nivel_P;
     String TipoIde_P;
     String Genero_P;
     String Reservada_p;
+    String Institucion_P;
     static String Descripciion_D;
     int comparecer_d,hechos_d;
     static String Nombre_DE;
     static String Apellido_DE;
     String Cargo_DE;
-    String Unafectada_DE;
-    String Perdjudicada_DE;
     String Genero_DE;
     String Provincia_DE;
     String CIudad_DE;
     String Institucion_DE;
-    Integer idCiuDE, idCiuP , idProvDE, idProvp,idIndti,idocupacionP,idNivelEduca,idestado,idNacionalidad;
+    String Parroquia_DE;
+    Integer idCiuDE, idCiuP , idProvDE, idProvp,idIndti,idNivelEduca,idestado,idEtniaP;
     int reservada, reside;
     String gen = "";
     String Direccion_p,edad_p,cargo_p,telefono_p,NombreApellido_P,NombreApellido_D;
 
+    Requerimiento req;
 
     ProgressDialog mProgressDialog;
-    Predenuncia pd;
-    Reclamo reclamo;
 
     public  MostrarDatos(){
 
@@ -190,7 +175,6 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         txtApellidoDenunciado.setText(Apellido_DE);
         txtDenuncia.setText(Descripciion_D);
 
-
     }
 
     @Override
@@ -205,41 +189,35 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
 
 
     public void Guardar_Base(){
+        req= new Requerimiento();
+        req.setTipoDenuncia(0);
+        req.setIdentidadReservada(reservada==0);
+        req.setNombresDenunciante(NombreApellido_P);
+        req.setEdadDenunciante(edad_p);
+        req.setCorreoDenunciante(Mail_P);
+        req.setTelefonoDenunciante(telefono_p);
+        req.setCelularDenunciante(Celular_P);
+        req.setDireccionDenunciante(Direccion_p);
+        req.setInstitucionDenunciante(Institucion_P);
+        req.setCargoDenunciante(cargo_p);
+        req.setTipoIdentificacion(TipoIde_P);
+        req.setIdentificacionID(Identidad_P);
+        req.setPais(Pais_P);
+        req.setDescripcionInvestigación(Descripciion_D);
+        req.setProvinciaDenunciante(idProvp);
+        req.setCiudadDenunciante(idCiuP);
+        req.setGeneroDenunciante(Integer.parseInt(Genero_P));
+        req.setEstadoDenunciante(idestado);
+        req.setEtniaDenunciante(idEtniaP);
+        req.setEducacionDenunciante(idNivelEduca);
 
-        reclamo = new Reclamo();
-        reclamo.setCargo(cargo_p);
-        reclamo.setCiudaddeldenunciadoid(idCiuDE);
-        reclamo.setCiudaddeldenuncianteid(idCiuP);
-        reclamo.setComparecer(comparecer_d);
-        reclamo.setDireccion(Direccion_p);
-        reclamo.setDocumentores((Denuncia.evidencia ==null ? 0:1));
-        reclamo.setEmail(Mail_P);
-        reclamo.setResideextrangero(reside);
-        reclamo.setIdentidadreservada(reservada);
-        reclamo.setNombresapellidosdenunciado(NombreApellido_D);
-        reclamo.setNombresapellidosdenunciante(NombreApellido_P);
-        reclamo.setInstitucionimplicadaid(idIndti);
-        reclamo.setNumidenti(Identidad_P);
-        reclamo.setProvinciadenunciadoid(idProvDE);
-        reclamo.setProvinciadenuncianteid(idProvp);
-        reclamo.setTelefono(telefono_p);
-        reclamo.setTipoidentificacion(TipoIde_P);
-        reclamo.setPedidoDenuncia("Denuncia");
-
-        pd = new Predenuncia();
-        pd.setTipodenuncia("2");
-        pd.setDescripcioninvestigacion(Descripciion_D);
-        pd.setFuncionariopublico(""); //no se sabe
-        pd.setGenerodenunciado(Genero_DE);
-        pd.setGenerodenunciante(Genero_P);
-        pd.setNiveleducaciondenunciateid(idNivelEduca);
-        pd.setOcupaciondenuncianteid(idocupacionP);
-        pd.setEstadocivildenuncianteid(idestado);
-        pd.setInstitucionimplicadaid(idIndti);
-        pd.setNacionalidaddenuncianteid(idNacionalidad);
-        pd.setUnidaddireccionafectada(Unafectada_DE);
-        pd.setEvidencia(Denuncia.evidencia);
-
+        req.setProvinciaDenunciado(idProvDE);
+        req.setCiudadDenunciado(idCiuDE);
+        req.setGeneroDenunciado(Integer.parseInt(Genero_DE));
+        req.setInstitucionDenunciado(Institucion_DE);
+        req.setCargoDenunciado(Cargo_DE);
+        req.setParroquiaDenunciado(Parroquia_DE);
+        req.setEvidencia(Denuncia.evidencia);
 
         new Progress_guardando().execute();
 
@@ -315,6 +293,10 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         Direccion_p = p.getDireccion();
         edad_p = p.getEdad();
         cargo_p = p.getCargo();
+        Pais_P=  p.getPais();
+        Celular_P = p.getCelular();
+        Institucion_P = p.getOrganizacionSocial();
+
 
         if(Reservada_p.equals("SI")){
             reservada = 1;
@@ -326,32 +308,30 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         Estadocivil_P= p.getEstado_civil();
         provi_P= p.getProvi();
         Ciudad_P=p.getCiuda();
-        Nacio_p=p.getNacio();
-        Reside_p=p.getReside();
         telefono_p = p.getTelefono();
 
-        if(Reside_p.equals("SI")){
-            reside = 1;
-
-        }else{
-            reside = 0;
-        }
         Nivel_P=p.getNivelEdu();
         TipoIde_P=p.getTipoIden();
-        Genero_P=p.getGenero();
-
+        if(p.getGenero().equals("MASCULINO")) {
+            Genero_P = "1";
+        }
+        else if(p.getGenero().equals("FEMENINO")){
+            Genero_P = "2";
+        }
+        else{
+            Genero_P = "3";
+        }
         //id
         idProvp = p.getIdProvp();
         idCiuP = p.getIdCiuP();
-        idocupacionP = p.getIdocupacionP();
         idNivelEduca = p.getIdNivelEduca();
         idestado = p.getIdestado();
-        idNacionalidad = p.getIdNacionalidad();
+        idEtniaP = p.getIdEtnia();
 
 
 
 
-        Log.d("ID PETICIONARIO","IdProvinvia"+idProvp+"  idCiudad "+idCiuP+"  IdNivelEducacion "+idNivelEduca+"   idEstado"+idestado+"  idOcupacion"+idocupacionP+"  idNacinalidad"+ idNacionalidad);
+        Log.d("ID PETICIONARIO","IdProvinvia"+idProvp+"  idCiudad "+idCiuP+"  IdNivelEducacion "+idNivelEduca+"   idEstado"+idestado);
 
         //Denuncia
         comparecer_d=1;
@@ -367,11 +347,22 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
         Cargo_DE = e.getCargo_D();
         Provincia_DE = e.getProvincia_d();
         CIudad_DE = e.getCIudad_d();
-        Institucion_DE = e.getCIudad_d();
-        Genero_DE = e.getGenero_d();
+        Institucion_DE = e.getInstitucion_d();
+
+        if(e.getGenero_d()!=null && e.getGenero_d().equals("MASCULINO")) {
+            Genero_DE = "1";
+        }
+        else if(e.getGenero_d()!=null && e.getGenero_d().equals("FEMENINO")){
+            Genero_DE = "2";
+        }
+        else{
+            Genero_DE = "3";
+        }
+
         idProvDE = e.getIdProvDE();
         idCiuDE = e.getIdCiuDE();
         idIndti = e.getIdIndti();
+        Parroquia_DE = e.getParroquia_d();
 
         Log.d("ID Denunciado ","Genero_D"+Genero_DE+"  Genere_P "+gen);
 
@@ -379,7 +370,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
 
     public class Progress_guardando extends AsyncTask<Void, Void, Void> {
         Connection conn;
-        boolean status_reclamo,status_pred ;
+        boolean status_req;
 
         @Override
         protected void onPreExecute() {
@@ -394,12 +385,8 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
 
         @Override
         protected Void doInBackground(Void... params) {
-            reclamo.Guardar_ReclamoWS();
-            status_reclamo=reclamo.is_status();
-
-            pd.setIdpredenuncia(reclamo.getIdreclamo());
-            pd.guardarPredenunciaWS();
-            status_pred=pd.is_status();
+            req.guardarRequerimientoWS();
+            status_req = req.getStatus();
 
             return null;
         }
@@ -416,7 +403,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
             mProgressDialog.dismiss();
             mProgressDialog.cancel();
 
-            if(status_reclamo && status_pred){
+            if(status_req){
                 Log.d("myTag", "Si inserto");
 
                 SendMail();
@@ -427,7 +414,7 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
                             @TargetApi(11)
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
-                                Intent i=new Intent(getContext(),Menu.class);
+                                Intent i=new Intent(getContext(), AntiCorrupcionActivity.class);
                                 startActivity(i);
 
                             }

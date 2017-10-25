@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
+import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
 import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
 import com.example.personal.comunitarias.BaseDeDatos.etnia.Etnia;
 import com.example.personal.comunitarias.BaseDeDatos.institucion.Institucion;
@@ -34,7 +35,7 @@ public class IntroPedidos extends AppCompatActivity {
 
     //Listas
     ArrayList<String> lista_estadocivil, lista_niveledu, lista_nacionalidad,
-            lista_ocup, lista_prov, lista_ciudad, lista_inst,lista_etnia;
+            lista_ocup, lista_prov, lista_inst,lista_etnia,lista_ciudades_provincias;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,11 +59,19 @@ public class IntroPedidos extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             lista_estadocivil       = new Estadocivil().getListaEstadoCivilNombres();
             lista_niveledu          = new Niveleducacion().getListaNivelEducacionNombres();
-            lista_nacionalidad      = new Nacionalidad().getListaNacionalidadNombres();
-            lista_ocup              = new Ocupacion().getListaOcupacionNombres();
-            lista_prov              = new Provincia().getListaNombreProvincia();
-            lista_inst              = new Institucion().getListaInstitucionNombres();
             lista_etnia             = new Etnia().getListaNombresEtnia();
+            lista_prov              = new Provincia().getListaNombreProvincia();
+            lista_ciudades_provincias=new ArrayList<String>();
+            ArrayList<Ciudad> ciudades= new Ciudad().getListaCiudadesWS();
+            ArrayList<Provincia> provincias= new Provincia().getListaProvinciasWS();
+            for(Ciudad c: ciudades){
+                for(int i=0;i<provincias.size();i++)
+                    if(c.getProvinciaid() == provincias.get(i).getIdprovincia()){
+                        String ciudad_provincia = c.getNombre() + ", " + provincias.get(i).getNombre();
+                        lista_ciudades_provincias.add(ciudad_provincia);
+                        System.out.println("ciudad_provincia: "+ciudad_provincia);
+                    }
+            }
             return null;
         }
 
@@ -72,11 +81,9 @@ public class IntroPedidos extends AppCompatActivity {
             TabsPedido t = new TabsPedido();
             t.setLista_estadocivil(lista_estadocivil);
             t.setLista_niveledu(lista_niveledu);
-            t.setLista_nacionalidad(lista_nacionalidad);
-            t.setLista_ocup(lista_ocup);
             t.setLista_prov(lista_prov);
-            t.setLista_inst(lista_inst);
             t.setLista_etnia(lista_etnia);
+            t.setLista_ciudades_provincias(lista_ciudades_provincias);
             Intent i=new Intent(getBaseContext(), t.getClass());
             startActivity(i);
         }

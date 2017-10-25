@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -16,12 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.support.design.widget.FloatingActionButton;
 import android.widget.Toast;
 
-import com.example.personal.comunitarias.Contactenos.Contacto;
 import com.example.personal.comunitarias.CpccsTV.IntroTv;
 import com.example.personal.comunitarias.Facebook.IntroFacebook;
 import com.example.personal.comunitarias.Mision.Mision;
@@ -250,4 +246,14 @@ public class MenuPrincipal extends AppCompatActivity implements  NavigationView.
 
         return false;
     }
+
+    /*
+                SQLiteOpenHelper DBHelper = new DatabaseHelper(Menu.this);
+                SQLiteDatabase  bd = DBHelper.getWritableDatabase();
+                Cursor fila_db1 = bd.rawQuery("select * from boletin", null);
+                Cursor fila_db2 = bd.rawQuery("select * from noticia", null);
+                if(!isOnlineNet() && (fila_db1.getCount()== 0 || fila_db2.getCount() == 0)){
+                    Toast.makeText(Menu.this,"No hay informacion para presentar",Toast.LENGTH_SHORT).show();
+                }
+    * */
 }

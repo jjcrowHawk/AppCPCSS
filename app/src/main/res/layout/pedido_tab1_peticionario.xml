@@ -83,76 +83,6 @@
                 />
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/lbl_Telefono"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="240dp">
-
-            <EditText
-                android:id="@+id/txt_telefonop"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Teléfono"
-                android:inputType="number"
-                android:maxLength="10"
-                android:textSize="16sp"
-
-                />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/lbl_Direccion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="300dp">
-
-            <EditText
-                android:id="@+id/txt_direccionp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Dirección"
-                android:inputType="textCapWords"
-                android:maxLength="25"
-                android:textSize="16sp"
-
-                />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/lbl_organizacion_social"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="360dp">
-
-            <EditText
-                android:id="@+id/txt_org_social_P"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Organización Social"
-                android:inputType="textCapWords"
-                android:maxLength="25"
-                android:textSize="16sp"
-
-                />
-        </android.support.design.widget.TextInputLayout>
-
-        <TextView
-            android:id="@+id/textView23"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="440dp"
-            android:text="Ocupación"
-            android:textColor="#000000"
-            android:textSize="16sp" />
-
-        <Spinner
-            android:id="@+id/spinnerOcupacionPedido"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/textView23"
-            android:gravity="left" />
 
         <TextView
             android:id="@+id/textView2"
@@ -253,40 +183,6 @@
         </android.support.design.widget.TextInputLayout>
 
         <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="850dp"
-            android:text="Nacionalidad"
-            android:textColor="#000000"
-            android:textSize="17sp" />
-
-        <Spinner
-            android:id="@+id/spinner_pet_naciona"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/textView6"
-            android:gravity="left" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="900dp"
-            android:text="Reside en el extranjero"
-            android:textColor="#000000"
-            android:textSize="17sp" />
-
-        <Spinner
-            android:id="@+id/spinner_pet_resid"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/textView7"
-            android:gravity="left" />
-
-        <TextView
             android:id="@+id/textViewPais"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -297,7 +193,7 @@
             android:textSize="17sp" />
 
         <EditText
-            android:id="@+id/spinner_pet_pais"
+            android:id="@+id/txt_paisp"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -306,40 +202,16 @@
             tools:text="Ecuador" />
 
         <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="1000dp"
-            android:text="Provincia"
-            android:textColor="#000000"
-            android:textSize="17sp" />
-
-        <Spinner
-            android:id="@+id/spinner_pet_provin"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/textView8"
-            android:gravity="left" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="1050dp"
             android:text="Ciudad"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="22dp"
             android:textColor="#000000"
-            android:textSize="17sp" />
-
-        <Spinner
-            android:id="@+id/spinner_pet_ciud"
-            android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/textView9"
-            android:gravity="left" />
+            android:id="@+id/textView9"
+            android:textSize="17sp"
+            android:layout_below="@+id/txt_paisp"
+            android:layout_alignEnd="@+id/textView3" />
+
 
         <TextView
             android:id="@+id/textView10"
@@ -374,6 +246,97 @@
             android:background="@color/colorPrimaryDark"
             android:text="Siguiente"
             android:textColor="#ffffff" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/lbl_celular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/lbl_Telefono"
+            android:layout_alignParentStart="true">
+
+            <EditText
+                android:id="@+id/txt_celularp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Celular"
+                android:inputType="number"
+                android:maxLength="10"
+                android:textSize="16sp"
+
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/lbl_Telefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="92dp"
+            android:layout_below="@+id/lbl_Correo"
+            android:layout_alignParentStart="true">
+
+            <EditText
+                android:id="@+id/txt_telefonop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Teléfono"
+                android:inputType="number"
+                android:maxLength="10"
+                android:textSize="16sp"
+
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/lbl_Direccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:layout_below="@+id/lbl_Correo"
+            android:layout_alignParentStart="true">
+
+            <EditText
+                android:id="@+id/txt_direccionp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Dirección"
+                android:inputType="textCapWords"
+                android:maxLength="25"
+                android:textSize="16sp"
+
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/lbl_organizacion_social"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_above="@+id/spinner_pet_tipIden"
+            android:layout_alignStart="@+id/textView9">
+
+            <EditText
+                android:id="@+id/txt_org_social_P"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Organización Social"
+                android:inputType="textCapWords"
+                android:maxLength="25"
+                android:textSize="16sp"
+
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <AutoCompleteTextView
+
+            android:id="@+id/txt_ciudadp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese la ciudad"
+            android:textSize="16sp"
+            android:layout_marginTop="18dp"
+            android:layout_below="@+id/textView9"
+            android:layout_alignParentStart="true" />
 
     </RelativeLayout>
 </ScrollView>

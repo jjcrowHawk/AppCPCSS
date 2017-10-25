@@ -33,8 +33,7 @@ public class IntroDenuncias extends AppCompatActivity {
     private ProgressDialog mProgressDialog;
 
     //Listas
-    ArrayList<String> lista_estadocivil, lista_niveledu, lista_nacionalidad,
-            lista_ocup, lista_prov, lista_ciudades_provincias, lista_inst, lista_etnia;
+    ArrayList<String> lista_estadocivil, lista_niveledu, lista_prov, lista_ciudades_provincias, lista_etnia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,22 +70,11 @@ public class IntroDenuncias extends AppCompatActivity {
                         System.out.println("ciudad_provincia: "+ciudad_provincia);
                     }
             }
-            /*for (String prov : lista_prov) {
-                ArrayList<String> lista_ciudades = new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_WS(prov));
-                for (String ciudad : lista_ciudades) {
-                    String ciudad_provincia = ciudad + ", " + prov;
-                    lista_ciudades_provincias.add(ciudad_provincia);
-                }
-            }*/
             return null;
         }
 
         @Override
         protected void onPostExecute(Void result) {
-            /*Peticionario.adapter4.notifyDataSetChanged();
-            Peticionario.adapter5.notifyDataSetChanged();
-            Peticionario.adapterEtnia.notifyDataSetChanged();*/
-            //new Progress_ciudades_provincias().execute();
             TabsDenuncia t = new TabsDenuncia();
             t.setLista_estadocivil(lista_estadocivil);
             t.setLista_niveledu(lista_niveledu);
@@ -102,35 +90,4 @@ public class IntroDenuncias extends AppCompatActivity {
         }
     }
 
-/*
-    public class Progress_ciudades_provincias extends AsyncTask<Void, Void, Void>{
-        @Override
-        protected Void doInBackground(Void... voids) {
-            lista_ciudades_provincias=new ArrayList<String>();
-            ArrayList<Ciudad> ciudades= new Ciudad().getListaCiudadesWS();
-            ArrayList<Provincia> provincias= new Provincia().getListaProvinciasWS();
-            for(Ciudad c: ciudades){
-                for(int i=0;i<provincias.size();i++)
-                    if(c.getProvinciaid() == provincias.get(i).getIdprovincia()){
-                        String ciudad_provincia = c.getNombre() + ", " + provincias.get(i).getNombre();
-                        lista_ciudades_provincias.add(ciudad_provincia);
-                        System.out.println("ciudad_provincia: "+ciudad_provincia);
-                    }
-            }
-            /*for (String prov : lista_prov) {
-                ArrayList<String> lista_ciudades = new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_WS(prov));
-                for (String ciudad : lista_ciudades) {
-                    String ciudad_provincia = ciudad + ", " + prov;
-                    lista_ciudades_provincias.add(ciudad_provincia);
-                }
-            }
-            t.setLista_ciudades_provincias(lista_ciudades_provincias);
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result){
-            Peticionario.adapterautocomplate.notifyDataSetChanged();
-        }
-    }*/
 }

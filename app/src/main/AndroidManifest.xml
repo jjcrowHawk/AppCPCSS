@@ -26,9 +26,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Menu"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".Denuncias.TabsDenuncia"
             android:label="@string/title_denuncia"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -41,11 +38,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Pedidos.IntroPedidos"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Contactenos.Contacto"
-            android:label="@string/title_contacto"
-            android:parentActivityName=".RedesSocialesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Twitter.TwitterActivity"
@@ -157,10 +149,6 @@
             android:label="@string/title_activity_preguntas"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Noticias.NoticiasActivity"
-            android:label="Noticias Y Boletines"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".Noticias.DetailActivity"
             android:parentActivityName=".Noticias.NoticiasActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -168,9 +156,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Noticias.NoticiasActivity" />
         </activity>
-        <activity
-            android:name=".Noticias.Intro_noticias"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Oficinas.OfficeDialog"
             android:label=" "

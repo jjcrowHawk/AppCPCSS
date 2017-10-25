@@ -55,20 +55,15 @@ import javax.mail.internet.MimeMultipart;
 
 
 public class Denunciado extends Fragment implements AdapterView.OnItemSelectedListener{
-    Spinner  genero,institucion;
-    ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter4;
+    Spinner  genero;
+    ArrayAdapter<CharSequence> adapter;
 
-
-    private Spinner  ocupacion_denunciado;
-    private ArrayAdapter<String>  adapterOcupaDenunciado;
-    private EditText txtNombre, txtApellido, txtCargo;
+    private EditText txtNombre, txtApellido, txtCargo,txtParroqia;
     Button btn_enviar_r;
     private ViewPager viewPager;
     private View view;
-    private TabsDenuncia tabs;
     String correo;
     String contraseña;
-    Institucion i = new Institucion();
     static String  Nombre_D;
     static String Apellido_D;
     static String Cargo_D;
@@ -76,11 +71,10 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     static String Provincia_d;
     static String CIudad_d;
     static String Institucion_d;
+    static String Parroquia_d;
     static Integer idCiuDE,  idProvDE,idIndti;
 
     //
-    ArrayList<String> lista_ocup;
-    ArrayList<String> lista_inst;
     ArrayList<String> lista_prov;
     ArrayList<String> lista_ciudades_provincias;
     ProgressDialog mProgressDialog;
@@ -114,9 +108,6 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         genero.setAdapter(adapter);
 
-        //SearchBox
-        //final List<String> lista_instituciones =  new DatabaseHelper(getContext()).getAllInstitucionNombres();
-
         //Ciudades_provincias
         ArrayAdapter<String> adapterautocomplateCiudad = new ArrayAdapter<String> (getContext(),android.R.layout.select_dialog_item,lista_ciudades_provincias);
         final AutoCompleteTextView searchCiudad= (AutoCompleteTextView)view.findViewById(R.id.txt_ciudad);
@@ -125,29 +116,17 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         searchCiudad.setTextColor(Color.BLACK);
 
         //Institucion
-        ArrayAdapter<String> adapterautocomplate = new ArrayAdapter<String> (getContext(),android.R.layout.select_dialog_item,lista_inst);
+        ArrayAdapter<String> adapterautocomplate = new ArrayAdapter<String> (getContext(),android.R.layout.select_dialog_item,new ArrayList<String>());
         final AutoCompleteTextView search= (AutoCompleteTextView)view.findViewById(R.id.autoCompleteTextView1);
         search.setThreshold(1);
         search.setAdapter(adapterautocomplate);
         search.setTextColor(Color.BLACK);
 
-
-
-        //Spinner Ocupacion : empleado publico o privado
-        /*ocupacion_denunciado = (Spinner) view.findViewById(R.id.spinnerOcupacionDenunciado);
-        adapterOcupaDenunciado = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, lista_ocup);
-        adapterOcupaDenunciado.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        ocupacion_denunciado.setAdapter(adapterOcupaDenunciado);
-        */
-
-
         //data
         txtNombre = (EditText)view.findViewById(R.id.txt_NombresDen);
         txtApellido = (EditText)view.findViewById(R.id.txt_Apellidos);
         txtCargo = (EditText)view.findViewById(R.id.txt_cargo);
-        //txtUnAfectada = (EditText)view.findViewById(R.id.txt_unidadafectada);
-        //txtPerjud = (EditText)view.findViewById(R.id.txt_num_perjudicados);
+        txtParroqia = (EditText)view.findViewById(R.id.txtParroquia);
         correo ="prueba.envio.formulario@gmail.com";
         contraseña="espol1234";
 
@@ -168,9 +147,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                 Provincia_d = ciudad_provincia[1];
                 CIudad_d = ciudad_provincia[0];
                 Institucion_d = search.getText().toString();
-                //idProvDE = new DatabaseHelper(getContext()).getProvincia(Provincia_d);
-                //idCiuDE = new DatabaseHelper(getContext()).getCiudad_id(CIudad_d);
-
+                Parroquia_d = txtParroqia.getText().toString();
                 new Progress_cargando().execute();
             }
         });
@@ -212,14 +189,10 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
 
             Log.d("ID Denunciado ","IdProvinvia"+idProvDE+"  idCiudad "+idCiuDE+"  IdINDTI "+idIndti);
 
-            if(Nombre_D.equals("")|| Apellido_D.equals("")) {
+            if(Nombre_D.equals("")|| Apellido_D.equals("") || Cargo_D.equals("") || Institucion_d.equals("")) {
                 Toast.makeText(getContext(), "Por favor, llene todos los campos", Toast.LENGTH_LONG).show();
-
-                // validacion de institucion valida
             }
-            /*else if(! lista_inst.contains(Institucion_d)){
-                Toast.makeText(getContext(), "Por favor, elija una institución válida", Toast.LENGTH_LONG).show();
-            }*/
+
             else if(!lista_ciudades_provincias.contains(CIudad_d +", "+Provincia_d)){
                 Toast.makeText(getContext(), "Por favor, escriba una ciudad y provincia válida", Toast.LENGTH_LONG).show();
             }
@@ -229,49 +202,6 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
             }
         }
     }
-
-    /*public class ProgressCiudades extends AsyncTask<Void, Void, Void> {
-        String name_provincia;
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            name_provincia= provincia.getSelectedItem().toString();
-            mProgressDialog = new ProgressDialog(Denunciado.this.getContext());
-            mProgressDialog.setMessage("Cargando ciudades...");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.setCanceledOnTouchOutside(false);
-            mProgressDialog.show();
-        }
-
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_WS(name_provincia));
-            return null;
-        }
-
-        @Override
-        protected void onProgressUpdate(Void... values) {
-            super.onProgressUpdate(values);
-            mProgressDialog.show();
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            mProgressDialog.dismiss();
-            mProgressDialog.cancel();
-
-            //creando adapter para spinners
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                    android.R.layout.simple_spinner_item, ciudades);
-
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-            // Apply the adapter to the spinner
-            ciudad.setAdapter(adapter);
-        }
-    }*/
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -340,25 +270,16 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                 }
             }
         });
-        //validacion de UnidadAfectada
-        /*txtUnAfectada .addTextChangedListener(new TextValidator(txtUnAfectada) {
+
+        //Validaciones de Institucion
+        txtCargo .addTextChangedListener(new TextValidator(txtCargo) {
             @Override
             public void validate(EditText editText, String text) {
-                for (int index = 0; index < text.length(); index++) {
-                    String c = String.valueOf(text.charAt(index));
-                    if ((!text.matches("[a-zA-Zá-ú0-9? ]*"))){
-                        txtUnAfectada.setError("No ingrese caracteres especiales");
-                        text = text.substring(0, text.length() - 1);
-                        txtUnAfectada.setText(text);
-                        txtUnAfectada.setSelection(txtUnAfectada.getText().length());
-                    }
-                }
-                if (text.length() > 24) {
-                    txtUnAfectada.setError("Límite excedido");
+                if (text.length() > 70) {
+                    txtCargo.setError("Límite excedido");
                 }
             }
-        });*/
-
+        });
 
     }
 
@@ -371,10 +292,6 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
             return false;
         }
     }
-
-
-
-
 
     public static String getNombre_D() {
         return Nombre_D;
@@ -464,13 +381,17 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
         Denunciado.idIndti = idIndti;
     }
 
-    public void setLista_inst(ArrayList<String> lista_inst) {
-        this.lista_inst = lista_inst;
-    }
-
     public void setLista_prov(ArrayList<String> lista_prov) {this.lista_prov = lista_prov;  }
 
-    public void setLista_ocup(ArrayList<String> lista_ocup) {this.lista_ocup = lista_ocup; }
+    public static String getParroquia_d() {
+        return Parroquia_d;
+    }
+
+    public static void setParroquia_d(String parroquia_d) {
+        Parroquia_d = parroquia_d;
+    }
+
+
 }
 
 

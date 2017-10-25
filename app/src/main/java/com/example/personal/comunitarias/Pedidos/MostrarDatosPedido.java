@@ -19,11 +19,12 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.personal.comunitarias.AntiCorrupcionActivity;
+import com.example.personal.comunitarias.BaseDeDatos.pais.Pais;
 import com.example.personal.comunitarias.BaseDeDatos.predenuncia.Predenuncia;
 import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
-import com.example.personal.comunitarias.Denuncias.*;
-import com.example.personal.comunitarias.Denuncias.Peticionario;
-import com.example.personal.comunitarias.Menu;
+import com.example.personal.comunitarias.BaseDeDatos.requerimiento.Requerimiento;
+import com.example.personal.comunitarias.Denuncias.Denuncia;
 import com.example.personal.comunitarias.R;
 
 import java.sql.Connection;
@@ -71,14 +72,16 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
     String Estadocivil_P;
     String provi_P;
     String Ciudad_P;
-    String Nacio_p;
-    String Reside_p;
     String Nivel_P;
     String TipoIde_P;
     String Genero_P;
     String Reservada_p;
+    String Celular_P;
+    String Institucion_P;
+    String Pais_P;
     static String Descripciion_D;
     int comparecer_d,hechos_d,Documentos_D,reside;
+    int idEtniaP;
     static String Nombre_DE;
     static String Apellido_DE;
     String Cargo_DE;
@@ -95,8 +98,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
 
     //
     ProgressDialog mProgressDialog;
-    Predenuncia pd;
-    Reclamo reclamo;
+    Requerimiento req;
 
     public MostrarDatosPedido(ViewPager viewPager) {
 
@@ -170,40 +172,35 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
 
     public void Guardar_Base(){
 
-        reclamo = new Reclamo();
-        reclamo.setCargo(cargo_p);
-        reclamo.setCiudaddeldenunciadoid(idCiuDE);
-        reclamo.setCiudaddeldenuncianteid(idCiuP);
-        reclamo.setComparecer(comparecer_d);
-        reclamo.setDireccion(Direccion_p);
-        reclamo.setDocumentores(0);
-        reclamo.setEmail(Mail_P);
-        reclamo.setResideextrangero(reside);
-        reclamo.setIdentidadreservada(0);
-        reclamo.setNombresapellidosdenunciado(NombreApellido_D);
-        reclamo.setNombresapellidosdenunciante(NombreApellido_P);
-        reclamo.setInstitucionimplicadaid(idIndti);
-        reclamo.setNumidenti(Identidad_P);
-        reclamo.setProvinciadenunciadoid(idProvDE);
-        reclamo.setProvinciadenuncianteid(idProvp);
-        reclamo.setTelefono(telefono_p);
-        reclamo.setTipoidentificacion(TipoIde_P);
-        reclamo.setPedidoDenuncia("Pedido");
+        req= new Requerimiento();
+        req.setTipoDenuncia(1);
+        req.setIdentidadReservada(false);
+        req.setNombresDenunciante(NombreApellido_P);
+        req.setEdadDenunciante(edad_p);
+        req.setCorreoDenunciante(Mail_P);
+        req.setTelefonoDenunciante(telefono_p);
+        req.setCelularDenunciante(Celular_P);
+        req.setDireccionDenunciante(Direccion_p);
+        req.setInstitucionDenunciante(Institucion_P);
+        req.setCargoDenunciante(cargo_p);
+        req.setTipoIdentificacion(TipoIde_P);
+        req.setIdentificacionID(Identidad_P);
+        req.setPais(Pais_P);
+        req.setDescripcionInvestigación(Descripciion_D);
+        req.setProvinciaDenunciante(idProvp);
+        req.setCiudadDenunciante(idCiuP);
+        req.setGeneroDenunciante(Integer.parseInt(Genero_P));
+        req.setEstadoDenunciante(idestado);
+        req.setEtniaDenunciante(idEtniaP);
+        req.setEducacionDenunciante(idNivelEduca);
 
-
-        pd = new Predenuncia();
-        pd.setTipodenuncia("1");
-        pd.setDescripcioninvestigacion(Descripciion_D);
-        pd.setFuncionariopublico("");
-        pd.setGenerodenunciado(Genero_DE);
-        pd.setGenerodenunciante(Genero_P);
-        pd.setNiveleducaciondenunciateid(idNivelEduca);
-        pd.setOcupaciondenuncianteid(idocupacionP);
-        pd.setEstadocivildenuncianteid(idestado);
-        pd.setInstitucionimplicadaid(idIndti);
-        pd.setNacionalidaddenuncianteid(idNacionalidad);
-        pd.setEvidencia(Pedido.evidencia);
-
+        req.setProvinciaDenunciado(idProvDE);
+        req.setCiudadDenunciado(idCiuDE);
+        req.setGeneroDenunciado(Integer.parseInt(Genero_DE));
+        req.setInstitucionDenunciado(Institucion_DE);
+        req.setCargoDenunciado(Cargo_DE);
+        req.setEvidencia(Pedido.evidencia);
+        req.setParroquiaDenunciado("XXXXX");
         new Progress_guardando().execute();
 
 
@@ -292,26 +289,29 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         Estadocivil_P= p.getEstado_civil();
         provi_P= p.getProvi();
         Ciudad_P=p.getCiuda();
-        Nacio_p=p.getNacio();
-        Reside_p=p.getReside();
         telefono_p = p.getTelefono();
+        Celular_P= p.getCelular();
+        Institucion_P = p.getOrga_Pet();
 
-        if(Reside_p.equals("SI")){
-            reside = 1;
-
-        }else{
-            reside = 0;
-        }
         Nivel_P=p.getNivelEdu();
         TipoIde_P=p.getTipoIden();
-        Genero_P=p.getGenero();
+        Pais_P = p.getPais();
+
+        if(p.getGenero().equals("MASCULINO")) {
+            Genero_P = "1";
+        }
+        else if(p.getGenero().equals("FEMENINO")){
+            Genero_P = "2";
+        }
+        else{
+            Genero_P = "3";
+        }
 
         idProvp = p.getIdProvp();
         idCiuP = p.getIdCiuP();
-        idocupacionP = p.getIdocupacionP();
         idNivelEduca = p.getIdNivelEduca();
         idestado = p.getIdestado();
-        idNacionalidad = p.getIdNacionalidad();
+        idEtniaP = p.getIdEtniaP();
 
         Log.d(" Clase Mostrar ",Nombre_P+"  "+Apellido_P+""+Ocupacion_P);
 
@@ -334,7 +334,17 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         Apellido_DE = e.getApellido_D();
         NombreApellido_D = Nombre_DE +" "+ Apellido_DE;
         Cargo_DE = e.getCargo_D();
-        Genero_DE = e.getGenero_d();
+        Institucion_DE = e.getInstitucion_d();
+
+        if(e.getGenero_d()!=null && e.getGenero_d().equals("MASCULINO")) {
+            Genero_DE = "1";
+        }
+        else if(e.getGenero_d()!=null && e.getGenero_d().equals("FEMENINO")){
+            Genero_DE = "2";
+        }
+        else{
+            Genero_DE = "3";
+        }
 
         idProvDE = e.getIdProvDE();
         idCiuDE = e.getIdCiuDE();
@@ -366,7 +376,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
 
     public class Progress_guardando extends AsyncTask<Void, Void, Void> {
         Connection conn;
-        boolean status_reclamo,status_pred ;
+        boolean status_req ;
 
         @Override
         protected void onPreExecute() {
@@ -381,12 +391,8 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
 
         @Override
         protected Void doInBackground(Void... params) {
-            reclamo.Guardar_ReclamoWS();
-            status_reclamo=reclamo.is_status();
-
-            pd.setIdpredenuncia(reclamo.getIdreclamo());
-            pd.guardarPredenunciaWS();
-            status_pred=pd.is_status();
+            req.guardarRequerimientoWS();
+            status_req = req.getStatus();
 
             return null;
         }
@@ -403,7 +409,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
             mProgressDialog.dismiss();
             mProgressDialog.cancel();
 
-            if(status_reclamo && status_pred){
+            if(status_req){
                 Log.d("myTag", "Si inserto");
 
                 SendMail();
@@ -414,7 +420,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
                             @TargetApi(11)
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
-                                Intent i=new Intent(getContext(),Menu.class);
+                                Intent i=new Intent(getContext(), AntiCorrupcionActivity.class);
                                 startActivity(i);
 
                             }

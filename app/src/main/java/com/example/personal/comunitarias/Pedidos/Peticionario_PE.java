@@ -2,6 +2,7 @@ package com.example.personal.comunitarias.Pedidos;
 
 import android.app.ProgressDialog;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -20,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
 import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
+import com.example.personal.comunitarias.BaseDeDatos.etnia.Etnia;
 import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
 import com.example.personal.comunitarias.BaseDeDatos.niveleducacion.Niveleducacion;
 import com.example.personal.comunitarias.BaseDeDatos.ocupacion.Ocupacion;
@@ -40,15 +43,15 @@ import java.util.List;
 public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelectedListener {
 
 
-    Spinner tipoIdentificacion, genero, estado_civil, nivelEducacion, nacionalidad, residencia, provincia, ciudad,etnia;
-    ArrayAdapter<CharSequence> adapter, adapter2, adapter3, adapter7;
-    ArrayAdapter<String> adapter4,adapter5,adapter6,adapterOcupaPeticionarioPedido,adapterEtnia;
-    private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtOcupacion, txtTelefono, txtDireccion;
+    Spinner tipoIdentificacion, genero, estado_civil, nivelEducacion,etnia;
+    ArrayAdapter<CharSequence> adapter2, adapter3;
+    ArrayAdapter<String> adapter4,adapter5,adapterEtnia;
+    private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtTelefono,txtCelular, txtDireccion,txtPais;
+    static ArrayAdapter<String> adapterautocomplate;
     Button btn_seguir;
     Reclamo rec;
 
 
-    Spinner  ocupacion_peticionario_pedido;
     private EditText  txtEdadP, txtOrganizacionSocialP, txtCargoPeticionarioP;
     /******/
     private ViewPager viewPager;
@@ -58,6 +61,7 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
     static String  Apellido;
     static String  Telefono;
     static String  Direccion;
+    static String Celular;
     static String Email;
     static String Identidad;
 
@@ -65,27 +69,23 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
     static Integer idocupacionP;
     static Integer idNivelEduca;
     static Integer idestado;
-    static Integer idNacionalidad;
     static Integer  idCiuP;
     static Integer idProvp;
+    static Integer idEtniaP;
     static String TipoIden;
     static String Genero;
     static String Estado_civil;
     static String NivelEdu;
-    static String Nacio;
-    static String reside;
     static String provi;
     static String Ciuda;
     static String Edad_Pet;
     static String Cargo_Pet;
     static String Orga_Pet;
-    String ocupacion;
     static String Pais;
     static String Etnia;
 
     //Listas spinners
-    static ArrayList<String> lista_estadocivil, lista_niveledu, lista_nacionalidad,
-            lista_ocup, lista_prov, lista_ciudad, lista_inst,lista_etnia,lista_pais;
+    static ArrayList<String> lista_estadocivil, lista_niveledu, lista_prov, lista_ciudad,lista_etnia,lista_ciudades_provincias;
 
     //Progress
     private ProgressDialog mProgressDialog;
@@ -173,6 +173,16 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
             }
         });
 
+        txtCelular.addTextChangedListener(new TextValidator(txtCelular) {
+            @Override
+            public void validate(EditText editText, String text) {
+                //puede ser 10 u 11 por el RUC
+                if (text.length()> 0 && text.length() < 10) {
+                    txtCelular.setError("Cantidad de dígitos incorrecta");
+                }
+            }
+        });
+
         //validacione de Cargo
 
         txtCargoPeticionarioP.addTextChangedListener(new TextValidatorPedido(txtCargoPeticionarioP) {
@@ -189,6 +199,24 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
                 }
                 if (text.length() > 24) {
                     txtCargoPeticionarioP.setError("Límite excedido");
+                }
+            }
+        });
+
+        txtPais.addTextChangedListener(new TextValidatorPedido(txtPais) {
+            @Override
+            public void validate(EditText editText, String text) {
+                for (int index = 0; index < text.length(); index++) {
+                    String c = String.valueOf(text.charAt(index));
+                    if (isNumeric(c) || (!text.matches("[a-zA-Zá-ú? ]*"))){
+                        txtPais.setError("Sólo ingrese letras");
+                        text = text.substring(0, text.length() - 1);
+                        txtPais.setText(text);
+                        txtPais.setSelection(txtPais.getText().length());
+                    }
+                }
+                if (text.length() > 50) {
+                    txtPais.setError("Límite excedido");
                 }
             }
         });
@@ -250,61 +278,31 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         nivelEducacion.setAdapter(adapter5);
 
-        //Spinner Nivel Nacionalidad
-        nacionalidad = (Spinner) view.findViewById(R.id.spinner_pet_naciona);
-        adapter6 = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, lista_nacionalidad);
-        adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        nacionalidad.setAdapter(adapter6);
-
-        //Spinner Residencia
-        residencia = (Spinner) view.findViewById(R.id.spinner_pet_resid);
-        adapter7 = ArrayAdapter.createFromResource(getContext(),
-                R.array.si_no, android.R.layout.simple_spinner_item);
-        adapter7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        residencia.setAdapter(adapter7);
-
-
-        //Spinner Ocupacion : empleado publico o privado
-        ocupacion_peticionario_pedido = (Spinner) view.findViewById(R.id.spinnerOcupacionPedido);
-        adapterOcupaPeticionarioPedido = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, lista_ocup);
-        /*adapterOcupaPeticionarioPedido = ArrayAdapter.createFromResource(getContext(),
-                R.array.ocupacion, android.R.layout.simple_spinner_item);*/
-        adapterOcupaPeticionarioPedido.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        ocupacion_peticionario_pedido.setAdapter(adapterOcupaPeticionarioPedido);
-
-        //Spinner Provincia
-        provincia = (Spinner) view.findViewById(R.id.spinner_pet_provin);
-
-        //Spinner Ciudad
-        ciudad = (Spinner) view.findViewById(R.id.spinner_pet_ciud);
-
         //Spinner Etnia
         etnia= (Spinner) view.findViewById(R.id.spinner_pet_etnia);
         adapterEtnia= new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item,lista_etnia);
         adapterEtnia.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         etnia.setAdapter(adapterEtnia);
 
-        //Spinner Pais
-
+        adapterautocomplate = new ArrayAdapter<String> (getContext(),android.R.layout.select_dialog_item,lista_ciudades_provincias);
+        final AutoCompleteTextView search= (AutoCompleteTextView)view.findViewById(R.id.txt_ciudadp);
+        search.setThreshold(1);
+        search.setAdapter(adapterautocomplate);
+        search.setTextColor(Color.BLACK);
 
         //data
         txtNombre = (EditText)view.findViewById(R.id.txt_Nombres_petic);
         txtApellido = (EditText)view.findViewById(R.id.txt_Apellidos_petic);
         txtIdent = (EditText)view.findViewById(R.id.txt_tipoIdent_petic);
-        //txtOcupacion = (EditText)view.findViewById(R.id.txt_ocupacion_petic);
         txtCorreo = (EditText)view.findViewById(R.id.txt_correo_petic);
         txtTelefono = (EditText)view.findViewById(R.id.txt_telefonop);
         txtDireccion = (EditText)view.findViewById(R.id.txt_direccionp);
+        txtCelular = (EditText)view.findViewById(R.id.txt_celularp);
+        txtPais = (EditText)view.findViewById(R.id.txt_paisp);
 
         txtEdadP = (EditText)view.findViewById(R.id.txt_edad_P);
         txtOrganizacionSocialP = (EditText)view.findViewById(R.id.txt_org_social_P);
         txtCargoPeticionarioP = (EditText)view.findViewById(R.id.txt_cargo_peticionario_P);
-
-        loadSpinnerProvincias();
-        //focusableEditText();
-        //ValidarCampos();
 
         btn_seguir =(Button) view.findViewById(R.id.btnSiguiente_petic);
         btn_seguir.setOnClickListener(new View.OnClickListener() {
@@ -314,9 +312,9 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
                 Nombre = txtNombre.getText().toString();
                 Apellido = txtApellido.getText().toString();
                 Identidad = txtIdent.getText().toString();
-                ocupacion = ocupacion_peticionario_pedido.getSelectedItem().toString();
                 Email = txtCorreo.getText().toString();
                 Telefono = txtTelefono.getText().toString();
+                Celular = txtCelular.getText().toString();
                 Direccion = txtDireccion.getText().toString();
                 Edad_Pet= txtEdadP.getText().toString();
                 Orga_Pet =  txtOrganizacionSocialP.getText().toString();
@@ -325,10 +323,10 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
                 Genero = genero.getSelectedItem().toString();
                 Estado_civil = estado_civil.getSelectedItem().toString();
                 NivelEdu = nivelEducacion.getSelectedItem().toString();
-                Nacio = nacionalidad.getSelectedItem().toString();
-                reside = residencia.getSelectedItem().toString();
-                provi = provincia.getSelectedItem().toString();
-                Ciuda = ciudad.getSelectedItem().toString();
+                String [] arrayCiudad= search.getText().toString().split(",");
+                provi = arrayCiudad[1].trim();
+                Ciuda = arrayCiudad[0].trim();
+                Pais = txtPais.getText().toString();
                 Etnia= etnia.getSelectedItem().toString();
 
                 new Progress_cargando().execute();
@@ -351,34 +349,10 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
         }
     }
 
-    private void loadSpinnerProvincias() {
-        // Create an ArrayAdapter using the string array and a default spinner
-        // layout
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_spinner_item, lista_prov);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        this.provincia.setAdapter(adapter);
-
-        // This activity implements the AdapterView.OnItemSelectedListener
-        this.provincia.setOnItemSelectedListener(this);
-        this.ciudad.setOnItemSelectedListener(this);
-    }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (parent.getId()) {
-            case R.id.spinner_pet_provin:
-
-                //Obtener las ciudades correspondiente a la provincia seleccionada de la base LOCAL
-                //List<String> ciudades=new DatabaseHelper(getContext()).getAllCiudadesNombres_prov(new DatabaseHelper(getContext()).getProvincia(provincia.getSelectedItem().toString()));
-
-                new ProgressCiudades().execute();
-                break;
-
-            case R.id.spinner_pet_ciud:
-                break;
         }
 
     }
@@ -401,14 +375,11 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
         @Override
         protected Void doInBackground(Void... params) {
 
-            idocupacionP =      new Ocupacion().getID_WS(ocupacion);
             idestado =          new Estadocivil().getID_WS(Estado_civil);
             idNivelEduca =      new Niveleducacion().getID_WS(NivelEdu);
-            idNacionalidad =    new Nacionalidad().getID_WS(Nacio);
             idProvp =           new Provincia().getID_WS(provi);
             idCiuP =            new Ciudad().getID_WS(Ciuda);
-            //******PENDIENTE SACAR IDS DE CAMPOS ETNIAS Y PAIS******
-
+            idEtniaP=           new Etnia().getID_WS(Etnia);
             return null;
         }
 
@@ -427,56 +398,13 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
                     Identidad.equals("")
                     ||Cargo_Pet.equals("") ||
                     Email.equals("") ||
-                    Telefono.equals("") || Direccion.equals("") || Edad_Pet.equals("") || Orga_Pet.equals("") ){
+                    Telefono.equals("") || Direccion.equals("") || Edad_Pet.equals("") || Orga_Pet.equals("") || Celular.equals("") || Pais.equals("") ){
                 Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
             }else {
 
-                Log.d("Peticionario",Nombre+""+Estado_civil+""+Nacio+""+ provi+"");
+                Log.d("Peticionario",Nombre+""+Estado_civil+""+ provi+"");
                 viewPager.setCurrentItem(1);
             }
-        }
-    }
-
-    public class ProgressCiudades extends AsyncTask<Void, Void, Void> {
-        String name_provincia;
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            name_provincia= provincia.getSelectedItem().toString();
-            mProgressDialog = new ProgressDialog(Peticionario_PE.this.getContext());
-            mProgressDialog.setMessage("Cargando ciudades...");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.setCanceledOnTouchOutside(false);
-            mProgressDialog.show();
-        }
-
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            ciudades=new Ciudad().getListaNombresCiudad_prov(new Provincia().getID_WS(name_provincia));
-            return null;
-        }
-
-        @Override
-        protected void onProgressUpdate(Void... values) {
-            super.onProgressUpdate(values);
-            mProgressDialog.show();
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            mProgressDialog.dismiss();
-            mProgressDialog.cancel();
-
-            //creando adapter para spinner
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                    android.R.layout.simple_spinner_item, ciudades);
-
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-            // Apply the adapter to the spinner
-            ciudad.setAdapter(adapter);
         }
     }
 
@@ -503,14 +431,6 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
 
     public static void setIdestado(Integer idestado) {
         Peticionario_PE.idestado = idestado;
-    }
-
-    public static Integer getIdNacionalidad() {
-        return idNacionalidad;
-    }
-
-    public static void setIdNacionalidad(Integer idNacionalidad) {
-        Peticionario_PE.idNacionalidad = idNacionalidad;
     }
 
     public static Integer getIdCiuP() {
@@ -618,22 +538,6 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
         NivelEdu = nivelEdu;
     }
 
-    public static String getNacio() {
-        return Nacio;
-    }
-
-    public static void setNacio(String nacio) {
-        Nacio = nacio;
-    }
-
-    public static String getReside() {
-        return reside;
-    }
-
-    public static void setReside(String reside) {
-        Peticionario_PE.reside = reside;
-    }
-
     public static String getProvi() {
         return provi;
     }
@@ -714,24 +618,12 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
         Peticionario_PE.lista_niveledu = lista_niveledu;
     }
 
-    public static void setLista_nacionalidad(ArrayList<String> lista_nacionalidad) {
-        Peticionario_PE.lista_nacionalidad = lista_nacionalidad;
-    }
-
-    public static void setLista_ocup(ArrayList<String> lista_ocup) {
-        Peticionario_PE.lista_ocup = lista_ocup;
-    }
-
     public static void setLista_prov(ArrayList<String> lista_prov) {
         Peticionario_PE.lista_prov = lista_prov;
     }
 
     public static void setLista_ciudad(ArrayList<String> lista_ciudad) {
         Peticionario_PE.lista_ciudad = lista_ciudad;
-    }
-
-    public static void setLista_inst(ArrayList<String> lista_inst) {
-        Peticionario_PE.lista_inst = lista_inst;
     }
 
     public static String getPais() {
@@ -750,20 +642,52 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
         Etnia = etnia;
     }
 
-    public static ArrayList<String> getLista_pais() {
-        return lista_pais;
-    }
-
-    public static void setLista_pais(ArrayList<String> lista_pais) {
-        Peticionario_PE.lista_pais = lista_pais;
-    }
-
     public static ArrayList<String> getLista_etnia() {
         return lista_etnia;
     }
 
     public static void setLista_etnia(ArrayList<String> lista_etnia) {
         Peticionario_PE.lista_etnia = lista_etnia;
+    }
+
+    public static String getCelular() {
+        return Celular;
+    }
+
+    public static void setCelular(String celular) {
+        Celular = celular;
+    }
+
+    public static Integer getIdEtniaP() {
+        return idEtniaP;
+    }
+
+    public static void setIdEtniaP(Integer idEtniaP) {
+        Peticionario_PE.idEtniaP = idEtniaP;
+    }
+
+    public static ArrayList<String> getLista_estadocivil() {
+        return lista_estadocivil;
+    }
+
+    public static ArrayList<String> getLista_niveledu() {
+        return lista_niveledu;
+    }
+
+    public static ArrayList<String> getLista_prov() {
+        return lista_prov;
+    }
+
+    public static ArrayList<String> getLista_ciudad() {
+        return lista_ciudad;
+    }
+
+    public static ArrayList<String> getLista_ciudades_provincias() {
+        return lista_ciudades_provincias;
+    }
+
+    public static void setLista_ciudades_provincias(ArrayList<String> lista_ciudades_provincias) {
+        Peticionario_PE.lista_ciudades_provincias = lista_ciudades_provincias;
     }
 }
 
