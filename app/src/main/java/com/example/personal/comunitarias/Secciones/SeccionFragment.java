@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.personal.comunitarias.AsynchronousTask;
+import com.example.personal.comunitarias.WebService.AsynchronousTask;
 import com.example.personal.comunitarias.BaseDeDatos.contenidos.Contenido;
 import com.example.personal.comunitarias.Constantes;
 import com.example.personal.comunitarias.R;
@@ -276,44 +276,6 @@ public class SeccionFragment extends Fragment implements AsynchronousTask {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
-
-    public ArrayList<Contenido> getContenidoSeccion(String seccion) {
-        ArrayList<Contenido> lista = new ArrayList<>();
-        try {
-            WebServiceAsynchronic wsa= new WebServiceAsynchronic(Constantes.WS_CONTENIDO,getContext(),this,"GET");
-            // WebServiceResolver ws = new WebServiceResolver(Constantes.WS_CONTENIDO, null);
-            //String result = ws.makeGetPetition();
-            wsa.execute().get();
-            System.out.println("Actual json result: "+this.json_results);
-            JSONObject jsonG = new JSONObject(this.json_results);
-            int registros = Integer.parseInt(jsonG.getString("count"));
-            int paginas = registros / 10;
-            paginas = registros % 10 > 0 ? paginas + 1 : paginas;
-            for (int i = 0; i < paginas; i++) {
-                //WebServiceResolver wsr = new WebServiceResolver(Constantes.WS_CONTENIDO+ "?offset=" + i * 10, null);
-                WebServiceAsynchronic wsr= new WebServiceAsynchronic(Constantes.WS_CONTENIDO + "?offset=" + i * 10,getContext(),this,"GET");
-                //String p = wsr.makeGetPetition();
-                wsr.execute().get();
-                JSONObject json = new JSONObject(this.json_results);
-                JSONArray datos = json.getJSONArray("results");
-                for (int j = 0; j < datos.length(); j++) {
-                    JSONObject item = datos.getJSONObject(j);
-                    String [] splitTitulo= item.getString("descripcion").split("-");
-                    if (splitTitulo[1].equals(seccion)) {
-                        Contenido c = new Contenido(splitTitulo[0],item.getString("contenido"),item.getString("url_video"));
-                        lista.add(c);
-                    }
-
-                }
-            }
-        } catch (JSONException /*| MalformedURLException*/ e) {
-            e.printStackTrace();
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        return lista;
     }
 
 }

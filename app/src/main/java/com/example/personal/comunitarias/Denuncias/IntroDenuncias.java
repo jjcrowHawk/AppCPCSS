@@ -11,11 +11,7 @@ import android.view.WindowManager;
 import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
 import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
 import com.example.personal.comunitarias.BaseDeDatos.etnia.Etnia;
-import com.example.personal.comunitarias.BaseDeDatos.institucion.Institucion;
-import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
 import com.example.personal.comunitarias.BaseDeDatos.niveleducacion.Niveleducacion;
-import com.example.personal.comunitarias.BaseDeDatos.ocupacion.Ocupacion;
-import com.example.personal.comunitarias.BaseDeDatos.pais.Pais;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.R;
 

@@ -22,15 +22,11 @@ import android.widget.Toast;
 import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
 import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
 import com.example.personal.comunitarias.BaseDeDatos.etnia.Etnia;
-import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
 import com.example.personal.comunitarias.BaseDeDatos.niveleducacion.Niveleducacion;
-import com.example.personal.comunitarias.BaseDeDatos.ocupacion.Ocupacion;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
-import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.R;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class Peticionario extends Fragment implements AdapterView.OnItemSelectedListener{
@@ -41,7 +37,6 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     private EditText txtTelefono, txtCelular, txtDireccion, txtEdad, txtOrganizacionSocial, txtCargoPeticionario;
     static ArrayAdapter<String> adapterautocomplate;
     Button btn_seguir;
-    Reclamo rec;
 
     //Progress
     private ProgressDialog mProgressDialog;

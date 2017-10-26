@@ -1,7 +1,6 @@
 package com.example.personal.comunitarias.Pedidos;
 
 import android.app.ProgressDialog;
-import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -23,21 +22,13 @@ import android.widget.Toast;
 import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
 import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
 import com.example.personal.comunitarias.BaseDeDatos.etnia.Etnia;
-import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
 import com.example.personal.comunitarias.BaseDeDatos.niveleducacion.Niveleducacion;
-import com.example.personal.comunitarias.BaseDeDatos.ocupacion.Ocupacion;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
-import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
-import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
-import com.example.personal.comunitarias.Denuncias.Peticionario;
 import com.example.personal.comunitarias.Denuncias.TabsDenuncia;
 import com.example.personal.comunitarias.Denuncias.TextValidator;
 import com.example.personal.comunitarias.R;
 
 import java.util.ArrayList;
-import java.util.List;
-
-
 
 
 public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelectedListener {
@@ -49,7 +40,6 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
     private EditText txtNombre, txtApellido, txtCorreo,txtIdent , txtTelefono,txtCelular, txtDireccion,txtPais;
     static ArrayAdapter<String> adapterautocomplate;
     Button btn_seguir;
-    Reclamo rec;
 
 
     private EditText  txtEdadP, txtOrganizacionSocialP, txtCargoPeticionarioP;

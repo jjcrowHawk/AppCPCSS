@@ -8,8 +8,6 @@ package com.example.personal.comunitarias.BaseDeDatos.estadocivil;
 import android.util.Log;
 
 import com.example.personal.comunitarias.Constantes;
-import com.example.personal.comunitarias.DatabaseRemote.Conexion;
-import com.example.personal.comunitarias.DatabaseRemote._Default;
 import com.example.personal.comunitarias.WebService.WebServiceResolver;
 
 import org.json.JSONArray;
@@ -17,17 +15,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.MalformedURLException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
  *
  * @author Kattya Desiderio
  */
-public class Estadocivil extends _Default {
+public class Estadocivil{
     int idestadocivil; //pk
     String nombre;
 
@@ -65,40 +59,7 @@ public class Estadocivil extends _Default {
         }
         return id_encontrada;
     }
-    //Obtener la lista de estadoCivil
-    public ArrayList<Estadocivil> getListaEstadoCivil()  {
-        ArrayList<Estadocivil> lista = new ArrayList<>();
 
-        //Establecemos la conexión
-        Conexion c = null;
-        try {
-            c = new Conexion();
-            Connection conn= c.getConn();
-
-            //Creamos el query
-            Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM estadocivil;");
-
-            if (resultSet != null){
-                while (resultSet.next()){
-                    Estadocivil obj = new Estadocivil();
-                    obj.setIdestadocivil(resultSet.getInt("id"));
-                    obj.setNombre(resultSet.getString("nombre"));
-                    lista.add(obj);
-                    obj = null;
-                }
-            }
-            conn.close();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            this._status = false;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            this._status = false;
-        }
-
-        return lista;
-    }
     public ArrayList<String> getListaEstadoCivilNombres(){
         ArrayList<String> lista=new ArrayList<>();
         WebServiceResolver ws=new WebServiceResolver(Constantes.WS_ESTADOS_CIVILES,null);

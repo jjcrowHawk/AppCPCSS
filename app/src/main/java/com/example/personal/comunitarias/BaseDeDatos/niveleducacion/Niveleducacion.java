@@ -6,25 +6,19 @@
 package com.example.personal.comunitarias.BaseDeDatos.niveleducacion;
 
 import com.example.personal.comunitarias.Constantes;
-import com.example.personal.comunitarias.DatabaseRemote.Conexion;
-import com.example.personal.comunitarias.DatabaseRemote._Default;
 import com.example.personal.comunitarias.WebService.WebServiceResolver;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.MalformedURLException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
  *
  * @author Kattya Desiderio
  */
-public class Niveleducacion extends _Default {
+public class Niveleducacion {
     int idniveleducacion;
     String nombre;
     String descripcion;
@@ -73,42 +67,6 @@ public class Niveleducacion extends _Default {
             e.printStackTrace();
         }
         return id_encontrada;
-    }
-
-    //Obtener la lista de estadoCivil
-    public ArrayList<Niveleducacion> getListaNivelEducacion()  {
-        ArrayList<Niveleducacion> lista = new ArrayList<>();
-
-        //Establecemos la conexión
-        Conexion c = null;
-        try {
-            c = new Conexion();
-            Connection conn= c.getConn();
-
-            //Creamos el query
-            Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM niveleducacion;");
-
-            if (resultSet != null){
-                while (resultSet.next()){
-                    Niveleducacion obj = new Niveleducacion();
-                    obj.setIdniveleducacion(resultSet.getInt("id"));
-                    obj.setNombre(resultSet.getString("nombre"));
-                    obj.setDescripcion(resultSet.getString("descripcion"));
-                    lista.add(obj);
-                    obj = null;
-                }
-            }
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            this._status = false;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            this._status = false;
-        }
-
-        return lista;
     }
 
     public ArrayList<String> getListaNivelEducacionNombres() {

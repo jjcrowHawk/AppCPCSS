@@ -1,14 +1,9 @@
 package com.example.personal.comunitarias.Denuncias;
 
-import android.annotation.TargetApi;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -25,33 +20,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
-import com.example.personal.comunitarias.BaseDeDatos.estadocivil.Estadocivil;
-import com.example.personal.comunitarias.BaseDeDatos.institucion.Institucion;
-import com.example.personal.comunitarias.BaseDeDatos.nacionalidad.Nacionalidad;
-import com.example.personal.comunitarias.BaseDeDatos.niveleducacion.Niveleducacion;
-import com.example.personal.comunitarias.BaseDeDatos.ocupacion.Ocupacion;
-import com.example.personal.comunitarias.BaseDeDatos.predenuncia.Predenuncia;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
-import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
-import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.R;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Properties;
-
-import javax.mail.Authenticator;
-import javax.mail.BodyPart;
-import javax.mail.Message;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 
 
 public class Denunciado extends Fragment implements AdapterView.OnItemSelectedListener{
@@ -170,7 +142,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
 
         @Override
         protected Void doInBackground(Void... params) {
-            idIndti = new Institucion().getID_WS(Institucion_d);
+         //   idIndti = new Institucion().getID_WS(Institucion_d);
             idProvDE = new Provincia().getID_WS(Provincia_d);
             idCiuDE = new Ciudad().getID_WS(CIudad_d);
             return null;

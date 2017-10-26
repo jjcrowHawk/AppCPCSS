@@ -6,8 +6,6 @@
 package com.example.personal.comunitarias.BaseDeDatos.provincia;
 
 import com.example.personal.comunitarias.Constantes;
-import com.example.personal.comunitarias.DatabaseRemote.Conexion;
-import com.example.personal.comunitarias.DatabaseRemote._Default;
 import com.example.personal.comunitarias.WebService.WebServiceResolver;
 
 import org.json.JSONArray;
@@ -15,17 +13,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.MalformedURLException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
  *
  * @author Sianna Puente
  */
-public class Provincia extends _Default {
+public class Provincia {
     int idprovincia; //pk
     String nombre;
     int regionid; //fk
@@ -105,73 +99,6 @@ public class Provincia extends _Default {
         return lista;
     }
 
-    //Devuelve la lista de todas las provincias
-    public ArrayList<Provincia> getListaProvincia()  {
-        ArrayList<Provincia> lista = new ArrayList<>();
-
-        //Establecemos la conexión
-        Conexion c = null;
-        try {
-            c = new Conexion();
-            Connection conn= c.getConn();
-
-            //Creamos el query
-            Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM provincia;");
-
-            if (resultSet != null){
-                while (resultSet.next()){
-                    Provincia obj= new Provincia();
-                    obj.setIdprovincia(resultSet.getInt("id"));
-                    obj.setNombre(resultSet.getString("nombre"));
-                    lista.add(obj);
-                    obj = null;
-                }
-            }
-            conn.close();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            this._status = false;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            this._status = false;
-        }
-
-        return lista;
-    }
-
-    //Devuelve la lista de todos nombres las provincias
-    /*
-    public ArrayList<String> getListaNombreProvincia(){
-        ArrayList<String> lista = new ArrayList<>();
-
-        //Establecemos la conexión
-        Conexion c = null;
-        try {
-            c = new Conexion();
-            Connection conn= c.getConn();
-
-            //Creamos el query
-            Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM provincia;");
-
-            if (resultSet != null){
-                while (resultSet.next()){
-                    lista.add(resultSet.getString("nombre"));
-                }
-            }
-            conn.close();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            this._status = false;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            this._status = false;
-        }
-
-        return lista;
-    }
-    */
     public ArrayList<String> getListaNombreProvincia(){
         ArrayList<String> lista=new ArrayList<String>();
         try {

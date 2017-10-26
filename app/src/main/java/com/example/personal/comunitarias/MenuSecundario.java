@@ -1,5 +1,8 @@
 package com.example.personal.comunitarias;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -16,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.personal.comunitarias.Contactenos.ContactoFragment;
+import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
 import com.example.personal.comunitarias.Facebook.IntroFacebook;
 import com.example.personal.comunitarias.Noticias.NoticiasFragment;
 import com.example.personal.comunitarias.Noticias.PrimaryReader;
@@ -104,7 +108,11 @@ public class MenuSecundario extends AppCompatActivity implements  SeccionFragmen
             case "NT":
                 tituloTextView.setText("\tNoticias");
                 cambiarImagen("NT");
-                if(isOnlineNet()) {
+                SQLiteOpenHelper DBHelper = new DatabaseHelper(MenuSecundario.this);
+                SQLiteDatabase bd = DBHelper.getWritableDatabase();
+                Cursor fila_db1 = bd.rawQuery("select * from boletin", null);
+                Cursor fila_db2 = bd.rawQuery("select * from noticia", null);
+                if(isOnlineNet() || (fila_db1.getCount()!= 0 || fila_db2.getCount() != 0)) {
                     new PrimaryReader(MenuSecundario.this, NoticiasFragment.noticias, false).execute("noticias", "1");
                     NoticiasFragment nf = new NoticiasFragment();
                     transaction.add(R.id.containerView, nf);
@@ -210,7 +218,11 @@ public class MenuSecundario extends AppCompatActivity implements  SeccionFragmen
             public void onClick(View view) {
                 tituloTextView.setText("\tNoticias");
                 cambiarImagen("NT");
-                if(isOnlineNet()) {
+                SQLiteOpenHelper DBHelper = new DatabaseHelper(MenuSecundario.this);
+                SQLiteDatabase bd = DBHelper.getWritableDatabase();
+                Cursor fila_db1 = bd.rawQuery("select * from boletin", null);
+                Cursor fila_db2 = bd.rawQuery("select * from noticia", null);
+                if(isOnlineNet() || (fila_db1.getCount()!= 0 || fila_db2.getCount() != 0)) {
                     new PrimaryReader(MenuSecundario.this, NoticiasFragment.noticias, false).execute("noticias", "1");
                     NoticiasFragment nf = new NoticiasFragment();
                     transaction = getSupportFragmentManager().beginTransaction();

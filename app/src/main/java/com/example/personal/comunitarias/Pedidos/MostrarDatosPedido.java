@@ -20,11 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.personal.comunitarias.AntiCorrupcionActivity;
-import com.example.personal.comunitarias.BaseDeDatos.pais.Pais;
-import com.example.personal.comunitarias.BaseDeDatos.predenuncia.Predenuncia;
-import com.example.personal.comunitarias.BaseDeDatos.reclamo.Reclamo;
 import com.example.personal.comunitarias.BaseDeDatos.requerimiento.Requerimiento;
-import com.example.personal.comunitarias.Denuncias.Denuncia;
 import com.example.personal.comunitarias.R;
 
 import java.sql.Connection;

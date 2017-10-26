@@ -5,11 +5,7 @@
  */
 package com.example.personal.comunitarias.BaseDeDatos.ciudad;
 
-import android.support.annotation.NonNull;
-
 import com.example.personal.comunitarias.Constantes;
-import com.example.personal.comunitarias.DatabaseRemote.Conexion;
-import com.example.personal.comunitarias.DatabaseRemote._Default;
 import com.example.personal.comunitarias.WebService.WebServiceResolver;
 
 import org.json.JSONArray;
@@ -17,21 +13,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.MalformedURLException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Set;
 
 /**
  *
  *  @author Sianna Puente
  */
-public class Ciudad extends _Default {
+public class Ciudad {
     int idciudad; //pk
     String nombre;
     int provinciaid; // fk
@@ -76,41 +64,6 @@ public class Ciudad extends _Default {
             e.printStackTrace();
         }
         return id_encontrada;
-    }
-
-
-    //Obtener la lista de todas las ciudades de una provincia
-    public ArrayList<Ciudad> getListaCiudad_prov(int idProvincia){
-        ArrayList<Ciudad> lista = new ArrayList<>();
-
-        //Establecemos la conexión
-        Conexion c = null;
-        try {
-            c = new Conexion();
-            Connection conn= c.getConn();
-
-            //Creamos el query
-            Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM ciudad WHERE provinciaid='"+idProvincia+"';");
-            if (resultSet != null){
-                while (resultSet.next()){
-                    Ciudad obj= new Ciudad();
-                    obj.setIdciudad(resultSet.getInt("id"));
-                    obj.setNombre(resultSet.getString("nombre"));
-                    obj.setProvinciaid(resultSet.getInt("provinciaid"));
-                    lista.add(obj);
-                    obj = null;
-                }
-            }
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            this._status = false;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            this._status = false;
-        }
-        return lista;
     }
 
     //Obtener la lista de todos los nombreslas ciudades de una provincia
@@ -168,42 +121,6 @@ public class Ciudad extends _Default {
         }
         return lista;
 
-    }
-
-    //Obtener la lista de todas las ciudades
-    public ArrayList<Ciudad> getListaCiudad() {
-        ArrayList<Ciudad> lista = new ArrayList<>();
-
-        //Establecemos la conexión
-        Conexion c = null;
-        try {
-            c = new Conexion();
-            Connection conn= c.getConn();
-
-            //Creamos el query
-            Statement st = conn.createStatement();
-            ResultSet resultSet = st.executeQuery("SELECT * FROM ciudad;");
-            if (resultSet != null){
-                while (resultSet.next()){
-                    Ciudad obj= new Ciudad();
-                    obj.setIdciudad(resultSet.getInt("id"));
-                    obj.setNombre(resultSet.getString("nombre"));
-                    obj.setProvinciaid(resultSet.getInt("provinciaid"));
-                    lista.add(obj);
-                    obj = null;
-                }
-            }
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            this._status = false;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            this._status = false;
-        }
-
-
-        return lista;
     }
 
     public Ciudad(String nombre) {

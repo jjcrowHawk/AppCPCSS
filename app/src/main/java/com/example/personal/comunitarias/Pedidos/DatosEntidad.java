@@ -1,14 +1,12 @@
 package com.example.personal.comunitarias.Pedidos;
 
 import android.app.ProgressDialog;
-import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,17 +19,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.personal.comunitarias.BaseDeDatos.ciudad.Ciudad;
-import com.example.personal.comunitarias.BaseDeDatos.institucion.Institucion;
 import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
-import com.example.personal.comunitarias.DatabaseHelper.DatabaseHelper;
-import com.example.personal.comunitarias.Denuncias.Denunciado;
-import com.example.personal.comunitarias.Denuncias.MostrarDatos;
 import com.example.personal.comunitarias.R;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 
 public class DatosEntidad extends Fragment implements AdapterView.OnItemSelectedListener {
@@ -43,7 +34,6 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
     private Button siguiente;
     private ViewPager viewPager;
     private View view;
-    Institucion i = new Institucion();
     static String  Nombre_D;
     static String Apellido_D;
     static String Cargo_D;
@@ -159,7 +149,7 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
 
         @Override
         protected Void doInBackground(Void... params) {
-            idIndti = new Institucion().getID_WS(Institucion_d);
+            //idIndti = new Institucion().getID_WS(Institucion_d);
             idProvDE = new Provincia().getID_WS(Provincia_d);
             idCiuDE = new Ciudad().getID_WS(CIudad_d);
             return null;
@@ -347,14 +337,6 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
 
     public void setLista_ciudades_provincias(ArrayList<String> lista_ciudades_provincias) {
         this.lista_ciudades_provincias = lista_ciudades_provincias;
-    }
-
-    public Institucion getI() {
-        return i;
-    }
-
-    public void setI(Institucion i) {
-        this.i = i;
     }
 
     public String getNombre() {

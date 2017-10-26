@@ -5,9 +5,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.personal.comunitarias.AsynchronousTask;
 import com.example.personal.comunitarias.Constantes;
-import com.example.personal.comunitarias.WebService.HttpRequest;
+
 import java.util.Map;
 
 /**

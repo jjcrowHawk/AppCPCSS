@@ -1,4 +1,4 @@
-package com.example.personal.comunitarias;
+package com.example.personal.comunitarias.WebService;
 
 /**
  * Created by pc on 15/7/2017.
