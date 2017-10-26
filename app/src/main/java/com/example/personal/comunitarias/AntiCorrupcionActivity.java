@@ -39,4 +39,10 @@ public class AntiCorrupcionActivity extends AppCompatActivity{
         });
     }
 
+    @Override
+    public void onBackPressed(){
+        Intent i= new Intent(this.getBaseContext(),MenuPrincipal.class);
+        startActivity(i);
+    }
 }
+

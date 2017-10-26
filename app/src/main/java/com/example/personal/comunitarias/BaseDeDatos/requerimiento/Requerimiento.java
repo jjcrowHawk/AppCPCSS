@@ -1,14 +1,17 @@
 package com.example.personal.comunitarias.BaseDeDatos.requerimiento;
 
+import com.example.personal.comunitarias.BaseDeDatos.provincia.Provincia;
 import com.example.personal.comunitarias.Constantes;
 import com.example.personal.comunitarias.WebService.HttpRequest;
 import com.example.personal.comunitarias.WebService.WebServiceResolver;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,7 +26,7 @@ public class Requerimiento {
     String nombresDenunciante,edadDenunciante,correoDenunciante,telefonoDenunciante,celularDenunciante,direccionDenunciante,institucionDenunciante,cargoDenunciante,tipoIdentificacion,identificacionID;
     String pais,descripcionInvestigación;
     int provinciaDenunciante, ciudadDenunciante, generoDenunciante, estadoDenunciante,etniaDenunciante,educacionDenunciante;
-    String institucionDenunciado, cargoDenunciado, parroquiaDenunciado;
+    String nombresDenunciado, institucionDenunciado, cargoDenunciado, parroquiaDenunciado;
     int generoDenunciado,provinciaDenunciado,ciudadDenunciado;
     File evidencia;
     boolean status;
@@ -35,7 +38,7 @@ public class Requerimiento {
     public void guardarRequerimientoWS(){
         Map<String,String> datos=new HashMap<String,String>();
         try {
-            datos.put("tipo_requerimiento", ""+this.tipoDenuncia);
+            datos.put("tipodenuncia", ""+this.tipoDenuncia);
             datos.put("identidad_reservada", ""+this.identidadReservada);
             datos.put("nombres_apellidos_denunciante", ""+this.nombresDenunciante);
             datos.put("edad_denunciante", this.edadDenunciante);
@@ -48,13 +51,14 @@ public class Requerimiento {
             datos.put("genero_denunciante", "" + this.generoDenunciante);
             datos.put("estado_civil_denunciante",""+this.estadoDenunciante);
             datos.put("etnia_denunciante",""+this.etniaDenunciante);
-            datos.put("nivel_educacion_denunciante",""+this.educacionDenunciante);
+            datos.put("niveleducaciondenunciante",""+this.educacionDenunciante);
             datos.put("institucion_denunciante",this.institucionDenunciante);
             datos.put("cargo_denunciante",this.cargoDenunciante);
             datos.put("tipo_identificacion",this.tipoIdentificacion);
             datos.put("identificacion_id",this.identificacionID);
             datos.put("pais",this.pais);
-            datos.put("descripcion_investigacion",this.descripcionInvestigación);
+            datos.put("descripcion",this.descripcionInvestigación);
+            datos.put("nombres_apellidos_denunciado",this.nombresDenunciado);
             datos.put("genero_denunciado",""+this.generoDenunciado);
             datos.put("institucion_denunciado",this.institucionDenunciado);
             datos.put("cargo_denunciado",this.cargoDenunciado);
@@ -65,9 +69,7 @@ public class Requerimiento {
             WebServiceResolver ws = new WebServiceResolver(Constantes.WS_REQUERIMIENTOS, datos);
             System.out.println("RESPONSE BEFORE PETITION: "+ws.getResponse());
             System.out.println("RESPONSE OF PETITION: "+ws.makePostPetition());
-            JSONObject jsonRespuesta=new JSONObject(ws.getResponse());
-            System.out.print(jsonRespuesta);
-            String idPred=jsonRespuesta.getString("id");
+            String idPred=""+getCantidadDenuncias();
             if(this.evidencia!=null) {
                 System.out.println("POSTING FILE.........");
                 String nombreArchivo=evidencia.toString().substring(evidencia.toString().lastIndexOf("/")+1);
@@ -91,6 +93,31 @@ public class Requerimiento {
             e.printStackTrace();
             this.status=false;
         }
+    }
+
+    public int getCantidadDenuncias(){
+        int contador=0;
+        try {
+            WebServiceResolver ws = new WebServiceResolver(Constantes.WS_REQUERIMIENTOS,null);
+            String result=ws.makeGetPetition();
+            JSONObject jsonC=new JSONObject(result);
+            int registros=Integer.parseInt(jsonC.getString("count"));
+            int paginas=registros/10;
+            paginas = registros%10>0?paginas+1:paginas;
+            for(int i=0;i<paginas;i++) {
+                WebServiceResolver wsr = new WebServiceResolver(Constantes.WS_REQUERIMIENTOS + "?offset=" + i * 10, null);
+                String p = wsr.makeGetPetition();
+                JSONObject json = new JSONObject(p);
+                JSONArray datos = json.getJSONArray("results");
+                for (int j = 0; j < datos.length(); j++) {
+                    contador++;
+                }
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return contador;
     }
 
     public boolean getStatus() {
@@ -315,5 +342,13 @@ public class Requerimiento {
 
     public void setEvidencia(File evidencia) {
         this.evidencia = evidencia;
+    }
+
+    public String getNombresDenunciado() {
+        return nombresDenunciado;
+    }
+
+    public void setNombresDenunciado(String nombresDenunciado) {
+        this.nombresDenunciado = nombresDenunciado;
     }
 }

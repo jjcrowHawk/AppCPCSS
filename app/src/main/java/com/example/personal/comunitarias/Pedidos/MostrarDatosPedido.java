@@ -173,7 +173,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
     public void Guardar_Base(){
 
         req= new Requerimiento();
-        req.setTipoDenuncia(1);
+        req.setTipoDenuncia(2);
         req.setIdentidadReservada(false);
         req.setNombresDenunciante(NombreApellido_P);
         req.setEdadDenunciante(edad_p);
@@ -194,6 +194,7 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
         req.setEtniaDenunciante(idEtniaP);
         req.setEducacionDenunciante(idNivelEduca);
 
+        req.setNombresDenunciado(NombreApellido_D);
         req.setProvinciaDenunciado(idProvDE);
         req.setCiudadDenunciado(idCiuDE);
         req.setGeneroDenunciado(Integer.parseInt(Genero_DE));
