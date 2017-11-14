@@ -53,6 +53,8 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
         this.viewPager = viewPager;
     }
 
+    public DatosEntidad(){}
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

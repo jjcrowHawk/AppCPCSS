@@ -82,6 +82,7 @@ public class IntroPedidos extends AppCompatActivity {
             t.setLista_ciudades_provincias(lista_ciudades_provincias);
             Intent i=new Intent(getBaseContext(), t.getClass());
             startActivity(i);
+            finish();
         }
     }
 

@@ -83,6 +83,7 @@ public class IntroDenuncias extends AppCompatActivity {
 
             Intent i=new Intent(getBaseContext(), t.getClass());
             startActivity(i);
+            finish();
         }
     }
 

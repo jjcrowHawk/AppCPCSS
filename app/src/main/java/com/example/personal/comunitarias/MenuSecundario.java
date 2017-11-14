@@ -125,14 +125,9 @@ public class MenuSecundario extends AppCompatActivity implements  SeccionFragmen
             case "CON":
                 tituloTextView.setText("\tContacto");
                 cambiarImagen("CON");
-                if(isOnlineNet()) {
-                    ContactoFragment cf = new ContactoFragment();
-                    transaction.add(R.id.containerView, cf);
-                    transaction.commit();
-                }
-                else{
-                    Toast.makeText(MenuSecundario.this,"No tiene conexion a internet, conéctese para poder acceder a esta opcion",Toast.LENGTH_LONG).show();
-                }
+                ContactoFragment cf = new ContactoFragment();
+                transaction.add(R.id.containerView, cf);
+                transaction.commit();
                 break;
             default:
                 break;
@@ -240,15 +235,10 @@ public class MenuSecundario extends AppCompatActivity implements  SeccionFragmen
             public void onClick(View view) {
                 tituloTextView.setText("\tContacto");
                 cambiarImagen("CON");
-                if(isOnlineNet()) {
                     ContactoFragment cf = new ContactoFragment();
                     transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.containerView, cf);
                     transaction.commit();
-                }
-                else{
-                    Toast.makeText(MenuSecundario.this,"No tiene conexion a internet, conéctese para poder acceder a esta opcion",Toast.LENGTH_LONG).show();
-                }
             }
         });
 
@@ -363,10 +353,12 @@ public class MenuSecundario extends AppCompatActivity implements  SeccionFragmen
     }
 
     public void limpiarContainer(){
-        for(Fragment fragment:getSupportFragmentManager().getFragments()){
-                if(fragment!=null)
+        if(getSupportFragmentManager().getFragments()!=null) {
+            for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+                if (fragment != null)
                     getSupportFragmentManager().beginTransaction().remove(fragment).commit();
             }
+        }
     }
 
     public Boolean isOnlineNet() {
