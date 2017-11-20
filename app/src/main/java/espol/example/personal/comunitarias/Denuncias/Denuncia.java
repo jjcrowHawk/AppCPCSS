@@ -16,7 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.personal.comunitarias.R;
-import com.ipaulpro.afilechooser.utils.FileUtils;
+import espol.ipaulpro.afilechooser.utils.FileUtils;
 
 import java.io.File;
 import java.util.ArrayList;

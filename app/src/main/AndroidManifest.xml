@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--uses-permission android:name="android.permission.READ_PHONE_STATE" /-->
 
     <application
         android:allowBackup="true"
@@ -48,18 +48,15 @@
             android:name="espol.example.personal.comunitarias.Twitter.TwitterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Tweets"
-            android:parentActivityName=".RedesSocialesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="espol.example.personal.comunitarias.Youtube.YoutubeVideos"
             android:label="Videos"
-            android:parentActivityName=".RedesSocialesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="espol.example.personal.comunitarias.Youtube.IntroVideos"
-            android:parentActivityName=".RedesSocialesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
@@ -70,7 +67,6 @@
         <activity
             android:name="espol.example.personal.comunitarias.Twitter.IntroTweets"
             android:screenOrientation="portrait"
-            android:parentActivityName=".RedesSocialesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="espol.example.personal.comunitarias.CpccsTV.CpccsTv"
@@ -90,76 +86,7 @@
             android:label="@string/title_activity_vision"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".preguntas.PreguntasFrecuentes"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".preguntas.Pregunta1"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".preguntas.Pregunta2"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".preguntas.Pregunta3"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".preguntas.Pregunta4"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".preguntas.Pregunta5"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".preguntas.Pregunta6"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".preguntas.Pregunta7"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".preguntas.Pregunta8"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".preguntas.Pregunta9"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".preguntas.Pregunta10"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".preguntas.Pregunta11"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".preguntas.Pregunta12"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".preguntas.Pregunta13"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_preguntas"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name="espol.example.personal.comunitarias.Noticias.DetailActivity"
             android:parentActivityName=".Noticias.NoticiasActivity"
@@ -185,15 +112,14 @@
         <activity
             android:name="espol.example.personal.comunitarias.Facebook.IntroFacebook"
             android:screenOrientation="portrait"
-            android:parentActivityName=".RedesSocialesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="espol.example.personal.comunitarias.Facebook.FacebookActivity"
             android:label="Facebook"
             android:screenOrientation="portrait"
-            android:parentActivityName=".RedesSocialesActivity" />
+            />
         <activity
-            android:name="com.ipaulpro.afilechooser.FileChooserActivity"
+            android:name="espol.ipaulpro.afilechooser.FileChooserActivity"
             android:enabled="true"
             android:exported="true"
             android:icon="@drawable/ic_chooser"
@@ -213,11 +139,11 @@
             android:parentActivityName=".Menu">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.personal.comunitarias.espol.example.personal.comunitarias.Intro" />
+                android:value="espol.example.personal.comunitarias.Intro" />
         </activity>
 
         <provider
-            android:name="com.ianhanniballake.localstorage.LocalStorageProvider"
+            android:name="espol.ianhanniballake.localstorage.LocalStorageProvider"
             android:authorities="com.ianhanniballake.localstorage.documents"
             android:enabled="@bool/use_provider"
             android:exported="true"
@@ -227,16 +153,6 @@
                 <action android:name="android.content.action.DOCUMENTS_PROVIDER" />
             </intent-filter>
         </provider>
-
-        <activity android:name=".ParticipacionCiudadana.ParticipacionCiudadanaActivity">
-            android:configChanges="orientation|screenSize"
-        </activity>
-        <activity android:name=".Transparencia2.Transparencia2Activity">
-            android:configChanges="screenSize|screenSize"
-        </activity>
-        <activity android:name=".CC.ControlSocial2Activity">
-            android:configChanges="screenSize|screenSize"
-        </activity>
         <activity
             android:name="espol.example.personal.comunitarias.MenuSecundario"
             android:screenOrientation="portrait"/>

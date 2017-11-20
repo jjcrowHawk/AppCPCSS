@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.ipaulpro.afilechooser.FileChooserActivity"
+            android:name="espol.ipaulpro.afilechooser.FileChooserActivity"
             android:enabled="@bool/use_activity"
             android:exported="true"
             android:icon="@drawable/ic_chooser"
@@ -56,7 +56,7 @@
         </activity>
 
         <provider
-            android:name="com.ianhanniballake.localstorage.LocalStorageProvider"
+            android:name="espol.ianhanniballake.localstorage.LocalStorageProvider"
             android:authorities="com.ianhanniballake.localstorage.documents"
             android:enabled="@bool/use_provider"
             android:exported="true"
