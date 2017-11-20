@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context="com.example.personal.comunitarias.Secciones.SeccionFragment">
+    tools:context="com.example.personal.comunitarias.espol.example.personal.comunitarias.Secciones.SeccionFragment">
 
     <!-- TODO: Update blank fragment layout -->
 

@@ -4,6 +4,11 @@ android {
     compileSdkVersion 19
     buildToolsVersion '25.0.0'
 
+    lintOptions {
+        disable 'MissingTranslation'
+        checkReleaseBuilds false
+        abortOnError false
+    }
     defaultConfig {
         minSdkVersion 7
         targetSdkVersion 7

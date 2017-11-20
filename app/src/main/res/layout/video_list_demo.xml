@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.personal.comunitarias.Youtube.YoutubeVideos"
+    tools:context="com.example.personal.comunitarias.espol.example.personal.comunitarias.Youtube.YoutubeVideos"
     tools:showIn="@layout/app_bar_videos">
 
 
@@ -25,7 +25,7 @@
 
 
             <fragment
-                class="com.example.personal.comunitarias.Youtube.VideoFragment"
+                class="espol.example.personal.comunitarias.Youtube.VideoFragment"
                 android:layout_gravity="top"
                 android:id="@+id/video_fragment_container"
                 android:layout_width="fill_parent"
@@ -42,7 +42,7 @@
 
             <fragment
 
-                class="com.example.personal.comunitarias.Youtube.VideoListFragment"
+                class="espol.example.personal.comunitarias.Youtube.VideoListFragment"
                 android:id="@+id/list_fragment"
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"/>

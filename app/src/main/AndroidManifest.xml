@@ -17,7 +17,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".Intro"
+            android:name="espol.example.personal.comunitarias.Intro"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -27,38 +27,38 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Denuncias.TabsDenuncia"
+            android:name="espol.example.personal.comunitarias.Denuncias.TabsDenuncia"
             android:label="@string/title_denuncia"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Denuncias.IntroDenuncias"
+            android:name="espol.example.personal.comunitarias.Denuncias.IntroDenuncias"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Pedidos.TabsPedido"
+            android:name="espol.example.personal.comunitarias.Pedidos.TabsPedido"
             android:label="@string/title_pedido"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Pedidos.IntroPedidos"
+            android:name="espol.example.personal.comunitarias.Pedidos.IntroPedidos"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Twitter.TwitterActivity"
+            android:name="espol.example.personal.comunitarias.Twitter.TwitterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Tweets"
             android:parentActivityName=".RedesSocialesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Youtube.YoutubeVideos"
+            android:name="espol.example.personal.comunitarias.Youtube.YoutubeVideos"
             android:label="Videos"
             android:parentActivityName=".RedesSocialesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Youtube.IntroVideos"
+            android:name="espol.example.personal.comunitarias.Youtube.IntroVideos"
             android:parentActivityName=".RedesSocialesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -68,25 +68,25 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".Twitter.IntroTweets"
+            android:name="espol.example.personal.comunitarias.Twitter.IntroTweets"
             android:screenOrientation="portrait"
             android:parentActivityName=".RedesSocialesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CpccsTV.CpccsTv"
+            android:name="espol.example.personal.comunitarias.CpccsTV.CpccsTv"
             android:label="@string/title_activity_cpccs_tv"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CpccsTV.IntroTv"
+            android:name="espol.example.personal.comunitarias.CpccsTV.IntroTv"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Mision.Mision"
+            android:name="espol.example.personal.comunitarias.Mision.Mision"
             android:label="@string/title_activity_mision"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Mision.Vision"
+            android:name="espol.example.personal.comunitarias.Mision.Vision"
             android:label="@string/title_activity_vision"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -161,7 +161,7 @@
             android:label="@string/title_activity_preguntas"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Noticias.DetailActivity"
+            android:name="espol.example.personal.comunitarias.Noticias.DetailActivity"
             android:parentActivityName=".Noticias.NoticiasActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -169,26 +169,26 @@
                 android:value=".Noticias.NoticiasActivity" />
         </activity>
         <activity
-            android:name=".Oficinas.OfficeDialog"
+            android:name="espol.example.personal.comunitarias.Oficinas.OfficeDialog"
             android:label=" "
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:name=".Oficinas.OficinasActivity"
+            android:name="espol.example.personal.comunitarias.Oficinas.OficinasActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Oficinas"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Oficinas.IntroOficinas"
+            android:name="espol.example.personal.comunitarias.Oficinas.IntroOficinas"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Facebook.IntroFacebook"
+            android:name="espol.example.personal.comunitarias.Facebook.IntroFacebook"
             android:screenOrientation="portrait"
             android:parentActivityName=".RedesSocialesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Facebook.FacebookActivity"
+            android:name="espol.example.personal.comunitarias.Facebook.FacebookActivity"
             android:label="Facebook"
             android:screenOrientation="portrait"
             android:parentActivityName=".RedesSocialesActivity" />
@@ -208,12 +208,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AntiCorrupcionActivity"
+            android:name="espol.example.personal.comunitarias.AntiCorrupcionActivity"
             android:label="Lucha Anti-corrupción"
             android:parentActivityName=".Menu">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.personal.comunitarias.Intro" />
+                android:value="com.example.personal.comunitarias.espol.example.personal.comunitarias.Intro" />
         </activity>
 
         <provider
@@ -238,14 +238,14 @@
             android:configChanges="screenSize|screenSize"
         </activity>
         <activity
-            android:name=".MenuSecundario"
+            android:name="espol.example.personal.comunitarias.MenuSecundario"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Secciones.SeccionVideoActivity"
+        <activity android:name="espol.example.personal.comunitarias.Secciones.SeccionVideoActivity"
             android:screenOrientation="portrait"
             >
         </activity>
         <activity
-            android:name=".MenuPrincipal"
+            android:name="espol.example.personal.comunitarias.MenuPrincipal"
             android:screenOrientation="portrait"
             >
             android:configChanges="screenSize|screenSize"

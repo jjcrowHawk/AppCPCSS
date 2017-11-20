@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content" />
     </HorizontalScrollView>
     </android.support.design.widget.AppBarLayout>
-    <com.example.personal.comunitarias.Denuncias.CustomViewPager
+    <espol.example.personal.comunitarias.Denuncias.CustomViewPager
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/viewPager"

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.example.personal.comunitarias.Facebook.IntroFacebook"
+    tools:context="com.example.personal.comunitarias.espol.example.personal.comunitarias.Facebook.IntroFacebook"
     android:background="#ffffff">
 
     <ImageView
