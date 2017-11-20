@@ -49,12 +49,16 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
     ArrayList<String> lista_prov, ciudades,lista_ciudades_provincias;
     ProgressDialog mProgressDialog;
 
-    public DatosEntidad(ViewPager viewPager) {
+    /*public DatosEntidad(ViewPager viewPager) {
         this.viewPager = viewPager;
-    }
+    }*/
 
     public DatosEntidad(){}
 
+
+    public void asignarPager(ViewPager viewPager){
+        this.viewPager = viewPager;
+    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -108,7 +108,8 @@ public class TabsPedido extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    Peticionario_PE p= new Peticionario_PE(viewPager);
+                    Peticionario_PE p= new Peticionario_PE();
+                    p.asignarPager(viewPager);
                     p.setLista_estadocivil(lista_estadocivil);
                     p.setLista_niveledu(lista_niveledu);
                     p.setLista_prov(lista_prov);
@@ -116,14 +117,19 @@ public class TabsPedido extends AppCompatActivity {
                     p.setLista_ciudades_provincias(lista_ciudades_provincias);
                     return p;
                 case 1:
-                    return new Pedido(viewPager);
+                    Pedido solucion =new Pedido();
+                    solucion.asignarPager(viewPager);
+                    return solucion;
                 case 2:
-                    DatosEntidad de = new DatosEntidad(viewPager);
+                    DatosEntidad de = new DatosEntidad();
+                    de.asignarPager(viewPager);
                     de.setLista_prov(lista_prov);
                     de.setLista_ciudades_provincias(lista_ciudades_provincias);
                     return de;
                 case 3:
-                    return new MostrarDatosPedido(viewPager);
+                    MostrarDatosPedido abcd = new MostrarDatosPedido();
+                    abcd.asignarPager(viewPager);
+                    return abcd;
 
                 default:
                     return null;

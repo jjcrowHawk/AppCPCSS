@@ -82,10 +82,14 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
     private ArrayList<String> ciudades;
 
 
-    public Peticionario_PE(ViewPager viewPager) {
-        this.viewPager = viewPager;
+    public Peticionario_PE() {
+
     }
 
+
+    public void asignarPager(ViewPager viewPager){
+        this.viewPager=viewPager;
+    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

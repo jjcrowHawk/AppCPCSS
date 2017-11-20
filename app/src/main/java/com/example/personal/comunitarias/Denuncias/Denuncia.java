@@ -39,10 +39,12 @@ public class Denuncia extends Fragment {
 
     ArrayList<String> lista_inst;
 
-    public Denuncia(ViewPager viewPager) {
+    public Denuncia() {}
+
+
+    public void asignarPager(ViewPager viewPager){
         this.viewPager = viewPager;
     }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

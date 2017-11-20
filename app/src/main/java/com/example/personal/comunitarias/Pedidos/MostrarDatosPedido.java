@@ -96,10 +96,12 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
     ProgressDialog mProgressDialog;
     Requerimiento req;
 
-    public MostrarDatosPedido(ViewPager viewPager) {
+    public MostrarDatosPedido() {
 
-        this.viewPager = viewPager;
+    }
 
+    public void asignarPager(ViewPager viewPager){
+        this.viewPager=viewPager;
     }
 
     @Nullable
@@ -270,9 +272,12 @@ public class MostrarDatosPedido extends Fragment implements AdapterView.OnItemSe
 
 
     public void obtenerinformacion(){
-        Pedido d = new Pedido(viewPager);
-        Peticionario_PE p = new Peticionario_PE(viewPager);
-        DatosEntidad e = new DatosEntidad(viewPager);
+        Pedido d = new Pedido();
+        d.asignarPager(viewPager);
+        Peticionario_PE p = new Peticionario_PE();
+        p.asignarPager(viewPager);
+        DatosEntidad e = new DatosEntidad();
+        e.asignarPager(viewPager);
         //Peticionario
         Nombre_P = p.getNombre();
         Apellido_P = p.getApellido();

@@ -95,10 +95,8 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
     public  MostrarDatos(){
 
     }
-
-    public MostrarDatos(ViewPager viewPager) {
-        this.viewPager = viewPager;
-
+    public void asignarPager(ViewPager viewPager){
+        this.viewPager=viewPager;
     }
 
     @Nullable
@@ -277,9 +275,14 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
 
 
     public void obtenerinformacion(){
-        Denuncia d = new Denuncia(viewPager);
-        Peticionario p = new Peticionario(viewPager);
-        Denunciado e = new Denunciado(viewPager);
+        Denuncia d = new Denuncia();
+        d.asignarPager(viewPager);
+
+        Peticionario p = new Peticionario();
+        p.asignarPager(viewPager);
+
+        Denunciado e = new Denunciado();
+        e.asignarPager(viewPager);
 
 
         //Peticionario

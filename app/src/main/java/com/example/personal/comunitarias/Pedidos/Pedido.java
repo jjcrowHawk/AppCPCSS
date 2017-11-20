@@ -69,8 +69,12 @@ public class Pedido extends Fragment implements AdapterView.OnItemSelectedListen
     static String  Hechos_d;
     static String Doc;
 
-    public Pedido(ViewPager viewPager) {
-        this.viewPager = viewPager;
+    public Pedido() {
+
+    }
+
+    public void asignarPager(ViewPager viewPager){
+        this.viewPager=viewPager;
     }
 
     @Nullable

@@ -51,11 +51,13 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
     ArrayList<String> lista_ciudades_provincias;
     ProgressDialog mProgressDialog;
 
-    public Denunciado(ViewPager viewPager) {
-        this.viewPager = viewPager;
+    public Denunciado() {
+
     }
 
-
+    public void asignarPager(ViewPager viewPager){
+        this.viewPager=viewPager;
+    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

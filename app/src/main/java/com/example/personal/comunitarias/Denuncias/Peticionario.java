@@ -84,8 +84,12 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
     static Integer idNivelEduca;
     static Integer idestado;
 
-    public Peticionario(ViewPager viewPager) {
-        this.viewPager = viewPager;
+    public Peticionario() {
+
+    }
+
+    public void asignarPager(ViewPager viewPager){
+        this.viewPager=viewPager;
     }
 
     @Nullable
