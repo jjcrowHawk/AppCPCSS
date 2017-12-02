@@ -47,12 +47,17 @@ public class PrimaryReader extends AsyncTask<String, Void, Void> {
         try {
             if(isOnlineNet()) {
                 Document doc = Jsoup.connect(url).get();
+                Document docBoletines= Jsoup.connect("http://www.cpccs.gob.ec/es/category/boletines"+"/page/"+numeroPagina+"/").get();
 
                 //extraemos las noticias del documento obtenido de la url y las almacenamos
                 List<Noticia> noticias_extraidas = extraerNoticias(doc);
+                List<Noticia> boletines_extraidos= extraerNoticias(docBoletines);
+
+                List<Noticia> noticias_completas= boletines_extraidos;
+                noticias_completas.addAll(noticias_extraidas);
 
                 //guardamos las noticias extraidas en la base local ( solo llena la base)
-                for(Noticia noticia : noticias_extraidas){
+                for(Noticia noticia : noticias_completas){
                     guardarNoticiaBase(noticia , tipo);
                 }
             }

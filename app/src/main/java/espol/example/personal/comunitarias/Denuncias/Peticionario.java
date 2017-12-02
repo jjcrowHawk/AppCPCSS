@@ -205,15 +205,22 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
                 Estado_civil = estado_civil.getSelectedItem().toString();
                 Etnia = etnia.getSelectedItem().toString();
                 NivelEdu = nivelEducacion.getSelectedItem().toString();
-                String [] ciudad_provincia=search.getText().toString().split(", ");
-                provi = ciudad_provincia[1];
-                Ciuda = ciudad_provincia[0];
+                String [] ciudad_provincia=search.getText().toString().split(",");
+                if(ciudad_provincia.length==2) {
+                    provi = ciudad_provincia[1].trim();
+                    Ciuda = ciudad_provincia[0].trim();
+                }
+                else{
+                    provi="";
+                    Ciuda="";
+                }
                 Pais = txtPais.getText().toString();
 
                 Log.d("pet",Ciuda +"    "+ provi);
                 new Progress_cargando().execute();
             }
         });
+
 
 
 
@@ -258,7 +265,7 @@ public class Peticionario extends Fragment implements AdapterView.OnItemSelected
             if(Nombre.equals("")|| Apellido.equals("")||
                     Identidad.equals("") || Cargo.equals("") ||
                     Email.equals("")||Edad.equals("") ||
-                    Telefono.equals("") ||Direccion.equals("")|| OrganizacionSocial.equals("") || Celular.equals("") || Pais.equals("")){
+                    Telefono.equals("") ||Direccion.equals("")|| OrganizacionSocial.equals("") || Celular.equals("") || Pais.equals("") || provi.equals("") || Ciuda.equals("")){
                 Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
             }
             else if(!lista_ciudades_provincias.contains(Ciuda +", "+provi)){

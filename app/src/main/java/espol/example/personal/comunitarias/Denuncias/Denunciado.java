@@ -118,8 +118,14 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
                 Cargo_D = txtCargo.getText().toString();
                 Genero_d= genero.getSelectedItem().toString();
                 String [] ciudad_provincia= searchCiudad.getText().toString().split(", ");
-                Provincia_d = ciudad_provincia[1];
-                CIudad_d = ciudad_provincia[0];
+                if(ciudad_provincia.length==2) {
+                    Provincia_d = ciudad_provincia[1].trim();
+                    CIudad_d = ciudad_provincia[0].trim();
+                }
+                else{
+                    Provincia_d="";
+                    CIudad_d= ciudad_provincia[0].trim();
+                }
                 Institucion_d = search.getText().toString();
                 Parroquia_d = txtParroqia.getText().toString();
                 new Progress_cargando().execute();
@@ -163,7 +169,7 @@ public class Denunciado extends Fragment implements AdapterView.OnItemSelectedLi
 
             Log.d("ID Denunciado ","IdProvinvia"+idProvDE+"  idCiudad "+idCiuDE+"  IdINDTI "+idIndti);
 
-            if(Nombre_D.equals("")|| Apellido_D.equals("") || Cargo_D.equals("") || Institucion_d.equals("")) {
+            if(Nombre_D.equals("")|| Apellido_D.equals("") || Cargo_D.equals("") || Institucion_d.equals("") || CIudad_d.equals("") || Provincia_d.equals("")) {
                 Toast.makeText(getContext(), "Por favor, llene todos los campos", Toast.LENGTH_LONG).show();
             }
 

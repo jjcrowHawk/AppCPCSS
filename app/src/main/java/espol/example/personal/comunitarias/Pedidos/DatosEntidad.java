@@ -109,10 +109,16 @@ public class DatosEntidad extends Fragment implements AdapterView.OnItemSelected
                 Cargo = txtCargo.getText().toString();
                 Institucion_d = search.getText().toString();
                 String [] c_array= search_ciudad.getText().toString().split(",");
-                Provincia_d = c_array[1].trim();
-                CIudad_d = c_array[0].trim();
+                if(c_array.length==2) {
+                    Provincia_d = c_array[1].trim();
+                    CIudad_d = c_array[0].trim();
+                }
+                else{
+                    Provincia_d="";
+                    CIudad_d= c_array[0];
+                }
 
-                if(Nombre.equals("")||Apellido.equals("")||Cargo.equals("")) {
+                if(Nombre.equals("")||Apellido.equals("")||Cargo.equals("") || CIudad_d.equals("") || Provincia_d.equals("")) {
                     Toast.makeText(getContext(), "Por favor, llene todos los campos", Toast.LENGTH_LONG).show();
                     // validacion de institucion valida
                 }else if(!lista_ciudades_provincias.contains(CIudad_d +", "+Provincia_d)){

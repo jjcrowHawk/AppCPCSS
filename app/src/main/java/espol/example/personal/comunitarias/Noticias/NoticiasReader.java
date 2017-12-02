@@ -54,12 +54,17 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
             if(isOnlineNet()) {
 
                 Document doc = Jsoup.connect(url).get();
+                Document docBoletines= Jsoup.connect("http://www.cpccs.gob.ec/es/category/boletines"+"/page/"+numeroPagina+"/").get();
 
                 //extraemos las noticias del documento obtenido de la url y las almacenamos
                 List<Noticia> noticias_extraidas = extraerNoticias(doc);
+                List<Noticia> boletines_extraidos= extraerNoticias(docBoletines);
+
+                List<Noticia> noticias_completas= boletines_extraidos;
+                noticias_completas.addAll(noticias_extraidas);
 
                 //guardamos las noticias extraidas en la base local ( solo llena la base)
-                for(Noticia noticia : noticias_extraidas){
+                for(Noticia noticia : noticias_completas){
                     guardarNoticiaBase(noticia , tipo);
                 }
             }
@@ -104,7 +109,7 @@ public class NoticiasReader extends AsyncTask<String, Void, Void> {
     // guarda las noticias extraidas en la base de datos local
     public void guardarNoticiaBase(Noticia noticia, String tipo){
         SQLiteOpenHelper DBHelper = new DatabaseHelper(context);
-        String tabla ;
+        String tabla;
         SQLiteDatabase  bd = DBHelper.getWritableDatabase();
         if(tipo.equalsIgnoreCase("boletines")){
             tabla = "boletin";

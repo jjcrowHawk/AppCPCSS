@@ -199,7 +199,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/textViewPais"
             android:gravity="left"
-            tools:text="Ecuador" />
+            tools:text="Ecuador"
+            android:text="Ecuador" />
 
         <TextView
             android:text="Ciudad"

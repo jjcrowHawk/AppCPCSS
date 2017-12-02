@@ -318,8 +318,14 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
                 Estado_civil = estado_civil.getSelectedItem().toString();
                 NivelEdu = nivelEducacion.getSelectedItem().toString();
                 String [] arrayCiudad= search.getText().toString().split(",");
-                provi = arrayCiudad[1].trim();
-                Ciuda = arrayCiudad[0].trim();
+                if(arrayCiudad.length==2) {
+                    provi = arrayCiudad[1].trim();
+                    Ciuda = arrayCiudad[0].trim();
+                }
+                else{
+                    provi="";
+                    Ciuda="";
+                }
                 Pais = txtPais.getText().toString();
                 Etnia= etnia.getSelectedItem().toString();
 
@@ -392,9 +398,13 @@ public class Peticionario_PE extends Fragment implements AdapterView.OnItemSelec
                     Identidad.equals("")
                     ||Cargo_Pet.equals("") ||
                     Email.equals("") ||
-                    Telefono.equals("") || Direccion.equals("") || Edad_Pet.equals("") || Orga_Pet.equals("") || Celular.equals("") || Pais.equals("") ){
+                    Telefono.equals("") || Direccion.equals("") || Edad_Pet.equals("") || Orga_Pet.equals("") || Celular.equals("") || Pais.equals("") || provi.equals("") || Ciuda.equals("") ){
                 Toast.makeText(getContext(),"Por favor, llene todos los campos",Toast.LENGTH_LONG).show();
-            }else {
+            }
+            else if(!lista_ciudades_provincias.contains(Ciuda +", "+provi)){
+                Toast.makeText(getContext(), "Por favor, escriba una ciudad y provincia válida", Toast.LENGTH_LONG).show();
+            }
+            else {
 
                 Log.d("Peticionario",Nombre+""+Estado_civil+""+ provi+"");
                 viewPager.setCurrentItem(1);
