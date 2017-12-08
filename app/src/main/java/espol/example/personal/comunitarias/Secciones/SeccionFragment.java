@@ -154,7 +154,7 @@ public class SeccionFragment extends Fragment implements AsynchronousTask {
                 for (int j = 0; j < datos.length(); j++) {
                     JSONObject item = datos.getJSONObject(j);
                     String[] splitTitulo = item.getString("descripcion").split("-");
-                    if (splitTitulo[1].equals(this.section)) {
+                    if (splitTitulo.length>1 && splitTitulo[1].equals(this.section)) {
                         Contenido c = new Contenido(splitTitulo[0], item.getString("contenido"), item.getString("url_video"));
                         if(!this.contenidos.contains(c))
                             this.contenidos.add(c);
@@ -219,8 +219,12 @@ public class SeccionFragment extends Fragment implements AsynchronousTask {
         public void onClick(View view) {
             for(int i =0;i<videoButtons.size();i++){
                 if(videoButtons.get(i)== (Button) view) {
-                    Intent intent = new Intent(getActivity(), SeccionVideoActivity.class);
-                    intent.putExtra("LINK", links.get(i));
+                    Intent intent = new Intent(getActivity(), VideoSectionActivity.class);
+                    //intent.putExtra("LINK", links.get(i));
+                    String link= links.get(i);
+                    int index=link.indexOf("=");
+                    String id=link.substring(index+1);
+                    VideoSectionActivity.VIDEO_ID=id;
                     startActivity(intent);
                 }
             }

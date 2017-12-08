@@ -424,8 +424,8 @@ public class MostrarDatos extends Fragment implements AdapterView.OnItemSelected
 
 
             }else {
-                new AlertDialog.Builder(MostrarDatos.this.getContext()).setMessage("Existe problema con la conexión.\n Por favor, Intente nuevamente")
-                        .setTitle("Conexión fallida")
+                new AlertDialog.Builder(MostrarDatos.this.getContext()).setMessage("Existe problemas con el servidor o el servidor está inactivo.\n Por favor, Intente nuevamente")
+                        .setTitle("Conexión fallida con el servidor")
                         .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                             @TargetApi(11)
                             public void onClick(DialogInterface dialog, int id) {

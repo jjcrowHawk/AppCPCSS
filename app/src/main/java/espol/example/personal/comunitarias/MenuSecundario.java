@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ import espol.example.personal.comunitarias.Noticias.NoticiasFragment;
 import espol.example.personal.comunitarias.Noticias.PrimaryReader;
 
 import com.example.personal.comunitarias.R;
+import com.squareup.picasso.Picasso;
 
 import espol.example.personal.comunitarias.Secciones.SeccionFragment;
 import espol.example.personal.comunitarias.Twitter.IntroTweets;
@@ -54,6 +56,7 @@ public class MenuSecundario extends AppCompatActivity implements  SeccionFragmen
         youtubeButton = (ImageButton) findViewById(R.id.youtubeButton);
         tituloTextView = (TextView) findViewById(R.id.tituloTextView);
         container = (LinearLayout) findViewById(R.id.containerView);
+
         setearAcciones();
         transaction = getSupportFragmentManager().beginTransaction();
 

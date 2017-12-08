@@ -65,6 +65,11 @@ public class Requerimiento {
             datos.put("parroquia_denunciado",this.parroquiaDenunciado);
 
             WebServiceResolver ws = new WebServiceResolver(Constantes.WS_REQUERIMIENTOS, datos);
+            System.out.println("*******************************\n{");
+            for(String e: datos.keySet()){
+                System.out.println(e+": "+datos.get(e));
+            }
+            System.out.println("}\n*******************************");
             System.out.println("RESPONSE BEFORE PETITION: "+ws.getResponse());
             System.out.println("RESPONSE OF PETITION: "+ws.makePostPetition());
             String idPred=""+getCantidadDenuncias();

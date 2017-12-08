@@ -28,7 +28,7 @@ public class Vision extends AppCompatActivity {
 
         //Setear imagen Visión
         i_vision = (ImageView) findViewById(R.id.vision_img);
-        Picasso.with(getApplicationContext()).load(R.drawable.img_asset_30hdpi).into(i_vision);
+        Picasso.with(getApplicationContext()).load(R.drawable.vision_pic).into(i_vision);
 
         //Descripción de Visión en WebView para el texto justificado
         WebView webView = (WebView) findViewById(R.id.webView_vision);
