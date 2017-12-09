@@ -92,6 +92,7 @@ public class AntiCorrupcionActivity extends AppCompatActivity{
     public void onBackPressed(){
         Intent i= new Intent(this.getBaseContext(),MenuPrincipal.class);
         startActivity(i);
+        finish();
     }
 }
 

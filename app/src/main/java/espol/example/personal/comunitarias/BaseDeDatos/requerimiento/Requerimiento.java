@@ -67,18 +67,20 @@ public class Requerimiento {
             WebServiceResolver ws = new WebServiceResolver(Constantes.WS_REQUERIMIENTOS, datos);
             System.out.println("*******************************\n{");
             for(String e: datos.keySet()){
-                System.out.println(e+": "+datos.get(e));
+                System.out.println(e+": "+datos.get(e)+" tipo: "+e.getClass().getName());
             }
             System.out.println("}\n*******************************");
             System.out.println("RESPONSE BEFORE PETITION: "+ws.getResponse());
             System.out.println("RESPONSE OF PETITION: "+ws.makePostPetition());
             String idPred=""+getCantidadDenuncias();
+            System.out.println("**CANTIDAD DE DENUNCIAS: "+idPred);
             if(this.evidencia!=null) {
                 System.out.println("POSTING FILE.........");
                 String nombreArchivo=evidencia.toString().substring(evidencia.toString().lastIndexOf("/")+1);
                 HttpRequest request=HttpRequest.post(Constantes.WS_EVIDENCIAS).basic(Constantes.WS_AUTH_USER,Constantes.WS_AUTH_PASSWORD)
                         .part("denuncia", idPred)
                         .part("archivo",nombreArchivo ,this.evidencia);
+                System.out.println("**BODY OF POSTING FILE REQUEST: "+request.body());
                 JSONObject jsonArchivo= new JSONObject(request.body());
                 System.out.println(jsonArchivo.toString());
             }

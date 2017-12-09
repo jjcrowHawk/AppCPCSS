@@ -38,6 +38,11 @@ public class MenuPrincipal extends AppCompatActivity implements  NavigationView.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println(getIntent().getBooleanExtra("EXIT",false));
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
@@ -167,13 +172,22 @@ public class MenuPrincipal extends AppCompatActivity implements  NavigationView.
         });
     }
 
+    @Override
     public void onBackPressed() {
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        System.out.println("**ON BACK PRESEDD");
+        Intent intent = new Intent(MenuPrincipal.this, MenuPrincipal.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.putExtra("EXIT", true);
+        startActivity(intent);
+        finish();
+        /*drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
-        }
+            finish();
+        }*/
     }
 
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -259,4 +273,7 @@ public class MenuPrincipal extends AppCompatActivity implements  NavigationView.
                     Toast.makeText(Menu.this,"No hay informacion para presentar",Toast.LENGTH_SHORT).show();
                 }
     * */
+
+
+
 }

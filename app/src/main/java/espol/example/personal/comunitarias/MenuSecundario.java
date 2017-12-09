@@ -407,4 +407,13 @@ public class MenuSecundario extends AppCompatActivity implements  SeccionFragmen
     public void onFragmentInteraction(Uri uri) {
         //
     }
+
+    @Override
+    public void onBackPressed(){
+        noticiasButton.getDrawable().setAlpha(255);
+        contactoButton.getDrawable().setAlpha(255);
+        super.onBackPressed();
+    }
+
+
 }
